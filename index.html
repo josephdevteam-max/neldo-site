@@ -18,6 +18,7 @@
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="website.css?v=20260909-2">
   <link rel="stylesheet" href="refresh.css">
+  <link rel="stylesheet" href="week.css?v=20261001">
   <script src="website.js?v=20260927" defer></script>
   <script src="languages.js" defer></script>
 </head>
@@ -28,6 +29,7 @@
       <a class="wordmark" href="index.html" aria-label="NELDO home">NELDO<span aria-hidden="true">↗</span></a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#meals">On the menu</a>
+        <a href="#week">Plan your week</a>
         <a href="#technology">How it works</a>
         <a href="#demo">Inside the app</a>
       </nav>
@@ -38,6 +40,7 @@
         <summary aria-label="Navigation menu">Menu <span aria-hidden="true">+</span></summary>
         <nav aria-label="Mobile navigation">
           <a href="#meals">On the menu</a>
+          <a href="#week">Plan your week</a>
           <a href="#technology">How it works</a>
           <a href="#demo">Inside the app</a>
           <a href="#phones">Launch plans</a>
@@ -164,6 +167,37 @@
       </div>
     </section>
 
+    <section class="section container week-section" id="week" aria-labelledby="week-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">Plan the whole week</p><h2 id="week-heading">One good meal is great.<br><em>A whole week is better.</em></h2></div>
+        <p>Plan a meal for every day, prep ahead on purpose, and shop once. Suggestions use your energy, food preferences, and allergy settings.</p>
+      </div>
+      <div class="week-layout">
+        <figure class="week-visual">
+          <div class="week-card" role="img" aria-label="Illustration of a sample week in NELDO: gumbo on Monday and Tuesday as meal prep, arroz con gandules, homemade ramen, shakshuka, an empty Saturday, and pollo guisado on Sunday">
+            <div class="week-card-top"><span>Your week</span><span class="week-dates">Mon – Sun</span></div>
+            <ol class="week-days">
+              <li><span class="day">Mon</span><span class="dish">Chicken &amp; sausage gumbo</span><span class="tag">Locked In</span></li>
+              <li><span class="day">Tue</span><span class="dish">Chicken &amp; sausage gumbo</span><span class="tag tag-prep">Meal prep</span></li>
+              <li><span class="day">Wed</span><span class="dish">Arroz con gandules</span><span class="tag">Everyday</span></li>
+              <li><span class="day">Thu</span><span class="dish">Quick homemade ramen</span><span class="tag">Lowkey</span></li>
+              <li><span class="day">Fri</span><span class="dish">Shakshuka with toast</span><span class="tag">Everyday</span></li>
+              <li class="empty"><span class="day">Sat</span><span class="dish">Open day</span><span class="tag tag-suggest">Suggest a meal</span></li>
+              <li><span class="day">Sun</span><span class="dish">Pollo guisado</span><span class="tag">Everyday</span></li>
+            </ol>
+            <div class="week-groceries"><span>Groceries for this week</span><strong>14 need · 9 have</strong></div>
+          </div>
+          <figcaption>Illustration · Sample week</figcaption>
+        </figure>
+        <div class="week-features">
+          <article><span class="feature-number">01 / A meal for every day</span><h3>Plan your week in one place.</h3><p>Pick saved favorites, ask for suggestions, or fill only the days that are still open. Change one day without losing the rest.</p></article>
+          <article><span class="feature-number">02 / Meal prep, on purpose</span><h3>Cook once. Eat twice.</h3><p>Turn on repeats and use the same recipe across days when you’re prepping ahead. NELDO won’t treat it as a mistake.</p></article>
+          <article><span class="feature-number">03 / Shop once</span><h3>One list for the whole week.</h3><p>Ingredients from every planned day come together in one grocery list, split into what you need and what you already have.</p></article>
+          <article><span class="feature-number">04 / Goals that fit</span><h3>Nutrition goals, your way.</h3><p>Add goals for each meal, or for the day or week. Your allergies and foods to avoid stay part of every suggestion.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="section container" id="demo" aria-labelledby="demo-heading">
       <div class="section-heading">
         <div><p class="eyebrow">A look inside NELDO</p><h2 id="demo-heading">From “what should I eat?”<br><em>to something you can make.</em></h2></div>
@@ -221,6 +255,7 @@
         <details><summary>Will I need an account or a subscription?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Core meal help is free, with no required account, subscription, or purchase. You can start without giving your name, email, or phone number.</p></div></details>
         <details><summary>Can I use NELDO in my language?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>NELDO supports English, Spanish, and Portuguese. Choose your language in the app’s settings. You can also change this website’s language above.</p></div></details>
         <details><summary>Can NELDO order groceries for me?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Grocery lists help you plan what to buy for your meals. Checkout and delivery are not available here.</p></div></details>
+        <details><summary>Can NELDO plan my whole week?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Yes. Plan one meal for each day of the week, fill open days with suggestions, and turn on repeats if you’re meal prepping. Your week’s ingredients come together in one grocery list.</p></div></details>
         <details><summary>Do I have to choose an Energy Mode?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>No. You can pick Lowkey, Everyday, or Locked In, or just describe what you need. A mode is a starting point—not a label for who you are.</p></div></details>
         <details><summary>What can NELDO help me with?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Deciding what to eat, finding a recipe that fits, planning groceries, and cooking with step-by-step help. Save meals you like so your next dinner is easier.</p></div></details>
         <details id="safety"><summary>Can NELDO give medical or dietary advice?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>NELDO helps with meal ideas and cooking based on the preferences you share. It does not replace a dietitian or clinician. Follow professional guidance for food allergies and medically required diets.</p><p>NELDO is not a therapist, clinician, or crisis service. If you need urgent support in the U.S. or its territories, <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>. For immediate danger, call 911. Elsewhere, contact your local emergency or crisis service. <a href="https://988lifeline.org/get-help/">More about 988</a>.</p></div></details>
@@ -230,7 +265,7 @@
     <section class="container launch-section" id="phones" aria-labelledby="launch-heading">
       <div class="launch-card">
         <div><p class="eyebrow">Help shape what’s next</p><h2 id="launch-heading">Your next meal<br>doesn’t need to be<br><em>a whole thing.</em></h2></div>
-        <div class="launch-copy"><p>Good food, at your pace. NELDO is preparing for an adult U.S. beta. For now, explore how it works and get in touch about what’s next.</p><a class="button button-light" href="mailto:support@neldo.app?subject=NELDO%20launch%20question">Ask about launch plans <span aria-hidden="true">↗</span></a><p class="launch-note">Public access is not open yet. No signup or purchase is required to explore this website.</p></div>
+        <div class="launch-copy"><p>Good food, at your pace. NELDO is getting ready for iPhone and Android, starting with an adult U.S. beta. For now, explore how it works and get in touch about what’s next.</p><a class="button button-light" href="mailto:support@neldo.app?subject=NELDO%20launch%20question">Ask about launch plans <span aria-hidden="true">↗</span></a><p class="launch-note">Public access is not open yet. No signup or purchase is required to explore this website.</p></div>
       </div>
     </section>
   </main>
