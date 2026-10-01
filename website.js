@@ -60,10 +60,10 @@
   const tour = document.querySelector('[data-product-tour]');
   if (!tour) return;
   const screens = {
-    chat: {counter:'01 / 04 — Start anywhere',title:'A little less deciding. A lot more doing.',body:'Breakfast, lunch, dinner, or something in between. Start with a craving, a few ingredients, or whatever energy you have.',light:'home-light',dark:'home-dark',alt:'NAVU chat home with three visible energy modes',features:['Three modes, always within reach','Your conversation comes first','Meals and snacks, all day']},
-    meal: {counter:'02 / 04 — Your next meal',title:'The useful details. Right in the chat.',body:'See the estimated time, effort, servings, and ingredients together. Open the recipe when it sounds right, or save it for another day.',light:'gumbo-chat-light',dark:'gumbo-chat-dark',alt:'NAVU gumbo conversation and recipe card',features:['Meal facts at a glance','Cooking method and ingredients','Open or save the recipe']},
-    recipe: {counter:'03 / 04 — Make it happen',title:'From a good idea to something on your plate.',body:'Keep the recipe close, check your ingredients, and move into cooking. Your conversation is there when you return.',light:'gumbo-recipe-light',dark:'gumbo-recipe-dark',alt:'NAVU recipe detail with ingredients and cooking actions',features:['Ingredients with amounts','Your recipe in one place','Back to the same conversation']},
-    setup: {counter:'04 / 04 — Time to cook',title:'One step at a time. Your pace.',body:'Keep the current step in view, start a timer when you need one, and pick up where you left off.',light:'gumbo-cooking-light',dark:'gumbo-cooking-dark',alt:'Recorded gumbo cooking step and timer in NAVU',features:['Clear cooking steps','Timers when you need them','Resume your cooking']}
+    chat: {counter:'01 / 04 — Start anywhere',title:'A little less deciding. A lot more doing.',body:'Breakfast, lunch, dinner, or something in between. Start with a craving, a few ingredients, or whatever energy you have.',light:'home-light',dark:'home-dark',alt:'NELDO chat home with three visible energy modes',features:['Three modes, always within reach','Your conversation comes first','Meals and snacks, all day']},
+    meal: {counter:'02 / 04 — Your next meal',title:'The useful details. Right in the chat.',body:'See the estimated time, effort, servings, and ingredients together. Open the recipe when it sounds right, or save it for another day.',light:'gumbo-chat-light',dark:'gumbo-chat-dark',alt:'NELDO gumbo conversation and recipe card',features:['Meal facts at a glance','Cooking method and ingredients','Open or save the recipe']},
+    recipe: {counter:'03 / 04 — Make it happen',title:'From a good idea to something on your plate.',body:'Keep the recipe close, check your ingredients, and move into cooking. Your conversation is there when you return.',light:'gumbo-recipe-light',dark:'gumbo-recipe-dark',alt:'NELDO recipe detail with ingredients and cooking actions',features:['Ingredients with amounts','Your recipe in one place','Back to the same conversation']},
+    setup: {counter:'04 / 04 — Time to cook',title:'One step at a time. Your pace.',body:'Keep the current step in view, start a timer when you need one, and pick up where you left off.',light:'gumbo-cooking-light',dark:'gumbo-cooking-dark',alt:'Recorded gumbo cooking step and timer in NELDO',features:['Clear cooking steps','Timers when you need them','Resume your cooking']}
   };
   let activeScreen = 'chat';
   let activeMode = 'everyday';
@@ -91,7 +91,7 @@
     const mode = modeInfo[key];
     const shot = document.querySelector('[data-mode-screen]');
     shot.src = `assets/current/${mode.file}-${theme}.png`;
-    shot.alt = `${mode.label} selected in NAVU`;
+    shot.alt = `${mode.label} selected in NELDO`;
     document.querySelector('[data-mode-description]').textContent = mode.description;
     modeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === key)));
     document.dispatchEvent(new Event('navu-content-change'));
@@ -145,7 +145,7 @@
     document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#14211b' : '#f7f5ef';
     const hero = document.querySelector('[data-hero-screen]');
     hero.src = `assets/current/gumbo-chat-${theme}.png`;
-    hero.alt = 'Recorded NAVU conversation about chicken and sausage gumbo';
+    hero.alt = 'Recorded NELDO conversation about chicken and sausage gumbo';
     document.querySelector('[data-hero-caption]').textContent = 'Recorded example · Sample recipe';
     show(activeScreen);
     showMode(activeMode);
