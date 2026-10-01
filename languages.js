@@ -90,7 +90,7 @@
 ['Keep it manageable. Less prep, fewer steps, and something good to eat with the energy you have.','Hazlo fácil. Menos preparación, menos pasos y algo rico con la energía que tienes.','Facilite as coisas. Menos preparo, menos etapas e algo gostoso com a energia que você tem.'],
 ['A little more room to explore. Try a technique or a more involved dish when you feel like cooking.','Un poco más de espacio para explorar. Prueba una técnica o un plato más elaborado cuando tengas ganas.','Um pouco mais de espaço para explorar. Experimente uma técnica ou um prato mais elaborado quando estiver com vontade.'],
 ['See how each mode fits a different kind of day.','Mira cómo cada modo encaja con un día diferente.','Veja como cada modo combina com um dia diferente.'],
-['Everyday selected on NAVU’s updated chat home','Modo Cotidiano seleccionado en NELDO','Modo Cotidiano selecionado no NELDO'],
+['Everyday selected on NELDO’s updated chat home','Modo Cotidiano seleccionado en NELDO','Modo Cotidiano selecionado no NELDO'],
 ['Everyday selected in NELDO','Modo Cotidiano seleccionado en NELDO','Modo Cotidiano selecionado no NELDO'],
 ['Lowkey selected in NELDO','Modo Con calma seleccionado en NELDO','Modo Com calma selecionado no NELDO'],
 ['Locked In selected in NELDO','Modo A fondo seleccionado en NELDO','Modo Com dedicação selecionado no NELDO'],
