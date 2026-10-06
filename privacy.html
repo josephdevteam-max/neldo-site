@@ -2,159 +2,168 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Notice | NELDO</title><meta name="description" content="NELDO — PRELAUNCH INFORMATION — Proposed app-release notice: DRAFT. Updated September 2026. App-release effective date pending.">
+<title>Privacy Notice | NELDO</title><meta name="description" content="How NELDO handles your information: what stays on your phone, what goes to our AI providers (OpenAI, with Google Gemini as backup), how long it is kept, and your choices. Draft for legal review, last updated October 6, 2026.">
 <link rel="canonical" href="https://neldo.app/privacy.html"><meta name="theme-color" content="#14211b">
 <link rel="icon" href="favicon.png"><link rel="stylesheet" href="website.css"><link rel="stylesheet" href="legal.css">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="container header-inner"><a class="wordmark" href="index.html" aria-label="NELDO home">NELDO</a><nav class="legal-nav" aria-label="Legal navigation"><a href="index.html">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html" >Terms</a><a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="wordmark" href="index.html" aria-label="NELDO home">NELDO</a><nav class="legal-nav" aria-label="Legal navigation"><a href="index.html">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a></nav></div></header>
 <main id="main" class="container legal-layout" tabindex="-1">
-<div class="legal-intro"><p class="eyebrow">NELDO beta · Ages 18+</p><h1>Privacy Notice</h1><p class="legal-status">PRELAUNCH INFORMATION — Proposed app-release notice: DRAFT. Updated September 2026. App-release effective date pending.</p><p class="draft-note">NELDO is being prepared for a U.S. beta for adults 18+. There is no public app-store release. The website is informational. The app provisions below describe the proposed coordinated release, except where current behavior is identified. Publishing this information or merging code does not activate app or backend changes.</p><p data-navu-prelaunch="release">Current release status: the backend now enforces AI permissions, disables shared feedback learning and shared reuse of generated recipes, and includes medical-decision safeguards and response controls for English, Spanish, and Portuguese. The mobile app is not publicly distributed. Using its updated permissions and reporting screens requires the corresponding app release. Provider verification, report-review and deletion procedures, and remaining launch checks must be completed before public beta use. Historical records and earlier app builds require separate assessment.</p><p data-navu-prelaunch="guide"><a href="how-data-works.html">How NELDO handles your information</a></p><p>NELDO processes your requests to provide practical help. During DataWheel shadow mode, user-derived content is not permanently added to the shared library. Private saves remain separate. AI and cloud providers still process requests.</p></div>
+<div class="legal-intro"><p class="eyebrow">NELDO · Ages 18+ · United States</p><h1>Privacy Notice</h1>
+<p class="legal-status">Version 2 · Last updated October 6, 2026 · Draft under legal review. The effective date will be posted here once it is approved.</p>
+<p class="draft-note">Where NELDO is today: NELDO is in private testing with a small group of adults through Google Play internal testing and Apple TestFlight. It is not publicly available in app stores. This notice describes the current app and servers, including pantry photo scanning, which is in testing.</p>
+<h2 class="legal-summary-title">The short version</h2>
+<ul class="legal-summary">
+<li>No account. You don't need to give us a name, email, or phone number to use NELDO.</li>
+<li>Your chats, saved meals, plans, and lists stay on your phone.</li>
+<li>To answer you, NELDO sends your message, relevant settings (like allergies), and any pantry photo you choose through our servers to OpenAI. If OpenAI can't answer, Google Gemini is the backup.</li>
+<li>Our servers don't store your messages or photos. OpenAI may keep what it receives for up to 30 days to watch for abuse. Google's handling depends on its terms (see <a href="#section-5">section 5</a>).</li>
+<li>NELDO doesn't sell your data, show ads, or use your content to train AI models.</li>
+<li>Turn AI help off or clear NELDO's data on your phone at any time. Email <a href="mailto:support@neldo.app">support@neldo.app</a> for anything else.</li>
+</ul>
+<p data-navu-prelaunch="guide"><a href="how-data-works.html">Plain-language guide: how NELDO handles your information</a></p></div>
 <nav class="legal-nav" aria-label="Language / Idioma"><a href="privacy.html" lang="en" hreflang="en" aria-current="page">English</a><a href="privacy-es.html" lang="es" hreflang="es">Español</a><a href="privacy-pt.html" lang="pt" hreflang="pt">Português</a></nav>
 <details class="legal-contents"><summary>On this page</summary><ol>
 <li><a href="#section-1">1. Scope</a></li>
 <li><a href="#section-2">2. Information we process</a></li>
-<li><a href="#section-3">3. DataWheel shadow mode</a></li>
+<li><a href="#section-3">3. Pantry photo scanning</a></li>
 <li><a href="#section-4">4. How we use information</a></li>
 <li><a href="#section-5">5. AI and cloud service providers</a></li>
 <li><a href="#section-6">6. When we disclose information</a></li>
-<li><a href="#section-7">7. Sale, sharing, targeted advertising, and universal opt-out signals</a></li>
+<li><a href="#section-7">7. Sale, advertising, AI training, and opt-out signals</a></li>
 <li><a href="#section-8">8. Data retention</a></li>
 <li><a href="#section-9">9. Security</a></li>
-<li><a href="#section-10">10. Your choices</a></li>
+<li><a href="#section-10">10. Your choices and deleting your data</a></li>
 <li><a href="#section-11">11. U.S. state privacy rights</a></li>
-<li><a href="#section-12">12. California Notice at Collection and California rights</a></li>
-<li><a href="#section-13">13. Sensitive information</a></li>
+<li><a href="#section-12">12. California notice at collection</a></li>
+<li><a href="#section-13">13. Sensitive and health information</a></li>
 <li><a href="#section-14">14. Age and children</a></li>
-<li><a href="#section-15">15. International users</a></li>
+<li><a href="#section-15">15. Recipe library (DataWheel)</a></li>
 <li><a href="#section-16">16. Changes to this Notice</a></li>
 <li><a href="#section-17">17. Contact us</a></li></ol></details>
 <article class="legal-copy" aria-label="Privacy Notice">
 <h2 id="section-1">1. Scope</h2>
-<p>This Privacy Notice describes how NELDO (&quot;NELDO,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), operated by Neldo LLC, collects, uses, discloses, retains, and protects information when you use the NELDO mobile application, website, and related services (the &quot;Service&quot;). NELDO is operated from Connecticut, United States, and is in beta. The current beta is intended for adults in the United States. Worldwide availability remains a future ambition; this statement alone does not restrict app downloads or network access. The U.S. rights below apply where relevant; mandatory rights under other applicable local laws remain in effect.</p>
+<p>This Privacy Notice explains how NELDO (&quot;NELDO,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), operated by Neldo LLC in Connecticut, United States, collects, uses, discloses, keeps, and protects information when you use the NELDO mobile app, the neldo.app website, and related services (the &quot;Service&quot;). NELDO is for adults 18 and older in the United States. If you live elsewhere, any rights your local law gives you still apply.</p>
+<p>The separate <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a> adds detail about allergy and other health-related information, including rights under Washington, Nevada, and Connecticut law.</p>
 <h2 id="section-2">2. Information we process</h2>
-<p data-navu-prelaunch="identity">The proposed core app does not require an account or legal name. An optional display name is stored with local preferences and may accompany relevant AI requests. Names or other identifying details can also appear in messages, photos, saved recipes, support mail, or reports you choose to send. Technical identifiers and context may link information to a person. No required name does not mean anonymous use or no personal-data processing.</p>
-<p data-navu-safety-report="data">You may voluntarily report an AI response in the app. Before sending, you can edit the selected response excerpt (up to 4,000 characters), choose a category, and optionally add details (up to 1,000 characters). We receive only that submitted content, your report-consent version, a random case ID, and creation/expiry times. Reports do not automatically attach conversation history, allergy settings, or pantry photos. The excerpt or details may contain health information if you choose to include it.</p>
-<h3 id="section-2-1">2.1 Information you choose to provide</h3>
+<h3 id="section-2-1">2.1 Information you choose to give us</h3>
 <ul>
-<li>Prompts, questions, instructions, relevant conversation context, and generated responses used to continue your request.</li>
-<li>An optional display name and kitchen or appliance settings you enter for personalization.</li>
-<li>Meal preferences, dietary preferences, allergy or ingredient exclusions, pantry details, serving needs, energy-mode selections, and similar everyday-planning information you choose to provide.</li>
-<li>Meals, lists, preferences, or other items you intentionally save through a private save feature, if enabled.</li>
-<li>Support messages, feedback, or other communications you send to us.</li>
-<li>Pantry photos you select or take for ingredient recognition, and ingredients inferred from those photos. Avoid including people, documents, or unrelated private details.</li>
-<li>Places or locations you type into a request. This draft does not describe automatic GPS collection as an enabled beta feature.</li>
+<li><strong>Messages and conversation context.</strong> What you type to NELDO, plus up to your last 16 conversation turns so NELDO can follow along, and the meal or cooking step you are working on.</li>
+<li><strong>Settings.</strong> An optional first name or nickname, diet type, allergies, foods to avoid, favorite cuisines, stove or kitchen setup, energy mode, and language.</li>
+<li><strong>Kitchen items and lists.</strong> Ingredients you have, grocery lists, weekly plans, and serving sizes.</li>
+<li><strong>Pantry photos.</strong> Photos of your fridge, pantry, or spices that you take or pick for ingredient scanning (see <a href="#section-3">section 3</a>).</li>
+<li><strong>Safety reports.</strong> If you choose to report an AI response, the excerpt you send (up to 4,000 characters), a category, and optional details (up to 1,000 characters).</li>
+<li><strong>Support email.</strong> Anything you write to <a href="mailto:support@neldo.app">support@neldo.app</a>.</li>
 </ul>
-<h3 id="section-2-2">2.2 Information processed automatically</h3>
-<p>Depending on the platform and configuration, NELDO and its service providers may process limited technical information needed to operate and secure the Service, such as:</p>
+<p>Anything you type or show can include personal details, such as a name, a place, or a health condition. Please share only what NELDO needs to help you.</p>
+<h3 id="section-2-2">2.2 Information created automatically</h3>
 <ul>
-<li>IP address and general network information;</li>
-<li>device, operating system, app/browser version, language, and basic configuration information;</li>
-<li>temporary session credentials and app/device identifiers used for authentication, security, and abuse prevention; these may remain linkable even without a name;</li>
-<li>error, request-status, rate-limit, and performance information processed by NELDO and its cloud infrastructure;</li>
-<li>basic usage events needed to understand whether features work, such as feature invocation, latency, failures, and app stability.</li>
+<li><strong>App and session identifiers.</strong> A random ID the app creates on your phone, and a random security session token from our server. Neither contains your name, but they can link requests from the same phone.</li>
+<li><strong>Device check.</strong> Google Play Integrity (Android) or Apple App Attest/DeviceCheck (iPhone), through Google Firebase App Check, confirms that requests come from the real NELDO app. This sends device and app integrity signals to Google or Apple.</li>
+<li><strong>Connection and request information.</strong> IP address, the type of app or browser, request times, and whether a request worked, failed, or was rate-limited.</li>
+<li><strong>Permission choices.</strong> Each request carries your consent version and your adult, AI, and sensitive-information choices, so our servers can respect them.</li>
 </ul>
-<h3 id="section-2-3">2.3 Information NELDO does not require for core use</h3>
-<p>NELDO is designed so that core practical help does not require you to provide a legal name, telephone number, or linked bank/financial account. Optional future integrations may have separate disclosures before you connect them.</p>
-<h2 id="section-3">3. DataWheel shadow mode</h2>
-<p data-navu-prelaunch="library">NELDO has a curated recipe catalog shipped with the service. Curated means selected and structured for the product; it does not mean medically verified. Using that catalog, generating a response, keeping a private recipe, learning from user feedback, and training an AI model are different activities. The deployed backend disables shared user-feedback learning and reuse of generated recipes in the shared catalog. User-supplied context can still guide the answer you request. This is not training the underlying model.</p>
-<p>DataWheel operates in shadow mode during the current beta. Generated meal candidates that enter its evaluation stage are checked against its meal-structure schema in memory; not every generated response goes through that stage. New user-derived candidates are not added to the shared DataWheel library, and the shared generated-meal cache is disabled. This check does not guarantee that a meal is accurate, safe, or suitable for you.</p>
+<h3 id="section-2-3">2.3 What NELDO does not collect</h3>
+<p>NELDO does not require an account, legal name, email address, phone number, or payment information. It does not read your contacts, use GPS or background location, use an advertising ID, or include advertising, analytics, or crash-reporting tools. We don't buy information about you from other companies.</p>
+<h2 id="section-3">3. Pantry photo scanning</h2>
+<p>Pantry photo scanning is in testing. When you take or choose a photo (up to 3 per scan, each up to 2 MB), here is what happens:</p>
 <ul>
-<li>DataWheel evaluates candidates temporarily in memory and discards them after evaluation. Candidate content is not retained in shared storage, shared caches, DataWheel logs, or DataWheel error reports.</li>
-<li>Private conversation history, identity, session details, and user-specific profile information are not promoted into the shared DataWheel.</li>
-<li>NELDO may retain non-content operational measurements, such as whether a validation passed or failed, failure category, latency, error code, or feature-flag state, so long as those measurements do not contain the underlying user content.</li>
-<li>Private items you intentionally save for yourself remain separate from the shared DataWheel. Shared meal-feedback updates and reuse of historical user feedback for personalization remain disabled in this release.</li>
-<li>Before NELDO enables permanent retention or promotion of eligible user-derived AI content into a shared knowledge library, we will update the applicable disclosures, complete the required implementation and privacy review, and obtain consent where required by applicable law.</li>
+<li>The app sends the photo to NELDO's server only after you have given AI permission. Nothing else about you is attached to a photo scan: no name, allergies, or chat history.</li>
+<li>Our server checks the file and sends it to OpenAI to list the food ingredients it can see. If OpenAI fails or doesn't answer in time, the same photo goes to Google Gemini instead.</li>
+<li>Only a list of ingredients comes back to your phone. Our server does not save the photo. It keeps only a one-way fingerprint (a hash) of each request for up to 30 days to stop replay abuse; the photo cannot be rebuilt from it.</li>
+<li>The app keeps the photo in memory only during the scan. Your original stays in your camera roll or photo library under your phone's settings.</li>
+<li>AI providers may keep the photo for a time under their own terms (see <a href="#section-5">section 5</a>).</li>
 </ul>
-<p>These limits apply to DataWheel candidate retention. They do not describe ordinary service request handling, infrastructure logs, or historical records. They do not mean that NELDO saves no data: private device-local meals and history remain separate, and AI and cloud providers still process requests under their applicable terms.</p>
+<p data-navu-photo="metadata"><strong>Photo details.</strong> Photo files can contain hidden details, such as the date and, if your camera records it, the place where the photo was taken. NELDO does not yet remove these hidden details before sending a photo, so they may travel with it. To avoid this, turn off location tagging in your camera settings or use the &quot;add ingredients by hand&quot; option. Please also keep people, faces, mail, and documents out of the picture.</p>
 <h2 id="section-4">4. How we use information</h2>
-<p data-navu-safety-report="purpose">Neldo LLC reviews submitted reports to investigate harmful, offensive, or inaccurate responses and improve safety controls. Reporting requires a separate, explicit choice and remains available after you withdraw AI permission. A report is not a new AI request and is not used for model training, DataWheel, or shared meal learning. This is not an emergency service.</p>
 <ul>
-<li>Provide, operate, personalize, and maintain the Service;</li>
-<li>Generate and display requested meal or everyday-planning content;</li>
-<li>Honor saved preferences or private saved items when you choose to use those features;</li>
-<li>Enforce exclusions, safety rules, permissions, and feature availability;</li>
-<li>Detect abuse, fraud, security threats, errors, and service failures;</li>
-<li>Measure performance and improve product reliability;</li>
-<li>Comply with law and protect the rights, safety, and security of users, NELDO, and others.</li>
+<li>Answer your requests: suggest meals, write recipes and cooking steps, scale servings, plan your week, and build grocery lists;</li>
+<li>Respect your allergies, foods to avoid, and diet choices;</li>
+<li>Recognize ingredients in pantry photos you choose to scan;</li>
+<li>Show crisis resources (988 and 911) when a message suggests someone may be in danger;</li>
+<li>Keep the Service secure: confirm requests come from the real app, prevent abuse and fraud, and control costs;</li>
+<li>Find and fix errors and measure whether features work, using codes, counts, and timings rather than your content;</li>
+<li>Review safety reports you choose to send;</li>
+<li>Answer support and privacy requests, and comply with law.</li>
 </ul>
+<p data-navu-safety-report="purpose">Neldo LLC reviews safety reports to investigate harmful, offensive, or inaccurate responses and improve safety controls. Reporting is a separate choice and still works if AI help is off. A report is not sent to any AI provider, is not used to train models, and is not an emergency service.</p>
 <h2 id="section-5">5. AI and cloud service providers</h2>
-<p data-navu-prelaunch="providers">Provider settings are a separate question. NELDO has not yet verified that the credentials used by its running Gemini connection are linked to the required paid-service and data-sharing settings. We therefore do not promise that every provider excludes all beta content from model improvement. Provider verification is required before personal-data beta use. A request storage setting does not by itself establish zero retention or erase older records.</p>
-<p data-navu-safety-report="recipients">Submitted reports are stored in a restricted Firebase/Google Cloud collection for review by the operator. The report endpoint does not send report content to OpenAI or Gemini. Separate minimal security processing protects the endpoint from abuse.</p>
-<p>NELDO sends the information needed for your request through Google Firebase and Google Cloud infrastructure to OpenAI API services and/or the Google Gemini Developer API. Depending on the request and availability, either AI provider may process text or a selected pantry photo, including fallback processing. Relevant conversation context, preferences, exclusions, and any sensitive details you include may travel with the request. Providers also process technical request information.</p>
-<p><strong>NELDO does not collect, use, or sell personal data to train large language models.</strong> NELDO does not use user content for model training, fine-tuning, distillation, teacher/student optimization, or training exports. Request generation and temporary meal-structure checks are separate from model training.</p>
-<p><a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI describes API non-training defaults and retention controls</a>. <a href="https://ai.google.dev/gemini-api/terms">Google's Gemini API terms</a> distinguish Paid Services from Unpaid Services. A provider's non-training commitment does not mean zero retention or immediate deletion. Service, abuse-monitoring, legal, and account-specific retention may apply. The reviewed release must use appropriate non-training provider settings; this draft does not claim that zero-data-retention controls or any special retention agreement have been approved for NELDO.</p>
-<p>NELDO does not add Google Search-grounded results to DataWheel inventory. Email you send to the support address is processed by Google Gmail and your email provider. The informational website is hosted using GitHub Pages; website delivery involves hosting infrastructure and technical connection information.</p>
+<p>NELDO uses these companies to run the Service:</p>
+<ul>
+<li><strong>OpenAI (main AI).</strong> Through the OpenAI API, OpenAI receives the information needed for each request: your message, recent conversation, relevant settings (which can include an optional name, allergies, and foods to avoid), kitchen items, the recipe you are working on, or a pantry photo. We ask OpenAI not to store requests for later use (&quot;store: false&quot;). OpenAI says it does not train its models on API data by default, and it keeps API data for up to 30 days to monitor for abuse. OpenAI also scans images for child sexual abuse material and may keep flagged images longer.</li>
+<li><strong>Google Gemini (backup AI).</strong> If OpenAI is unavailable, times out, or returns an error, the same request (text or photo) may go to the Google Gemini API. <span data-navu-prelaunch="providers">We have not yet confirmed that NELDO's Gemini connection runs under Google's paid-service terms. Under those paid terms, Google does not use requests to improve its products and keeps them for a limited time to detect abuse. Under Google's terms for unpaid services, Google may use what it receives to provide, improve, and develop its products, and human reviewers may read it. Until we confirm the paid terms, assume the unpaid terms may apply to anything handled by the backup. We will update this notice when that changes.</span></li>
+<li><strong>Google Firebase and Google Cloud.</strong> Host our servers and security database, run App Check, and keep server logs.</li>
+<li><strong>Google Play and Apple.</strong> Deliver the app and run device checks (Play Integrity, App Attest, DeviceCheck).</li>
+<li><strong>Google Workspace (Gmail).</strong> Handles email sent to support@neldo.app.</li>
+<li><strong>GitHub Pages and Google Firebase Hosting.</strong> Host and redirect the neldo.app website.</li>
+</ul>
+<p>These providers process information for NELDO under their business or developer terms. Their own retention and security rules apply to what they receive. Information may be processed in the United States and other countries where they operate. Provider policies: <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API data controls</a>, <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>.</p>
+<p data-navu-safety-report="recipients">Safety reports are stored in a restricted Google Cloud database for review by Neldo LLC. The report feature never sends report content to OpenAI or Gemini.</p>
 <h2 id="section-6">6. When we disclose information</h2>
-<p>We may disclose information in the following limited circumstances:</p>
 <ul>
-<li>Service providers and processors that help operate NELDO, subject to appropriate contractual or platform terms;</li>
-<li>Legal and safety disclosures when reasonably necessary to comply with law, court process, or protect rights, safety, security, or the integrity of the Service;</li>
-<li>Business transactions involving a merger, financing, acquisition, reorganization, or sale of assets, subject to applicable law and appropriate notice where required;</li>
-<li>At your direction or with your consent.</li>
+<li>To the service providers in section 5, to run the Service;</li>
+<li>When reasonably necessary to comply with law or legal process, or to protect the rights, safety, or security of users, NELDO, or others;</li>
+<li>As part of a merger, financing, acquisition, reorganization, or sale of assets, subject to applicable law and any required notice;</li>
+<li>When you ask us to or agree to it.</li>
 </ul>
-<h2 id="section-7">7. Sale, sharing, targeted advertising, and universal opt-out signals</h2>
-<p>NELDO does not currently sell personal data as &quot;sale&quot; is defined by applicable U.S. state privacy laws, and does not currently share personal data for cross-context behavioral advertising or use it for targeted advertising across unrelated services. If our practices change, we will update this Notice and provide any opt-out mechanisms required by law.</p>
-<p>Where applicable law requires recognition of a valid universal opt-out preference signal, such as Global Privacy Control (GPC), NELDO will honor the signal for activities to which the legal opt-out right applies.</p>
-<p>The informational website uses local interface JavaScript, with no advertising or analytics integration in the reviewed site. Hosting providers still process requests and connection information to deliver the site. A GPC signal does not itself delete your data or submit a privacy request. Contact us to request access, correction, deletion, or to appeal a denied request; identify an appeal as a privacy appeal.</p>
+<h2 id="section-7">7. Sale, advertising, AI training, and opt-out signals</h2>
+<p>NELDO does not sell personal data, share it for cross-context behavioral advertising, or use it for targeted advertising. NELDO has no ads.</p>
+<p><strong>NELDO does not collect, use, or sell personal data to train large language models.</strong> We don't use your content for training, fine-tuning, or distilling AI models. (For how the AI providers handle requests, see <a href="#section-5">section 5</a>.)</p>
+<p>Where the law requires it, NELDO honors universal opt-out signals such as Global Privacy Control (GPC). The neldo.app website has no ads or analytics.</p>
 <h2 id="section-8">8. Data retention</h2>
-<p data-navu-safety-report="retention">The proposed report record expires 30 days after submission. Database TTL deletion is asynchronous; expiry is not proof of immediate physical deletion. Deployment of TTL, access restrictions, and the operator review/deletion procedure must be verified before launch. Any legally required preservation must have a recorded reason and period.</p>
-<p>The categories below distinguish private device storage, temporary processing, service records, and provider retention. Local deletion does not erase provider records automatically. No category is sold or shared for cross-context behavioral advertising.</p>
-<div class="retention-scroll" role="region" aria-label="Data category retention" tabindex="0"><table class="retention-table"><caption>Data categories, purposes, retention, and deletion</caption><thead><tr><th scope="col">Category and purpose</th><th scope="col">Location</th><th scope="col">Period or criteria</th><th scope="col">Deletion and exceptions</th></tr></thead><tbody>
-<tr><th scope="row">Prompts, replies, and conversation context — answer requests and continue cooking</th><td>Device; NELDO request memory; AI/cloud providers</td><td>Device history persists until cleared or removed by local history limits. Request memory lasts for request handling. Provider retention depends on service and account controls.</td><td>Clear my NELDO data removes local history. Contact NELDO about identifiable server/provider records; an already transmitted request cannot be recalled.</td></tr>
-<tr><th scope="row">Preferences, allergy/exclusion settings, pantry, and grocery lists — honor constraints and plan meals</th><td>Device; request memory and providers when relevant to a request</td><td>Local settings/lists remain until edited or cleared. Transmitted copies follow request/provider criteria above.</td><td>Edit preferences/lists or clear local data. Do not remove an allergy merely to bypass permission. Contact NELDO for external copies.</td></tr>
-<tr><th scope="row">Private saved meals, favorites, and cooking history — reopen and use your meals</th><td>Device; providers if included in a later request</td><td>Until individual deletion, clearing local storage, or applicable local history limits</td><td>Delete recipes in My meals or use Clear my NELDO data. No automatic cross-device sync is described.</td></tr>
-<tr><th scope="row">Selected pantry photos and recognized ingredients — ingredient recognition</th><td>Device/photo library; NELDO request memory; AI/cloud providers</td><td>Image request handling is temporary in NELDO. Provider copies follow applicable service controls. Your original photo remains subject to your device/photo-library settings.</td><td>Deleting a scan or clearing NELDO does not delete your original photo or automatically erase provider copies.</td></tr>
-<tr><th scope="row">Technical identifiers, connection data, session/security records, minimal operational events — delivery and abuse prevention</th><td>Device; Firebase/Google Cloud; hosting and AI infrastructure</td><td>Session and rate-limit windows. The inspected Google Cloud project's default log bucket retains records for 30 days; its required audit-log bucket retains records for 400 days. These are infrastructure settings, not promises about all records or providers. Expired abuse records use asynchronous database deletion.</td><td>Clear local data for local identifiers; submit a request for linkable records. Security/legal exceptions must be assessed for the particular record. Additional exports, provider records, and device backups are not established by these log settings.</td></tr>
-<tr><th scope="row">Permission choices and adult-access confirmation — apply your choices</th><td>Device; minimal versioned receipt on permitted requests</td><td>Current choice persists until withdrawal, reset, or replacement. No full birth date or identity document is required.</td><td>Use privacy controls or contact NELDO. Receipts must not contain conversations or allergy values.</td></tr>
-<tr><th scope="row">Support messages and privacy requests — respond and document resolution</th><td>Operator's Gmail and restricted operational records</td><td>While resolving the request and meeting specific recordkeeping duties. A concrete post-resolution schedule remains to be approved before publication.</td><td>Email NELDO; limited evidence may be retained where required by law, with reason and applicable period explained.</td></tr>
-<tr><th scope="row">DataWheel shadow candidates — temporary meal-structure checks</th><td>NELDO request memory</td><td>Discarded after evaluation; no permanent shared candidate retention in shadow mode</td><td>No new shared record to delete; this does not erase separately processed requests or historical records.</td></tr>
-<tr><th scope="row">Historical records predating current controls — investigate prior processing and fulfill rights</th><td>Any existing NELDO/cloud records and backups</td><td>Inventory and retention decision pending; switching on shadow mode does not erase prior records.</td><td>Submit a request. NELDO must determine what exists, what can be linked, and any lawful exception; no blanket refusal based on device-local design.</td></tr>
-<tr data-navu-safety-report="retention"><th scope="row">Voluntary AI safety reports — investigate and improve safety</th><td>Restricted Firebase/Google Cloud collection; operator review</td><td>30-day expiry from submission; asynchronous deletion and operational controls must be verified before launch</td><td>Use your case ID when requesting deletion. Local clearing does not delete submitted reports.</td></tr>
+<p>This table explains where each kind of information is kept and for how long. Clearing NELDO on your phone does not erase copies that providers already received.</p>
+<div class="retention-scroll" role="region" aria-label="Data category retention" tabindex="0"><table class="retention-table"><caption>What we keep, where, and for how long</caption><thead><tr><th scope="col">Information and purpose</th><th scope="col">Where</th><th scope="col">How long</th><th scope="col">How to delete</th></tr></thead><tbody>
+<tr><th scope="row">Chat messages and replies: answer you and continue cooking</th><td>Your phone; NELDO server memory during the request; OpenAI or Google</td><td>Phone: last 60 messages, until you clear them. NELDO server: not stored. OpenAI: up to 30 days. Google: see section 5.</td><td>&quot;Start fresh&quot; or &quot;Clear my NELDO data&quot; in the app. A request already sent can't be recalled.</td></tr>
+<tr><th scope="row">Settings: name, diet, allergies, foods to avoid, cuisines, kitchen setup</th><td>Your phone; sent with relevant requests</td><td>Phone: until you edit or clear them. Copies sent with a request follow the row above.</td><td>Edit in Settings or use &quot;Clear my NELDO data.&quot;</td></tr>
+<tr><th scope="row">Saved meals, favorites, weekly plans, grocery and kitchen lists</th><td>Your phone only, unless included in a later request</td><td>Until you delete them. The app keeps up to 30 unsaved recent meals.</td><td>Delete in My meals, or use &quot;Clear my NELDO data.&quot;</td></tr>
+<tr><th scope="row">Pantry photos: find ingredients</th><td>Your photo library; app memory during the scan; NELDO server memory; OpenAI or Google</td><td>NELDO server: not stored (a one-way request fingerprint is kept up to 30 days). OpenAI: up to 30 days, longer if flagged for child-safety review. Google: see section 5.</td><td>Your original photo stays under your phone's settings. Clearing NELDO doesn't delete it or provider copies.</td></tr>
+<tr><th scope="row">Security records: hashed session token, usage counters, request fingerprints</th><td>NELDO's Google Cloud database</td><td>30 days</td><td>Expire automatically. Clearing NELDO removes the token from your phone.</td></tr>
+<tr><th scope="row">Network counters: daily-salted hash of your IP address</th><td>NELDO's Google Cloud database (a hash only, never the raw IP)</td><td>2 days</td><td>Expire automatically.</td></tr>
+<tr><th scope="row">Cost records: amounts and model names per request, no content</th><td>NELDO's Google Cloud database</td><td>40 days</td><td>Expire automatically.</td></tr>
+<tr><th scope="row">Server logs: IP address, app type, timing, status, and error codes (no message or photo content)</th><td>Google Cloud Logging</td><td>30 days</td><td>Expire automatically. Email us about a specific record.</td></tr>
+<tr><th scope="row">Database backups</th><td>Google Cloud</td><td>Recovery copies of the security database are kept up to 7 days (daily) and 98 days (weekly), then deleted.</td><td>Deleted on schedule.</td></tr>
+<tr><th scope="row">Permission choices and 18+ confirmation</th><td>Your phone; sent with each request</td><td>Until you change or withdraw them. Our servers check them and don't store them.</td><td>Settings → Privacy &amp; data.</td></tr>
+<tr data-navu-safety-report="retention"><th scope="row">Safety reports you choose to send</th><td>NELDO's restricted Google Cloud database</td><td>30 days, then deleted automatically (usually within a few days after), plus backups as above</td><td>Email us your case ID to delete sooner. Clearing NELDO doesn't delete a sent report.</td></tr>
+<tr><th scope="row">Support and privacy-request emails</th><td>Gmail (Google Workspace)</td><td>As long as needed to resolve your request. Records of privacy requests are kept for 24 months where the law requires it.</td><td>Ask us to delete your emails, subject to legal record-keeping.</td></tr>
 </tbody></table></div>
-<p><strong>Draft publication gate:</strong> unresolved log, backup, support, historical, and account-specific provider retention entries must be replaced with verified periods or specific criteria before this notice takes effect.</p>
+<p>On iPhone, your own device backups (for example, iCloud Backup) may include NELDO's on-phone data under your Apple settings. On Android, NELDO turns off app-data backup.</p>
 <h2 id="section-9">9. Security</h2>
-<p>We use reasonable administrative, technical, and organizational safeguards designed to protect information. No system can guarantee absolute security. NELDO is designed to minimize unnecessary collection and to separate private user context from shared reusable knowledge.</p>
-<h2 id="section-10">10. Your choices</h2>
-<p data-navu-safety-report="rights">Keep your case ID if you want to ask about or delete a report. Contact support@neldo.app; a case ID can help locate the record without resending sensitive content. Clearing local NELDO data or withdrawing AI permission does not delete a previously submitted report. NELDO must assess requests for identifiable external records.</p>
+<p>We use reasonable safeguards designed to protect information. Data travels over encrypted connections (HTTPS). Our servers check that requests come from the genuine NELDO app, our security database stores session tokens and IP addresses only as one-way hashes, and direct access to that database is blocked. Access to NELDO's cloud accounts is limited to the company's owners. Data on your phone is protected by your phone's own security, such as its screen lock. No system is perfectly secure.</p>
+<h2 id="section-10">10. Your choices and deleting your data</h2>
 <ul>
-<li>You can choose what information to include in your prompts. AI permission and any required sensitive-data permission are separate from accepting Terms. Declining or withdrawing permission stops future affected AI requests; local functions remain available where feasible.</li>
-<li>You can choose whether to save supported meals or preferences when optional save features are available.</li>
-<li>You can deny or revoke camera or photo access through the available device controls. The proposed beta does not request automatic location access.</li>
-<li>You may submit a privacy request using the contact method below.</li>
-<li>If NELDO later offers optional account or integration features, those features will include their own controls where appropriate.</li>
+<li><strong>Choose what to share.</strong> You decide what to type, which settings to fill in, and whether to scan a photo. You can add ingredients by hand instead.</li>
+<li><strong>Turn AI help off</strong> in Settings → Privacy &amp; data. This stops new requests to AI providers. It can't pull back what was already sent.</li>
+<li><strong>Camera and photos.</strong> You can deny or remove NELDO's camera or photo access in your phone's settings at any time.</li>
+<li><strong>Delete on your phone.</strong> &quot;Start fresh&quot; clears the conversation. &quot;Clear my NELDO data&quot; removes your conversation, kitchen list, weekly plans, saved meals, favorites, meal history, name, preferences, and session token from your phone. Uninstalling the app also removes them.</li>
 </ul>
+<p id="delete"><strong>Deleting other records.</strong> Our servers don't keep your messages or photos, and the security records above expire on their own. To delete a safety report, a support email, or anything else, email <a href="mailto:support@neldo.app?subject=NELDO%20data%20deletion%20request">support@neldo.app</a>. Include a report case ID if you have one. Because NELDO has no accounts, we may not be able to find records that aren't linked to anything you can give us. If so, we'll explain why and help with the controls on your phone. We can't erase copies held by OpenAI or Google under their retention rules, but we will pass on valid deletion requests where the law requires.</p>
 <h2 id="section-11">11. U.S. state privacy rights</h2>
-<p>Depending on where you live, whether the relevant law applies to NELDO, and the nature of the information involved, you may have rights concerning your personal data. State privacy laws, including those in California and Connecticut, may provide additional protections. Other laws may also apply to particular data or activities.</p>
-<p>Where required by applicable law, these rights may include:</p>
+<p>Depending on where you live, laws in states such as Connecticut, California, Washington, and Nevada may give you rights to:</p>
 <ul>
-<li>confirming whether we process your personal data and accessing it;</li>
-<li>correcting inaccurate personal data;</li>
-<li>deleting personal data, subject to legal exceptions;</li>
-<li>obtaining a portable copy of certain personal data;</li>
-<li>opting out of sale, targeted advertising, sharing, or certain profiling where those rights apply;</li>
-<li>withdrawing consent for certain sensitive-data processing where consent is the legal basis;</li>
-<li>appealing a denied privacy request where state law provides an appeal right;</li>
-<li>receiving equal service and not being unlawfully discriminated against for exercising privacy rights.</li>
+<li>confirm whether we process your personal data, and access it;</li>
+<li>correct inaccurate personal data;</li>
+<li>delete personal data, subject to legal exceptions;</li>
+<li>get a portable copy of certain personal data;</li>
+<li>opt out of sale, targeted advertising, or certain profiling (NELDO does none of these);</li>
+<li>withdraw consent for sensitive-data processing;</li>
+<li>appeal if we deny your request;</li>
+<li>be free from discrimination for using these rights.</li>
 </ul>
-<p>To submit a request, contact <a href="mailto:support@neldo.app">support@neldo.app</a>. We may request information reasonably necessary to verify, locate, and process the request. You do not need a new account, legal name, telephone number, bank connection, or unnecessary identity documents to make a request. We may be unable to link a particular device-local record to you remotely, but will explain the issue, help with available local controls, and review any server or provider records that can reasonably be linked. Absence of a name does not make data anonymous. Where legally permitted, authorized agents may submit requests on your behalf subject to verification.</p>
-<p>To appeal a denied request, email <a href="mailto:support@neldo.app?subject=NELDO%20privacy%20appeal">support@neldo.app</a> with “privacy appeal” and enough information to identify the decision; that subject is helpful, not required. We will explain our decision and any extension within the applicable deadline. You may complain to the <a href="https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act">Connecticut Attorney General</a>, <a href="https://www.atg.wa.gov/file-complaint">Washington Attorney General</a>, <a href="https://ag.nv.gov/Complaints/File_Complaint/">Nevada Attorney General</a>, <a href="https://cppa.ca.gov/complaints/">California Privacy Protection Agency</a>, or your relevant regulator.</p>
-<h2 id="section-12">12. California Notice at Collection and California rights</h2>
-<p>For California residents, this section supplements the rest of this Notice. The categories, purposes, storage, retention criteria, and deletion methods in section 8 form part of this notice at collection. These notices must be available before the relevant collection in the app, not just on this website. Depending on your use of NELDO, we may collect categories of personal information such as identifiers/technical identifiers, internet or electronic activity information, user-provided content and preferences, photographs you submit, location information you type, sensitive content such as allergy information, and inferences or preference signals used to respond to your request.</p>
-<p>We collect these categories for the business and operational purposes described above, including providing the Service, security, debugging, personalization you request, and legal compliance. We do not currently sell or share personal information for cross-context behavioral advertising. California residents may have rights to know/access, delete, correct, limit certain uses of sensitive personal information where applicable, opt out of sale/sharing, and receive non-discriminatory treatment.</p>
-<h2 id="section-13">13. Sensitive information</h2>
-<p data-navu-prelaunch="medical">NELDO is for everyday planning and general wellness. It can help organize meals and practical steps around preferences, allergies, or a limit you supply, including an instruction from your healthcare professional. It must not derive a treatment target from a diagnosis, interpret medical records to decide care, diagnose, prescribe, or change medication. Nutrition figures are estimates. NELDO is not a medical device and does not diagnose, treat, cure, or prevent a medical condition. Consult a healthcare professional for medical advice, diagnosis, or treatment.</p>
-<p>Allergy details, health-related exclusions, and free-text statements can reveal sensitive or consumer health information. Ordinary cuisine preferences, budget choices, and locations are not automatically health data; content, purpose, linkability, and applicable law matter. The separate <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a> explains health-data processing and rights.</p><p>NELDO provides practical nonmedical help. Processing necessary to honor an allergy does not authorize optional reuse, shared-library publication, or training. Any required sensitive-data permission applies before the relevant collection or transmission, including free-text context and photos. If you decline, NELDO must not silently remove a restriction and recommend food as though it never existed.</p>
+<p>To make a request, email <a href="mailto:support@neldo.app">support@neldo.app</a>. You don't need an account, legal name, phone number, or ID documents. We may ask for information reasonably needed to find the records you mean. An authorized agent may act for you where the law allows, subject to verification. We respond within the time the law requires (for example, 45 days, extendable once where allowed).</p>
+<p>To appeal a decision, email <a href="mailto:support@neldo.app?subject=NELDO%20privacy%20appeal">support@neldo.app</a> and say you want to appeal. We'll respond in writing within the legal deadline. You can also contact the <a href="https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act">Connecticut Attorney General</a>, <a href="https://www.atg.wa.gov/file-complaint">Washington Attorney General</a>, <a href="https://ag.nv.gov/Complaints/File_Complaint/">Nevada Attorney General</a>, <a href="https://cppa.ca.gov/complaints/">California Privacy Protection Agency</a>, or your state regulator.</p>
+<h2 id="section-12">12. California notice at collection</h2>
+<p>If you live in California, this section adds to the rest of this Notice. In the last 12 months NELDO may have collected: identifiers (app and session IDs, IP address); internet or other electronic activity (request and error records); audio, electronic, or visual information (pantry photos); sensitive personal information (allergy or health details you share); and other information you provide (messages, preferences, kitchen items). We use them for the purposes in section 4, disclose them to the service providers in section 5, and keep them for the periods in section 8. We do not sell or share personal information for cross-context behavioral advertising, and we use sensitive personal information only to provide the Service you ask for. You may have rights to know, access, delete, and correct, and to equal service.</p>
+<h2 id="section-13">13. Sensitive and health information</h2>
+<p data-navu-prelaunch="medical">NELDO is for everyday planning and general wellness. It can help organize meals around preferences, allergies, or a limit you give it, including an instruction from your healthcare professional. It does not diagnose, treat, cure, or prevent any condition, decide medical care, or change medication. Nutrition numbers are estimates. NELDO is not a medical device. Ask a healthcare professional for medical advice.</p>
+<p>Allergies, health-related food limits, and health details you type or show can be sensitive or consumer health information. NELDO asks for your permission before sending this kind of information to AI providers, and uses it only to help you with what you asked. Saying no doesn't make NELDO quietly ignore an allergy. The <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a> explains more.</p>
 <h2 id="section-14">14. Age and children</h2>
-<p>NELDO is intended only for users who are at least 18 years old. We do not knowingly offer the Service to children or knowingly collect personal information from individuals under 18 through the Service. If you believe a person under 18 has provided personal information to NELDO, contact <a href="mailto:support@neldo.app">support@neldo.app</a>.</p>
-<h2 id="section-15">15. International users</h2>
-<p>The current adult beta is intended for the United States. NELDO's longer-term aim includes worldwide availability, subject to a separate review of local requirements and provider availability. Your information may be processed in the United States and other countries where providers operate. A notice alone does not enforce a territorial restriction or supply any required international-transfer safeguard. Mandatory rights under applicable local laws remain in effect. Contact us if you access NELDO from outside the intended beta territory.</p>
+<p>NELDO is only for adults 18 and older. The app asks you to confirm your age before use. We don't knowingly offer the Service to, or collect information from, anyone under 18. If you think a minor has given us information, email <a href="mailto:support@neldo.app">support@neldo.app</a>.</p>
+<h2 id="section-15">15. Recipe library (DataWheel)</h2>
+<p data-navu-prelaunch="library">NELDO includes a curated recipe catalog. Curated means selected and structured for the product, not medically verified. In this release, DataWheel runs in &quot;shadow mode&quot;: it may check the structure of a generated meal in server memory and then discards it. Nothing from your conversations is added to a shared library, and shared reuse of generated recipes and feedback-based learning are turned off. Before NELDO ever adds user-derived content to a shared library, we will update this Notice and ask for any consent the law requires.</p>
 <h2 id="section-16">16. Changes to this Notice</h2>
-<p>We may update this Notice as NELDO changes or as legal requirements change. We will post the updated version with a new effective date and provide additional notice when required by law. A material change to DataWheel from shadow mode to permanent shared-library promotion will be treated as a change requiring updated disclosures before activation.</p>
+<p>We may update this Notice as NELDO changes or the law changes. We'll post the new version here with its date and, for material changes, tell you in the app before the change applies and ask for any consent the law requires.</p>
 <h2 id="section-17">17. Contact us</h2>
-<p>Privacy questions and requests: <a href="mailto:support@neldo.app">support@neldo.app</a></p>
-<p>Support: <a href="mailto:support@neldo.app">support@neldo.app</a></p>
-<p>Website: <a href="https://neldo.app">neldo.app</a></p>
+<p>Neldo LLC, Connecticut, United States. Privacy questions, requests, and appeals: <a href="mailto:support@neldo.app">support@neldo.app</a>. Website: <a href="https://www.neldo.app">www.neldo.app</a>.</p>
 <h2>Emergency help</h2>
 <p>NELDO is not an emergency service. In the U.S., call or text <a href="tel:988">988</a> for the Suicide &amp; Crisis Lifeline, or call <a href="tel:911">911</a> for immediate danger. Outside the U.S., contact your local emergency service or crisis line.</p>
 </article>
