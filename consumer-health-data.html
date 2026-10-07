@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Consumer Health Data Privacy Policy | NELDO</title>
-<meta name="description" content="How NELDO handles allergy and other health-related information, who receives it, and your rights under Washington, Nevada, Connecticut, and other state laws. Draft for legal review, last updated October 6, 2026.">
+<meta name="description" content="How NELDO handles allergy and other health-related information, who receives it, and your rights under Washington, Nevada, Connecticut, and other state laws. Draft for legal review, last updated October 7, 2026.">
 <link rel="canonical" href="https://neldo.app/consumer-health-data.html"><meta name="theme-color" content="#14211b">
 <link rel="icon" href="favicon.png"><link rel="stylesheet" href="website.css"><link rel="stylesheet" href="legal.css">
 </head><body>
@@ -11,7 +11,7 @@
 <header class="site-header"><div class="container header-inner"><a class="wordmark" href="index.html" aria-label="NELDO home">NELDO</a><nav class="legal-nav" aria-label="Legal navigation"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="consumer-health-data.html" aria-current="page">Consumer Health Data Privacy Policy</a><a href="terms.html">Terms</a></nav></div></header>
 <main id="main" class="container legal-layout" tabindex="-1">
 <div class="legal-intro"><p class="eyebrow">NELDO · Ages 18+ · United States</p><h1>Consumer Health Data Privacy Policy</h1>
-<p class="legal-status">Version 2 · Last updated October 6, 2026 · Draft under legal review. The effective date will be posted here once it is approved.</p>
+<p class="legal-status">Version 3 · Last updated October 7, 2026 · Draft under legal review. The effective date will be posted here once it is approved.</p>
 <p class="draft-note">Where NELDO is today: NELDO is in private testing with a small group of adults through Google Play internal testing and Apple TestFlight. It is not publicly available in app stores. This policy describes the current app and servers, including pantry photo scanning, which is in testing.</p>
 <p>NELDO helps with everyday tasks, starting with meals. It is not a medical service. Still, allergies and other health-related details you choose to share can be &quot;consumer health data&quot; under some state laws. This policy explains what that information is, what we do with it, who receives it, and your rights. It adds to our <a href="privacy.html">Privacy Notice</a>.</p>
 <p data-navu-prelaunch="guide"><a href="how-data-works.html">Plain-language guide: how NELDO handles your information</a></p></div>
@@ -36,16 +36,16 @@
 <p>Sources: you, the photos you choose, settings stored on your phone that the app includes with a request, and the AI replies made for your request. We don't get medical records from healthcare providers, connect to health apps or wearables, buy health data, or use location tracking. NELDO does not use geofencing around healthcare facilities.</p>
 <h2 id="purposes">Purposes and permission</h2>
 <p>We use consumer health data only to provide what you ask for: answering your request, keeping allergies and food limits out of your meals, recognizing ingredients in a pantry photo, continuing your cooking conversation, reviewing a safety report you send, answering your support email, and keeping the Service secure.</p>
-<p>Before the app sends any request to AI providers, it asks you, separately from accepting the Terms, to confirm that you are 18 or older, to allow sending your requests and chosen photos to OpenAI and Google Gemini, and to allow NELDO to use health or other sensitive information you share, like allergies, only to help you. You can withdraw this permission in Settings → Privacy &amp; data at any time.</p>
+<p>Before the app sends any request to AI providers, it asks you, separately from accepting the Terms, to confirm that you are 18 or older, to allow sending your requests and chosen photos to the AI providers named on that screen, and to allow NELDO to use health or other sensitive information you share, like allergies, only to help you. You can withdraw this permission in Settings → Privacy &amp; data at any time.</p>
 <p>We do not use consumer health data for advertising, marketing profiles, model training, or a shared recipe library. If we ever want to use it for a new purpose, we will update this policy and ask for your consent first where the law requires.</p>
 <h2 id="recipients">Who receives it</h2>
 <p>NELDO does not sell consumer health data. We disclose it only to these service providers, to deliver the Service you request:</p>
 <ul>
-<li><strong>AI providers:</strong> OpenAI (main AI) and Google, through the Gemini API (backup when OpenAI is unavailable). They receive the health details included in your request or photo.</li>
+<li data-navu-provider="anthropic"><strong>AI providers:</strong> Anthropic (main AI, through the Claude API), OpenAI (backup AI and pantry photos), and Google (through the Gemini API, when the others are unavailable). They receive the health details included in your request or photo.</li>
 <li><strong>Cloud and security providers:</strong> Google (Firebase and Google Cloud) runs our servers and security checks. Google Play and Apple provide device checks that confirm requests come from the real app.</li>
 <li><strong>Email provider:</strong> Google Workspace (Gmail) handles email you send to support@neldo.app.</li>
 </ul>
-<p data-navu-prelaunch="providers">OpenAI says it does not train its models on API data by default and keeps it for up to 30 days to monitor for abuse; NELDO keeps OpenAI's optional data sharing turned off. Google provides the Gemini backup to NELDO under its paid-service terms, so it does not use these requests to improve its products and keeps them only for a limited time to detect misuse.</p>
+<p data-navu-prelaunch="providers"><span data-navu-provider="anthropic">Anthropic's commercial terms do not allow it to train models on NELDO's content, and it deletes API data within 30 days unless the content is flagged for misuse (kept up to 2 years) or the law requires longer. </span>OpenAI says it does not train its models on API data by default and keeps it for up to 30 days to monitor for abuse; NELDO keeps OpenAI's optional data sharing turned off. Google provides the Gemini backup to NELDO under its paid-service terms, so it does not use these requests to improve its products and keeps them only for a limited time to detect misuse.</p>
 <p data-navu-safety-report="recipients">Safety reports are stored in a restricted Google Cloud database for review by Neldo LLC and are never sent to AI providers. NELDO has no affiliates that receive consumer health data. We do not let third parties collect health data through NELDO for advertising or tracking.</p>
 <h2 id="retention">Retention and deletion</h2>
 <p>NELDO's servers do not store your messages, settings, or photos; they pass them to the AI provider for your request and keep only security records without content (see the <a href="privacy.html#section-8">retention table</a>). Settings, chats, and saved meals stay on your phone until you edit or clear them. OpenAI keeps requests for up to 30 days. Safety reports are deleted after 30 days, and backups of our security database are deleted within 98 days.</p>
