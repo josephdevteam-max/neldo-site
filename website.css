@@ -176,7 +176,7 @@ summary::-webkit-details-marker{display:none}
 @media print{.site-header{position:static}.hero,.section,.how-section,.practical-section{padding-block:24px}.mobile-menu,.hero-actions,.tour-buttons{display:none}.phone-frame{box-shadow:none}.container{width:100%}.launch-card{break-inside:avoid}}
 
 /* Updated app showcase: kept on top of the current live site's visual language. */
-@font-face{font-family:'DM Sans';src:url('assets/preview/DMSans.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('assets/fonts/DMSans.ttf') format('truetype');font-weight:100 900;font-display:swap}
 .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:var(--surface);color:var(--ink);white-space:nowrap;cursor:pointer;font-size:13px}
 .header-inner{gap:18px}.header-cta{margin-left:auto}.desktop-nav{margin-left:auto}
 .hero-visual{background:radial-gradient(ellipse at 50% 30%,#53694455,transparent 70%),var(--sage);border:1px solid var(--line);border-radius:32px;padding-bottom:28px}

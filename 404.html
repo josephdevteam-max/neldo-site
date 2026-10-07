@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#14231C"><meta name="robots" content="noindex"><title>Page not found — NELDO</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#faf7ef" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0d1813" media="(prefers-color-scheme: dark)"><meta name="robots" content="noindex"><title>Page not found | NELDO</title>
 <link id="site-icon" rel="icon" href="data:,">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#14231c;color:#f5f4e9;font:17px/1.7 system-ui,sans-serif}main{width:min(640px,calc(100% - 48px));margin:10vh auto;padding-block:40px}.brand{font-size:30px;font-weight:750;letter-spacing:-1px;color:#f5f4e9;text-decoration:none}.brand span,.code{color:#cee59d}.code{font-size:12px;letter-spacing:2px;margin-top:65px}h1{font-size:clamp(38px,8vw,64px);letter-spacing:-2px;line-height:1.1;font-weight:550;margin:20px 0}p{color:#bcc8b8;max-width:480px}nav{display:flex;flex-wrap:wrap;gap:20px;margin-top:28px}a{color:#cee59d;min-height:44px;display:inline-flex;align-items:center}a:focus-visible{outline:3px solid #cee59d;outline-offset:5px}.button{background:#cee59d;color:#20321d;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none}.languages{border-top:1px solid #40503d;padding-top:20px;margin-top:45px;font-size:13px}
+/* NELDO v3 tokens (see SITE brief). Dark by default, light when the visitor's system is light. */
+:root{--ink:#10201a;--forest:#172b24;--deep:#0d1813;--green:#234d3b;--leaf:#6e9a1e;--lime:#a8d832;--cream:#faf7ef;--paper:#f3efe4;--sand:#e9e3d3;--paprika:#e2683c;--saffron:#f2b632;
+  color-scheme:dark;--bg:var(--deep);--fg:var(--cream);--muted:#b8c4b6;--line:#24362c;--surface:#13231b;--accent:var(--lime);--on-accent:var(--ink);--accent-text:var(--lime);--focus:var(--lime);--chip:#a8d83224;--glow:#234d3bb3;
+  --plate:#1b3027;--plate-rim:#36513f;--plate-well:#14261d;--stem:var(--cream);--leafc:var(--lime)}
+@media (prefers-color-scheme:light){:root{color-scheme:light;--bg:var(--cream);--fg:var(--ink);--muted:#4d5b52;--line:#e4decf;--surface:#fffdf8;--accent:var(--green);--on-accent:var(--cream);--accent-text:#3f6512;--focus:var(--green);--chip:#6e9a1e1f;--glow:#a8d83238;
+  --plate:#ffffff;--plate-rim:#e9e3d3;--plate-well:#f6f2e7;--stem:var(--forest);--leafc:var(--leaf)}}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(800px 520px at 85% -10%,var(--glow),transparent 70%) no-repeat,var(--bg);color:var(--fg);font:17px/1.65 "DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+main{width:min(640px,calc(100% - 32px));padding-block:48px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:999px}
+.brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:26px;font-weight:800;letter-spacing:-.045em;line-height:1;text-decoration:none}
+.brand svg{width:24px;height:26px;flex:none}
+.brand .stem{fill:var(--stem)}.brand .leaf{fill:var(--leafc)}
+.plate-row{display:flex;align-items:center;gap:clamp(6px,2vw,16px);margin:44px 0 8px;font-size:clamp(96px,27vw,168px);font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--fg)}
+.plate{width:.92em;height:.92em;flex:none;filter:drop-shadow(0 14px 22px #00000038)}
+.plate .rim{fill:var(--plate);stroke:var(--plate-rim);stroke-width:2}
+.plate .well{fill:var(--plate-well);stroke:var(--plate-rim);stroke-width:1.5}
+.plate .garnish{fill:var(--leafc);transform-origin:60px 60px;animation:wobble 5s ease-in-out infinite}
+.plate .crumb-a{fill:var(--paprika)}.plate .crumb-b{fill:var(--saffron)}
+@keyframes wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+.code{display:inline-flex;align-items:center;gap:10px;margin:28px 0 0;padding:6px 14px 6px 12px;border-radius:999px;background:var(--chip);color:var(--accent-text);font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.code::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+h1{margin:18px 0 10px;font-size:clamp(36px,8vw,56px);font-weight:800;line-height:1.04;letter-spacing:-.045em;text-wrap:balance}
+p{margin:0}
+.lede{color:var(--muted);font-size:18px;max-width:30em}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:28px}
+nav a{display:inline-flex;align-items:center;min-height:44px;font-weight:650;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.button{gap:10px;padding:0 22px;min-height:52px;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none;font-size:16px;transition:transform .15s}
+.button:hover{transform:translateY(-1px)}
+.button svg{width:18px;height:18px}
+#privacy{color:var(--fg)}
+.languages{gap:4px;margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:14px}
+.languages a{padding:0 14px;border-radius:999px;color:var(--muted);text-decoration:none;font-weight:600}
+.languages a:hover{color:var(--fg);background:var(--surface)}
+.languages a:first-child{margin-left:-14px}
+@media (prefers-reduced-motion:reduce){.plate .garnish{animation:none}.button{transition:none}}
+@media (max-width:420px){.plate-row{margin-top:32px}.lede{font-size:17px}.button{flex:1 1 100%;justify-content:center}}
 </style>
-</head><body><main><a class="brand" href="/" data-home>NELDO<span>.</span></a><p class="code">404</p><h1>That page isn’t here.</h1><p>Let’s get you back to something useful.</p><nav aria-label="Page recovery"><a class="button" href="/" data-home>Back to NELDO</a><a href="/privacy.html" id="privacy">Privacy</a></nav><nav class="languages" aria-label="Homepage language"><a href="/" data-home lang="en">English</a><a href="/?lang=es" data-language="es" lang="es">Español</a><a href="/?lang=pt" data-language="pt" lang="pt">Português</a></nav></main>
+</head><body><main>
+<a class="brand" href="/" data-home aria-label="NELDO home"><svg viewBox="36 30 128 140" aria-hidden="true"><mask id="rib" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask><g mask="url(#rib)"><rect class="stem" x="46" y="40" width="28" height="120" rx="14"/><rect class="stem" x="126" y="40" width="28" height="120" rx="14"/><path class="leaf" d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z"/></g></svg>NELDO</a>
+<div class="plate-row" aria-hidden="true"><span>4</span><svg class="plate" viewBox="0 0 120 120"><circle class="rim" cx="60" cy="60" r="57"/><circle class="well" cx="60" cy="60" r="38"/><path class="garnish" d="M44 46 C60 49 73 64 76 80 C60 77 47 63 44 46 Z"/><circle class="crumb-a" cx="40" cy="74" r="2.6"/><circle class="crumb-b" cx="78" cy="44" r="2.2"/><circle class="crumb-a" cx="84" cy="62" r="1.6"/></svg><span>4</span></div>
+<p class="code">404 · Nothing on this plate</p>
+<h1>That page isn’t here.</h1>
+<p class="lede">Let’s get you back to something useful.</p>
+<nav aria-label="Page recovery"><a class="button" href="/" data-home>Back to NELDO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="/privacy.html" id="privacy">Privacy</a></nav>
+<nav class="languages" aria-label="Homepage language"><a href="/" data-home lang="en">English</a><a href="/?lang=es" data-language="es" lang="es">Español</a><a href="/?lang=pt" data-language="pt" lang="pt">Português</a></nav>
+</main>
 <script>
 // Custom domains serve at root; repository Pages previews serve at their repository path.
-(() => { const segment = location.pathname.split('/').filter(Boolean)[0]; const loopback = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname); const repositoryPath = location.hostname.endsWith('.github.io') || (loopback && ['navu-mvp', 'navu-life', 'neldo-site'].includes(segment)); const root = repositoryPath && segment ? '/' + segment + '/' : '/'; document.querySelectorAll('[data-home]').forEach(a => a.href = root); document.querySelectorAll('[data-language]').forEach(a => a.href = root + '?lang=' + a.dataset.language); document.getElementById('privacy').href = root + 'privacy.html'; document.getElementById('site-icon').href = root + 'favicon.png'; })();
+(() => { const segment = location.pathname.split('/').filter(Boolean)[0]; const loopback = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname); const repositoryPath = location.hostname.endsWith('.github.io') || (loopback && ['navu-mvp', 'navu-life', 'neldo-site'].includes(segment)); const root = repositoryPath && segment ? '/' + segment + '/' : '/'; document.querySelectorAll('[data-home]').forEach(a => a.href = root); document.querySelectorAll('[data-language]').forEach(a => a.href = root + '?lang=' + a.dataset.language); document.getElementById('privacy').href = root + 'privacy.html'; document.getElementById('site-icon').href = root + 'favicon.png';
+  // Self-hosted DM Sans, loaded from the same root so it works at any 404 depth; system font if it can't load.
+  try { const face = new FontFace('DM Sans', 'url(' + root + 'assets/fonts/DMSans.ttf)', { weight: '100 1000' }); document.fonts.add(face); face.load().catch(() => {}); } catch (e) {} })();
 </script>
 </body></html>

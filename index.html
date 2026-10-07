@@ -1,285 +1,823 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NELDO — Find your next meal</title>
-  <meta name="description" content="Decide what to eat, plan groceries, and cook with help from NELDO. Meals that fit your time, ingredients, and energy.">
-  <meta name="theme-color" content="#14211b">
-  <meta property="og:title" content="NELDO — Find your next meal">
-  <meta property="og:description" content="Find a meal that fits your time, ingredients, and energy. Plan your groceries and cook with help from NELDO.">
-  <meta property="og:image" content="https://neldo.app/og-card.png">
+  <title data-i18n="meta.title">NELDO | What are we making? Free AI help for everyday meals</title>
+  <meta name="description" content="Talk to NELDO like you’d text a friend. Tell it what you’re craving, what’s in the fridge and how much energy you’ve got, and get a real meal, the groceries and the steps. Free, no account. Now in beta on iPhone and Android." data-i18n-attr="content:meta.description">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#faf7ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1813" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://www.neldo.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NELDO">
+  <meta property="og:url" content="https://www.neldo.app/">
+  <meta property="og:title" content="NELDO | What are we making?">
+  <meta property="og:description" content="Free AI help for everyday meals. Tell NELDO what you’re craving, what’s in your kitchen and how much energy you have. Now in beta on iPhone and Android.">
+  <meta property="og:image" content="https://www.neldo.app/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="NELDO: Start with what you’re craving. Meals that fit your time, ingredients and energy.">
-  <meta property="og:url" content="https://neldo.app/">
-  <meta property="og:type" content="website">
+  <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://neldo.app/og-card.png">
-  <link rel="canonical" href="https://neldo.app/">
+  <meta name="twitter:title" content="NELDO | What are we making?">
+  <meta name="twitter:description" content="Free AI help for everyday meals. Now in beta on iPhone and Android.">
+  <meta name="twitter:image" content="https://www.neldo.app/og-card.png">
+  <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="website.css?v=20260909-2">
-  <link rel="stylesheet" href="refresh.css">
-  <link rel="stylesheet" href="week.css?v=20261001">
-  <script src="website.js?v=20260927" defer></script>
-  <script src="languages.js" defer></script>
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/DMSans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="assets/css/neldo.css?v=3">
+  <script>
+    /* Runs before paint: theme (?theme= for QA, then this visit's choice) and JS flag. No tracking. */
+    (function () {
+      var d = document.documentElement, t = null;
+      d.className = d.className.replace('no-js', 'js');
+      try { t = new URLSearchParams(location.search).get('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') { try { t = sessionStorage.getItem('neldo-theme'); } catch (e) { t = null; } }
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="assets/js/i18n.js?v=3" defer></script>
+  <script src="assets/js/neldo.js?v=3" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="wordmark" href="index.html" aria-label="NELDO home">NELDO<span aria-hidden="true">↗</span></a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#meals">On the menu</a>
-        <a href="#week">Plan your week</a>
-        <a href="#technology">How it works</a>
-        <a href="#demo">Inside the app</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="wrap header-row">
+      <a class="brand" href="#top" aria-label="NELDO home" data-i18n-attr="aria-label:a11y.home">
+        <svg class="leaf-n" viewBox="36 30 128 140" width="26" height="28" aria-hidden="true" focusable="false"><mask id="rib-h" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask><g mask="url(#rib-h)"><rect class="leaf-n-bar" x="46" y="40" width="28" height="120" rx="14"/><rect class="leaf-n-bar" x="126" y="40" width="28" height="120" rx="14"/><path class="leaf-n-leaf" d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z"/></g></svg>
+        <span class="wordmark">NELDO</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main" data-i18n-attr="aria-label:nav.label">
+        <a href="#culture" data-i18n="nav.food">The food</a>
+        <a href="#talk" data-i18n="nav.talk">How it talks</a>
+        <a href="#plan" data-i18n="nav.plan">Plan &amp; prep</a>
+        <a href="#nutrition" data-i18n="nav.nutrition">Protein &amp; macros</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
-      <a class="button button-small header-cta" href="#phones">About the launch <span aria-hidden="true">↗</span></a>
-      <label class="language-control"><span class="sr-only">Website language</span><select id="language"><option value="en">English</option><option value="es">Español</option><option value="pt">Português</option></select></label>
-      <button class="theme-toggle" type="button" aria-label="Switch to light appearance" data-theme-toggle hidden>Light view <span aria-hidden="true">☼</span></button>
-      <details class="mobile-menu">
-        <summary aria-label="Navigation menu">Menu <span aria-hidden="true">+</span></summary>
-        <nav aria-label="Mobile navigation">
-          <a href="#meals">On the menu</a>
-          <a href="#week">Plan your week</a>
-          <a href="#technology">How it works</a>
-          <a href="#demo">Inside the app</a>
-          <a href="#phones">Launch plans</a>
-          <a href="how-data-works.html">Your data, explained</a>
-          <a href="privacy.html">Privacy</a><a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a><a href="terms.html">Terms</a>
-        </nav>
-      </details>
+      <div class="header-tools">
+        <label class="lang-select">
+          <span class="sr-only" data-i18n="nav.language">Website language</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 0c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9m0-18C9.5 5.6 8.3 8.6 8.3 12s1.2 6.4 3.7 9M3.5 9h17M3.5 15h17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <select id="lang" data-lang-select>
+            <option value="en">EN</option>
+            <option value="es" lang="es">ES</option>
+            <option value="pt" lang="pt">PT</option>
+          </select>
+        </label>
+        <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" data-i18n-attr="aria-label:theme.toDark">
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-cta" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!" data-i18n="cta.join">Join the beta</a>
+        <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle aria-label="Open menu" data-i18n-attr="aria-label:nav.open">
+          <span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+      </div>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Menu" data-i18n-attr="aria-label:nav.mobileLabel" data-mobile-nav>
+      <div class="wrap">
+        <a href="#culture" data-i18n="nav.food">The food</a>
+        <a href="#talk" data-i18n="nav.talk">How it talks</a>
+        <a href="#modes" data-i18n="nav.modes">Energy Modes</a>
+        <a href="#plan" data-i18n="nav.plan">Plan &amp; prep</a>
+        <a href="#nutrition" data-i18n="nav.nutrition">Protein &amp; macros</a>
+        <a href="#food-safety" data-i18n="nav.safety">Food safety</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a class="btn btn-primary" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!" data-i18n="cta.join">Join the beta</a>
+      </div>
+    </nav>
   </header>
 
   <main id="main" tabindex="-1">
-    <section class="hero container" aria-labelledby="hero-heading">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="small-mark" aria-hidden="true"></span> Your next meal, made easier</p>
-        <h1 id="hero-heading">Start with<br>what you’re<br><em>craving.</em></h1>
-        <p class="hero-description">Craving gumbo? Need something quick? Tell NELDO what sounds good, what’s in your kitchen, and how much energy you have. Find a meal that fits—and get help making it.</p>
-        <div class="hero-actions">
-          <a class="button" href="#demo">See NELDO in action <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#meals">Explore the meals <span aria-hidden="true">↓</span></a>
+
+    <!-- 2 · HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="pill-eyebrow"><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Now in beta on iPhone &amp; Android</span></p>
+          <h1 id="hero-title" class="hero-title" data-i18n-html="hero.title">What are we <span class="hl">making?</span></h1>
+          <p class="hero-sub" data-i18n="hero.sub">Talk to NELDO like you’d text a friend. Tell it what you’re craving, what’s in the fridge and how much energy you’ve got. Get a real meal, the groceries and the steps. Free, no account.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!"><span data-i18n="cta.join">Join the beta</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ghost btn-lg" href="#talk" data-i18n="cta.see">See it in action</a>
+          </div>
+          <ul class="chips" aria-label="At a glance" data-i18n-attr="aria-label:hero.chipsLabel">
+            <li data-i18n="hero.chip1">Free</li>
+            <li data-i18n="hero.chip2">No account</li>
+            <li data-i18n="hero.chip3">English · Español · Português</li>
+            <li data-i18n="hero.chip4">iPhone + Android beta</li>
+          </ul>
+          <p class="fine" data-i18n="hero.fine">Private beta for adults 18+ in the U.S. Spots are limited, so email us and we’ll reply with how to join.</p>
         </div>
-        <p class="access-note">Free core help. No subscription. No required account.</p>
-        <div class="hero-principle"><span aria-hidden="true">01 /</span> Less deciding. More getting on with your day.</div>
+
+        <figure class="hero-stage">
+          <div class="stage-inner">
+            <div class="phone phone-back">
+              <picture>
+                <source srcset="assets/app/recipe-dark.png" media="(prefers-color-scheme: dark)">
+                <img src="assets/app/recipe-light.png" width="390" height="844" alt="NELDO recipe screen for Pernil with arroz con gandules, with ingredients and an Estimate nutrition line" data-i18n-attr="alt:img.recipe" fetchpriority="low" decoding="async">
+              </picture>
+            </div>
+            <div class="phone phone-front">
+              <picture>
+                <source srcset="assets/app/chat-meal-dark.png" media="(prefers-color-scheme: dark)">
+                <img src="assets/app/chat-meal-light.png" width="390" height="844" alt="NELDO chat: someone asks for Puerto Rican food and gets a Pernil with arroz con gandules recipe card" data-i18n-attr="alt:img.chatMeal" fetchpriority="high" decoding="async">
+              </picture>
+            </div>
+            <div class="float-card fc-dish" aria-hidden="true">
+              <span class="fc-kicker" data-i18n="hero.float2k">Your recipe</span>
+              <strong data-i18n="dish.pernil">Pernil with arroz con gandules</strong>
+              <span class="mode-tag mode-locked" data-i18n="mode.locked">Locked In</span>
+            </div>
+            <div class="float-card fc-macro" aria-hidden="true"><span class="estimate" data-i18n="label.estimate">Estimate</span><span data-i18n="hero.float3">46 g protein · 710 kcal</span></div>
+          </div>
+          <figcaption class="caption" data-i18n="caption.realSample">Real app screens · sample recipe · floating cards are illustrations</figcaption>
+        </figure>
       </div>
-      <figure class="hero-visual">
-        <div class="visual-topline"><span>Your words. A way forward.</span><span aria-hidden="true">↗</span></div>
-        <div class="phone-frame hero-phone">
-          <img src="assets/current/gumbo-chat-dark.png" data-hero-screen alt="Recorded NELDO conversation about chicken and sausage gumbo" fetchpriority="high">
-        </div>
-        <figcaption data-hero-caption>Recorded example · Sample recipe</figcaption>
-      </figure>
     </section>
 
-    <div class="fit-strip">
-      <div class="container fit-inner">
-        <p>Not just “what could I cook?”<br><strong>“What actually fits right now?”</strong></p>
-        <ul aria-label="What goes into a meal decision">
-          <li><span aria-hidden="true">01</span> Your time</li>
-          <li><span aria-hidden="true">02</span> Your ingredients</li>
-          <li><span aria-hidden="true">03</span> Your energy</li>
+    <!-- 3 · DISH MARQUEE -->
+    <section class="marquee-band" id="dishes" aria-labelledby="dishes-title">
+      <h2 class="sr-only" id="dishes-title" data-i18n="marquee.title">Dishes you can ask for</h2>
+      <div class="marquee" data-marquee>
+        <ul class="marquee-track">
+          <li>Pernil</li><li>Arroz con gandules</li><li>Birria tacos</li><li>Jollof rice</li><li>Gumbo</li><li>Phở</li><li>Shakshuka</li><li>Moqueca</li><li>Pollo guisado</li><li>Ramen</li><li>Jerk chicken</li><li>Mofongo</li><li>Feijoada</li><li>Tostones</li><li>Pastelón</li><li>Red beans &amp; rice</li>
+        </ul>
+        <ul class="marquee-track" aria-hidden="true">
+          <li>Pernil</li><li>Arroz con gandules</li><li>Birria tacos</li><li>Jollof rice</li><li>Gumbo</li><li>Phở</li><li>Shakshuka</li><li>Moqueca</li><li>Pollo guisado</li><li>Ramen</li><li>Jerk chicken</li><li>Mofongo</li><li>Feijoada</li><li>Tostones</li><li>Pastelón</li><li>Red beans &amp; rice</li>
         </ul>
       </div>
-    </div>
-
-    <section class="section container meal-showcase" id="meals" aria-labelledby="meals-heading">
-      <div class="section-heading">
-        <div><p class="eyebrow">Your cravings, made practical</p><h2 id="meals-heading">Gumbo kind of day?<br><em>Say that.</em></h2></div>
-        <p>A favorite dish. A quick bowl. Something worth taking your time over. Start with what sounds good, then make a plan around your kitchen.</p>
-      </div>
-      <div class="meal-gallery">
-        <article class="meal-story">
-          <div class="meal-story-copy"><p class="eyebrow">01 / Something with soul</p><h3>Chicken &amp; sausage gumbo</h3><p>A dark roux, smoky sausage, and chicken. Some meals deserve a little time. Start with the dish you actually want.</p></div>
-          <a class="meal-capture" href="assets/current/gumbo-chat-dark.png" aria-label="View the full Chicken &amp; sausage gumbo app screenshot"><img src="assets/current/gumbo-chat-dark.png" width="390" height="844" alt="Recorded chicken and sausage gumbo conversation in NELDO" loading="lazy"></a>
-        </article>
-        <article class="meal-story">
-          <div class="meal-story-copy"><p class="eyebrow">02 / Know what you need</p><h3>Your recipe, ready</h3><p>Ingredients, amounts, and servings in one place. Check what you have before you start cooking.</p></div>
-          <a class="meal-capture" href="assets/current/gumbo-recipe-dark.png" aria-label="View the full recipe and ingredients screenshot"><img src="assets/current/gumbo-recipe-dark.png" width="390" height="844" alt="Recorded gumbo recipe and ingredients in NELDO" loading="lazy"></a>
-        </article>
-        <article class="meal-story">
-          <div class="meal-story-copy"><p class="eyebrow">03 / Bring it to the table</p><h3>Cook it together</h3><p>Keep the recipe close. Follow the steps and use a timer when the cooking needs your attention.</p></div>
-          <a class="meal-capture" href="assets/current/gumbo-cooking-dark.png" aria-label="View the full gumbo cooking steps screenshot"><img src="assets/current/gumbo-cooking-dark.png" width="390" height="844" alt="Recorded gumbo cooking step and timer in NELDO" loading="lazy"></a>
-        </article>
-      </div>
-      <p class="section-note">Recorded examples from NELDO, using sample recipes. Tap a screen to take a closer look. <a href="#food-safety">Always check ingredients and allergens.</a></p>
+      <button class="marquee-toggle" type="button" aria-pressed="false" data-marquee-toggle><span data-marquee-label data-i18n="marquee.pause">Pause animations</span></button>
     </section>
 
-    <section class="section container energy-section" id="vibes" aria-labelledby="energy-heading">
-      <div class="section-heading">
-        <div><p class="eyebrow">Meet your Energy Modes</p><h2 id="energy-heading">Different days.<br><em>Same NELDO.</em></h2></div>
-        <p>Energy isn’t a personality type. It’s what you have to work with right now. Pick a mode—or just start talking.</p>
-      </div>
-      <div class="energy-grid">
-        <article class="energy-card lowkey">
-          <div class="mode-top"><span class="mode-level">A little in the tank</span><span class="energy-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
-          <h3>Lowkey</h3>
-          <p class="mode-quote">“I don’t have much in me.”</p>
-          <p>Keep meals manageable. Less prep, fewer steps, and less to clean up.</p>
-          <div class="mode-bottom"><span>Low energy. Still fed.</span><span aria-hidden="true">↘</span></div>
-        </article>
-        <article class="energy-card everyday">
-          <div class="mode-top"><span class="mode-level">Your usual pace</span><span class="energy-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
-          <h3>Everyday</h3>
-          <p class="mode-quote">“Just a normal kind of day.”</p>
-          <p>A familiar, satisfying meal that fits the time and ingredients you have.</p>
-          <div class="mode-bottom"><span>A good everyday meal.</span><span aria-hidden="true">→</span></div>
-        </article>
-        <article class="energy-card locked">
-          <div class="mode-top"><span class="mode-level">Room for a little more</span><span class="energy-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
-          <h3>Locked In</h3>
-          <p class="mode-quote">“I’ve got energy. Let’s cook.”</p>
-          <p>Take your time. Try a technique or a more involved dish—because you want to.</p>
-          <div class="mode-bottom"><span>More ambition. Your call.</span><span aria-hidden="true">↗</span></div>
-        </article>
-      </div>
-      <div class="mode-explorer" data-mode-explorer>
-        <div class="mode-explorer-copy">
-          <p class="eyebrow">A pace for right now</p>
-          <h3>Same chat.<br><em>Your kind of day.</em></h3>
-          <div class="mode-options" role="group" aria-label="Preview an energy mode" hidden>
-            <button type="button" data-mode="lowkey" aria-pressed="false">Lowkey</button>
-            <button type="button" data-mode="everyday" aria-pressed="true">Everyday</button>
-            <button type="button" data-mode="locked" aria-pressed="false">Locked In</button>
+    <!-- 4 · TALKS LIKE YOU -->
+    <section class="section talk" id="talk" aria-labelledby="talk-title">
+      <div class="wrap talk-grid">
+        <div class="talk-copy">
+          <p class="eyebrow" data-i18n="talk.eyebrow">Talks like you</p>
+          <h2 id="talk-title" class="h2" data-i18n-html="talk.title">Text it like a friend. <span class="hl">It keeps up.</span></h2>
+          <p class="lead" data-i18n="talk.lead">Slang, typos, half a sentence, changing your mind. It’s all good. NELDO matches your energy and keeps the same dish going while you tweak it.</p>
+          <ul class="say-list" aria-label="Things you can say" data-i18n-attr="aria-label:talk.sayLabel">
+            <li data-i18n="talk.say1">“nah, something else”</li>
+            <li data-i18n="talk.say2">“make it easier”</li>
+            <li data-i18n="talk.say3">“no beans”</li>
+            <li data-i18n="talk.say4">“i got like 20 min”</li>
+            <li data-i18n="talk.say5">“what can i make with rice and eggs”</li>
+          </ul>
+          <div class="lang-bubbles" role="group" aria-label="It talks back in Spanish and Portuguese too" data-i18n-attr="aria-label:talk.langLabel">
+            <div class="mini-chat" lang="es">
+              <p class="b b-user">algo rápido con arroz, huevos y tomate</p>
+              <p class="b b-neldo">Te tengo: arroz con huevo frito y salsita de tomate. Unos 15 minutos y listo.</p>
+            </div>
+            <div class="mini-chat" lang="pt">
+              <p class="b b-user">quero algo leve hoje, sem carne</p>
+              <p class="b b-neldo">Fechou: omelete de forno com legumes. Uns 25 minutos, quase tudo no forno.</p>
+            </div>
+            <p class="caption caption-left lang-caption" data-i18n="talk.langCaption">Examples · written to show how NELDO talks</p>
           </div>
-          <div aria-live="polite" aria-atomic="true"><p class="mode-detail" data-mode-description>A familiar meal at your usual pace. Enough room to cook, without making it a project.</p></div>
-          <p class="section-note">See how each mode fits a different kind of day.</p>
         </div>
-        <figure><div class="phone-frame mode-phone"><img data-mode-screen src="assets/current/home-dark.png" width="390" height="844" alt="Everyday selected on NELDO’s updated chat home" loading="lazy"></div><figcaption>Recorded app screen</figcaption></figure>
+
+        <figure class="chat-demo" data-chat-demo>
+          <div class="chat-window">
+            <div class="chat-top">
+              <span class="chat-mode"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="m5 12 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="mode.lowkey">Lowkey</span></span>
+              <span class="chat-label" data-i18n="talk.exampleLabel">Example chat</span>
+            </div>
+            <ol class="chat-log">
+              <li class="msg msg-user" style="--i:0"><p data-i18n="chat.u1">bro i’m tired but i want something puerto rican</p></li>
+              <li class="msg msg-neldo" style="--i:1"><span class="avatar" aria-hidden="true">N</span><div><span class="sr-only" data-i18n="chat.neldoSays">NELDO:</span><p data-i18n="chat.n1">I got you. Lowkey take: pollo guisado with white rice and habichuelas. One pot, mostly simmering. About 20 min of real work.</p>
+                <div class="mini-card"><strong data-i18n="dish.polloGuisado">Pollo guisado with white rice</strong><span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span> <span data-i18n="chat.card1meta">20 min active · 45 min total</span></span></div></div></li>
+              <li class="msg msg-user" style="--i:2"><p data-i18n="chat.u2">nah no beans. and make it easier</p></li>
+              <li class="msg msg-neldo" style="--i:3"><span class="avatar" aria-hidden="true">N</span><div><span class="sr-only" data-i18n="chat.neldoSays">NELDO:</span><p data-i18n="chat.n2">Done, beans are out. Easier version: boneless thighs, jarred sofrito, rice in the rice cooker. Same dish, about 15 min hands-on.</p>
+                <div class="mini-card updated"><strong data-i18n="chat.card2title">Pollo guisado · no beans</strong><span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span> <span data-i18n="chat.card2meta">15 min active · 40 min total</span></span></div></div></li>
+              <li class="msg msg-user" style="--i:4"><p data-i18n="chat.u3">perfect. pernil another day tho</p></li>
+              <li class="msg msg-neldo" style="--i:5"><span class="avatar" aria-hidden="true">N</span><div><span class="sr-only" data-i18n="chat.neldoSays">NELDO:</span><p data-i18n="chat.n3">Now we’re talking. Pernil is a Locked In move. It’s about 3½ hours, mostly oven time, so pick a day you’re home and we’ll do it right.</p></div></li>
+            </ol>
+            <div class="chat-input" aria-hidden="true"><span data-i18n="talk.inputHint">Ask about meals</span><i></i></div>
+          </div>
+          <figcaption class="caption" data-i18n="talk.caption">Example chat · written to show how NELDO talks, not a recording</figcaption>
+        </figure>
       </div>
-      <p class="section-note">No mode is better than another. Your time, preferences, and constraints still matter.</p>
     </section>
 
-    <section class="how-section" id="technology" aria-labelledby="how-heading">
-      <div class="container how-layout">
-        <div class="how-intro">
-          <p class="eyebrow">Start with a conversation</p>
-          <h2 id="how-heading">You don’t need<br>a better prompt.<br><em>Just your words.</em></h2>
-          <p>Tell NELDO what you have, what sounds good, and how much you want to take on. No perfect plan required.</p>
-          <div class="prompt-example"><span class="example-label">Something you could say</span><blockquote>“I’m craving gumbo.<br>I’ve got time tonight.<br>Let’s make it good.”</blockquote><span class="example-caption">Something you could ask NELDO</span></div>
+    <!-- 5 · ENERGY MODES -->
+    <section class="section modes" id="modes" aria-labelledby="modes-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="modes.eyebrow">Energy Modes</p>
+          <h2 id="modes-title" class="h2" data-i18n-html="modes.title">Different days. <span class="hl">Same NELDO.</span></h2>
+          <p class="lead" data-i18n="modes.lead">Energy isn’t a personality type. It’s what you’ve got right now. Pick a mode, or just start talking.</p>
         </div>
-        <ol class="how-steps">
-          <li><span class="step-index">01</span><div><h3>Tell it what you need right now.</h3><p>A dish you’re craving. What’s in the fridge. Twenty minutes before you need to leave. Start wherever you are.</p></div></li>
-          <li><span class="step-index">02</span><div><h3>Find an option that fits.</h3><p>NELDO helps narrow the decision around your ingredients, time, and preferred effort. Not another endless recipe scroll.</p></div></li>
-          <li><span class="step-index">03</span><div><h3>Make the next step easier.</h3><p>Check what you need, follow the cooking steps, or save the recipe for later. The choice stays yours.</p></div></li>
+        <div class="modes-grid">
+          <div class="mode-cards">
+            <article class="mode-card m-lowkey">
+              <div class="mode-top"><h3 data-i18n="mode.lowkey">Lowkey</h3><span class="meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <p class="quote" data-i18n="modes.lowkeyQuote">“I don’t have much in me.”</p>
+              <p data-i18n="modes.lowkeyBody">Always the easier, quicker take. Fewer steps, less cleanup, and it still tastes good.</p>
+              <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.salmonBowl">Honey-garlic salmon rice bowl</strong> <span data-i18n="modes.lowkeyTime">~20 min</span></p>
+            </article>
+            <article class="mode-card m-everyday">
+              <div class="mode-top"><h3 data-i18n="mode.everyday">Everyday</h3><span class="meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <p class="quote" data-i18n="modes.everydayQuote">“Just a normal kind of day.”</p>
+              <p data-i18n="modes.everydayBody">A familiar, satisfying meal that fits the time and ingredients you have.</p>
+              <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.birria">Birria-style beef tacos</strong></p>
+            </article>
+            <article class="mode-card m-locked">
+              <div class="mode-top"><h3 data-i18n="mode.locked">Locked In</h3><span class="meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <p class="quote" data-i18n="modes.lockedQuote">“I’ve got energy. Let’s cook.”</p>
+              <p data-i18n="modes.lockedBody">Take your time. Go for the big dish or try a new technique, just because you want to.</p>
+              <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.pernil">Pernil with arroz con gandules</strong> <span data-i18n="modes.lockedTime">~3½ h</span></p>
+            </article>
+            <p class="note" data-i18n="modes.note">No mode is better than another, and you never have to pick one. Your allergies, your time and the dish you asked for still come first.</p>
+          </div>
+          <figure class="shot shot-center">
+            <div class="phone">
+              <picture>
+                <source srcset="assets/app/home-dark.png" media="(prefers-color-scheme: dark)">
+                <img src="assets/app/home-light.png" width="390" height="844" alt="NELDO home screen asking What are we making? with Energy Modes and quick-start tiles" data-i18n-attr="alt:img.home" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="caption" data-i18n="caption.real">Real app screen</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · FOOD CULTURE / THE COOL MEAL -->
+    <section class="section culture" id="culture" aria-labelledby="culture-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="culture.eyebrow">Food culture, for real</p>
+          <h2 id="culture-title" class="h2 h2-xl" data-i18n-html="culture.title">Name the dish. <span class="hl">Get the real thing.</span></h2>
+          <p class="lead" data-i18n="culture.lead">Ask for pernil and you get pernil, not a “pork bowl.” Puerto Rican food is first-class in NELDO, right alongside gumbo, birria, jollof, phở, ramen, moqueca and a whole lot more. If NELDO can’t match a dish exactly, it tells you straight and offers to switch it up.</p>
+        </div>
+
+        <div class="showcase">
+          <figure class="plate-fig">
+            <div class="plate-wrap">
+              <svg class="plate" viewBox="0 0 480 476" role="img" aria-labelledby="plate-t" focusable="false">
+                <title id="plate-t" data-i18n="culture.plateAlt">Illustration of a plate of pernil with arroz con gandules, tostones, cilantro and a lime wedge, on a banana leaf and a wooden board</title>
+<defs>
+<linearGradient id="pl-wood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c98a50"/><stop offset=".55" stop-color="#a7663a"/><stop offset="1" stop-color="#7d4524"/></linearGradient>
+<linearGradient id="pl-leaf" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2f6b26"/><stop offset=".5" stop-color="#4f8f30"/><stop offset="1" stop-color="#2c6324"/></linearGradient>
+<radialGradient id="pl-plate" cx="46%" cy="42%" r="60%"><stop offset=".7" stop-color="#fffdf7"/><stop offset=".93" stop-color="#efe8d6"/><stop offset="1" stop-color="#e1d7bf"/></radialGradient>
+<radialGradient id="pl-well" cx="45%" cy="40%" r="62%"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f1ead9"/></radialGradient>
+<radialGradient id="pl-rice-shade" cx="38%" cy="32%" r="72%"><stop offset="0" stop-color="#fff6dc" stop-opacity=".45"/><stop offset=".55" stop-color="#fff6dc" stop-opacity="0"/><stop offset="1" stop-color="#7a3f0c" stop-opacity=".38"/></radialGradient>
+<radialGradient id="pl-pork" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#eda766"/><stop offset=".5" stop-color="#c2652a"/><stop offset="1" stop-color="#7a3312"/></radialGradient>
+<radialGradient id="pl-pork-2" cx="55%" cy="40%" r="70%"><stop offset="0" stop-color="#f3b878"/><stop offset=".55" stop-color="#cc773a"/><stop offset="1" stop-color="#843d17"/></radialGradient>
+<linearGradient id="pl-crack" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#f0b45c"/><stop offset=".45" stop-color="#c46f24"/><stop offset="1" stop-color="#7c3a11"/></linearGradient>
+<radialGradient id="pl-tost" cx="42%" cy="38%" r="68%"><stop offset="0" stop-color="#fbe39a"/><stop offset=".6" stop-color="#ecbc58"/><stop offset="1" stop-color="#c98a2c"/></radialGradient>
+<filter id="pl-blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+<filter id="pl-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<clipPath id="pl-board-clip"><circle cx="240" cy="238" r="222"/></clipPath>
+<clipPath id="pl-rice-clip"><path d="M273 208.8C281.6 221 281.9 239.3 281.6 255.2C281.2 271 280.4 290.5 270.7 304C261 317.6 240.5 329.2 223.4 336.5C206.3 343.7 185.3 348.7 168 347.7C150.7 346.6 133.5 338.8 119.3 330.1C105.1 321.3 86.7 309.3 82.8 295.2C78.8 281.1 89 261.3 95.5 245.3C101.9 229.4 107.8 210.1 121.3 199.3C134.7 188.5 157.9 183.3 176 180.4C194.2 177.6 214.1 177.4 230.3 182.1C246.5 186.8 264.5 196.7 273 208.8Z"/></clipPath>
+</defs>
+<g class="pl-board"><circle cx="240" cy="238" r="222" fill="url(#pl-wood)"/>
+<g clip-path="url(#pl-board-clip)" fill="none" stroke="#5e3218" stroke-linecap="round">
+<path d="M10 26.9C120 15 200 38.7 300 20.9S440 38.7 470 26.9" stroke-width="1.4" opacity="0.18100000000000002"/>
+<path d="M10 54.8C120 43.4 200 66.2 300 49.1S440 66.2 470 54.8" stroke-width="1.1" opacity="0.25"/>
+<path d="M10 85.4C120 75.6 200 95.2 300 80.5S440 95.2 470 85.4" stroke-width="1.2" opacity="0.18600000000000003"/>
+<path d="M10 113.6C120 109.6 200 117.6 300 111.6S440 117.6 470 113.6" stroke-width="1.6" opacity="0.185"/>
+<path d="M10 146C120 140.1 200 151.8 300 143.1S440 151.8 470 146" stroke-width="0.9" opacity="0.18600000000000003"/>
+<path d="M10 166.3C120 156 200 176.7 300 161.2S440 176.7 470 166.3" stroke-width="1.3" opacity="0.156"/>
+<path d="M10 202.7C120 192.9 200 212.4 300 197.8S440 212.4 470 202.7" stroke-width="1.7" opacity="0.20600000000000002"/>
+<path d="M10 220.5C120 215.9 200 225.1 300 218.2S440 225.1 470 220.5" stroke-width="1.3" opacity="0.24100000000000002"/>
+<path d="M10 256.5C120 249.6 200 263.4 300 253.1S440 263.4 470 256.5" stroke-width="1.9" opacity="0.242"/>
+<path d="M10 282.4C120 274.9 200 289.8 300 278.6S440 289.8 470 282.4" stroke-width="1.4" opacity="0.16399999999999998"/>
+<path d="M10 311.4C120 300.9 200 321.8 300 306.2S440 321.8 470 311.4" stroke-width="1.8" opacity="0.125"/>
+<path d="M10 334.5C120 326.3 200 342.6 300 330.4S440 342.6 470 334.5" stroke-width="1.3" opacity="0.127"/>
+<path d="M10 370.1C120 360.6 200 379.6 300 365.4S440 379.6 470 370.1" stroke-width="1.3" opacity="0.24100000000000002"/>
+<path d="M10 398C120 393.5 200 402.5 300 395.7S440 402.5 470 398" stroke-width="1.5" opacity="0.218"/>
+<path d="M10 418C120 410.4 200 425.6 300 414.2S440 425.6 470 418" stroke-width="1.1" opacity="0.19399999999999998"/>
+<path d="M10 455.5C120 447.9 200 463.1 300 451.7S440 463.1 470 455.5" stroke-width="1.9" opacity="0.141"/>
+<ellipse cx="96" cy="120" rx="12" ry="5" stroke-width="1.6" opacity=".25" transform="rotate(-8 96 120)"/><ellipse cx="96" cy="120" rx="5" ry="2" stroke-width="1.2" opacity=".25" transform="rotate(-8 96 120)"/>
+</g><circle cx="240" cy="238" r="219" fill="none" stroke="#f3c48d" stroke-width="2" opacity=".35"/><circle cx="240" cy="238" r="222" fill="none" stroke="#5a2f17" stroke-width="3" opacity=".5"/></g>
+<g class="pl-leaf"><path d="M58 382C96 270 220 150 430 74C410 128 382 172 344 214C292 272 200 334 58 382Z" fill="url(#pl-leaf)"/>
+<path d="M58 382C170 300 300 176 430 74" fill="none" stroke="#b7dc7a" stroke-width="3.2" stroke-linecap="round" opacity=".85"/>
+<g fill="none" stroke="#1f4d1a" stroke-width="1.2" opacity=".45">
+<path d="M80.3 357.5l-24.7 -21.7M80.3 357.5l23.3 18.3"/>
+<path d="M93.3 345l-28.3 -18.3M93.3 345l24.5 18"/>
+<path d="M106.4 332.9l-29.8 -19.4M106.4 332.9l29.6 18.5"/>
+<path d="M119.4 321.1l-26.6 -19.8M119.4 321.1l27.8 21.8"/>
+<path d="M132.4 309.6l-25.6 -20M132.4 309.6l23.2 21.3"/>
+<path d="M145.4 298.3l-28.7 -21.6M145.4 298.3l24.2 21.2"/>
+<path d="M158.4 287.2l-27.5 -20.8M158.4 287.2l29.3 22.7"/>
+<path d="M171.5 276.2l-28.8 -22.2M171.5 276.2l28.6 16"/>
+<path d="M184.5 265.4l-26 -19.8M184.5 265.4l29.3 19.9"/>
+<path d="M197.5 254.6l-25.8 -21.2M197.5 254.6l24.9 20.2"/>
+<path d="M210.5 243.9l-29.4 -22.4M210.5 243.9l26.2 17.2"/>
+<path d="M223.5 233.4l-25 -18.4M223.5 233.4l25.9 19"/>
+<path d="M236.6 222.9l-27.1 -18.8M236.6 222.9l23.3 19.6"/>
+<path d="M249.6 212.5l-25.4 -18.1M249.6 212.5l29.3 22.7"/>
+<path d="M262.6 202.2l-26.2 -23.4M262.6 202.2l23.2 21.9"/>
+<path d="M275.6 191.9l-24.7 -21M275.6 191.9l23.9 18.9"/>
+<path d="M288.6 181.7l-27.6 -19.9M288.6 181.7l28.1 22.1"/>
+<path d="M301.7 171.5l-24.6 -21.6M301.7 171.5l26.3 17.9"/>
+<path d="M314.7 161.4l-29.2 -19.6M314.7 161.4l29.5 21.3"/>
+<path d="M327.7 151.4l-26.9 -19.4M327.7 151.4l25.8 20"/>
+<path d="M340.7 141.4l-27 -18.6M340.7 141.4l25.5 23.2"/>
+<path d="M353.7 131.5l-28.5 -22.1M353.7 131.5l28.1 21.3"/>
+<path d="M366.8 121.6l-28.8 -21.4M366.8 121.6l23.8 16.5"/>
+<path d="M379.8 111.7l-28.4 -18.2M379.8 111.7l26.8 22.3"/>
+<path d="M392.8 101.9l-26.8 -22.3M392.8 101.9l25.1 21"/>
+<path d="M405.8 92.1l-25.2 -18.1M405.8 92.1l22.8 21.8"/>
+</g><path d="M140 300l-14 -18M392 120l18 14" stroke="#a7663a" stroke-width="3" stroke-linecap="round"/></g>
+<ellipse cx="250" cy="256" rx="172" ry="166" fill="#2a1408" opacity=".38" filter="url(#pl-blur)"/>
+<circle cx="240" cy="238" r="174" fill="url(#pl-plate)"/>
+<circle cx="240" cy="238" r="136" fill="url(#pl-well)" stroke="#e3dac4" stroke-width="2"/>
+<path d="M104 160A158 158 0 0 1 300 84" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+<g class="pl-rice"><path d="M273 208.8C281.6 221 281.9 239.3 281.6 255.2C281.2 271 280.4 290.5 270.7 304C261 317.6 240.5 329.2 223.4 336.5C206.3 343.7 185.3 348.7 168 347.7C150.7 346.6 133.5 338.8 119.3 330.1C105.1 321.3 86.7 309.3 82.8 295.2C78.8 281.1 89 261.3 95.5 245.3C101.9 229.4 107.8 210.1 121.3 199.3C134.7 188.5 157.9 183.3 176 180.4C194.2 177.6 214.1 177.4 230.3 182.1C246.5 186.8 264.5 196.7 273 208.8Z" fill="#d9872c"/><g clip-path="url(#pl-rice-clip)">
+<ellipse cx="248.2" cy="216" rx="4.5" ry="2" fill="#f2bb5c" transform="rotate(15 248.2 216)"/><ellipse cx="200.5" cy="213.1" rx="3.8" ry="1.8" fill="#e3923a" transform="rotate(92 200.5 213.1)"/><ellipse cx="105.9" cy="241.3" rx="4" ry="1.7" fill="#f4c36a" transform="rotate(143 105.9 241.3)"/><ellipse cx="148.6" cy="350.9" rx="4.3" ry="2" fill="#e3923a" transform="rotate(179 148.6 350.9)"/><ellipse cx="90.4" cy="275.6" rx="4.4" ry="2" fill="#eeb050" transform="rotate(17 90.4 275.6)"/><ellipse cx="216.5" cy="312.1" rx="4.6" ry="1.8" fill="#f2bb5c" transform="rotate(166 216.5 312.1)"/><ellipse cx="200.9" cy="289.5" rx="4.6" ry="1.8" fill="#fbe0a0" transform="rotate(64 200.9 289.5)"/><ellipse cx="275.6" cy="256.5" rx="4" ry="1.9" fill="#e89d3c" transform="rotate(129 275.6 256.5)"/><ellipse cx="217.7" cy="311.5" rx="3.8" ry="1.8" fill="#f4c36a" transform="rotate(117 217.7 311.5)"/><ellipse cx="195" cy="290.9" rx="4.3" ry="2" fill="#f8d68a" transform="rotate(124 195 290.9)"/><ellipse cx="206.8" cy="276.9" rx="3.9" ry="1.7" fill="#fbe0a0" transform="rotate(56 206.8 276.9)"/><ellipse cx="159.9" cy="229.8" rx="4.2" ry="2" fill="#f4c36a" transform="rotate(107 159.9 229.8)"/><ellipse cx="152.9" cy="337.1" rx="4.7" ry="2.1" fill="#f4c36a" transform="rotate(86 152.9 337.1)"/><ellipse cx="125.8" cy="246.6" rx="4.6" ry="2.1" fill="#f4c36a" transform="rotate(64 125.8 246.6)"/><ellipse cx="152.2" cy="281.7" rx="4.1" ry="1.9" fill="#eeb050" transform="rotate(24 152.2 281.7)"/><ellipse cx="127.8" cy="266.1" rx="4.5" ry="2" fill="#eeb050" transform="rotate(53 127.8 266.1)"/><ellipse cx="282.9" cy="227.1" rx="3.7" ry="1.8" fill="#f4c36a" transform="rotate(29 282.9 227.1)"/><ellipse cx="173.8" cy="268.2" rx="3.9" ry="1.7" fill="#e89d3c" transform="rotate(21 173.8 268.2)"/><ellipse cx="235.3" cy="261.9" rx="4.2" ry="1.8" fill="#f2bb5c" transform="rotate(110 235.3 261.9)"/><ellipse cx="209" cy="232" rx="4.7" ry="1.9" fill="#f8d68a" transform="rotate(5 209 232)"/><ellipse cx="255" cy="255" rx="4.8" ry="2" fill="#f8d68a" transform="rotate(104 255 255)"/><ellipse cx="272.1" cy="265.1" rx="4.7" ry="1.9" fill="#e3923a" transform="rotate(111 272.1 265.1)"/><ellipse cx="217" cy="234.9" rx="3.9" ry="2" fill="#e3923a" transform="rotate(137 217 234.9)"/><ellipse cx="179.7" cy="320.5" rx="4.7" ry="1.8" fill="#f4c36a" transform="rotate(109 179.7 320.5)"/><ellipse cx="288.6" cy="281.5" rx="3.9" ry="1.7" fill="#f2bb5c" transform="rotate(18 288.6 281.5)"/><ellipse cx="102.3" cy="310.5" rx="4.6" ry="1.8" fill="#e3923a" transform="rotate(142 102.3 310.5)"/><ellipse cx="151" cy="256.5" rx="4.7" ry="2" fill="#f2bb5c" transform="rotate(130 151 256.5)"/><ellipse cx="283.7" cy="239.6" rx="4.6" ry="1.7" fill="#e3923a" transform="rotate(59 283.7 239.6)"/><ellipse cx="166.3" cy="207.2" rx="3.8" ry="1.7" fill="#f4c36a" transform="rotate(84 166.3 207.2)"/><ellipse cx="128.4" cy="262.3" rx="3.8" ry="1.9" fill="#f4c36a" transform="rotate(94 128.4 262.3)"/><ellipse cx="280.3" cy="237.7" rx="4.9" ry="1.9" fill="#f2bb5c" transform="rotate(151 280.3 237.7)"/><ellipse cx="235" cy="275.1" rx="4.6" ry="1.6" fill="#f4c36a" transform="rotate(140 235 275.1)"/><ellipse cx="103.9" cy="284.6" rx="3.6" ry="2" fill="#f2bb5c" transform="rotate(121 103.9 284.6)"/><ellipse cx="201" cy="208.2" rx="4.5" ry="1.6" fill="#f2bb5c" transform="rotate(121 201 208.2)"/><ellipse cx="164.4" cy="205.7" rx="4.8" ry="1.7" fill="#f8d68a" transform="rotate(49 164.4 205.7)"/><ellipse cx="106.7" cy="239.6" rx="4.3" ry="1.6" fill="#f8d68a" transform="rotate(23 106.7 239.6)"/><ellipse cx="101" cy="321.1" rx="3.7" ry="2" fill="#f2bb5c" transform="rotate(101 101 321.1)"/><ellipse cx="251.1" cy="247.9" rx="4.1" ry="1.7" fill="#f2bb5c" transform="rotate(123 251.1 247.9)"/><ellipse cx="172.8" cy="335.1" rx="4.7" ry="1.8" fill="#eeb050" transform="rotate(126 172.8 335.1)"/><ellipse cx="133.2" cy="328.4" rx="4" ry="1.7" fill="#fbe0a0" transform="rotate(26 133.2 328.4)"/><ellipse cx="278.4" cy="230.4" rx="4.5" ry="1.9" fill="#e3923a" transform="rotate(11 278.4 230.4)"/><ellipse cx="149.6" cy="285.3" rx="4.9" ry="1.6" fill="#e3923a" transform="rotate(120 149.6 285.3)"/><ellipse cx="247.6" cy="213.5" rx="4.9" ry="1.9" fill="#e3923a" transform="rotate(65 247.6 213.5)"/><ellipse cx="229.8" cy="334.6" rx="4.3" ry="1.7" fill="#e89d3c" transform="rotate(31 229.8 334.6)"/><ellipse cx="144.4" cy="224.1" rx="4.6" ry="1.8" fill="#e3923a" transform="rotate(153 144.4 224.1)"/><ellipse cx="127.7" cy="184.7" rx="4.7" ry="1.7" fill="#e89d3c" transform="rotate(3 127.7 184.7)"/><ellipse cx="197.7" cy="302.2" rx="3.8" ry="1.9" fill="#fbe0a0" transform="rotate(66 197.7 302.2)"/><ellipse cx="156.3" cy="305.6" rx="4.2" ry="2" fill="#f8d68a" transform="rotate(141 156.3 305.6)"/><ellipse cx="218.3" cy="273.4" rx="4.4" ry="1.7" fill="#eeb050" transform="rotate(173 218.3 273.4)"/><ellipse cx="180.3" cy="316.2" rx="4.3" ry="1.9" fill="#fbe0a0" transform="rotate(179 180.3 316.2)"/><ellipse cx="265.1" cy="256.7" rx="4.8" ry="1.6" fill="#e3923a" transform="rotate(83 265.1 256.7)"/><ellipse cx="150.6" cy="284.7" rx="4.4" ry="1.9" fill="#e89d3c" transform="rotate(36 150.6 284.7)"/><ellipse cx="263.9" cy="243.9" rx="4.4" ry="1.8" fill="#f2bb5c" transform="rotate(57 263.9 243.9)"/><ellipse cx="283.8" cy="312.1" rx="4.3" ry="2" fill="#f8d68a" transform="rotate(148 283.8 312.1)"/><ellipse cx="270.4" cy="324.5" rx="4.4" ry="1.8" fill="#fbe0a0" transform="rotate(8 270.4 324.5)"/><ellipse cx="103.3" cy="264.7" rx="4.4" ry="1.8" fill="#f8d68a" transform="rotate(93 103.3 264.7)"/><ellipse cx="181.9" cy="276.9" rx="4.3" ry="1.8" fill="#eeb050" transform="rotate(95 181.9 276.9)"/><ellipse cx="166.7" cy="317" rx="3.6" ry="1.6" fill="#f8d68a" transform="rotate(106 166.7 317)"/><ellipse cx="120.2" cy="326.5" rx="4.9" ry="1.8" fill="#eeb050" transform="rotate(44 120.2 326.5)"/><ellipse cx="232.8" cy="341.4" rx="3.7" ry="2" fill="#e89d3c" transform="rotate(90 232.8 341.4)"/><ellipse cx="183.1" cy="223.9" rx="4.4" ry="1.8" fill="#e3923a" transform="rotate(79 183.1 223.9)"/><ellipse cx="231.7" cy="260.9" rx="4.6" ry="2" fill="#eeb050" transform="rotate(112 231.7 260.9)"/><ellipse cx="150.5" cy="266.4" rx="3.8" ry="1.9" fill="#e3923a" transform="rotate(27 150.5 266.4)"/><ellipse cx="123.8" cy="305.5" rx="3.7" ry="1.9" fill="#e89d3c" transform="rotate(1 123.8 305.5)"/><ellipse cx="92" cy="261.4" rx="4.9" ry="1.7" fill="#fbe0a0" transform="rotate(44 92 261.4)"/><ellipse cx="292.2" cy="302.7" rx="4.8" ry="2" fill="#f4c36a" transform="rotate(148 292.2 302.7)"/><ellipse cx="228.5" cy="321.6" rx="4.1" ry="1.7" fill="#eeb050" transform="rotate(118 228.5 321.6)"/><ellipse cx="245.9" cy="191.3" rx="3.9" ry="1.8" fill="#f4c36a" transform="rotate(135 245.9 191.3)"/><ellipse cx="137.8" cy="173.5" rx="4.9" ry="2" fill="#eeb050" transform="rotate(163 137.8 173.5)"/><ellipse cx="93.3" cy="265.6" rx="4" ry="1.6" fill="#e89d3c" transform="rotate(39 93.3 265.6)"/><ellipse cx="193.8" cy="350.9" rx="4.6" ry="1.7" fill="#f4c36a" transform="rotate(145 193.8 350.9)"/><ellipse cx="223.7" cy="303.6" rx="4.3" ry="2.1" fill="#fbe0a0" transform="rotate(50 223.7 303.6)"/><ellipse cx="159.7" cy="241.7" rx="3.9" ry="1.9" fill="#f4c36a" transform="rotate(179 159.7 241.7)"/><ellipse cx="252.4" cy="184.7" rx="4.6" ry="1.9" fill="#eeb050" transform="rotate(84 252.4 184.7)"/><ellipse cx="290.3" cy="243.9" rx="4.8" ry="1.7" fill="#f2bb5c" transform="rotate(173 290.3 243.9)"/><ellipse cx="201.6" cy="274.8" rx="4.3" ry="1.8" fill="#f2bb5c" transform="rotate(144 201.6 274.8)"/><ellipse cx="129.7" cy="217.1" rx="4.3" ry="2" fill="#f2bb5c" transform="rotate(25 129.7 217.1)"/><ellipse cx="128.7" cy="297.1" rx="4.2" ry="1.7" fill="#e3923a" transform="rotate(10 128.7 297.1)"/><ellipse cx="238.1" cy="262" rx="4.8" ry="1.7" fill="#f4c36a" transform="rotate(148 238.1 262)"/><ellipse cx="225.5" cy="303.5" rx="4.5" ry="1.7" fill="#f8d68a" transform="rotate(153 225.5 303.5)"/><ellipse cx="268.4" cy="244.4" rx="4" ry="1.9" fill="#e3923a" transform="rotate(144 268.4 244.4)"/><ellipse cx="173.4" cy="325.3" rx="3.9" ry="2" fill="#f2bb5c" transform="rotate(166 173.4 325.3)"/><ellipse cx="102.3" cy="195.9" rx="4.6" ry="2" fill="#f4c36a" transform="rotate(136 102.3 195.9)"/><ellipse cx="198.2" cy="271.7" rx="4.7" ry="1.9" fill="#f8d68a" transform="rotate(25 198.2 271.7)"/><ellipse cx="245.2" cy="294.4" rx="3.9" ry="1.7" fill="#f4c36a" transform="rotate(20 245.2 294.4)"/><ellipse cx="263.9" cy="253.6" rx="5" ry="1.8" fill="#f4c36a" transform="rotate(99 263.9 253.6)"/><ellipse cx="200.2" cy="337.9" rx="4.3" ry="2" fill="#f8d68a" transform="rotate(94 200.2 337.9)"/><ellipse cx="233.3" cy="237.9" rx="4.8" ry="1.9" fill="#e89d3c" transform="rotate(92 233.3 237.9)"/><ellipse cx="267.1" cy="277.2" rx="4.3" ry="1.9" fill="#fbe0a0" transform="rotate(147 267.1 277.2)"/><ellipse cx="241.9" cy="320.5" rx="3.6" ry="2.1" fill="#e3923a" transform="rotate(38 241.9 320.5)"/><ellipse cx="148.5" cy="236.7" rx="5" ry="1.7" fill="#e3923a" transform="rotate(153 148.5 236.7)"/><ellipse cx="132" cy="242.2" rx="4.8" ry="1.8" fill="#e89d3c" transform="rotate(42 132 242.2)"/><ellipse cx="216.7" cy="255.9" rx="4.6" ry="2" fill="#e89d3c" transform="rotate(30 216.7 255.9)"/><ellipse cx="272.2" cy="281.4" rx="3.9" ry="1.7" fill="#f4c36a" transform="rotate(124 272.2 281.4)"/><ellipse cx="184.3" cy="177.6" rx="4.8" ry="1.7" fill="#e3923a" transform="rotate(105 184.3 177.6)"/><ellipse cx="227.3" cy="241.3" rx="4.4" ry="1.7" fill="#e89d3c" transform="rotate(117 227.3 241.3)"/><ellipse cx="206.5" cy="285.5" rx="4.6" ry="2" fill="#f8d68a" transform="rotate(128 206.5 285.5)"/><ellipse cx="236.6" cy="294" rx="4.8" ry="1.8" fill="#f8d68a" transform="rotate(95 236.6 294)"/><ellipse cx="216.8" cy="314.1" rx="4.5" ry="1.9" fill="#f8d68a" transform="rotate(105 216.8 314.1)"/><ellipse cx="229.7" cy="257.8" rx="3.7" ry="1.7" fill="#f4c36a" transform="rotate(168 229.7 257.8)"/><ellipse cx="193.6" cy="250.7" rx="5" ry="2" fill="#fbe0a0" transform="rotate(144 193.6 250.7)"/><ellipse cx="158.6" cy="352.2" rx="4.8" ry="1.8" fill="#f4c36a" transform="rotate(60 158.6 352.2)"/><ellipse cx="82.5" cy="290.8" rx="4.7" ry="1.7" fill="#eeb050" transform="rotate(163 82.5 290.8)"/><ellipse cx="88.5" cy="304.1" rx="4.2" ry="1.9" fill="#f4c36a" transform="rotate(130 88.5 304.1)"/><ellipse cx="190.2" cy="176.7" rx="4" ry="2.1" fill="#fbe0a0" transform="rotate(53 190.2 176.7)"/><ellipse cx="161.5" cy="263.4" rx="4.5" ry="2" fill="#f4c36a" transform="rotate(145 161.5 263.4)"/><ellipse cx="247.2" cy="308.7" rx="4" ry="2" fill="#f4c36a" transform="rotate(130 247.2 308.7)"/><ellipse cx="149.7" cy="176.6" rx="3.9" ry="1.8" fill="#e3923a" transform="rotate(76 149.7 176.6)"/><ellipse cx="131.4" cy="277.9" rx="4.9" ry="2" fill="#fbe0a0" transform="rotate(69 131.4 277.9)"/><ellipse cx="186.7" cy="181.9" rx="3.8" ry="2.1" fill="#f4c36a" transform="rotate(67 186.7 181.9)"/><ellipse cx="183" cy="302.7" rx="4" ry="1.6" fill="#fbe0a0" transform="rotate(129 183 302.7)"/><ellipse cx="201.1" cy="349.2" rx="4.3" ry="2" fill="#f2bb5c" transform="rotate(90 201.1 349.2)"/><ellipse cx="190.3" cy="232" rx="4.9" ry="2.1" fill="#f2bb5c" transform="rotate(7 190.3 232)"/><ellipse cx="179.3" cy="218.1" rx="3.8" ry="1.9" fill="#e3923a" transform="rotate(19 179.3 218.1)"/><ellipse cx="136.7" cy="223.4" rx="4.9" ry="1.8" fill="#e3923a" transform="rotate(135 136.7 223.4)"/><ellipse cx="292.6" cy="236" rx="4" ry="1.7" fill="#f2bb5c" transform="rotate(112 292.6 236)"/><ellipse cx="83.9" cy="248.9" rx="4.6" ry="1.9" fill="#f2bb5c" transform="rotate(94 83.9 248.9)"/><ellipse cx="145.7" cy="274.8" rx="3.9" ry="2.1" fill="#eeb050" transform="rotate(84 145.7 274.8)"/><ellipse cx="209.8" cy="236.5" rx="4.7" ry="1.8" fill="#f4c36a" transform="rotate(107 209.8 236.5)"/><ellipse cx="200.9" cy="306.8" rx="3.8" ry="1.7" fill="#e89d3c" transform="rotate(101 200.9 306.8)"/><ellipse cx="97.2" cy="230.2" rx="4.4" ry="1.8" fill="#e3923a" transform="rotate(13 97.2 230.2)"/><ellipse cx="293.3" cy="296" rx="4.8" ry="1.9" fill="#e89d3c" transform="rotate(92 293.3 296)"/><ellipse cx="277.5" cy="288.2" rx="4.1" ry="1.8" fill="#e89d3c" transform="rotate(23 277.5 288.2)"/><ellipse cx="204.5" cy="180.8" rx="4.1" ry="1.6" fill="#f2bb5c" transform="rotate(107 204.5 180.8)"/><ellipse cx="182.4" cy="260.4" rx="4.8" ry="2" fill="#fbe0a0" transform="rotate(157 182.4 260.4)"/><ellipse cx="125.1" cy="267.8" rx="4.3" ry="2.1" fill="#fbe0a0" transform="rotate(156 125.1 267.8)"/><ellipse cx="141.4" cy="275.8" rx="4.9" ry="1.7" fill="#fbe0a0" transform="rotate(8 141.4 275.8)"/><ellipse cx="215.6" cy="282.3" rx="3.9" ry="2" fill="#f4c36a" transform="rotate(59 215.6 282.3)"/><ellipse cx="103" cy="238.2" rx="4.9" ry="1.6" fill="#f4c36a" transform="rotate(8 103 238.2)"/><ellipse cx="194.1" cy="305.3" rx="4.8" ry="2" fill="#e3923a" transform="rotate(59 194.1 305.3)"/><ellipse cx="210.4" cy="297.3" rx="4.5" ry="1.8" fill="#e89d3c" transform="rotate(144 210.4 297.3)"/><ellipse cx="185.1" cy="317.5" rx="4" ry="1.6" fill="#f8d68a" transform="rotate(130 185.1 317.5)"/><ellipse cx="253" cy="304.6" rx="5" ry="1.7" fill="#e3923a" transform="rotate(98 253 304.6)"/><ellipse cx="286.9" cy="248.8" rx="4.1" ry="1.7" fill="#e3923a" transform="rotate(66 286.9 248.8)"/><ellipse cx="122.9" cy="195.7" rx="4.3" ry="1.7" fill="#f2bb5c" transform="rotate(122 122.9 195.7)"/><ellipse cx="127.7" cy="264" rx="3.9" ry="2" fill="#f2bb5c" transform="rotate(132 127.7 264)"/><ellipse cx="294.7" cy="229.8" rx="4.7" ry="1.8" fill="#f2bb5c" transform="rotate(59 294.7 229.8)"/><ellipse cx="234.7" cy="243.1" rx="4.7" ry="1.7" fill="#e3923a" transform="rotate(19 234.7 243.1)"/><ellipse cx="125.3" cy="259.8" rx="4.2" ry="1.6" fill="#e3923a" transform="rotate(98 125.3 259.8)"/><ellipse cx="180.9" cy="254.3" rx="4.7" ry="1.6" fill="#eeb050" transform="rotate(84 180.9 254.3)"/><ellipse cx="79.1" cy="281.2" rx="3.6" ry="1.7" fill="#e89d3c" transform="rotate(160 79.1 281.2)"/><ellipse cx="79" cy="259.4" rx="3.8" ry="2.1" fill="#f2bb5c" transform="rotate(60 79 259.4)"/><ellipse cx="92.7" cy="205.4" rx="3.8" ry="1.8" fill="#e89d3c" transform="rotate(9 92.7 205.4)"/><ellipse cx="127.1" cy="180.5" rx="4.1" ry="1.9" fill="#f2bb5c" transform="rotate(177 127.1 180.5)"/><ellipse cx="219.7" cy="214.9" rx="3.9" ry="2.1" fill="#fbe0a0" transform="rotate(55 219.7 214.9)"/><ellipse cx="213.9" cy="244.7" rx="3.9" ry="1.9" fill="#eeb050" transform="rotate(67 213.9 244.7)"/><ellipse cx="213.7" cy="307.5" rx="4.8" ry="1.8" fill="#f8d68a" transform="rotate(172 213.7 307.5)"/><ellipse cx="166.3" cy="301.2" rx="3.9" ry="1.8" fill="#fbe0a0" transform="rotate(151 166.3 301.2)"/><ellipse cx="81.7" cy="308.2" rx="4.9" ry="2" fill="#eeb050" transform="rotate(124 81.7 308.2)"/><ellipse cx="128.7" cy="246.8" rx="5" ry="2" fill="#e89d3c" transform="rotate(68 128.7 246.8)"/><ellipse cx="144.4" cy="195.9" rx="3.7" ry="1.6" fill="#f4c36a" transform="rotate(159 144.4 195.9)"/><ellipse cx="261.7" cy="187.4" rx="3.8" ry="1.9" fill="#e3923a" transform="rotate(127 261.7 187.4)"/><ellipse cx="244.7" cy="234.6" rx="4.1" ry="1.7" fill="#e3923a" transform="rotate(162 244.7 234.6)"/><ellipse cx="266" cy="329.4" rx="4.9" ry="1.8" fill="#f2bb5c" transform="rotate(149 266 329.4)"/><ellipse cx="176" cy="184" rx="4" ry="1.8" fill="#eeb050" transform="rotate(12 176 184)"/><ellipse cx="217.4" cy="264" rx="3.8" ry="1.8" fill="#f2bb5c" transform="rotate(154 217.4 264)"/><ellipse cx="144.2" cy="249.3" rx="4.7" ry="1.8" fill="#e3923a" transform="rotate(145 144.2 249.3)"/><ellipse cx="207.4" cy="294.7" rx="4.6" ry="1.9" fill="#fbe0a0" transform="rotate(109 207.4 294.7)"/><ellipse cx="128.7" cy="328" rx="4.1" ry="2.1" fill="#fbe0a0" transform="rotate(134 128.7 328)"/><ellipse cx="163.4" cy="219.4" rx="4.2" ry="1.8" fill="#f4c36a" transform="rotate(33 163.4 219.4)"/><ellipse cx="282.8" cy="274.5" rx="4.7" ry="1.7" fill="#f4c36a" transform="rotate(73 282.8 274.5)"/><ellipse cx="164.3" cy="351.8" rx="4.7" ry="1.8" fill="#eeb050" transform="rotate(21 164.3 351.8)"/><ellipse cx="135.7" cy="274.9" rx="5" ry="1.8" fill="#e3923a" transform="rotate(83 135.7 274.9)"/><ellipse cx="190.2" cy="300.5" rx="4.2" ry="1.9" fill="#eeb050" transform="rotate(170 190.2 300.5)"/><ellipse cx="113.3" cy="306.2" rx="4.5" ry="1.6" fill="#f2bb5c" transform="rotate(37 113.3 306.2)"/><ellipse cx="113.1" cy="254.8" rx="4.4" ry="1.7" fill="#e89d3c" transform="rotate(174 113.1 254.8)"/><ellipse cx="209.9" cy="282.9" rx="4" ry="1.7" fill="#e3923a" transform="rotate(20 209.9 282.9)"/><ellipse cx="245" cy="197.5" rx="4.7" ry="1.8" fill="#f4c36a" transform="rotate(2 245 197.5)"/><ellipse cx="148.7" cy="249.7" rx="4.8" ry="1.8" fill="#eeb050" transform="rotate(100 148.7 249.7)"/><ellipse cx="219.8" cy="205.6" rx="3.8" ry="1.9" fill="#e3923a" transform="rotate(129 219.8 205.6)"/><ellipse cx="198.9" cy="206.3" rx="4.4" ry="1.7" fill="#eeb050" transform="rotate(115 198.9 206.3)"/><ellipse cx="158.1" cy="205" rx="4.3" ry="1.6" fill="#eeb050" transform="rotate(62 158.1 205)"/><ellipse cx="125" cy="276" rx="3.8" ry="1.7" fill="#eeb050" transform="rotate(104 125 276)"/><ellipse cx="242.3" cy="278.2" rx="4" ry="1.8" fill="#eeb050" transform="rotate(10 242.3 278.2)"/><ellipse cx="149.1" cy="196.7" rx="4.5" ry="2" fill="#e3923a" transform="rotate(28 149.1 196.7)"/><ellipse cx="242.6" cy="194.8" rx="4.8" ry="1.6" fill="#f8d68a" transform="rotate(159 242.6 194.8)"/><ellipse cx="228.8" cy="276.7" rx="4.5" ry="2" fill="#fbe0a0" transform="rotate(88 228.8 276.7)"/><ellipse cx="208.3" cy="216.1" rx="4.2" ry="2" fill="#f4c36a" transform="rotate(113 208.3 216.1)"/><ellipse cx="190.7" cy="324" rx="4.4" ry="1.9" fill="#e89d3c" transform="rotate(180 190.7 324)"/><ellipse cx="113.5" cy="321.9" rx="4.7" ry="1.7" fill="#f4c36a" transform="rotate(38 113.5 321.9)"/><ellipse cx="231.8" cy="197.4" rx="5" ry="1.9" fill="#f8d68a" transform="rotate(58 231.8 197.4)"/><ellipse cx="293.4" cy="225.7" rx="3.8" ry="1.9" fill="#f4c36a" transform="rotate(110 293.4 225.7)"/><ellipse cx="246.7" cy="280.2" rx="4.5" ry="1.9" fill="#eeb050" transform="rotate(23 246.7 280.2)"/><ellipse cx="253.7" cy="319.1" rx="4.6" ry="1.8" fill="#f8d68a" transform="rotate(38 253.7 319.1)"/><ellipse cx="216.7" cy="353.2" rx="4.4" ry="1.7" fill="#fbe0a0" transform="rotate(107 216.7 353.2)"/><ellipse cx="158.7" cy="307.6" rx="4.4" ry="1.6" fill="#fbe0a0" transform="rotate(42 158.7 307.6)"/><ellipse cx="232" cy="289" rx="4.1" ry="1.8" fill="#eeb050" transform="rotate(12 232 289)"/><ellipse cx="85" cy="293.8" rx="4.5" ry="2.1" fill="#f2bb5c" transform="rotate(156 85 293.8)"/><ellipse cx="166.1" cy="287.9" rx="3.7" ry="2.1" fill="#f4c36a" transform="rotate(72 166.1 287.9)"/><ellipse cx="92.7" cy="255" rx="3.7" ry="1.7" fill="#e89d3c" transform="rotate(42 92.7 255)"/><ellipse cx="221" cy="225.5" rx="3.8" ry="1.8" fill="#eeb050" transform="rotate(98 221 225.5)"/><ellipse cx="189.5" cy="189.7" rx="4.4" ry="1.9" fill="#f4c36a" transform="rotate(125 189.5 189.7)"/><ellipse cx="242.8" cy="308.3" rx="3.8" ry="1.8" fill="#f2bb5c" transform="rotate(63 242.8 308.3)"/><ellipse cx="124.6" cy="324" rx="4.9" ry="1.8" fill="#f8d68a" transform="rotate(97 124.6 324)"/><ellipse cx="185.1" cy="238.2" rx="4.6" ry="2" fill="#f8d68a" transform="rotate(98 185.1 238.2)"/><ellipse cx="166.2" cy="269.9" rx="3.7" ry="2" fill="#fbe0a0" transform="rotate(23 166.2 269.9)"/><ellipse cx="249.3" cy="322.2" rx="3.7" ry="2" fill="#e89d3c" transform="rotate(21 249.3 322.2)"/><ellipse cx="234.1" cy="303.5" rx="4.3" ry="1.8" fill="#eeb050" transform="rotate(142 234.1 303.5)"/><ellipse cx="272.8" cy="262.9" rx="3.8" ry="2" fill="#f8d68a" transform="rotate(162 272.8 262.9)"/><ellipse cx="185.8" cy="267.8" rx="4.3" ry="2.1" fill="#fbe0a0" transform="rotate(168 185.8 267.8)"/><ellipse cx="92.4" cy="213.1" rx="4" ry="1.8" fill="#e3923a" transform="rotate(31 92.4 213.1)"/><ellipse cx="226.2" cy="337.5" rx="4.6" ry="1.9" fill="#f8d68a" transform="rotate(24 226.2 337.5)"/><ellipse cx="226.5" cy="248.4" rx="4.2" ry="2" fill="#f2bb5c" transform="rotate(114 226.5 248.4)"/><ellipse cx="236.2" cy="262.8" rx="4.4" ry="1.8" fill="#e89d3c" transform="rotate(123 236.2 262.8)"/><ellipse cx="196.2" cy="328.9" rx="4.9" ry="1.7" fill="#eeb050" transform="rotate(60 196.2 328.9)"/><ellipse cx="195.1" cy="203.9" rx="3.6" ry="2" fill="#f8d68a" transform="rotate(28 195.1 203.9)"/><ellipse cx="179.4" cy="289" rx="4.1" ry="2.1" fill="#f8d68a" transform="rotate(35 179.4 289)"/><ellipse cx="280.7" cy="294.6" rx="4.8" ry="1.7" fill="#e3923a" transform="rotate(175 280.7 294.6)"/><ellipse cx="250.7" cy="273.1" rx="4.4" ry="1.8" fill="#fbe0a0" transform="rotate(91 250.7 273.1)"/><ellipse cx="221.3" cy="336.5" rx="3.8" ry="1.8" fill="#e3923a" transform="rotate(171 221.3 336.5)"/><ellipse cx="259.9" cy="273.9" rx="4.8" ry="1.8" fill="#e89d3c" transform="rotate(47 259.9 273.9)"/><ellipse cx="132.5" cy="241.7" rx="4.1" ry="2" fill="#e3923a" transform="rotate(137 132.5 241.7)"/><ellipse cx="221.9" cy="287" rx="4.3" ry="1.9" fill="#eeb050" transform="rotate(140 221.9 287)"/><ellipse cx="249.4" cy="249.6" rx="3.9" ry="1.9" fill="#eeb050" transform="rotate(22 249.4 249.6)"/><ellipse cx="206.3" cy="344.5" rx="4.1" ry="1.7" fill="#f8d68a" transform="rotate(10 206.3 344.5)"/><ellipse cx="190.6" cy="350.3" rx="4.5" ry="1.8" fill="#e3923a" transform="rotate(57 190.6 350.3)"/><ellipse cx="126.2" cy="186.5" rx="3.8" ry="1.9" fill="#f8d68a" transform="rotate(145 126.2 186.5)"/><ellipse cx="150" cy="197.2" rx="4.7" ry="1.7" fill="#f8d68a" transform="rotate(83 150 197.2)"/><ellipse cx="77.3" cy="225.8" rx="3.7" ry="1.7" fill="#eeb050" transform="rotate(37 77.3 225.8)"/><ellipse cx="132.6" cy="297.9" rx="4.6" ry="1.8" fill="#e3923a" transform="rotate(107 132.6 297.9)"/><ellipse cx="144.1" cy="221.2" rx="4.3" ry="1.8" fill="#e3923a" transform="rotate(111 144.1 221.2)"/><ellipse cx="242.6" cy="240.3" rx="4.5" ry="1.9" fill="#f4c36a" transform="rotate(47 242.6 240.3)"/><ellipse cx="288.3" cy="290.6" rx="4.2" ry="2" fill="#fbe0a0" transform="rotate(52 288.3 290.6)"/><ellipse cx="223.6" cy="330.6" rx="4.4" ry="1.7" fill="#f2bb5c" transform="rotate(106 223.6 330.6)"/><ellipse cx="256.7" cy="230.6" rx="4.8" ry="1.8" fill="#e89d3c" transform="rotate(156 256.7 230.6)"/><ellipse cx="163.7" cy="265" rx="4.7" ry="1.7" fill="#e3923a" transform="rotate(47 163.7 265)"/><ellipse cx="94" cy="256.2" rx="4" ry="1.7" fill="#f8d68a" transform="rotate(127 94 256.2)"/><ellipse cx="149.5" cy="268.7" rx="4.1" ry="1.7" fill="#fbe0a0" transform="rotate(13 149.5 268.7)"/><ellipse cx="201.8" cy="180.1" rx="3.8" ry="2" fill="#f4c36a" transform="rotate(87 201.8 180.1)"/><ellipse cx="133.2" cy="319.3" rx="4.9" ry="1.9" fill="#e3923a" transform="rotate(62 133.2 319.3)"/><ellipse cx="177" cy="269" rx="3.8" ry="1.6" fill="#eeb050" transform="rotate(3 177 269)"/><ellipse cx="229" cy="259.6" rx="3.7" ry="1.8" fill="#fbe0a0" transform="rotate(174 229 259.6)"/><ellipse cx="190.7" cy="196.4" rx="4.4" ry="1.9" fill="#f4c36a" transform="rotate(143 190.7 196.4)"/><ellipse cx="197.8" cy="295.4" rx="3.9" ry="1.9" fill="#eeb050" transform="rotate(20 197.8 295.4)"/><ellipse cx="183" cy="213.3" rx="4.6" ry="1.9" fill="#f2bb5c" transform="rotate(53 183 213.3)"/><ellipse cx="237.3" cy="212.9" rx="4.6" ry="2" fill="#e89d3c" transform="rotate(20 237.3 212.9)"/><ellipse cx="188.9" cy="312.5" rx="4.4" ry="1.8" fill="#f4c36a" transform="rotate(32 188.9 312.5)"/><ellipse cx="269.4" cy="272" rx="3.8" ry="1.6" fill="#f4c36a" transform="rotate(70 269.4 272)"/><ellipse cx="159.8" cy="206.9" rx="3.9" ry="1.9" fill="#f4c36a" transform="rotate(146 159.8 206.9)"/><ellipse cx="231.5" cy="342.1" rx="3.6" ry="2" fill="#e89d3c" transform="rotate(43 231.5 342.1)"/><ellipse cx="243.7" cy="233.2" rx="5" ry="1.9" fill="#fbe0a0" transform="rotate(26 243.7 233.2)"/><ellipse cx="193.7" cy="306.9" rx="4.3" ry="1.8" fill="#f2bb5c" transform="rotate(29 193.7 306.9)"/><ellipse cx="256.3" cy="236.6" rx="3.9" ry="2" fill="#fbe0a0" transform="rotate(78 256.3 236.6)"/><ellipse cx="159.6" cy="306.2" rx="4.3" ry="1.8" fill="#f4c36a" transform="rotate(23 159.6 306.2)"/><ellipse cx="102.1" cy="235.2" rx="4.5" ry="1.8" fill="#f2bb5c" transform="rotate(70 102.1 235.2)"/><ellipse cx="253" cy="213.6" rx="4.7" ry="1.7" fill="#eeb050" transform="rotate(99 253 213.6)"/><ellipse cx="152.4" cy="242.1" rx="3.6" ry="1.6" fill="#f2bb5c" transform="rotate(29 152.4 242.1)"/><ellipse cx="158.9" cy="281.2" rx="4.2" ry="1.6" fill="#f4c36a" transform="rotate(33 158.9 281.2)"/><ellipse cx="250.1" cy="191.1" rx="3.8" ry="1.7" fill="#f4c36a" transform="rotate(109 250.1 191.1)"/><ellipse cx="197.7" cy="301.9" rx="4.1" ry="1.7" fill="#f4c36a" transform="rotate(149 197.7 301.9)"/><ellipse cx="114.8" cy="213.2" rx="4.5" ry="2" fill="#f4c36a" transform="rotate(154 114.8 213.2)"/><ellipse cx="215.2" cy="214.2" rx="4.1" ry="1.8" fill="#fbe0a0" transform="rotate(83 215.2 214.2)"/><ellipse cx="76.7" cy="236.9" rx="4.2" ry="1.6" fill="#eeb050" transform="rotate(16 76.7 236.9)"/><ellipse cx="83.5" cy="274" rx="3.7" ry="1.6" fill="#e89d3c" transform="rotate(110 83.5 274)"/><ellipse cx="197.4" cy="248.7" rx="4.4" ry="1.9" fill="#f2bb5c" transform="rotate(147 197.4 248.7)"/><ellipse cx="240.1" cy="302.9" rx="3.8" ry="2.1" fill="#eeb050" transform="rotate(145 240.1 302.9)"/><ellipse cx="158.6" cy="200.6" rx="5" ry="1.7" fill="#f8d68a" transform="rotate(160 158.6 200.6)"/><ellipse cx="93.1" cy="260.3" rx="5" ry="1.8" fill="#fbe0a0" transform="rotate(80 93.1 260.3)"/><ellipse cx="226.4" cy="287.6" rx="3.8" ry="1.9" fill="#eeb050" transform="rotate(78 226.4 287.6)"/><ellipse cx="120.8" cy="254.3" rx="3.8" ry="2" fill="#f4c36a" transform="rotate(63 120.8 254.3)"/><ellipse cx="209.4" cy="219.9" rx="4.4" ry="1.9" fill="#e3923a" transform="rotate(85 209.4 219.9)"/><ellipse cx="265.8" cy="214.7" rx="4.6" ry="1.8" fill="#fbe0a0" transform="rotate(103 265.8 214.7)"/><ellipse cx="259.2" cy="306.2" rx="5" ry="1.8" fill="#eeb050" transform="rotate(46 259.2 306.2)"/><ellipse cx="155.5" cy="206.6" rx="4.7" ry="1.7" fill="#f4c36a" transform="rotate(59 155.5 206.6)"/><ellipse cx="148.2" cy="280.5" rx="4.9" ry="1.8" fill="#f8d68a" transform="rotate(140 148.2 280.5)"/><ellipse cx="139.3" cy="235.5" rx="4.2" ry="1.8" fill="#f8d68a" transform="rotate(132 139.3 235.5)"/><ellipse cx="148.3" cy="307.5" rx="4.8" ry="1.8" fill="#f2bb5c" transform="rotate(43 148.3 307.5)"/><ellipse cx="233.3" cy="246.2" rx="4.7" ry="1.7" fill="#e3923a" transform="rotate(35 233.3 246.2)"/><ellipse cx="206.5" cy="223" rx="3.9" ry="1.9" fill="#e3923a" transform="rotate(90 206.5 223)"/><ellipse cx="170.1" cy="246" rx="4.9" ry="1.8" fill="#e3923a" transform="rotate(82 170.1 246)"/><ellipse cx="186.4" cy="289.7" rx="4.1" ry="2" fill="#e89d3c" transform="rotate(157 186.4 289.7)"/><ellipse cx="255.7" cy="221.3" rx="4.7" ry="1.9" fill="#eeb050" transform="rotate(69 255.7 221.3)"/><ellipse cx="196.2" cy="171.6" rx="4.3" ry="1.9" fill="#eeb050" transform="rotate(39 196.2 171.6)"/><ellipse cx="191" cy="338.7" rx="5" ry="2" fill="#fbe0a0" transform="rotate(13 191 338.7)"/><ellipse cx="167" cy="305.1" rx="3.7" ry="2" fill="#e3923a" transform="rotate(114 167 305.1)"/><ellipse cx="192.2" cy="189.5" rx="3.7" ry="1.7" fill="#f8d68a" transform="rotate(28 192.2 189.5)"/><ellipse cx="143.5" cy="337.7" rx="3.8" ry="1.9" fill="#e3923a" transform="rotate(63 143.5 337.7)"/><ellipse cx="96.5" cy="259.9" rx="3.7" ry="1.8" fill="#eeb050" transform="rotate(81 96.5 259.9)"/><ellipse cx="120.4" cy="329.3" rx="4" ry="1.6" fill="#f2bb5c" transform="rotate(55 120.4 329.3)"/><ellipse cx="95.8" cy="236.1" rx="4.8" ry="1.9" fill="#f2bb5c" transform="rotate(163 95.8 236.1)"/><ellipse cx="274" cy="321.4" rx="3.7" ry="1.6" fill="#eeb050" transform="rotate(47 274 321.4)"/><ellipse cx="219.8" cy="193.7" rx="4.6" ry="2" fill="#e89d3c" transform="rotate(154 219.8 193.7)"/><ellipse cx="156.8" cy="337.5" rx="4.9" ry="1.7" fill="#e89d3c" transform="rotate(3 156.8 337.5)"/><ellipse cx="156.6" cy="337.8" rx="4" ry="2.1" fill="#eeb050" transform="rotate(120 156.6 337.8)"/><ellipse cx="229.4" cy="205.7" rx="4.8" ry="1.7" fill="#e89d3c" transform="rotate(33 229.4 205.7)"/><ellipse cx="98.4" cy="328.8" rx="4.7" ry="1.6" fill="#e89d3c" transform="rotate(94 98.4 328.8)"/><ellipse cx="231.9" cy="182.2" rx="3.7" ry="1.8" fill="#f4c36a" transform="rotate(144 231.9 182.2)"/><ellipse cx="264.7" cy="297.1" rx="3.6" ry="1.7" fill="#f2bb5c" transform="rotate(31 264.7 297.1)"/><ellipse cx="158.9" cy="206.5" rx="4.4" ry="1.8" fill="#eeb050" transform="rotate(69 158.9 206.5)"/><ellipse cx="270.2" cy="319.1" rx="4.2" ry="1.7" fill="#f2bb5c" transform="rotate(133 270.2 319.1)"/><ellipse cx="207" cy="278.6" rx="4.2" ry="2" fill="#f8d68a" transform="rotate(64 207 278.6)"/><ellipse cx="274.4" cy="278.8" rx="4.6" ry="1.7" fill="#f8d68a" transform="rotate(16 274.4 278.8)"/><ellipse cx="139.7" cy="280.1" rx="3.9" ry="1.7" fill="#e3923a" transform="rotate(104 139.7 280.1)"/><ellipse cx="122.6" cy="224.6" rx="4.7" ry="1.9" fill="#e3923a" transform="rotate(94 122.6 224.6)"/><ellipse cx="185" cy="226.2" rx="5" ry="1.9" fill="#f4c36a" transform="rotate(91 185 226.2)"/><ellipse cx="215.3" cy="316.6" rx="4" ry="2" fill="#e3923a" transform="rotate(61 215.3 316.6)"/><ellipse cx="293.2" cy="283.1" rx="4.2" ry="2" fill="#fbe0a0" transform="rotate(70 293.2 283.1)"/><ellipse cx="132.5" cy="211.6" rx="4.3" ry="1.7" fill="#e89d3c" transform="rotate(45 132.5 211.6)"/><ellipse cx="93.4" cy="225.9" rx="3.9" ry="2.1" fill="#e89d3c" transform="rotate(57 93.4 225.9)"/><ellipse cx="188.9" cy="332.3" rx="3.8" ry="1.9" fill="#f4c36a" transform="rotate(134 188.9 332.3)"/><ellipse cx="265.4" cy="312.7" rx="3.6" ry="1.8" fill="#e89d3c" transform="rotate(24 265.4 312.7)"/><ellipse cx="251.9" cy="277" rx="4.5" ry="1.7" fill="#f2bb5c" transform="rotate(0 251.9 277)"/><ellipse cx="276.7" cy="258.7" rx="4.5" ry="2.1" fill="#eeb050" transform="rotate(133 276.7 258.7)"/><ellipse cx="154.8" cy="222.1" rx="4.2" ry="2.1" fill="#e89d3c" transform="rotate(39 154.8 222.1)"/><ellipse cx="269.1" cy="254.6" rx="3.9" ry="1.8" fill="#eeb050" transform="rotate(43 269.1 254.6)"/><ellipse cx="138.8" cy="171" rx="4.4" ry="1.6" fill="#f8d68a" transform="rotate(148 138.8 171)"/><ellipse cx="164.2" cy="309.5" rx="4.3" ry="1.8" fill="#f4c36a" transform="rotate(109 164.2 309.5)"/><ellipse cx="232.6" cy="225.8" rx="4.5" ry="2" fill="#f4c36a" transform="rotate(66 232.6 225.8)"/><ellipse cx="84.7" cy="288.7" rx="4.4" ry="1.8" fill="#eeb050" transform="rotate(140 84.7 288.7)"/><ellipse cx="156" cy="177.6" rx="4.6" ry="2" fill="#f4c36a" transform="rotate(88 156 177.6)"/><ellipse cx="156.8" cy="278.7" rx="4.2" ry="2" fill="#e3923a" transform="rotate(127 156.8 278.7)"/><ellipse cx="88.1" cy="231.3" rx="3.7" ry="1.8" fill="#e89d3c" transform="rotate(134 88.1 231.3)"/><ellipse cx="281.5" cy="233" rx="3.9" ry="1.7" fill="#f4c36a" transform="rotate(107 281.5 233)"/><ellipse cx="219.8" cy="236.9" rx="4" ry="2.1" fill="#f2bb5c" transform="rotate(24 219.8 236.9)"/><ellipse cx="85.8" cy="242.9" rx="4.9" ry="1.7" fill="#eeb050" transform="rotate(39 85.8 242.9)"/><ellipse cx="219.9" cy="293.7" rx="3.7" ry="1.9" fill="#eeb050" transform="rotate(123 219.9 293.7)"/><ellipse cx="158.3" cy="178.7" rx="4.1" ry="1.8" fill="#e89d3c" transform="rotate(106 158.3 178.7)"/><ellipse cx="272.1" cy="283.8" rx="3.7" ry="2.1" fill="#e3923a" transform="rotate(98 272.1 283.8)"/><ellipse cx="218.8" cy="294.2" rx="4.2" ry="2.1" fill="#fbe0a0" transform="rotate(69 218.8 294.2)"/><ellipse cx="167" cy="251.8" rx="4" ry="2" fill="#f4c36a" transform="rotate(152 167 251.8)"/><ellipse cx="113.7" cy="267.2" rx="4.1" ry="1.9" fill="#e3923a" transform="rotate(147 113.7 267.2)"/><ellipse cx="140" cy="233" rx="3.7" ry="2" fill="#e3923a" transform="rotate(133 140 233)"/><ellipse cx="167.9" cy="177.9" rx="4.9" ry="1.8" fill="#f2bb5c" transform="rotate(124 167.9 177.9)"/><ellipse cx="147" cy="251.2" rx="4" ry="1.7" fill="#e3923a" transform="rotate(15 147 251.2)"/><ellipse cx="160.7" cy="264.3" rx="4.8" ry="1.6" fill="#f2bb5c" transform="rotate(53 160.7 264.3)"/><ellipse cx="189.6" cy="256.8" rx="4.9" ry="1.8" fill="#f4c36a" transform="rotate(90 189.6 256.8)"/><ellipse cx="127.1" cy="274.8" rx="3.7" ry="1.7" fill="#f8d68a" transform="rotate(34 127.1 274.8)"/><ellipse cx="217" cy="282.9" rx="5" ry="1.7" fill="#eeb050" transform="rotate(144 217 282.9)"/><ellipse cx="260.5" cy="188.4" rx="4.2" ry="1.6" fill="#e3923a" transform="rotate(20 260.5 188.4)"/><ellipse cx="109.8" cy="302.7" rx="4.7" ry="1.6" fill="#eeb050" transform="rotate(61 109.8 302.7)"/><ellipse cx="219.5" cy="227.9" rx="3.6" ry="1.6" fill="#e3923a" transform="rotate(133 219.5 227.9)"/><ellipse cx="230.2" cy="295.9" rx="3.7" ry="2" fill="#f2bb5c" transform="rotate(103 230.2 295.9)"/><ellipse cx="126.1" cy="257.1" rx="4.5" ry="2" fill="#e89d3c" transform="rotate(91 126.1 257.1)"/><ellipse cx="171.8" cy="333.1" rx="3.7" ry="1.9" fill="#f2bb5c" transform="rotate(179 171.8 333.1)"/><ellipse cx="207.2" cy="266.7" rx="4.6" ry="2.1" fill="#f4c36a" transform="rotate(49 207.2 266.7)"/><ellipse cx="134.8" cy="339.5" rx="4" ry="1.9" fill="#e3923a" transform="rotate(34 134.8 339.5)"/><ellipse cx="186.1" cy="323.1" rx="4.7" ry="1.8" fill="#fbe0a0" transform="rotate(152 186.1 323.1)"/><ellipse cx="179.7" cy="270.1" rx="4.1" ry="1.9" fill="#e3923a" transform="rotate(46 179.7 270.1)"/><ellipse cx="159.5" cy="194.2" rx="4.3" ry="1.7" fill="#e89d3c" transform="rotate(70 159.5 194.2)"/><ellipse cx="211.9" cy="247.9" rx="4.3" ry="1.7" fill="#f4c36a" transform="rotate(50 211.9 247.9)"/><ellipse cx="222.6" cy="270" rx="4.4" ry="1.6" fill="#e89d3c" transform="rotate(99 222.6 270)"/><ellipse cx="233.1" cy="176" rx="4.4" ry="1.7" fill="#f2bb5c" transform="rotate(106 233.1 176)"/><ellipse cx="199.9" cy="189.9" rx="4.7" ry="2" fill="#eeb050" transform="rotate(37 199.9 189.9)"/><ellipse cx="159.7" cy="269.3" rx="4.3" ry="1.7" fill="#f4c36a" transform="rotate(53 159.7 269.3)"/><ellipse cx="85.6" cy="260.2" rx="4.7" ry="1.9" fill="#f2bb5c" transform="rotate(170 85.6 260.2)"/><ellipse cx="226.6" cy="323.8" rx="3.6" ry="1.9" fill="#f2bb5c" transform="rotate(115 226.6 323.8)"/><ellipse cx="283.5" cy="219.5" rx="4.3" ry="1.7" fill="#e89d3c" transform="rotate(152 283.5 219.5)"/><ellipse cx="218.8" cy="237.9" rx="3.9" ry="1.7" fill="#f2bb5c" transform="rotate(145 218.8 237.9)"/><ellipse cx="129.8" cy="229.6" rx="4" ry="2.1" fill="#eeb050" transform="rotate(22 129.8 229.6)"/><ellipse cx="120.2" cy="312.4" rx="4.6" ry="1.8" fill="#f2bb5c" transform="rotate(9 120.2 312.4)"/><ellipse cx="104.5" cy="222.3" rx="4.4" ry="1.9" fill="#e89d3c" transform="rotate(106 104.5 222.3)"/><ellipse cx="138.4" cy="300.6" rx="4.7" ry="1.8" fill="#f4c36a" transform="rotate(68 138.4 300.6)"/><ellipse cx="104.8" cy="332.1" rx="4.9" ry="2.1" fill="#e3923a" transform="rotate(79 104.8 332.1)"/><ellipse cx="103.9" cy="199.8" rx="4" ry="1.6" fill="#f2bb5c" transform="rotate(18 103.9 199.8)"/><ellipse cx="273.9" cy="300.1" rx="3.6" ry="1.8" fill="#eeb050" transform="rotate(83 273.9 300.1)"/><ellipse cx="98" cy="240.6" rx="4.7" ry="2" fill="#eeb050" transform="rotate(179 98 240.6)"/><ellipse cx="285.3" cy="210.1" rx="4.3" ry="1.8" fill="#fbe0a0" transform="rotate(171 285.3 210.1)"/><ellipse cx="257.3" cy="284.5" rx="4.4" ry="1.9" fill="#fbe0a0" transform="rotate(6 257.3 284.5)"/><ellipse cx="205.3" cy="299.3" rx="4.6" ry="1.9" fill="#e3923a" transform="rotate(122 205.3 299.3)"/><ellipse cx="122.8" cy="190.8" rx="4.2" ry="2.1" fill="#f4c36a" transform="rotate(157 122.8 190.8)"/><ellipse cx="161.3" cy="296.2" rx="4.6" ry="1.9" fill="#e3923a" transform="rotate(76 161.3 296.2)"/><ellipse cx="190.3" cy="307.7" rx="4.8" ry="2" fill="#e3923a" transform="rotate(100 190.3 307.7)"/><ellipse cx="158" cy="257.2" rx="3.6" ry="1.7" fill="#fbe0a0" transform="rotate(6 158 257.2)"/><ellipse cx="218.9" cy="214" rx="3.7" ry="1.7" fill="#fbe0a0" transform="rotate(156 218.9 214)"/><ellipse cx="207.4" cy="186.6" rx="4.6" ry="1.7" fill="#e89d3c" transform="rotate(116 207.4 186.6)"/><ellipse cx="239.8" cy="343.8" rx="4.5" ry="1.7" fill="#e3923a" transform="rotate(149 239.8 343.8)"/><ellipse cx="238.7" cy="233.1" rx="3.9" ry="2.1" fill="#f2bb5c" transform="rotate(94 238.7 233.1)"/><ellipse cx="230" cy="231.7" rx="3.8" ry="1.8" fill="#f8d68a" transform="rotate(86 230 231.7)"/><ellipse cx="191" cy="285.8" rx="4.1" ry="1.9" fill="#e3923a" transform="rotate(64 191 285.8)"/><ellipse cx="136.6" cy="231.5" rx="4.1" ry="1.8" fill="#f2bb5c" transform="rotate(110 136.6 231.5)"/><ellipse cx="141.1" cy="223" rx="4.4" ry="2" fill="#e3923a" transform="rotate(71 141.1 223)"/><ellipse cx="183" cy="218.4" rx="4" ry="1.7" fill="#e89d3c" transform="rotate(143 183 218.4)"/><ellipse cx="180.8" cy="271.9" rx="3.7" ry="2" fill="#e89d3c" transform="rotate(1 180.8 271.9)"/><ellipse cx="125.5" cy="267.9" rx="3.7" ry="1.8" fill="#f4c36a" transform="rotate(119 125.5 267.9)"/><ellipse cx="279.1" cy="233.8" rx="3.6" ry="1.9" fill="#f2bb5c" transform="rotate(25 279.1 233.8)"/><ellipse cx="198.1" cy="353.2" rx="4.6" ry="1.8" fill="#fbe0a0" transform="rotate(8 198.1 353.2)"/><ellipse cx="134.9" cy="313.4" rx="3.9" ry="1.9" fill="#f2bb5c" transform="rotate(163 134.9 313.4)"/><ellipse cx="275.3" cy="236" rx="3.8" ry="1.9" fill="#f8d68a" transform="rotate(115 275.3 236)"/><ellipse cx="94" cy="280.5" rx="4.9" ry="1.8" fill="#fbe0a0" transform="rotate(134 94 280.5)"/><ellipse cx="223" cy="242.3" rx="4.2" ry="1.9" fill="#e3923a" transform="rotate(30 223 242.3)"/><ellipse cx="275.7" cy="324.4" rx="4.4" ry="1.6" fill="#f2bb5c" transform="rotate(12 275.7 324.4)"/><ellipse cx="223" cy="307.3" rx="3.7" ry="1.7" fill="#f2bb5c" transform="rotate(54 223 307.3)"/><ellipse cx="268.7" cy="319.6" rx="4" ry="1.7" fill="#f2bb5c" transform="rotate(89 268.7 319.6)"/><ellipse cx="175.3" cy="320.1" rx="3.9" ry="1.8" fill="#f4c36a" transform="rotate(133 175.3 320.1)"/><ellipse cx="209.3" cy="288.3" rx="4.2" ry="2.1" fill="#fbe0a0" transform="rotate(72 209.3 288.3)"/><ellipse cx="231.3" cy="252.2" rx="4.9" ry="2.1" fill="#f8d68a" transform="rotate(100 231.3 252.2)"/><ellipse cx="193.1" cy="334.1" rx="4.7" ry="1.8" fill="#f4c36a" transform="rotate(153 193.1 334.1)"/><ellipse cx="228.7" cy="353.2" rx="4.4" ry="2" fill="#eeb050" transform="rotate(50 228.7 353.2)"/><ellipse cx="252.8" cy="227.2" rx="4.1" ry="1.8" fill="#e3923a" transform="rotate(69 252.8 227.2)"/><ellipse cx="103.6" cy="210.6" rx="4" ry="1.7" fill="#eeb050" transform="rotate(2 103.6 210.6)"/><ellipse cx="284" cy="308.7" rx="4.5" ry="1.8" fill="#fbe0a0" transform="rotate(40 284 308.7)"/><ellipse cx="235.5" cy="224.2" rx="4.8" ry="1.7" fill="#eeb050" transform="rotate(170 235.5 224.2)"/><ellipse cx="127.5" cy="206" rx="4.4" ry="1.8" fill="#fbe0a0" transform="rotate(173 127.5 206)"/><ellipse cx="209.8" cy="346" rx="3.7" ry="2" fill="#f4c36a" transform="rotate(43 209.8 346)"/><ellipse cx="207.4" cy="233.6" rx="4.7" ry="1.7" fill="#eeb050" transform="rotate(66 207.4 233.6)"/><ellipse cx="241.5" cy="350" rx="4.3" ry="2" fill="#e3923a" transform="rotate(24 241.5 350)"/><ellipse cx="265.5" cy="319.9" rx="3.9" ry="1.9" fill="#f8d68a" transform="rotate(168 265.5 319.9)"/><ellipse cx="106.2" cy="320.9" rx="3.7" ry="2.1" fill="#eeb050" transform="rotate(148 106.2 320.9)"/><ellipse cx="151.2" cy="285.5" rx="5" ry="2" fill="#e3923a" transform="rotate(173 151.2 285.5)"/><ellipse cx="127.6" cy="317.6" rx="4.8" ry="1.8" fill="#e89d3c" transform="rotate(4 127.6 317.6)"/><ellipse cx="226.3" cy="202.5" rx="3.8" ry="1.9" fill="#f2bb5c" transform="rotate(123 226.3 202.5)"/><ellipse cx="177.9" cy="212.6" rx="4.6" ry="1.9" fill="#eeb050" transform="rotate(150 177.9 212.6)"/><ellipse cx="289.9" cy="287.2" rx="4.1" ry="2" fill="#e3923a" transform="rotate(98 289.9 287.2)"/><ellipse cx="223.4" cy="321.1" rx="4.2" ry="2" fill="#f4c36a" transform="rotate(54 223.4 321.1)"/><ellipse cx="263.8" cy="214.6" rx="4.7" ry="2" fill="#fbe0a0" transform="rotate(105 263.8 214.6)"/><ellipse cx="177.7" cy="179.7" rx="4.5" ry="1.7" fill="#f2bb5c" transform="rotate(40 177.7 179.7)"/><ellipse cx="244.6" cy="301.4" rx="3.8" ry="1.9" fill="#e3923a" transform="rotate(43 244.6 301.4)"/><ellipse cx="85.2" cy="313.6" rx="4.2" ry="1.9" fill="#f2bb5c" transform="rotate(28 85.2 313.6)"/><ellipse cx="218" cy="299.1" rx="3.9" ry="1.6" fill="#f8d68a" transform="rotate(9 218 299.1)"/><ellipse cx="286.4" cy="251.6" rx="4.3" ry="1.7" fill="#e3923a" transform="rotate(134 286.4 251.6)"/><ellipse cx="162.5" cy="266" rx="3.9" ry="1.9" fill="#eeb050" transform="rotate(127 162.5 266)"/><ellipse cx="183.8" cy="208.3" rx="3.9" ry="1.9" fill="#f4c36a" transform="rotate(166 183.8 208.3)"/><ellipse cx="216.2" cy="287.4" rx="4.8" ry="1.8" fill="#e89d3c" transform="rotate(140 216.2 287.4)"/><ellipse cx="248.1" cy="335.9" rx="4" ry="1.9" fill="#f4c36a" transform="rotate(15 248.1 335.9)"/><ellipse cx="130.7" cy="332.8" rx="4.6" ry="1.8" fill="#eeb050" transform="rotate(150 130.7 332.8)"/><ellipse cx="116.9" cy="283.8" rx="4.7" ry="1.8" fill="#f2bb5c" transform="rotate(2 116.9 283.8)"/><ellipse cx="219.5" cy="307.2" rx="4.7" ry="2.1" fill="#f8d68a" transform="rotate(24 219.5 307.2)"/><ellipse cx="200.2" cy="256.8" rx="4.3" ry="1.6" fill="#e89d3c" transform="rotate(157 200.2 256.8)"/><ellipse cx="133.8" cy="280.8" rx="4" ry="1.8" fill="#f4c36a" transform="rotate(71 133.8 280.8)"/><ellipse cx="228.8" cy="342.1" rx="4.9" ry="1.9" fill="#eeb050" transform="rotate(11 228.8 342.1)"/><ellipse cx="244.2" cy="258.1" rx="4.6" ry="1.8" fill="#f4c36a" transform="rotate(23 244.2 258.1)"/><ellipse cx="149.3" cy="276.6" rx="3.6" ry="1.6" fill="#f8d68a" transform="rotate(75 149.3 276.6)"/><ellipse cx="124.3" cy="190.9" rx="4.7" ry="1.8" fill="#e89d3c" transform="rotate(21 124.3 190.9)"/><ellipse cx="179.1" cy="348.5" rx="4.5" ry="2.1" fill="#f2bb5c" transform="rotate(63 179.1 348.5)"/><ellipse cx="147.6" cy="209.6" rx="4.9" ry="1.8" fill="#f2bb5c" transform="rotate(167 147.6 209.6)"/><ellipse cx="83.2" cy="261.1" rx="3.8" ry="2.1" fill="#f8d68a" transform="rotate(12 83.2 261.1)"/><ellipse cx="292.8" cy="264.4" rx="3.7" ry="1.6" fill="#f4c36a" transform="rotate(86 292.8 264.4)"/><ellipse cx="224.4" cy="278.7" rx="4.5" ry="1.8" fill="#f8d68a" transform="rotate(15 224.4 278.7)"/><ellipse cx="177.7" cy="254.2" rx="4.7" ry="1.8" fill="#e3923a" transform="rotate(124 177.7 254.2)"/><ellipse cx="140" cy="233.9" rx="4.4" ry="2.1" fill="#fbe0a0" transform="rotate(23 140 233.9)"/><ellipse cx="249.5" cy="228.9" rx="4.5" ry="1.8" fill="#e89d3c" transform="rotate(115 249.5 228.9)"/><ellipse cx="172.7" cy="306.2" rx="4.2" ry="1.8" fill="#f8d68a" transform="rotate(130 172.7 306.2)"/><ellipse cx="132.1" cy="208.3" rx="3.7" ry="1.7" fill="#f8d68a" transform="rotate(110 132.1 208.3)"/><ellipse cx="127.4" cy="270.5" rx="3.9" ry="1.8" fill="#fbe0a0" transform="rotate(83 127.4 270.5)"/><ellipse cx="209.5" cy="299.2" rx="4.4" ry="1.9" fill="#f8d68a" transform="rotate(141 209.5 299.2)"/><ellipse cx="230.1" cy="186.8" rx="4.2" ry="1.7" fill="#e3923a" transform="rotate(99 230.1 186.8)"/><ellipse cx="170.3" cy="249.5" rx="4.7" ry="1.7" fill="#fbe0a0" transform="rotate(12 170.3 249.5)"/><ellipse cx="197.8" cy="253.1" rx="4.7" ry="1.9" fill="#f2bb5c" transform="rotate(117 197.8 253.1)"/><ellipse cx="277.2" cy="238.3" rx="3.8" ry="1.7" fill="#f8d68a" transform="rotate(50 277.2 238.3)"/><ellipse cx="225.3" cy="186" rx="4.2" ry="1.6" fill="#fbe0a0" transform="rotate(70 225.3 186)"/><ellipse cx="120.2" cy="260" rx="4.1" ry="1.9" fill="#f8d68a" transform="rotate(58 120.2 260)"/><ellipse cx="89.7" cy="292.1" rx="4.7" ry="2" fill="#f4c36a" transform="rotate(0 89.7 292.1)"/><ellipse cx="169.8" cy="275.4" rx="3.7" ry="2" fill="#e3923a" transform="rotate(100 169.8 275.4)"/><ellipse cx="105.7" cy="331.3" rx="4.3" ry="2.1" fill="#f4c36a" transform="rotate(113 105.7 331.3)"/><ellipse cx="187.4" cy="263.6" rx="4.2" ry="1.7" fill="#fbe0a0" transform="rotate(116 187.4 263.6)"/><ellipse cx="190.2" cy="260.8" rx="3.9" ry="2" fill="#f4c36a" transform="rotate(32 190.2 260.8)"/><ellipse cx="117" cy="232.7" rx="4.3" ry="1.9" fill="#e89d3c" transform="rotate(137 117 232.7)"/><ellipse cx="153.2" cy="199.7" rx="3.6" ry="1.7" fill="#f2bb5c" transform="rotate(172 153.2 199.7)"/><ellipse cx="137" cy="279.4" rx="3.7" ry="2" fill="#f2bb5c" transform="rotate(119 137 279.4)"/><ellipse cx="189.5" cy="202.8" rx="4.2" ry="1.7" fill="#eeb050" transform="rotate(41 189.5 202.8)"/><ellipse cx="95.5" cy="309.7" rx="4.6" ry="2" fill="#e89d3c" transform="rotate(53 95.5 309.7)"/><ellipse cx="84.2" cy="266.3" rx="3.6" ry="2.1" fill="#f2bb5c" transform="rotate(180 84.2 266.3)"/><ellipse cx="197.5" cy="304.4" rx="5" ry="1.8" fill="#f4c36a" transform="rotate(108 197.5 304.4)"/><ellipse cx="277.8" cy="267" rx="4.1" ry="2" fill="#f2bb5c" transform="rotate(63 277.8 267)"/><ellipse cx="234.4" cy="201.5" rx="4.7" ry="2" fill="#f4c36a" transform="rotate(72 234.4 201.5)"/><ellipse cx="193.5" cy="295.8" rx="3.7" ry="2" fill="#e3923a" transform="rotate(48 193.5 295.8)"/><ellipse cx="133.2" cy="262.8" rx="4.3" ry="2.1" fill="#eeb050" transform="rotate(131 133.2 262.8)"/>
+<circle cx="259.9" cy="264.5" r="4" fill="#8a7832"/><circle cx="258.6" cy="263.2" r="1.3" fill="#b8a85c"/><circle cx="168.6" cy="227.8" r="4" fill="#7b6a2a"/><circle cx="167.3" cy="226.5" r="1.3" fill="#b8a85c"/><circle cx="250.7" cy="272.4" r="4.2" fill="#8a7832"/><circle cx="249.3" cy="271" r="1.4" fill="#b8a85c"/><circle cx="207.3" cy="206.9" r="4.3" fill="#8a7832"/><circle cx="205.9" cy="205.5" r="1.4" fill="#b8a85c"/><circle cx="94.8" cy="259.7" r="3.9" fill="#7b6a2a"/><circle cx="93.5" cy="258.4" r="1.3" fill="#b8a85c"/><circle cx="264.2" cy="298.6" r="3.9" fill="#8a7832"/><circle cx="262.9" cy="297.4" r="1.3" fill="#b8a85c"/><circle cx="169.6" cy="241.5" r="3.7" fill="#8a7832"/><circle cx="168.4" cy="240.3" r="1.2" fill="#b8a85c"/><circle cx="239.1" cy="208.5" r="3.9" fill="#7b6a2a"/><circle cx="237.8" cy="207.2" r="1.3" fill="#b8a85c"/><circle cx="156.2" cy="190.5" r="3.4" fill="#7b6a2a"/><circle cx="155" cy="189.4" r="1.1" fill="#b8a85c"/><circle cx="253.7" cy="267.9" r="3.7" fill="#6c5d24"/><circle cx="252.5" cy="266.7" r="1.2" fill="#b8a85c"/><circle cx="213.1" cy="298.6" r="4.2" fill="#7b6a2a"/><circle cx="211.7" cy="297.2" r="1.4" fill="#b8a85c"/><circle cx="143.3" cy="324.3" r="4" fill="#6c5d24"/><circle cx="141.9" cy="323" r="1.3" fill="#b8a85c"/><circle cx="229.9" cy="274.4" r="4.3" fill="#6c5d24"/><circle cx="228.5" cy="272.9" r="1.4" fill="#b8a85c"/><circle cx="151.6" cy="311.8" r="4" fill="#8a7832"/><circle cx="150.3" cy="310.5" r="1.3" fill="#b8a85c"/><circle cx="195.3" cy="277" r="3.7" fill="#8a7832"/><circle cx="194.1" cy="275.8" r="1.2" fill="#b8a85c"/><circle cx="234.8" cy="316.3" r="4.4" fill="#8a7832"/><circle cx="233.3" cy="314.8" r="1.5" fill="#b8a85c"/><circle cx="202.7" cy="272.2" r="4.2" fill="#8a7832"/><circle cx="201.3" cy="270.8" r="1.4" fill="#b8a85c"/>
+<rect x="188.8" y="313.7" width="6.6" height="2.6" rx="1.2" fill="#c8372d" transform="rotate(151 188.8 313.7)"/><rect x="137.2" y="291.6" width="6.9" height="2.8" rx="1.2" fill="#c8372d" transform="rotate(111 137.2 291.6)"/><rect x="168.3" y="306.9" width="5.8" height="2.6" rx="1.2" fill="#c8372d" transform="rotate(84 168.3 306.9)"/><rect x="232.3" y="313" width="6.9" height="3" rx="1.2" fill="#c8372d" transform="rotate(103 232.3 313)"/><rect x="157.5" y="224.8" width="4.1" height="2.7" rx="1.2" fill="#c8372d" transform="rotate(150 157.5 224.8)"/><rect x="138.3" y="202.7" width="5.2" height="2.7" rx="1.2" fill="#c8372d" transform="rotate(110 138.3 202.7)"/><rect x="191.3" y="270.4" width="4.9" height="2.8" rx="1.2" fill="#c8372d" transform="rotate(44 191.3 270.4)"/><rect x="237.4" y="221.2" width="6.5" height="2.5" rx="1.2" fill="#c8372d" transform="rotate(149 237.4 221.2)"/>
+<circle cx="150" cy="236" r="6.4" fill="#6f8c2a"/><circle cx="150" cy="236" r="6.4" fill="none" stroke="#4f6a1c" stroke-width="1.2"/><circle cx="150" cy="236" r="2.7" fill="#d2402f"/>
+<circle cx="214" cy="300" r="6.4" fill="#6f8c2a"/><circle cx="214" cy="300" r="6.4" fill="none" stroke="#4f6a1c" stroke-width="1.2"/><circle cx="214" cy="300" r="2.7" fill="#d2402f"/>
+<circle cx="176" cy="318" r="6.4" fill="#6f8c2a"/><circle cx="176" cy="318" r="6.4" fill="none" stroke="#4f6a1c" stroke-width="1.2"/><circle cx="176" cy="318" r="2.7" fill="#d2402f"/>
+<circle cx="228" cy="236" r="6.4" fill="#6f8c2a"/><circle cx="228" cy="236" r="6.4" fill="none" stroke="#4f6a1c" stroke-width="1.2"/><circle cx="228" cy="236" r="2.7" fill="#d2402f"/>
+<path d="M273 208.8C281.6 221 281.9 239.3 281.6 255.2C281.2 271 280.4 290.5 270.7 304C261 317.6 240.5 329.2 223.4 336.5C206.3 343.7 185.3 348.7 168 347.7C150.7 346.6 133.5 338.8 119.3 330.1C105.1 321.3 86.7 309.3 82.8 295.2C78.8 281.1 89 261.3 95.5 245.3C101.9 229.4 107.8 210.1 121.3 199.3C134.7 188.5 157.9 183.3 176 180.4C194.2 177.6 214.1 177.4 230.3 182.1C246.5 186.8 264.5 196.7 273 208.8Z" fill="url(#pl-rice-shade)"/></g>
+<path d="M273 208.8C281.6 221 281.9 239.3 281.6 255.2C281.2 271 280.4 290.5 270.7 304C261 317.6 240.5 329.2 223.4 336.5C206.3 343.7 185.3 348.7 168 347.7C150.7 346.6 133.5 338.8 119.3 330.1C105.1 321.3 86.7 309.3 82.8 295.2C78.8 281.1 89 261.3 95.5 245.3C101.9 229.4 107.8 210.1 121.3 199.3C134.7 188.5 157.9 183.3 176 180.4C194.2 177.6 214.1 177.4 230.3 182.1C246.5 186.8 264.5 196.7 273 208.8Z" fill="none" stroke="#b9741f" stroke-width="1.5" opacity=".45"/></g>
+<g class="pl-cilantro"><g transform="translate(170 214) rotate(10) scale(1)"><path d="M0 0l9 16" stroke="#4d8a2a" stroke-width="1.4" fill="none"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#3f8a2a"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#57a336" transform="translate(9 7) rotate(70)"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#4a9230" transform="translate(-4 9) rotate(-60) scale(.85)"/></g><g transform="translate(208 276) rotate(140) scale(0.9)"><path d="M0 0l9 16" stroke="#4d8a2a" stroke-width="1.4" fill="none"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#3f8a2a"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#57a336" transform="translate(9 7) rotate(70)"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#4a9230" transform="translate(-4 9) rotate(-60) scale(.85)"/></g><g transform="translate(146 288) rotate(230) scale(0.8)"><path d="M0 0l9 16" stroke="#4d8a2a" stroke-width="1.4" fill="none"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#3f8a2a"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#57a336" transform="translate(9 7) rotate(70)"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#4a9230" transform="translate(-4 9) rotate(-60) scale(.85)"/></g></g>
+<g class="pl-pernil">
+<path d="M279.9 228.1C269.2 226.4 255.2 226.3 248.3 220.7C241.4 215.2 239.9 204 238.5 194.8C237 185.6 235.4 174.8 239.6 165.3C243.7 155.8 253.4 145 263.3 137.6C273.2 130.3 287 123.6 299 121C311 118.4 324.8 119.3 335.2 122C345.5 124.7 354.1 130.7 361.2 137.1C368.4 143.4 376.7 151.2 378.1 160C379.6 168.9 375.3 180.8 370.1 190.2C364.9 199.7 356.6 210 347 216.8C337.4 223.6 323.7 228.9 312.5 230.8C301.3 232.7 290.6 229.8 279.9 228.1Z" fill="#5a2a12" opacity=".22" filter="url(#pl-soft)" transform="translate(3 6)"/>
+<path d="M239 150.1C240.7 145.7 246 141.6 249.6 137.2C253.2 132.7 256.3 124.7 260.6 123.5C264.9 122.4 271.7 128.5 275.6 130.1C279.5 131.7 281.1 132.1 284.1 133.1C287.1 134 291.4 133.8 293.6 135.7C295.8 137.6 298 141.3 297.4 144.5C296.8 147.6 292.4 151.3 290.2 154.4C288 157.6 286.7 159.5 284.1 163.4C281.5 167.2 278 176.6 274.7 177.5C271.3 178.4 266.8 170.7 263.8 168.6C260.9 166.4 261 165.2 256.9 164.4C252.8 163.7 242.4 166.4 239.4 164C236.4 161.6 237.3 154.6 239 150.1Z" fill="url(#pl-pork)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M257.3 149.6Q263.8 145 267.5 138" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M268.4 163.8Q277 159.3 280.3 150.2" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M258.5 150Q263.8 138.7 274.3 131.8" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M276.5 154Q285.3 150.7 287.3 141.6" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M260.9 167.2Q269.5 161.3 274.1 152" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M264 166.3Q269.3 154.5 280.3 147.5" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M270.7 149.5Q280.6 144.7 284 134.1" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M264.4 162Q267.3 153.6 275.2 149.6" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M358.6 130.1C361.1 134.5 365.3 139.9 364.6 143.7C363.9 147.6 358.4 151.2 354.5 153.5C350.6 155.8 345.5 156.2 341 157.5C336.5 158.7 332.1 161.5 327.4 161C322.8 160.6 318.2 156.9 313.1 154.8C307.9 152.7 297.9 151.8 296.3 148.6C294.7 145.4 303.9 139.8 303.6 135.6C303.2 131.4 293.1 126 294.3 123.6C295.4 121.3 306.8 124.3 310.3 121.6C313.8 118.8 311.7 108.2 315.3 107.1C318.9 106 326.1 113.3 331.8 115C337.6 116.7 345.3 114.8 349.8 117.4C354.3 119.9 356.1 125.7 358.6 130.1Z" fill="url(#pl-pork-2)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M304.7 125.8Q316 122.5 327.1 126.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M313.9 137.5Q325.7 142.5 337.8 138.1" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M310.1 144.3Q322.1 140.1 333.8 144.9" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M314.5 125.9Q323.6 128.6 332.9 126.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M311.5 138.2Q324.3 137.3 337.1 138.8" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M323.2 132.5Q335.8 128.1 348.2 133" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M302.7 128.6Q313.8 132.6 325 129.1" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M318.4 135.6Q328.3 133.8 338 136.1" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M368.9 150.9C373 152.4 377.1 159.7 378.1 164.4C379.2 169.1 375.4 174.6 375 179.2C374.6 183.9 377.7 189.6 375.8 192.3C373.9 195.1 367.1 194.4 363.7 195.6C360.2 196.8 358.6 198.3 355.3 199.5C352 200.8 346.9 204.4 344 203C341.2 201.6 341.8 194.1 338 191C334.3 187.9 323.7 188.2 321.3 184.5C318.9 180.9 320.8 172.4 323.5 169C326.2 165.6 334.4 166.6 337.6 164.1C340.8 161.6 340 155.5 342.7 154.1C345.4 152.6 349.3 155.9 353.6 155.4C358 154.9 364.8 149.4 368.9 150.9Z" fill="url(#pl-pork)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M353.8 170.4Q359.9 180.4 365.5 190.8" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M352.6 178.6Q354.8 187.5 361.4 193.9" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M354.7 177.7Q360.4 183 362.1 190.7" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M350.9 175.7Q354.8 187.1 362.7 196.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M355.4 159.3Q356.2 170.3 365.3 176.5" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M345.7 170.5Q347.3 182.6 356.9 190.2" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M341.4 170.2Q345.3 178.3 350.3 185.8" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M341.7 170.9Q350.8 177.1 351.6 188.1" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M313.7 176.6C317.4 178.5 315.4 184.5 319.9 186.8C324.3 189.1 338.7 187.9 340.2 190.7C341.7 193.5 330.7 199.1 328.7 203.6C326.7 208 331.3 214.4 328.1 217.4C325 220.4 315.6 219.4 309.7 221.4C303.8 223.3 298.9 228.1 292.8 229.1C286.7 230.1 276.4 230.3 273.2 227.4C269.9 224.4 273.7 215.7 273.2 211.4C272.6 207.1 271.1 205.5 269.9 201.7C268.7 197.9 264.5 192.8 265.9 188.6C267.2 184.3 272.8 178.4 278.1 176.1C283.4 173.9 291.9 175 297.9 175.1C303.8 175.2 310.1 174.6 313.7 176.6Z" fill="url(#pl-pork)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M289.6 207Q301.2 200 314.7 200.1" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M275.8 199Q290.7 198.3 303.9 191.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M298.6 194.2Q311.1 192.9 322.7 187.6" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M284.4 207.5Q297.7 198.9 313.5 199.5" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M273.8 207Q288 207.3 300.1 199.7" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M282.3 209.2Q293.4 204.1 305.6 202.8" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M282.9 203.8Q297.3 198.7 312.3 195.7" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M276.3 210.4Q286.1 211.6 294 205.6" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M267.5 172C271 174.1 274.2 179.7 275.9 183.8C277.7 187.9 278.1 192.7 278 196.5C277.8 200.4 276.7 204 275.1 207C273.5 210 271.3 212.5 268.6 214.4C265.9 216.3 262.2 219.2 258.8 218.4C255.5 217.6 252.5 211.3 248.6 209.4C244.6 207.5 237.2 209.5 235.3 206.8C233.3 204.1 236.9 197.1 236.7 193.2C236.5 189.3 233.3 185.7 234.1 183.3C234.9 180.9 239.6 181 241.4 178.9C243.3 176.7 242.9 171.6 245.2 170.2C247.4 168.9 251.2 170.6 255 170.9C258.7 171.2 264 169.8 267.5 172Z" fill="url(#pl-pork)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M248.7 191.2Q249.5 199.7 257.6 202.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M251.4 180.4Q255.5 187.5 261.6 192.9" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M241.2 188.3Q245.6 198 254.2 204.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M253.8 176.6Q258.1 185.2 265.7 191.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M255.1 183.6Q263.9 190.6 269 200.7" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M251.5 186.8Q255 193.8 261.1 198.6" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M243 178.2Q245.6 186.8 253.5 191.1" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M236.7 190.6Q241.8 199 248.9 205.6" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M313.7 189.3C309.3 186.7 306.1 187.6 301.3 185.6C296.4 183.5 286.8 180.4 284.5 176.8C282.2 173.1 286.2 167.5 287.4 163.6C288.7 159.7 289.6 156.1 292 153.2C294.4 150.3 297.7 145.8 301.9 146.2C306 146.5 312.6 153.3 317 155C321.3 156.8 324 155.3 327.8 156.6C331.7 157.9 338.3 160 340.2 162.8C342 165.7 337.7 169.7 338.9 173.6C340.1 177.4 347 182.5 347.3 186.1C347.5 189.7 343.4 192.9 340.2 195.4C337 198 332.4 202.4 328 201.4C323.6 200.4 318.2 191.9 313.7 189.3Z" fill="url(#pl-pork-2)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M311.5 166.5Q320.7 168.6 329.3 172.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M303.9 163Q314.6 167.4 325.8 170.2" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M307.6 159.9Q317.8 161 326.7 166.2" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M299.5 168Q307 175.6 317.6 173.8" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M314.3 173.2Q326.1 177.2 338.1 180.9" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M312.5 161.5Q325.8 161.7 336.6 169.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M301.9 165.4Q312.2 164.7 320.2 171.4" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M304 173.3Q312.2 172.9 318.6 178.1" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M279.5 202.6C276.9 202.6 276 194.2 273.2 192.1C270.4 189.9 265.2 192.3 262.8 189.8C260.5 187.3 258.7 181.7 259 177.1C259.2 172.6 262.6 167.8 264.4 162.7C266.3 157.7 267 150.5 270.1 147C273.1 143.5 279.2 140.9 282.7 141.8C286.1 142.7 286.8 151.7 290.5 152.3C294.3 152.9 303.4 143.7 305.1 145.6C306.9 147.4 301.9 158.7 300.9 163.4C299.9 168.1 299.9 170.1 299.3 173.6C298.7 177.2 299 181.8 297.3 184.9C295.6 187.9 292.2 189 289.3 192C286.3 194.9 282.2 202.6 279.5 202.6Z" fill="url(#pl-pork)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M268.8 186.6Q272.1 180.4 275.5 174.2" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M290.6 184.3Q296.3 175.4 300.6 165.8" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M281.1 189.6Q288.9 181.3 291.5 170.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M279.9 180.8Q283.3 172 288.8 164.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M287.9 181.4Q290.4 169.9 298.6 161.5" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M289.1 175Q296.2 169.7 296.7 160.8" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M269.2 171.8Q270.7 161.3 278.7 154.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M280.9 184.9Q290.6 175.9 292.8 162.9" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<path d="M357.6 211.1C356.8 213.9 358 215.6 357.2 217.7C356.5 219.7 354.9 221.2 353.2 223.3C351.5 225.5 350.2 229.1 347.2 230.6C344.1 232.1 339.2 232.6 334.9 232.3C330.5 232 322.8 231.4 321 228.7C319.2 226 323.5 219.2 323.9 216.1C324.2 212.9 323.6 212.1 323.1 209.7C322.6 207.3 320.6 204.3 321 201.5C321.5 198.7 323.1 194.8 326 192.9C328.9 191.1 334.1 190.2 338.4 190.2C342.8 190.1 348.3 190.9 352.2 192.7C356.1 194.4 361.1 197.8 362 200.9C362.9 204 358.4 208.3 357.6 211.1Z" fill="url(#pl-pork)" stroke="#5c2810" stroke-width="2.2" stroke-opacity=".55"/>
+<g fill="none" stroke-linecap="round"><path d="M333 208.4Q341 212.4 349.7 214.4" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M333.6 217.2Q341.5 217.3 347.8 222.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M335.8 201Q344 207.9 354.7 207.7" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M321.1 209.3Q330.1 210.9 338.1 215.3" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M340.4 216.7Q347.9 220.3 356 222.3" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M338.9 205.5Q350.3 205.4 359 212.7" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/><path d="M343.4 214.9Q348.6 221.4 356.6 219.6" stroke="#7a3a19" stroke-width="1.4" opacity="0.55"/><path d="M322.8 201.4Q332.7 203.6 341.7 208.2" stroke="#f0bf8c" stroke-width="1.8" opacity="0.75"/></g>
+<g fill="none" stroke-linecap="round"><path d="M318.6 160.8Q322.7 160.6 333.9 156" stroke="#93461b" stroke-width="3.4"/><path d="M284.3 188.6Q298.7 188 307.2 191.7" stroke="#d0803f" stroke-width="2.6"/><path d="M324.4 148.1Q332.5 138.3 338.4 136.3" stroke="#eaa86c" stroke-width="3.2"/><path d="M305.6 197.7Q314.6 188.2 320.9 186.2" stroke="#eaa86c" stroke-width="2.9"/><path d="M336.2 221.7Q343 220.9 355.3 216.4" stroke="#eaa86c" stroke-width="2.8"/><path d="M319.9 186.2Q324.8 192 336.7 191.3" stroke="#b45f26" stroke-width="2.2"/><path d="M295 187Q302.8 193.5 308.9 192.1" stroke="#b45f26" stroke-width="2.9"/><path d="M242.8 149.9Q255.9 149.5 261.4 157" stroke="#eaa86c" stroke-width="2.4"/><path d="M333.3 173Q340.3 172.9 350.5 180" stroke="#b45f26" stroke-width="2.2"/><path d="M310.9 191.2Q322 189.1 325.9 186.2" stroke="#b45f26" stroke-width="2.1"/><path d="M345.8 191.5Q348.9 185.9 355.1 183.3" stroke="#b45f26" stroke-width="3.3"/><path d="M257.2 161.7Q267.3 156.1 271.8 143.7" stroke="#eaa86c" stroke-width="2.3"/><path d="M306.3 162Q317.2 164.3 322.9 162.7" stroke="#eaa86c" stroke-width="2.6"/><path d="M254.5 145.1Q266.7 140.5 276.6 137.2" stroke="#93461b" stroke-width="3.3"/><path d="M294.8 130.2Q301.9 130.7 304.5 125.5" stroke="#b45f26" stroke-width="2.5"/><path d="M307 186.3Q313.3 188.3 318 188.3" stroke="#eaa86c" stroke-width="2.7"/><path d="M380.6 162.7Q391.5 167 397.3 166.2" stroke="#eaa86c" stroke-width="2.1"/><path d="M306 155.1Q312.6 152.5 313.8 148" stroke="#93461b" stroke-width="2.1"/><path d="M264.2 201.1Q276.1 195.9 281.9 190.1" stroke="#b45f26" stroke-width="3.4"/><path d="M274 172.4Q286.3 175.6 292.5 174.2" stroke="#d0803f" stroke-width="3.5"/><path d="M267.7 156.6Q277.2 158.3 280.5 152.1" stroke="#b45f26" stroke-width="2.9"/><path d="M243 165.1Q255.2 162.4 259.8 165" stroke="#d0803f" stroke-width="2.7"/><path d="M248.6 172.2Q255.2 164.5 265.8 163.8" stroke="#eaa86c" stroke-width="2.9"/><path d="M286.7 162.6Q295.5 159.8 300.2 164.5" stroke="#eaa86c" stroke-width="2.5"/><path d="M292.2 168.8Q297.7 168.2 305.7 167.5" stroke="#eaa86c" stroke-width="3.1"/><path d="M364.4 173.8Q368.6 170.7 376.9 160" stroke="#b45f26" stroke-width="3.1"/><path d="M249.8 199.8Q258.6 206.1 267.3 206.2" stroke="#b45f26" stroke-width="2.8"/><path d="M283.7 158.1Q294.7 156.5 298.5 148.3" stroke="#d0803f" stroke-width="3.4"/><path d="M310.5 195.5Q317.2 200.9 323.7 200.4" stroke="#eaa86c" stroke-width="2.6"/><path d="M332.7 177.9Q338.2 179 343.8 180.7" stroke="#d0803f" stroke-width="2.5"/><path d="M324.2 146.1Q332.3 145.7 335.1 147.4" stroke="#d0803f" stroke-width="3.4"/><path d="M277.1 165.9Q289.7 163.4 297.9 164.5" stroke="#b45f26" stroke-width="3.5"/><path d="M269.7 183.8Q277.8 183.2 279.3 178.5" stroke="#eaa86c" stroke-width="2.6"/><path d="M284.6 213.7Q297.6 216.4 307.5 214.3" stroke="#93461b" stroke-width="3"/><path d="M318 171.5Q324.7 162.1 332 160.3" stroke="#b45f26" stroke-width="2.7"/><path d="M293.1 198.4Q306.1 201.6 314.9 204.7" stroke="#93461b" stroke-width="2.9"/><path d="M287.3 179.6Q295.6 178.7 301.6 182" stroke="#eaa86c" stroke-width="2.6"/><path d="M305.2 197.4Q308.1 198.4 315.9 197" stroke="#93461b" stroke-width="2.7"/><path d="M331.7 223.8Q334.1 221.4 341.8 215" stroke="#eaa86c" stroke-width="2.4"/><path d="M349.8 179.4Q357.7 182 361.5 181.7" stroke="#93461b" stroke-width="3.5"/><path d="M273.6 187.9Q279.6 189.2 290.2 188.9" stroke="#b45f26" stroke-width="3.1"/><path d="M323.1 125.5Q330.3 122.9 342.1 113.8" stroke="#b45f26" stroke-width="3.3"/><path d="M283.2 225.1Q293.2 220.4 298 215.5" stroke="#93461b" stroke-width="2"/><path d="M283.1 145.7Q289.4 148.2 300.6 147" stroke="#d0803f" stroke-width="3.2"/><path d="M245.9 159.6Q254.8 155.5 264.3 157.7" stroke="#b45f26" stroke-width="2.8"/><path d="M329.6 204.2Q341.8 202.4 350.1 193.4" stroke="#d0803f" stroke-width="3.1"/></g>
+<path d="M325.2 106.3C330.4 106 346 109.3 348.1 111C350.2 112.7 350.3 121.9 348.2 124.8C346.1 127.8 330 141.7 325.1 143C320.2 144.4 299.6 140.6 294.6 139.7C289.6 138.8 270.7 135.1 270.5 132.8C270.2 130.5 286.9 117 291.9 114.5C296.9 112.1 320.1 106.7 325.2 106.3Z" fill="url(#pl-crack)" stroke="#6b2e0c" stroke-width="2"/><circle cx="289.4" cy="116.9" r="2.9" fill="#f8cf86" opacity=".9"/><circle cx="288.5" cy="115.9" r="1" fill="#fff" opacity=".75"/><circle cx="296.5" cy="130.9" r="1.7" fill="#f8cf86" opacity=".9"/><circle cx="296" cy="130.3" r="0.6" fill="#fff" opacity=".75"/><circle cx="337.5" cy="131.7" r="2.1" fill="#f8cf86" opacity=".9"/><circle cx="336.9" cy="130.9" r="0.7" fill="#fff" opacity=".75"/><circle cx="326.1" cy="119.4" r="1.9" fill="#f8cf86" opacity=".9"/><circle cx="325.5" cy="118.7" r="0.7" fill="#fff" opacity=".75"/><circle cx="323.8" cy="127.2" r="3.1" fill="#f8cf86" opacity=".9"/><circle cx="322.8" cy="126.1" r="1.1" fill="#fff" opacity=".75"/><circle cx="305.3" cy="115.1" r="1.2" fill="#f8cf86" opacity=".9"/><circle cx="304.9" cy="114.6" r="0.4" fill="#fff" opacity=".75"/><circle cx="329.2" cy="126.3" r="1.9" fill="#f8cf86" opacity=".9"/><circle cx="328.6" cy="125.6" r="0.7" fill="#fff" opacity=".75"/><circle cx="313.1" cy="116" r="1.7" fill="#f8cf86" opacity=".9"/><circle cx="312.6" cy="115.4" r="0.6" fill="#fff" opacity=".75"/><circle cx="340.2" cy="121.4" r="2.4" fill="#f8cf86" opacity=".9"/><circle cx="339.5" cy="120.6" r="0.8" fill="#fff" opacity=".75"/><circle cx="302.2" cy="121.3" r="1.8" fill="#f8cf86" opacity=".9"/><circle cx="301.7" cy="120.7" r="0.6" fill="#fff" opacity=".75"/><circle cx="303.2" cy="129.4" r="2.5" fill="#f8cf86" opacity=".9"/><circle cx="302.5" cy="128.6" r="0.9" fill="#fff" opacity=".75"/><circle cx="303.7" cy="128.5" r="3" fill="#f8cf86" opacity=".9"/><circle cx="302.7" cy="127.5" r="1.1" fill="#fff" opacity=".75"/><circle cx="328.9" cy="124.7" r="2.8" fill="#f8cf86" opacity=".9"/><circle cx="328" cy="123.7" r="1" fill="#fff" opacity=".75"/><circle cx="329.4" cy="123.2" r="2.3" fill="#f8cf86" opacity=".9"/><circle cx="328.7" cy="122.4" r="0.8" fill="#fff" opacity=".75"/><path d="M294 120.6Q316 111.3 336 118.1" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".45" class="pl-gloss"/>
+<path d="M375 180.1C373.3 180.8 362.9 177.1 360.1 175.3C357.4 173.4 346 162.5 345.1 160.1C344.1 157.6 348.7 150.4 349.7 148.5C350.7 146.6 354.2 139.3 355.9 139.8C357.6 140.3 366.4 151.5 368.4 154C370.4 156.6 377.1 165.3 377.7 167.7C378.3 170.1 376.6 179.4 375 180.1Z" fill="url(#pl-crack)" stroke="#6b2e0c" stroke-width="2"/><circle cx="373.5" cy="163.4" r="1.7" fill="#f8cf86" opacity=".9"/><circle cx="373" cy="162.8" r="0.6" fill="#fff" opacity=".75"/><circle cx="365.8" cy="165.8" r="2.5" fill="#f8cf86" opacity=".9"/><circle cx="365.1" cy="164.9" r="0.9" fill="#fff" opacity=".75"/><circle cx="349.3" cy="164.1" r="3" fill="#f8cf86" opacity=".9"/><circle cx="348.4" cy="163.1" r="1.1" fill="#fff" opacity=".75"/><circle cx="346.9" cy="162.9" r="3.2" fill="#f8cf86" opacity=".9"/><circle cx="346" cy="161.7" r="1.1" fill="#fff" opacity=".75"/><circle cx="355" cy="154.1" r="2" fill="#f8cf86" opacity=".9"/><circle cx="354.3" cy="153.4" r="0.7" fill="#fff" opacity=".75"/><circle cx="353.7" cy="164.4" r="2.1" fill="#f8cf86" opacity=".9"/><circle cx="353.1" cy="163.6" r="0.8" fill="#fff" opacity=".75"/><circle cx="365.3" cy="153.6" r="2.3" fill="#f8cf86" opacity=".9"/><circle cx="364.6" cy="152.8" r="0.8" fill="#fff" opacity=".75"/><circle cx="356.6" cy="164.7" r="2.1" fill="#f8cf86" opacity=".9"/><circle cx="356" cy="163.9" r="0.7" fill="#fff" opacity=".75"/><circle cx="368" cy="153.8" r="1.6" fill="#f8cf86" opacity=".9"/><circle cx="367.5" cy="153.2" r="0.5" fill="#fff" opacity=".75"/><circle cx="374.3" cy="163.3" r="3.1" fill="#f8cf86" opacity=".9"/><circle cx="373.3" cy="162.2" r="1.1" fill="#fff" opacity=".75"/><circle cx="361.1" cy="162" r="2.4" fill="#f8cf86" opacity=".9"/><circle cx="360.4" cy="161.1" r="0.8" fill="#fff" opacity=".75"/><circle cx="357.1" cy="160.1" r="2.6" fill="#f8cf86" opacity=".9"/><circle cx="356.3" cy="159.2" r="0.9" fill="#fff" opacity=".75"/><circle cx="351.1" cy="156.8" r="3.1" fill="#f8cf86" opacity=".9"/><circle cx="350.2" cy="155.7" r="1.1" fill="#fff" opacity=".75"/><circle cx="374" cy="154.7" r="1.4" fill="#f8cf86" opacity=".9"/><circle cx="373.6" cy="154.3" r="0.5" fill="#fff" opacity=".75"/><circle cx="368.8" cy="159" r="1.7" fill="#f8cf86" opacity=".9"/><circle cx="368.3" cy="158.4" r="0.6" fill="#fff" opacity=".75"/><path d="M349.9 157.6Q362 151 373 155.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".45" class="pl-gloss"/>
+<path d="M269.2 194.6C271.3 193.3 280.2 192.4 281.4 193.2C282.6 194 282.2 201 282 203.3C281.8 205.6 281.1 216.1 279.5 217.8C277.9 219.6 266.7 222.3 264.4 222.5C262 222.8 254.8 221.8 254.2 220.4C253.7 218.9 256.9 209.5 258.2 207.1C259.6 204.8 267.1 195.9 269.2 194.6Z" fill="url(#pl-crack)" stroke="#6b2e0c" stroke-width="2"/><circle cx="270.6" cy="203.3" r="1.7" fill="#f8cf86" opacity=".9"/><circle cx="270.1" cy="202.7" r="0.6" fill="#fff" opacity=".75"/><circle cx="268.9" cy="208.9" r="2.4" fill="#f8cf86" opacity=".9"/><circle cx="268.2" cy="208.1" r="0.8" fill="#fff" opacity=".75"/><circle cx="271.8" cy="212.9" r="1.9" fill="#f8cf86" opacity=".9"/><circle cx="271.3" cy="212.2" r="0.7" fill="#fff" opacity=".75"/><circle cx="263.9" cy="207.8" r="1.4" fill="#f8cf86" opacity=".9"/><circle cx="263.4" cy="207.3" r="0.5" fill="#fff" opacity=".75"/><circle cx="276.4" cy="213.5" r="1.2" fill="#f8cf86" opacity=".9"/><circle cx="276.1" cy="213.1" r="0.4" fill="#fff" opacity=".75"/><circle cx="272.5" cy="213.6" r="2.7" fill="#f8cf86" opacity=".9"/><circle cx="271.7" cy="212.6" r="1" fill="#fff" opacity=".75"/><circle cx="267.8" cy="210.2" r="2.7" fill="#f8cf86" opacity=".9"/><circle cx="267" cy="209.3" r="0.9" fill="#fff" opacity=".75"/><circle cx="271.7" cy="207.2" r="2.3" fill="#f8cf86" opacity=".9"/><circle cx="271" cy="206.4" r="0.8" fill="#fff" opacity=".75"/><circle cx="275.7" cy="201.5" r="1.7" fill="#f8cf86" opacity=".9"/><circle cx="275.2" cy="200.9" r="0.6" fill="#fff" opacity=".75"/><circle cx="272.9" cy="205.4" r="1.5" fill="#f8cf86" opacity=".9"/><circle cx="272.5" cy="204.9" r="0.5" fill="#fff" opacity=".75"/><circle cx="277.6" cy="211.5" r="3" fill="#f8cf86" opacity=".9"/><circle cx="276.7" cy="210.5" r="1.1" fill="#fff" opacity=".75"/><circle cx="278.1" cy="210.8" r="1.8" fill="#f8cf86" opacity=".9"/><circle cx="277.5" cy="210.2" r="0.6" fill="#fff" opacity=".75"/><circle cx="259.4" cy="202.2" r="1.6" fill="#f8cf86" opacity=".9"/><circle cx="259" cy="201.6" r="0.6" fill="#fff" opacity=".75"/><circle cx="273.4" cy="210.5" r="3.1" fill="#f8cf86" opacity=".9"/><circle cx="272.5" cy="209.4" r="1.1" fill="#fff" opacity=".75"/><circle cx="263" cy="204.6" r="2.9" fill="#f8cf86" opacity=".9"/><circle cx="262.1" cy="203.6" r="1" fill="#fff" opacity=".75"/><circle cx="282.5" cy="211" r="2.7" fill="#f8cf86" opacity=".9"/><circle cx="281.7" cy="210" r="0.9" fill="#fff" opacity=".75"/><path d="M259 205.8Q270 199.8 280 204.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".45" class="pl-gloss"/>
+</g>
+<g class="pl-tostones">
+<path d="M385.9 265C385.6 269.1 383.1 273.9 380.1 277.1C377.2 280.4 372.5 283.7 368.2 284.5C363.9 285.3 358.7 283.5 354.4 281.8C350.1 280.1 344.7 277.9 342.5 274.5C340.3 271 340.3 265.3 341 261.1C341.6 256.9 343.4 252.4 346.2 249.2C349.1 245.9 353.6 242.5 357.8 241.6C362.1 240.7 367.9 241.7 371.9 243.6C375.9 245.4 379.5 248.9 381.8 252.5C384.2 256 386.2 260.9 385.9 265Z" fill="#7a4a12" opacity=".3" filter="url(#pl-soft)"/>
+<path d="M379.1 250.5C380.4 253.6 380.6 257.5 380.3 260.8C379.9 264.1 378.6 267.4 376.9 270.2C375.3 273 373 275.6 370.3 277.6C367.6 279.5 364.1 281.7 360.7 282C357.3 282.3 353 281.1 349.9 279.3C346.7 277.6 343.7 274.4 341.8 271.3C339.9 268.1 338.7 264 338.6 260.5C338.4 257 339.7 253.5 340.9 250.3C342 247.1 343.4 243.7 345.6 241.4C347.9 239.2 351.2 237.6 354.4 236.7C357.5 235.8 361.4 235.2 364.5 236.1C367.6 237.1 370.5 239.9 372.9 242.3C375.4 244.7 377.9 247.4 379.1 250.5Z" fill="url(#pl-tost)" stroke="#b97a22" stroke-width="2"/>
+<path d="M376.5 251.6C377.5 254.2 377.7 257.6 377.4 260.4C377.1 263.2 376 266.1 374.6 268.5C373.1 270.9 371.2 273.1 368.9 274.8C366.6 276.5 363.5 278.4 360.6 278.6C357.7 278.9 354 277.9 351.3 276.4C348.6 274.8 345.9 272.1 344.3 269.4C342.7 266.7 341.7 263.1 341.6 260.1C341.5 257.1 342.5 254.1 343.5 251.4C344.6 248.6 345.7 245.7 347.6 243.8C349.6 241.8 352.4 240.4 355.2 239.7C357.9 238.9 361.2 238.4 363.9 239.2C366.5 240 369 242.4 371.1 244.5C373.2 246.6 375.4 248.9 376.5 251.6Z" fill="none" stroke="#c98a2c" stroke-width="3" stroke-dasharray="2.2 3.2" stroke-linecap="round" opacity=".8"/>
+<path d="M363.4 246.6C365.9 247.1 368.7 249.5 370.1 251.6C371.6 253.6 372.5 256.8 372 259C371.6 261.3 369.3 263.3 367.5 265C365.7 266.7 363.4 269.1 361 269.4C358.6 269.7 355.3 268.3 353.1 266.9C350.9 265.5 348.6 263.2 347.9 260.9C347.1 258.6 347.4 255.2 348.6 253C349.8 250.9 352.7 249.3 355.1 248.3C357.6 247.2 360.9 246 363.4 246.6Z" fill="none" stroke="#d9a246" stroke-width="2" opacity=".7"/>
+<rect x="357.7" y="270.6" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(45 360 258)"/><rect x="363.1" y="266.6" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(53 360 258)"/><rect x="351.1" y="267.2" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(6 360 258)"/><rect x="356.6" y="253.9" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(8 360 258)"/><rect x="357.7" y="266.6" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(22 360 258)"/><rect x="359.6" y="256.4" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(26 360 258)"/><rect x="357.4" y="260" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(11 360 258)"/>
+<path d="M343.4 291.2C347.2 294.9 350.6 300.6 351.4 305.8C352.3 310.9 351.4 318 348.5 322.3C345.6 326.7 339.4 329.4 334.2 331.6C329 333.9 322.7 336.5 317.4 335.7C312.2 334.9 306.3 330.8 302.5 326.9C298.7 323 295.6 317.4 294.9 312.2C294.1 307 295.2 300.5 297.9 295.9C300.6 291.2 305.8 286.4 310.9 284.4C315.9 282.4 322.8 282.7 328.2 283.8C333.7 285 339.5 287.6 343.4 291.2Z" fill="#7a4a12" opacity=".3" filter="url(#pl-soft)"/>
+<path d="M329.4 278.4C333.1 280.6 335.3 285 338.3 288.3C341.2 291.6 345.8 294.5 347.3 298.4C348.8 302.4 348.6 308.1 347.3 312.1C346 316 342.3 319.2 339.4 322.1C336.4 324.9 333.3 327.5 329.6 329C325.8 330.6 321.2 331.8 317.1 331.3C313 330.7 308.7 328.3 305 325.7C301.3 323.2 296.6 320 294.9 316.2C293.3 312.4 295 307.2 295.1 302.8C295.3 298.5 294 293.5 295.7 290C297.4 286.6 301.9 284.8 305.4 282.3C308.8 279.8 312.1 275.7 316.1 275C320.1 274.4 325.7 276.2 329.4 278.4Z" fill="url(#pl-tost)" stroke="#b97a22" stroke-width="2"/>
+<path d="M328.1 282C331.2 283.9 333.1 287.6 335.7 290.5C338.3 293.4 342.2 295.8 343.5 299.2C344.8 302.6 344.6 307.5 343.5 310.9C342.3 314.3 339.2 317.1 336.7 319.5C334.1 322 331.4 324.2 328.2 325.5C325 326.9 321 327.9 317.5 327.5C314 327 310.3 324.9 307.1 322.7C303.9 320.5 299.9 317.8 298.4 314.5C297 311.2 298.5 306.8 298.6 303C298.7 299.2 297.6 294.9 299.1 292C300.6 289.1 304.5 287.5 307.4 285.3C310.3 283.2 313.2 279.7 316.7 279.1C320.1 278.5 324.9 280.1 328.1 282Z" fill="none" stroke="#c98a2c" stroke-width="3" stroke-dasharray="2.2 3.2" stroke-linecap="round" opacity=".8"/>
+<path d="M330.5 311.1C328.6 313.2 325.8 315.4 323.1 315.9C320.4 316.5 316.9 315.7 314.3 314.5C311.8 313.3 309.1 311.1 308 308.8C306.9 306.5 307.1 303.1 307.9 300.7C308.7 298.3 310.7 296.1 313 294.3C315.3 292.5 318.8 289.7 321.7 289.8C324.7 289.9 328.4 292.6 330.5 294.8C332.6 297 334.2 300.5 334.2 303.2C334.2 305.9 332.3 309 330.5 311.1Z" fill="none" stroke="#d9a246" stroke-width="2" opacity=".7"/>
+<rect x="316.3" y="288.2" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(58 320 304)"/><rect x="310.3" y="290.5" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(26 320 304)"/><rect x="325.4" y="314.9" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(45 320 304)"/><rect x="307.7" y="320.6" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(38 320 304)"/><rect x="304.5" y="308.3" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(20 320 304)"/><rect x="315.1" y="290.2" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(51 320 304)"/><rect x="303.5" y="311.6" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(83 320 304)"/>
+<path d="M258.4 324.3C262.5 321.8 269.1 321.3 274 321.7C279 322.2 284.3 324.1 288.2 326.9C292.2 329.7 296.3 334 297.9 338.5C299.5 342.9 299.5 349.1 297.7 353.7C296 358.2 291.8 363.1 287.5 365.6C283.2 368 276.9 368.9 272 368.4C267 367.9 261.6 365.7 257.9 362.8C254.3 360 251.2 355.5 249.8 351.1C248.3 346.7 247.7 341.1 249.1 336.7C250.6 332.2 254.2 326.8 258.4 324.3Z" fill="#7a4a12" opacity=".3" filter="url(#pl-soft)"/>
+<path d="M280 363.2C276.5 364.2 272.6 363.5 268.7 363.3C264.8 363 259.7 363.8 256.7 361.7C253.8 359.6 252.7 354.4 250.8 350.8C248.8 347.2 245.2 343.8 244.8 340.1C244.5 336.5 246.7 332.1 248.6 329C250.4 325.8 253.4 323.6 256.2 321.3C259 319.1 262 316.2 265.5 315.3C269.1 314.4 274 314.4 277.4 316C280.8 317.6 283.3 321.7 285.8 324.8C288.2 327.8 290.6 330.7 292 334.3C293.5 337.8 294.9 342.2 294.5 346C294.1 349.7 292 353.9 289.6 356.8C287.2 359.6 283.5 362.1 280 363.2Z" fill="url(#pl-tost)" stroke="#b97a22" stroke-width="2"/>
+<path d="M278.6 359.9C275.6 360.8 272.2 360.2 268.9 360C265.5 359.8 261.2 360.4 258.6 358.6C256 356.9 255.2 352.4 253.4 349.3C251.7 346.2 248.7 343.2 248.4 340.1C248.1 337 249.9 333.2 251.6 330.5C253.2 327.8 255.7 325.9 258.1 323.9C260.6 322 263.1 319.5 266.2 318.8C269.2 318 273.5 318 276.4 319.4C279.3 320.7 281.5 324.3 283.6 326.9C285.7 329.5 287.7 332 288.9 335.1C290.2 338.1 291.4 341.9 291 345.1C290.7 348.3 289 351.9 286.9 354.4C284.8 356.9 281.6 359 278.6 359.9Z" fill="none" stroke="#c98a2c" stroke-width="3" stroke-dasharray="2.2 3.2" stroke-linecap="round" opacity=".8"/>
+<path d="M257.9 338.5C258 336.2 259.5 332.8 261.4 331.3C263.4 329.9 266.8 330.1 269.6 330C272.3 329.9 275.9 329.3 278 330.5C280 331.8 281 335.1 281.6 337.7C282.3 340.2 283.1 343.6 281.9 345.8C280.7 347.9 277.3 349.3 274.6 350.3C271.9 351.4 268 353.1 265.8 352.2C263.5 351.4 262.2 347.6 260.9 345.3C259.6 343 257.8 340.8 257.9 338.5Z" fill="none" stroke="#d9a246" stroke-width="2" opacity=".7"/>
+<rect x="275.1" y="336.3" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(73 270 340)"/><rect x="276.8" y="338.3" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(18 270 340)"/><rect x="280.8" y="341.1" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(49 270 340)"/><rect x="280" y="349.4" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(2 270 340)"/><rect x="265.9" y="330" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(86 270 340)"/><rect x="261.4" y="336.1" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(18 270 340)"/><rect x="273.3" y="336.6" width="2" height="2" rx=".5" fill="#fff" opacity=".85" transform="rotate(60 270 340)"/>
+</g>
+<g class="pl-lime" transform="translate(146 150) rotate(-28)">
+<path d="M-40 6A40 40 0 0 0 40 6Z" fill="#3f7a1c" transform="translate(3 5)" opacity=".25" filter="url(#pl-soft)"/>
+<path d="M-40 0A40 40 0 0 0 40 0Z" fill="#4e8a1f"/>
+<path d="M-35 0A35 35 0 0 0 35 0Z" fill="#eef8c4"/>
+<path d="M-31 0A31 31 0 0 0 31 0Z" fill="#b6de48"/>
+<g stroke="#eef8c4" stroke-width="1.8" stroke-linecap="round"><path d="M0 2V29M0 2L-21 21M0 2L21 21M0 2L-29 9M0 2L29 9"/></g>
+<path d="M-40 0H40" stroke="#dff0a0" stroke-width="2.6" stroke-linecap="round"/>
+<g fill="#dff59a" opacity=".8"><circle cx="-12" cy="14" r="1.6"/><circle cx="11" cy="15" r="1.4"/><circle cx="-4" cy="22" r="1.2"/></g>
+</g>
+<g transform="translate(368 214) rotate(60) scale(0.85)"><path d="M0 0l9 16" stroke="#4d8a2a" stroke-width="1.4" fill="none"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#3f8a2a"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#57a336" transform="translate(9 7) rotate(70)"/><path d="M0 0c-5-6-3-13 3-14 2 4 6 3 7 0 5 3 4 10-2 13 3 3 1 7-3 6z" fill="#4a9230" transform="translate(-4 9) rotate(-60) scale(.85)"/></g>
+<g class="steam" aria-hidden="true"><path d="M284 112c-9-12 9-20 0-34s9-21 0-34"/><path d="M314 104c-9-12 9-20 0-34s9-21 0-34"/><path d="M344 112c-9-12 9-20 0-34s9-21 0-34"/></g>
+              </svg>
+            </div>
+            <ul class="plate-key">
+              <li><i class="k-pork" aria-hidden="true"></i><strong data-i18n="culture.k1t">Pernil</strong> <span data-i18n="culture.k1">slow-roasted, garlicky pork shoulder with crispy cuerito</span></li>
+              <li><i class="k-rice" aria-hidden="true"></i><strong data-i18n="culture.k2t">Arroz con gandules</strong> <span data-i18n="culture.k2">sofrito rice with pigeon peas</span></li>
+              <li><i class="k-tost" aria-hidden="true"></i><strong data-i18n="culture.k3t">Tostones</strong> <span data-i18n="culture.k3">twice-fried plantains, if you want them</span></li>
+            </ul>
+            <figcaption class="caption" data-i18n="culture.plateCaption">Illustration · sample recipe</figcaption>
+          </figure>
+
+          <article class="recipe-card" aria-labelledby="recipe-title">
+            <div class="rc-top">
+              <span class="rc-kicker" data-i18n="culture.rcKicker">Your recipe · sample</span>
+              <span class="mode-tag mode-locked" data-i18n="mode.locked">Locked In</span>
+            </div>
+            <h3 id="recipe-title" class="rc-title" data-i18n="dish.pernil">Pernil with arroz con gandules</h3>
+            <ul class="rc-facts">
+              <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="culture.time">35 min active · ~3½ h total, mostly oven time</span></li>
+              <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9.5h17M8 7.2h.01M11 7.2h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="culture.method">Oven + stovetop</span></li>
+            </ul>
+            <p class="rc-honest" data-i18n="culture.honest">Real times, up front: about 3½ hours, mostly oven. NELDO tells you when a dish is a long cook.</p>
+
+            <div class="servings" data-servings data-base="6">
+              <div>
+                <span class="servings-label" id="servings-label" data-i18n="culture.servings">Servings</span>
+                <span class="servings-sub" data-i18n="culture.servingsSub">Amounts update as you go</span>
+              </div>
+              <div class="stepper">
+                <button type="button" class="step-btn" data-step="-1" aria-label="Fewer servings" data-i18n-attr="aria-label:culture.fewer"><span aria-hidden="true">−</span></button>
+                <output class="step-val" data-servings-value aria-live="polite" aria-labelledby="servings-label">6</output>
+                <button type="button" class="step-btn" data-step="1" aria-label="More servings" data-i18n-attr="aria-label:culture.more"><span aria-hidden="true">+</span></button>
+              </div>
+            </div>
+            <ul class="ingredients">
+              <li><span class="qty" data-qty="4" data-kind="frac">4</span> <span data-i18n="ing.pork">lb bone-in pork shoulder</span></li>
+              <li><span class="qty" data-qty="10" data-kind="int">10</span> <span data-i18n="ing.garlic">cloves garlic</span></li>
+              <li><span class="qty" data-qty="1" data-kind="frac">1</span> <span data-i18n="ing.oregano">tbsp dried oregano</span></li>
+              <li><span class="qty" data-qty="1" data-kind="frac">1</span> <span data-i18n="ing.adobo">tbsp adobo seasoning</span></li>
+              <li><span class="qty" data-qty="1" data-kind="frac">1</span> <span data-i18n="ing.vinegar">tbsp white vinegar</span></li>
+              <li><span class="qty" data-qty="3" data-kind="frac">3</span> <span data-i18n="ing.oil">tbsp olive oil</span></li>
+              <li><span class="qty" data-qty="2" data-kind="frac">2</span> <span data-i18n="ing.rice">cups medium-grain rice</span></li>
+              <li><span class="qty" data-qty="1" data-kind="frac">1</span> <span data-i18n="ing.gandules">can pigeon peas (gandules)</span></li>
+              <li><span class="qty" data-qty="0.5" data-kind="frac">½</span> <span data-i18n="ing.sofrito">cup sofrito</span></li>
+              <li><span class="qty" data-qty="0.5" data-kind="frac">½</span> <span data-i18n="ing.tomato">cup tomato sauce</span></li>
+            </ul>
+            <div class="nutri">
+              <span class="estimate" data-i18n="label.estimate">Estimate</span> <span class="nutri-per" data-i18n="label.perServing">per serving</span>
+              <p class="nutri-line" data-i18n="culture.macros">710 kcal · 46 g protein · 63 g carbs · 30 g fat</p>
+            </div>
+            <div class="leftovers">
+              <span class="lo-arrow" aria-hidden="true">↻</span>
+              <p data-i18n-html="culture.leftovers"><strong>Leftovers become meal prep.</strong> Tuesday: pernil rice bowls. Cook once, eat twice.</p>
+            </div>
+            <p class="caption caption-left" data-i18n="culture.rcCaption">Illustration of the same sample recipe · numbers are AI estimates</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · PLAN THE WEEK -->
+    <section class="section plan" id="plan" aria-labelledby="plan-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="plan.eyebrow">Plan 1 to 7 days · meal prep · groceries</p>
+          <h2 id="plan-title" class="h2" data-i18n-html="plan.title">One good meal is great. <span class="hl">A whole week is better.</span></h2>
+          <p class="lead" data-i18n="plan.lead">Say “meals for 3 days” or “I need 4 meals.” NELDO fills Your week, shows today’s meal right in chat, and builds one grocery list. It’s grouped by store aisle, with the same items combined.</p>
+        </div>
+        <div class="plan-grid">
+          <figure class="week-ill">
+            <div class="week-card" role="img" aria-label="Illustration of a sample week: Monday pernil with arroz con gandules, Locked In; Tuesday pernil rice bowls, meal prep; Wednesday birria-style beef tacos, Everyday; Thursday honey-garlic salmon rice bowl, Lowkey; Friday jollof rice with chicken, Everyday; Saturday shakshuka with toast, Lowkey; Sunday pollo guisado, Everyday" data-i18n-attr="aria-label:plan.weekAlt">
+              <div class="week-head"><strong data-i18n="plan.yourWeek">Your week</strong><span data-i18n="plan.monSun">Mon to Sun</span></div>
+              <ol class="week-days">
+                <li><span class="day" data-i18n="day.mon">Mon</span><span class="dish" data-i18n="dish.pernil">Pernil with arroz con gandules</span><span class="mode-tag mode-locked" data-i18n="mode.locked">Locked In</span></li>
+                <li><span class="day" data-i18n="day.tue">Tue</span><span class="dish" data-i18n="dish.pernilBowls">Pernil rice bowls</span><span class="mode-tag mode-prep" data-i18n="mode.prep">Meal prep</span></li>
+                <li><span class="day" data-i18n="day.wed">Wed</span><span class="dish" data-i18n="dish.birria">Birria-style beef tacos</span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.thu">Thu</span><span class="dish" data-i18n="dish.salmonBowl">Honey-garlic salmon rice bowl</span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span></li>
+                <li><span class="day" data-i18n="day.fri">Fri</span><span class="dish" data-i18n="dish.jollof">Jollof rice with chicken</span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.sat">Sat</span><span class="dish" data-i18n="dish.shakshuka">Shakshuka with toast</span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span></li>
+                <li><span class="day" data-i18n="day.sun">Sun</span><span class="dish" data-i18n="dish.polloGuisadoShort">Pollo guisado</span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+              </ol>
+            </div>
+            <div class="grocery-card">
+              <div class="week-head"><strong data-i18n="plan.groceries">Groceries for this week</strong><span data-i18n="plan.byAisle">By aisle</span></div>
+              <div class="aisle">
+                <h3 data-i18n="aisle.produce">Produce</h3>
+                <label class="check"><input type="checkbox" checked><span data-i18n="gro.garlic">Garlic · 2 heads</span></label>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.onions">Onions · 4</span></label>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.cilantro">Cilantro · 1 bunch</span></label>
+              </div>
+              <div class="aisle">
+                <h3 data-i18n="aisle.meat">Meat &amp; seafood</h3>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.pork">Pork shoulder, bone-in · 4 lb</span></label>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.salmon">Salmon fillets · 2</span></label>
+              </div>
+              <div class="aisle">
+                <h3 data-i18n="aisle.pantry">Pantry</h3>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.gandules">Gandules · 1 can</span></label>
+              </div>
+              <div class="aisle have">
+                <h3 data-i18n="aisle.have">Already have</h3>
+                <p data-i18n="gro.have">Medium-grain rice · Olive oil · Adobo</p>
+              </div>
+            </div>
+            <figcaption class="caption" data-i18n="plan.illCaption">Illustration · sample week (tap items to check them off)</figcaption>
+          </figure>
+
+          <div class="plan-side">
+            <ul class="feature-list">
+              <li><strong data-i18n="plan.f1t">1 to 7 days.</strong> <span data-i18n="plan.f1">Fill the whole week or just the days that are still open. Change one day without losing the rest.</span></li>
+              <li><strong data-i18n="plan.f2t">Meal prep, on purpose.</strong> <span data-i18n="plan.f2">Repeats are a feature, not a mistake. Cook once, eat twice.</span></li>
+              <li><strong data-i18n="plan.f3t">One list, by aisle.</strong> <span data-i18n="plan.f3">Produce, Meat &amp; seafood, Dairy &amp; eggs, Bakery, Pantry, Spices &amp; oils, Frozen. Check off as you shop; “Already have” stays separate.</span></li>
+              <li><strong data-i18n="plan.f4t">Servings that scale.</strong> <span data-i18n="plan.f4">Change servings and the amounts and grocery list update with it.</span></li>
+            </ul>
+            <div class="shot-pair">
+              <figure class="shot">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/week-dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="assets/app/week-light.png" width="390" height="844" alt="Your week in NELDO with a sample week of meals and a nutrition estimate" data-i18n-attr="alt:img.week" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+              </figure>
+              <figure class="shot shot-offset">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/groceries-dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="assets/app/groceries-light.png" width="390" height="844" alt="NELDO grocery list for the week, grouped by store aisle" data-i18n-attr="alt:img.groceries" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · PROTEIN, CALORIES & MACROS -->
+    <section class="section nutrition" id="nutrition" aria-labelledby="nutrition-title">
+      <div class="wrap nutrition-grid">
+        <div class="nutrition-copy">
+          <p class="eyebrow" data-i18n="nutrition.eyebrow">Protein, calories &amp; macros</p>
+          <h2 id="nutrition-title" class="h2" data-i18n-html="nutrition.title">Got a number? <span class="hl">NELDO aims for it.</span></h2>
+          <p class="lead" data-i18n="nutrition.lead">Every meal shows calories, protein, carbs and fat, clearly labeled “Estimate.” Ask for “60 g protein” or “under 600 calories” and NELDO aims around that number.</p>
+          <div class="ask-card" role="img" aria-label="Illustration: someone asks for 4 meals around 40 grams of protein each, and NELDO returns four meals, each with an estimated protein amount" data-i18n-attr="aria-label:nutrition.askAlt">
+            <p class="b b-user" data-i18n="nutrition.ask">4 meals, around 40 g protein each</p>
+            <ol class="macro-list">
+              <li><span data-i18n="dish.pernilBowls">Pernil rice bowls</span><span class="estimate" data-i18n="nutrition.e1">Est. ~42 g</span></li>
+              <li><span data-i18n="dish.salmonBowl">Honey-garlic salmon rice bowl</span><span class="estimate" data-i18n="nutrition.e2">Est. ~38 g</span></li>
+              <li><span data-i18n="dish.jollof">Jollof rice with chicken</span><span class="estimate" data-i18n="nutrition.e3">Est. ~41 g</span></li>
+              <li><span data-i18n="dish.polloGuisadoShort">Pollo guisado</span><span class="estimate" data-i18n="nutrition.e4">Est. ~39 g</span></li>
+            </ol>
+          </div>
+          <p class="caption caption-left" data-i18n="nutrition.illCaption">Illustration · sample numbers</p>
+          <p class="warn-line"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5v5.5M12 16.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i18n="nutrition.warn">These are AI estimates, never 100% exact. Check labels and portions.</span></p>
+        </div>
+        <figure class="shot shot-center">
+          <div class="phone">
+            <picture>
+              <source srcset="assets/app/recipe-dark.png" media="(prefers-color-scheme: dark)">
+              <img src="assets/app/recipe-light.png" width="390" height="844" alt="NELDO recipe screen for Pernil with arroz con gandules, with ingredients and an Estimate nutrition line" data-i18n-attr="alt:img.recipe" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 9 · BENTO -->
+    <section class="section bento-sec" id="more" aria-labelledby="more-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="more.eyebrow">And the rest of it</p>
+          <h2 id="more-title" class="h2" data-i18n-html="more.title">From the craving <span class="hl">to the last step.</span></h2>
+        </div>
+        <div class="bento">
+          <article class="tile tile-allergy">
+            <div class="tile-copy">
+              <h3 data-i18n="more.allergyT">Allergies &amp; foods to avoid</h3>
+              <p data-i18n="more.allergy">Set them in settings or just say them in chat. Every suggestion and swap gets checked against them.</p>
+              <p class="tile-small"><span data-i18n="more.allergyNote">NELDO can still make mistakes, so</span> <a href="#food-safety" data-i18n="more.allergyLink">always check labels</a></p>
+            </div>
+            <figure class="tile-shot">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/settings-dark.png" media="(prefers-color-scheme: dark)">
+                  <img src="assets/app/settings-light.png" width="390" height="844" alt="NELDO settings for allergies and foods to avoid" data-i18n-attr="alt:img.settings" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.real">Real app screen</figcaption>
+            </figure>
+          </article>
+
+          <article class="tile tile-swaps">
+            <h3 data-i18n="more.swapsT">Swaps that keep the dish</h3>
+            <ul class="swap-chips">
+              <li data-i18n="more.swap1">“swap chicken for tofu”</li>
+              <li data-i18n="more.swap2">“no cilantro”</li>
+              <li data-i18n="more.swap3">“make it vegan”</li>
+            </ul>
+            <p data-i18n-html="more.swaps">Same dish, updated. Want something totally different? Say <strong>“something else.”</strong></p>
+          </article>
+
+          <article class="tile tile-cook">
+            <div class="tile-copy">
+              <h3 data-i18n="more.cookT">Cook with me</h3>
+              <p data-i18n="more.cook">Step by step, with timers right where you need them.</p>
+            </div>
+            <figure class="tile-shot">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/cook-dark.png" media="(prefers-color-scheme: dark)">
+                  <img src="assets/app/cook-light.png" width="390" height="844" alt="Cook with me step in NELDO with a built-in timer" data-i18n-attr="alt:img.cook" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+            </figure>
+          </article>
+
+          <article class="tile tile-scan">
+            <span class="beta-tag" data-i18n="more.beta">Beta</span>
+            <h3 data-i18n="more.scanT">Scan your kitchen</h3>
+            <p data-i18n="more.scan">Snap or pick a photo of your fridge, pantry or spice shelf. NELDO’s AI finds ingredients for a meal. NELDO doesn’t keep the photo.</p>
+            <a class="tile-link" href="how-data-works.html" data-i18n="more.scanLink">Your data, explained</a>
+          </article>
+
+          <article class="tile tile-saved">
+            <h3 data-i18n="more.savedT">Saved meals, on your phone</h3>
+            <p data-i18n="more.saved">Heart a meal and it’s there next time. It’s saved right on your phone, not in an account.</p>
+          </article>
+
+          <article class="tile tile-lang">
+            <div class="tile-copy">
+              <h3 data-i18n="more.langT">English. Español. Português.</h3>
+              <p data-i18n="more.lang">The app and this site, in three languages.</p>
+            </div>
+            <figure class="tile-shot">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/chat-es-dark.png" media="(prefers-color-scheme: dark)">
+                  <img src="assets/app/chat-es-light.png" width="390" height="844" alt="NELDO chat in Spanish with a meal suggestion" data-i18n-attr="alt:img.chatEs" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · FREE / NO ACCOUNT / GROWS -->
+    <section class="section grows" id="free" aria-labelledby="grows-title">
+      <div class="wrap">
+        <div class="grows-band">
+          <h2 id="grows-title" class="h2" data-i18n-html="grows.title">Free. No account. <span class="hl">Grows with you.</span></h2>
+          <div class="grows-grid">
+            <div>
+              <h3 data-i18n="grows.f1t">Free, for real</h3>
+              <p data-i18n="grows.f1">No subscription, no sign-up. Just open it and talk.</p>
+            </div>
+            <div>
+              <h3 data-i18n="grows.f2t">No account</h3>
+              <p data-i18n="grows.f2">No name, email or phone number needed for core help.</p>
+            </div>
+            <div>
+              <h3 data-i18n="grows.f3t">Stays with you</h3>
+              <p data-i18n="grows.f3">Your settings and saved meals live on your phone.</p>
+            </div>
+            <div>
+              <h3 data-i18n="grows.f4t">Gets better often</h3>
+              <p data-i18n="grows.f4">The app updates often, based on what beta testers send us.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · BUG REPORTS -->
+    <section class="section bugs" id="feedback" aria-labelledby="bugs-title">
+      <div class="wrap bugs-grid">
+        <div>
+          <p class="eyebrow" data-i18n="bugs.eyebrow">Help us fix it</p>
+          <h2 id="bugs-title" class="h2" data-i18n-html="bugs.title">Something off? <span class="hl">Send us a screenshot.</span></h2>
+          <p class="lead" data-i18n="bugs.lead">NELDO uses AI, and AI makes mistakes. When you spot one, send it our way. We read every report and fix it fast.</p>
+          <a class="btn btn-primary btn-lg" href="mailto:support@neldo.app?subject=NELDO%20bug%20report&amp;body=What%20I%20asked%20or%20tapped%3A%0A%0AWhat%20I%20expected%3A%0A%0AWhat%20I%20got%3A%0A%0AiPhone%20or%20Android%3A%0A%0A(Attach%20your%20screenshot)" data-i18n="bugs.cta">Email a bug report</a>
+          <p class="fine" data-i18n="bugs.fine">Goes to support@neldo.app</p>
+        </div>
+        <ol class="steps">
+          <li><span class="step-n" aria-hidden="true">1</span><div><h3 data-i18n="bugs.s1t">Screenshot it</h3><p data-i18n="bugs.s1">The weird answer, the wrong amount, the button that didn’t work. Grab it.</p></div></li>
+          <li><span class="step-n" aria-hidden="true">2</span><div><h3 data-i18n="bugs.s2t">Email it to support@neldo.app</h3><p data-i18n-html="bugs.s2">Send 2 things: <strong>1) the screenshot, attached</strong>, and <strong>2) what happened</strong>. Tell us what you asked or tapped, what you expected and what you got, and whether you’re on iPhone or Android.</p></div></li>
+          <li><span class="step-n" aria-hidden="true">3</span><div><h3 data-i18n="bugs.s3t">We fix it</h3><p data-i18n="bugs.s3">Fixes ship in app updates, usually fast.</p></div></li>
         </ol>
       </div>
     </section>
 
-    <section class="section container week-section" id="week" aria-labelledby="week-heading">
-      <div class="section-heading">
-        <div><p class="eyebrow">Plan the whole week</p><h2 id="week-heading">One good meal is great.<br><em>A whole week is better.</em></h2></div>
-        <p>Plan a meal for every day, prep ahead on purpose, and shop once. Suggestions use your energy, food preferences, and allergy settings.</p>
-      </div>
-      <div class="week-layout">
-        <figure class="week-visual">
-          <div class="week-card" role="img" aria-label="Illustration of a sample week in NELDO: gumbo on Monday and Tuesday as meal prep, arroz con gandules, homemade ramen, shakshuka, an empty Saturday, and pollo guisado on Sunday">
-            <div class="week-card-top"><span>Your week</span><span class="week-dates">Mon – Sun</span></div>
-            <ol class="week-days">
-              <li><span class="day">Mon</span><span class="dish">Chicken &amp; sausage gumbo</span><span class="tag">Locked In</span></li>
-              <li><span class="day">Tue</span><span class="dish">Chicken &amp; sausage gumbo</span><span class="tag tag-prep">Meal prep</span></li>
-              <li><span class="day">Wed</span><span class="dish">Arroz con gandules</span><span class="tag">Everyday</span></li>
-              <li><span class="day">Thu</span><span class="dish">Quick homemade ramen</span><span class="tag">Lowkey</span></li>
-              <li><span class="day">Fri</span><span class="dish">Shakshuka with toast</span><span class="tag">Everyday</span></li>
-              <li class="empty"><span class="day">Sat</span><span class="dish">Open day</span><span class="tag tag-suggest">Suggest a meal</span></li>
-              <li><span class="day">Sun</span><span class="dish">Pollo guisado</span><span class="tag">Everyday</span></li>
-            </ol>
-            <div class="week-groceries"><span>Groceries for this week</span><strong>14 need · 9 have</strong></div>
+    <!-- 12 · FOOD SAFETY -->
+    <section class="section safety-sec" id="food-safety" aria-labelledby="food-safety-title">
+      <div class="wrap">
+        <div class="safety-card">
+          <div class="safety-head">
+            <p class="eyebrow" data-i18n="safety.eyebrow">Allergies &amp; dietary needs</p>
+            <h2 id="food-safety-title" class="h2" data-i18n-html="safety.title">Helpful suggestions. <span class="hl">Always double-check.</span></h2>
           </div>
-          <figcaption>Illustration · Sample week</figcaption>
-        </figure>
-        <div class="week-features">
-          <article><span class="feature-number">01 / A meal for every day</span><h3>Plan your week in one place.</h3><p>Pick saved favorites, ask for suggestions, or fill only the days that are still open. Change one day without losing the rest.</p></article>
-          <article><span class="feature-number">02 / Meal prep, on purpose</span><h3>Cook once. Eat twice.</h3><p>Turn on repeats and use the same recipe across days when you’re prepping ahead. NELDO won’t treat it as a mistake.</p></article>
-          <article><span class="feature-number">03 / Shop once</span><h3>One list for the whole week.</h3><p>Ingredients from every planned day come together in one grocery list, split into what you need and what you already have.</p></article>
-          <article><span class="feature-number">04 / Goals that fit</span><h3>Nutrition goals, your way.</h3><p>Add goals for each meal, or for the day or week. Your allergies and foods to avoid stay part of every suggestion.</p></article>
+          <div class="safety-body">
+            <p><strong data-i18n="safety.p1">NELDO can make mistakes and cannot guarantee that a meal meets your allergies or dietary needs.</strong></p>
+            <p data-i18n="safety.p2">Check every ingredient, product label, substitution, and possible allergen cross-contact before preparing or eating food. NELDO cannot verify how food is made or handled, and a recipe or dietary label does not certify that food is safe for you.</p>
+            <p data-i18n="safety.p3">Add your allergies and ingredients to avoid in the app, and keep them up to date. These guide recipe suggestions; they do not replace your own checks. Review saved recipes again when your needs or ingredients change.</p>
+            <p data-i18n="safety.p4">Dietary preferences are not medical advice. Follow your clinician’s guidance for food allergies and medically required diets. If you are unsure whether a food is safe for you, do not eat it until you have verified it.</p>
+            <a class="tile-link" href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies" data-i18n="safety.fda">Read FDA food-allergy guidance</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="demo" aria-labelledby="demo-heading">
-      <div class="section-heading">
-        <div><p class="eyebrow">A look inside NELDO</p><h2 id="demo-heading">From “what should I eat?”<br><em>to something you can make.</em></h2></div>
-        <p>From the first craving to the last cooking step. Take a closer look at your conversation, ingredients, and recipe.</p>
-      </div>
-      <div class="product-tour" data-product-tour>
-        <div class="tour-content">
-          <div class="tour-buttons" role="group" aria-label="Choose an app screenshot" hidden>
-            <button type="button" data-tour-tab="chat" aria-pressed="true">Chat</button>
-            <button type="button" data-tour-tab="meal" aria-pressed="false">Your meal</button>
-            <button type="button" data-tour-tab="recipe" aria-pressed="false">Recipe</button>
-            <button type="button" data-tour-tab="setup" aria-pressed="false">Cooking</button>
-          </div>
-          <div class="tour-text" aria-live="polite" aria-atomic="true">
-            <p class="eyebrow" data-tour-counter>01 / 04 — Start anywhere</p>
-            <h3 data-tour-title>A little less deciding. A lot more doing.</h3>
-            <p data-tour-body>Breakfast, lunch, dinner, or something in between. Start with a craving, a few ingredients, or whatever energy you have.</p>
-            <ul class="tour-features" data-tour-features><li>Three modes, always within reach</li><li>Your conversation comes first</li><li>Meals and snacks, all day</li></ul>
-          </div>
-          <a class="text-link" data-tour-full href="assets/current/home-dark.png">View full screenshot <span aria-hidden="true">↗</span></a>
+    <!-- 12b · ABOUT -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <p class="eyebrow" data-i18n="about.eyebrow">About the founder</p>
+          <h2 id="about-title" class="h2" data-i18n-html="about.title">Built by someone <span class="hl">who’s had those days.</span></h2>
+          <p class="lead" data-i18n="about.p1">I’m Joseph Cruz. I’m Puerto Rican, a disabled veteran, a former cybersecurity professional, and the founder of NELDO.</p>
+          <p class="about-p" data-i18n="about.p2">I grew up in Section 8 housing, and I went from being homeless to owning my own home. I’m proud of how far I’ve come. I haven’t forgotten what it felt like to need help, or the people who helped me move forward.</p>
+          <p class="about-p" data-i18n="about.p3">I’ve lived with mental health challenges, disability and financial hardship, so I know how much effort an ordinary day can take. You still have to eat, take care of your family and figure out what comes next, even when you’re already overwhelmed.</p>
+          <p class="about-p" data-i18n="about.p4">Those experiences are a big part of why I’m building NELDO. Starting with meals, I’m creating practical help that works with the time, energy and money people actually have.</p>
+          <p class="about-p" data-i18n="about.culture">Food and culture matter to me, too. As a Puerto Rican, dishes like pernil and arroz con gandules feel like home. Food is how we take care of each other and remember where we come from. Every culture has that, and NELDO respects it. Ask for the dishes you grew up with and get the real thing, not a generic version.</p>
+          <blockquote class="about-quote"><p data-i18n="about.quote">I want people to get real help without feeling judged, and without having to explain why something is hard for them.</p></blockquote>
+          <p class="about-p" data-i18n="about.p5">Helping someone feed their family or get one thing done on a hard day matters to me, because I know how much those moments mean when you’re struggling.</p>
+          <p class="about-close" data-i18n="about.close">I want to build a successful company, and I want helping people to be the reason it succeeds.</p>
+          <p class="about-sign" data-i18n="about.sign">Joseph Cruz, Founder of Neldo LLC</p>
         </div>
-        <figure class="tour-visual">
-          <div class="phone-frame tour-phone"><img data-tour-screen src="assets/current/home-dark.png" width="390" height="844" alt="NELDO chat home in dark mode with three energy selections" loading="lazy"></div>
-          <figcaption data-tour-caption>Recorded example · Dark appearance</figcaption>
-        </figure>
+        <aside class="about-card" aria-labelledby="penfed-title">
+          <svg class="about-icon" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" focusable="false"><path d="M8 2.8h8l-2.2 6.1a6 6 0 1 1-3.6 0Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m12 12.6 1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.3-2.4 1.3.5-2.6-1.9-1.8 2.6-.4Z" fill="currentColor"/></svg>
+          <p class="about-tag" data-i18n="about.penfedTag">Veteran-founded</p>
+          <h3 id="penfed-title" data-i18n="about.penfedTitle">Part of the PenFed Foundation Veteran Entrepreneur Program</h3>
+          <p data-i18n="about.penfed">NELDO is in the program’s October 2026 Incubator cohort in Boston.</p>
+        </aside>
       </div>
-      <p class="section-note">These recorded examples use sample recipes. <a href="#food-safety">Check ingredients and allergens before cooking.</a></p>
     </section>
 
-    <section class="practical-section" aria-labelledby="practical-heading">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">Useful beyond the suggestion</p><h2 id="practical-heading">A little less work.<br><em>All the way through.</em></h2></div></div>
-        <div class="practical-grid">
-          <article id="grocery"><span class="feature-number">01 / In your kitchen</span><h3>Start with what<br>you already have.</h3><p>Tell NELDO your ingredients. Keep what you have and what you need on a grocery list connected to your meal.</p></article>
-          <article id="saved-meals"><span class="feature-number">02 / For another day</span><h3>Keep the recipe.<br>Skip the repeat search.</h3><p>Save a meal, pick up ingredients, and reopen the same recipe when you’re ready to cook.</p></article>
-          <article id="regions"><span class="feature-number">03 / Food that means something</span><h3>Your cravings.<br>Your food traditions.</h3><p>Name a dish or cuisine, from a Puerto Rican breakfast to gumbo or ramen. Be specific about what you want.</p></article>
+    <!-- 13 · FAQ -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div>
+          <p class="eyebrow" data-i18n="faq.eyebrow">Good to know</p>
+          <h2 id="faq-title" class="h2" data-i18n-html="faq.title">Questions? <span class="hl">Straight answers.</span></h2>
         </div>
-        <p class="section-note">Saved meals stay on the device where you save them. Clearing app or browser storage removes them.</p>
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="faq.q1">Is NELDO really free?</summary>
+            <div class="faq-a"><p data-i18n="faq.a1">Yes. Core meal help is free. No subscription, and nothing to buy.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q2">Do I need an account?</summary>
+            <div class="faq-a"><p data-i18n="faq.a2">No. You can start without giving your name, email or phone number. NELDO is for adults 18+ in the U.S., and asks you to confirm that the first time you open it.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q3">How do I get it? iPhone or Android?</summary>
+            <div class="faq-a"><p data-i18n-html="faq.a3">Both. NELDO is in a private beta on iPhone (through Apple TestFlight) and Android (through Google Play testing) with a small group of adults. It isn’t in the public app stores yet. <a href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!">Email support@neldo.app</a> and tell us which phone you have. Spots are limited, and we’ll reply with how to join.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q4">What languages does it speak?</summary>
+            <div class="faq-a"><p data-i18n="faq.a4">English, Spanish and Portuguese, both in the app and on this website. Slang and typos are fine.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q5">How accurate are the calories and protein?</summary>
+            <div class="faq-a"><p data-i18n="faq.a5">They’re AI estimates, and they’re labeled that way. They’re never 100% exact. If you ask for a target like “60 g protein,” NELDO aims around it. Check product labels and portions when the numbers matter to you.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q6">Does it handle my allergies?</summary>
+            <div class="faq-a"><p data-i18n-html="faq.a6">Set allergies and foods to avoid in settings, or say them in chat, and every suggestion and swap is checked against them. NELDO can still make mistakes, so always check ingredients, labels and cross-contact. <a href="#food-safety">Read the food-safety note</a>.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q7">What happens to my kitchen photo?</summary>
+            <div class="faq-a"><p data-i18n-html="faq.a7">Scan your kitchen is in beta. NELDO sends the photo to its AI provider to find ingredients for a meal, and NELDO doesn’t save it. <a href="how-data-works.html">Your data, explained</a> has the details.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q8">Can NELDO plan my whole week?</summary>
+            <div class="faq-a"><p data-i18n="faq.a8">Yes, anywhere from 1 to 7 days. Ask for “meals for 3 days” or “4 meals,” repeat dishes on purpose for meal prep, and get one grocery list for the week, grouped by aisle.</p></div>
+          </details>
+          <details id="safety">
+            <summary data-i18n="faq.q9">Can NELDO give medical or dietary advice?</summary>
+            <div class="faq-a">
+              <p data-i18n="faq.a9a">NELDO helps with meal ideas and cooking based on the preferences you share. It does not replace a dietitian or clinician. Follow professional guidance for food allergies and medically required diets.</p>
+              <p data-i18n-html="faq.a9b">NELDO is not a therapist, clinician, or crisis service. If you need urgent support in the U.S. or its territories, <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>. For immediate danger, call 911. Elsewhere, contact your local emergency or crisis service. <a href="https://988lifeline.org/get-help/">More about 988</a>.</p>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <section class="container food-safety-section" id="food-safety" aria-labelledby="food-safety-heading">
-      <p class="eyebrow">Allergies & dietary needs</p>
-      <h2 id="food-safety-heading">Helpful suggestions.<br><em>Always double-check.</em></h2>
-      <p><strong>NELDO can make mistakes and cannot guarantee that a meal meets your allergies or dietary needs.</strong></p>
-      <p>Check every ingredient, product label, substitution, and possible allergen cross-contact before preparing or eating food. NELDO cannot verify how food is made or handled, and a recipe or dietary label does not certify that food is safe for you.</p>
-      <p>Add your allergies and ingredients to avoid in the app, and keep them up to date. These guide recipe suggestions; they do not replace your own checks. Review saved recipes again when your needs or ingredients change.</p>
-      <p>Dietary preferences are not medical advice. Follow your clinician’s guidance for food allergies and medically required diets. If you are unsure whether a food is safe for you, do not eat it until you have verified it.</p>
-      <a class="text-link" href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies">Read FDA food-allergy guidance <span aria-hidden="true">↗</span></a>
-    </section>
-
-    <section class="section container faq-layout" id="free" aria-labelledby="faq-heading">
-      <div><p class="eyebrow">A few things worth knowing</p><h2 id="faq-heading">Practical help.<br><em>Clear expectations.</em></h2><p class="faq-intro">A meal you want to eat. A plan that fits your kitchen. Help with the cooking, one step at a time.</p></div>
-      <div class="faq-list">
-        <details><summary>Will I need an account or a subscription?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Core meal help is free, with no required account, subscription, or purchase. You can start without giving your name, email, or phone number.</p></div></details>
-        <details><summary>Can I use NELDO in my language?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>NELDO supports English, Spanish, and Portuguese. Choose your language in the app’s settings. You can also change this website’s language above.</p></div></details>
-        <details><summary>Can NELDO order groceries for me?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Grocery lists help you plan what to buy for your meals. Checkout and delivery are not available here.</p></div></details>
-        <details><summary>Can NELDO plan my whole week?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Yes. Plan one meal for each day of the week, fill open days with suggestions, and turn on repeats if you’re meal prepping. Your week’s ingredients come together in one grocery list.</p></div></details>
-        <details><summary>Do I have to choose an Energy Mode?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>No. You can pick Lowkey, Everyday, or Locked In, or just describe what you need. A mode is a starting point—not a label for who you are.</p></div></details>
-        <details><summary>What can NELDO help me with?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>Deciding what to eat, finding a recipe that fits, planning groceries, and cooking with step-by-step help. Save meals you like so your next dinner is easier.</p></div></details>
-        <details id="safety"><summary>Can NELDO give medical or dietary advice?<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>NELDO helps with meal ideas and cooking based on the preferences you share. It does not replace a dietitian or clinician. Follow professional guidance for food allergies and medically required diets.</p><p>NELDO is not a therapist, clinician, or crisis service. If you need urgent support in the U.S. or its territories, <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>. For immediate danger, call 911. Elsewhere, contact your local emergency or crisis service. <a href="https://988lifeline.org/get-help/">More about 988</a>.</p></div></details>
-      </div>
-    </section>
-
-    <section class="container launch-section" id="phones" aria-labelledby="launch-heading">
-      <div class="launch-card">
-        <div><p class="eyebrow">Help shape what’s next</p><h2 id="launch-heading">Your next meal<br>doesn’t need to be<br><em>a whole thing.</em></h2></div>
-        <div class="launch-copy"><p>Good food, at your pace. NELDO is getting ready for iPhone and Android, starting with an adult U.S. beta. For now, explore how it works and get in touch about what’s next.</p><a class="button button-light" href="mailto:support@neldo.app?subject=NELDO%20launch%20question">Ask about launch plans <span aria-hidden="true">↗</span></a><p class="launch-note">Public access is not open yet. No signup or purchase is required to explore this website.</p></div>
+    <!-- 14 · FINAL CTA -->
+    <section class="final-cta" id="join" aria-labelledby="join-title">
+      <div class="wrap final-inner">
+        <h2 id="join-title" class="final-title" data-i18n-html="final.title">So… <span class="hl">what are we making?</span></h2>
+        <p data-i18n="final.sub">Now in beta on iPhone and Android. Free, no account. Email us which phone you have. Spots are limited, and we’ll reply with how to join.</p>
+        <a class="btn btn-lime btn-lg" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!" data-i18n="cta.join">Join the beta</a>
       </div>
     </section>
   </main>
 
-  <dialog class="screenshot-viewer" aria-label="Screenshot preview" data-screenshot-viewer>
-    <div class="screenshot-toolbar"><span>Screenshot preview</span><button type="button" data-screenshot-close autofocus aria-label="Close screenshot">Close <span aria-hidden="true">×</span></button></div>
-    <div class="screenshot-content"><img data-screenshot-image alt=""></div>
-  </dialog>
-  <footer class="site-footer container">
-    <div class="footer-top"><a class="wordmark" href="index.html" aria-label="NELDO home">NELDO<span aria-hidden="true">↗</span></a><p>Meet the day you’re having.</p><nav aria-label="Footer navigation"><a href="mailto:support@neldo.app?subject=NELDO%20question">Contact</a><a href="how-data-works.html">Your data, explained</a><a href="privacy.html">Privacy</a><a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a><a href="terms.html">Terms</a><a href="#food-safety">Food safety</a><a href="#safety">Safety</a></nav></div>
-    <div class="footer-bottom"><p>© 2026 NELDO</p><p>Good food. Your pace. Your day.</p><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="NELDO home" data-i18n-attr="aria-label:a11y.home">
+          <svg class="leaf-n" viewBox="36 30 128 140" width="26" height="28" aria-hidden="true" focusable="false"><mask id="rib-f" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask><g mask="url(#rib-f)"><rect class="leaf-n-bar" x="46" y="40" width="28" height="120" rx="14"/><rect class="leaf-n-bar" x="126" y="40" width="28" height="120" rx="14"/><path class="leaf-n-leaf" d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z"/></g></svg>
+          <span class="wordmark">NELDO</span>
+        </a>
+        <p data-i18n="footer.tagline">Good food. Your pace. Your day.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer" data-i18n-attr="aria-label:footer.label">
+        <a href="mailto:support@neldo.app?subject=NELDO%20question" data-i18n="footer.contact">Contact</a>
+        <a href="how-data-works.html" data-i18n="footer.data">Your data, explained</a>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="consumer-health-data.html" data-i18n="footer.chd">Consumer Health Data Privacy Policy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms</a>
+        <a href="#food-safety" data-i18n="footer.foodSafety">Food safety</a>
+        <a href="#safety" data-i18n="footer.safety">Safety</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <p data-i18n="footer.copy">© 2026 Neldo LLC</p>
+      <p data-i18n="footer.ai">NELDO uses AI, and AI makes mistakes. Check what matters.</p>
+    </div>
   </footer>
 </body>
 </html>

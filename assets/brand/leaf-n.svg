@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 30 128 140" width="512" height="560" role="img" aria-label="NELDO">
+  <mask id="rib" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask>
+  <g mask="url(#rib)">
+    <rect x="46" y="40" width="28" height="120" rx="14" fill="#172b24"/>
+    <rect x="126" y="40" width="28" height="120" rx="14" fill="#172b24"/>
+    <path d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z" fill="#6e9a1e"/>
+  </g>
+</svg>
