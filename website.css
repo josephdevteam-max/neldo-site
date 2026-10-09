@@ -1,4 +1,4 @@
-/* NAVU marketing site. Deliberately isolated from the legacy stylesheet. */
+/* NELDO marketing site. Deliberately isolated from the legacy stylesheet. */
 .screenshot-open{overflow:hidden}
 .screenshot-viewer{padding:0;border:1px solid var(--line);border-radius:18px;background:var(--paper);color:var(--ink);width:min(650px,calc(100% - 24px));max-height:92dvh;overflow:auto}
 .screenshot-viewer::backdrop{background:#000b}
