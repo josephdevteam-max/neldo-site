@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-i18n="meta.title">NELDO | What are we making? Free AI help for everyday meals</title>
-  <meta name="description" content="Talk to NELDO like you’d text a friend. Tell it what you’re craving, what’s in the fridge and how much energy you’ve got, and get a real meal, the groceries and the steps. Free, no account. Now in beta on iPhone and Android." data-i18n-attr="content:meta.description">
+  <title data-i18n="meta.title">NELDO | Free AI Meal Planner &amp; Cooking Help</title>
+  <meta name="description" content="NELDO is a free AI meal planner and cooking app from Neldo LLC. Tell it what you’re craving, your budget and your time. Private beta on iPhone and Android." data-i18n-attr="content:meta.description">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#faf7ef" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0d1813" media="(prefers-color-scheme: dark)">
@@ -12,22 +12,76 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NELDO">
   <meta property="og:url" content="https://www.neldo.app/">
-  <meta property="og:title" content="NELDO | What are we making?">
-  <meta property="og:description" content="Free AI help for everyday meals. Tell NELDO what you’re craving, what’s in your kitchen and how much energy you have. Now in beta on iPhone and Android.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_US">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:title" content="NELDO | Free AI Meal Planner &amp; Cooking Help">
+  <meta property="og:description" content="Free AI meal planner and cooking app from Neldo LLC. Tell NELDO what you’re craving, what’s in your kitchen, your budget and time. Private beta on iPhone and Android.">
   <meta property="og:image" content="https://www.neldo.app/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NELDO | What are we making?">
-  <meta name="twitter:description" content="Free AI help for everyday meals. Now in beta on iPhone and Android.">
+  <meta name="twitter:title" content="NELDO | Free AI Meal Planner &amp; Cooking Help">
+  <meta name="twitter:description" content="Free AI meal planner and cooking app from Neldo LLC. Private beta on iPhone and Android.">
   <meta name="twitter:image" content="https://www.neldo.app/og-card.png">
   <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/DMSans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="assets/css/neldo.css?v=3">
+  <link rel="stylesheet" href="assets/css/neldo.css?v=4">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.neldo.app/#organization",
+        "name": "NELDO",
+        "legalName": "Neldo LLC",
+        "url": "https://www.neldo.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.neldo.app/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "email": "support@neldo.app",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@neldo.app",
+          "availableLanguage": ["English", "Spanish", "Portuguese"]
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Joseph Cruz"
+        },
+        "description": "Neldo LLC makes NELDO, a free AI meal planning and cooking app. Tell it what you’re craving, what’s in your kitchen, your budget and your time, and get meal ideas, grocery lists and step by step cooking help."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.neldo.app/#website",
+        "name": "NELDO",
+        "alternateName": "Neldo",
+        "url": "https://www.neldo.app/",
+        "inLanguage": ["en", "es", "pt"],
+        "publisher": { "@id": "https://www.neldo.app/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.neldo.app/#webpage",
+        "url": "https://www.neldo.app/",
+        "name": "NELDO | Free AI Meal Planner & Cooking Help",
+        "description": "NELDO is a free AI meal planner and cooking app from Neldo LLC. Tell it what you’re craving, your budget and your time. Private beta on iPhone and Android.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://www.neldo.app/#website" },
+        "about": { "@id": "https://www.neldo.app/#organization" }
+      }
+    ]
+  }
+  </script>
   <script>
     /* Runs before paint: theme (?theme= for QA, then this visit's choice) and JS flag. No tracking. */
     (function () {
@@ -38,8 +92,8 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <script src="assets/js/i18n.js?v=3" defer></script>
-  <script src="assets/js/neldo.js?v=3" defer></script>
+  <script src="assets/js/i18n.js?v=4" defer></script>
+  <script src="assets/js/neldo.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -52,11 +106,11 @@
       </a>
       <nav class="desktop-nav" aria-label="Main" data-i18n-attr="aria-label:nav.label">
         <a href="#culture" data-i18n="nav.food">The food</a>
-        <a href="#talk" data-i18n="nav.talk">How it talks</a>
         <a href="#plan" data-i18n="nav.plan">Plan &amp; prep</a>
-        <a href="#nutrition" data-i18n="nav.nutrition">Protein &amp; macros</a>
-        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#nutrition" data-nav-optional data-i18n="nav.nutrition">Protein &amp; macros</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-tools">
         <label class="lang-select">
@@ -86,9 +140,12 @@
         <a href="#plan" data-i18n="nav.plan">Plan &amp; prep</a>
         <a href="#nutrition" data-i18n="nav.nutrition">Protein &amp; macros</a>
         <a href="#food-safety" data-i18n="nav.safety">Food safety</a>
-        <a href="#about" data-i18n="nav.about">About</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
         <a class="btn btn-primary" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!" data-i18n="cta.join">Join the beta</a>
+        <p class="menu-next" data-i18n="cta.next">This opens your email app with a short note. Tell us iPhone or Android and we’ll reply with how to join.</p>
       </div>
     </nav>
   </header>
@@ -100,20 +157,24 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="pill-eyebrow"><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Now in beta on iPhone &amp; Android</span></p>
+          <p class="pill-eyebrow"><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Private beta on iPhone &amp; Android</span></p>
           <h1 id="hero-title" class="hero-title" data-i18n-html="hero.title">What are we <span class="hl">making?</span></h1>
-          <p class="hero-sub" data-i18n="hero.sub">Talk to NELDO like you’d text a friend. Tell it what you’re craving, what’s in the fridge and how much energy you’ve got. Get a real meal, the groceries and the steps. Free, no account.</p>
+          <p class="hero-sub" data-i18n="hero.sub">NELDO is a free AI meal planner and cooking app from Neldo LLC. Text it like a friend: what you’re craving, what’s in your kitchen, your budget and how much time you’ve got. Get a real meal, the groceries and the steps.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary btn-lg" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!"><span data-i18n="cta.join">Join the beta</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <a class="btn btn-ghost btn-lg" href="#talk" data-i18n="cta.see">See it in action</a>
+          </div>
+          <div class="cta-help">
+            <p class="cta-next" data-i18n="cta.next">This opens your email app with a short note. Tell us iPhone or Android and we’ll reply with how to join.</p>
+            <p class="contact-line"><span data-i18n="contact.emailLabel">Email us:</span> <span class="email-addr" translate="no">support@neldo.app</span> <button class="copy-btn" type="button" data-copy-email="support@neldo.app" hidden><span data-i18n="contact.copy">Copy email</span></button><span class="sr-only" role="status" data-copy-status></span></p>
           </div>
           <ul class="chips" aria-label="At a glance" data-i18n-attr="aria-label:hero.chipsLabel">
             <li data-i18n="hero.chip1">Free</li>
             <li data-i18n="hero.chip2">No account</li>
             <li data-i18n="hero.chip3">English · Español · Português</li>
-            <li data-i18n="hero.chip4">iPhone + Android beta</li>
+            <li data-i18n="hero.chip4">Private beta</li>
           </ul>
-          <p class="fine" data-i18n="hero.fine">Private beta for adults 18+ in the U.S. Spots are limited, so email us and we’ll reply with how to join.</p>
+          <p class="fine" data-i18n="hero.fine">For adults 18+ in the U.S. Spots are limited.</p>
         </div>
 
         <figure class="hero-stage">
@@ -255,7 +316,7 @@
         <div class="section-head">
           <p class="eyebrow" data-i18n="culture.eyebrow">Food culture, for real</p>
           <h2 id="culture-title" class="h2 h2-xl" data-i18n-html="culture.title">Name the dish. <span class="hl">Get the real thing.</span></h2>
-          <p class="lead" data-i18n="culture.lead">Ask for pernil and you get pernil, not a “pork bowl.” Puerto Rican food is first-class in NELDO, right alongside gumbo, birria, jollof, phở, ramen, moqueca and a whole lot more. If NELDO can’t match a dish exactly, it tells you straight and offers to switch it up.</p>
+          <p class="lead" data-i18n="culture.lead">Ask for pernil and you get pernil, not a “pork bowl.” Puerto Rican food is first-class in NELDO, right alongside gumbo, birria, jollof, phở, ramen, moqueca and a whole lot more. If NELDO can’t match a dish exactly, it’s built to tell you straight and offer something close.</p>
         </div>
 
         <div class="showcase">
@@ -617,7 +678,7 @@
           <article class="tile tile-scan">
             <span class="beta-tag" data-i18n="more.beta">Beta</span>
             <h3 data-i18n="more.scanT">Scan your kitchen</h3>
-            <p data-i18n="more.scan">Snap or pick a photo of your fridge, pantry or spice shelf. NELDO’s AI finds ingredients for a meal. NELDO doesn’t keep the photo.</p>
+            <p data-i18n="more.scan">Snap or pick a photo of your fridge, pantry or spice shelf and get a list of the ingredients it sees. An AI provider reads the photo. NELDO doesn’t keep it, but the provider may for a limited time.</p>
             <a class="tile-link" href="how-data-works.html" data-i18n="more.scanLink">Your data, explained</a>
           </article>
 
@@ -645,19 +706,19 @@
       </div>
     </section>
 
-    <!-- 10 · FREE / NO ACCOUNT / GROWS -->
+    <!-- 10 · FREE / NO ACCOUNT -->
     <section class="section grows" id="free" aria-labelledby="grows-title">
       <div class="wrap">
         <div class="grows-band">
-          <h2 id="grows-title" class="h2" data-i18n-html="grows.title">Free. No account. <span class="hl">Grows with you.</span></h2>
+          <h2 id="grows-title" class="h2" data-i18n-html="grows.title">Free. No account. <span class="hl">Just talk to it.</span></h2>
           <div class="grows-grid">
             <div>
               <h3 data-i18n="grows.f1t">Free, for real</h3>
-              <p data-i18n="grows.f1">No subscription, no sign-up. Just open it and talk.</p>
+              <p data-i18n="grows.f1">No subscription, no sign-up. Confirm you’re 18+, allow AI help and start talking.</p>
             </div>
             <div>
               <h3 data-i18n="grows.f2t">No account</h3>
-              <p data-i18n="grows.f2">No name, email or phone number needed for core help.</p>
+              <p data-i18n="grows.f2">The app doesn’t need your name, email or phone number.</p>
             </div>
             <div>
               <h3 data-i18n="grows.f3t">Stays with you</h3>
@@ -678,14 +739,14 @@
         <div>
           <p class="eyebrow" data-i18n="bugs.eyebrow">Help us fix it</p>
           <h2 id="bugs-title" class="h2" data-i18n-html="bugs.title">Something off? <span class="hl">Send us a screenshot.</span></h2>
-          <p class="lead" data-i18n="bugs.lead">NELDO uses AI, and AI makes mistakes. When you spot one, send it our way. We read every report and fix it fast.</p>
+          <p class="lead" data-i18n="bugs.lead">NELDO uses AI, and AI makes mistakes. When you spot one, send it our way. We read every report and use it to make NELDO better.</p>
           <a class="btn btn-primary btn-lg" href="mailto:support@neldo.app?subject=NELDO%20bug%20report&amp;body=What%20I%20asked%20or%20tapped%3A%0A%0AWhat%20I%20expected%3A%0A%0AWhat%20I%20got%3A%0A%0AiPhone%20or%20Android%3A%0A%0A(Attach%20your%20screenshot)" data-i18n="bugs.cta">Email a bug report</a>
           <p class="fine" data-i18n="bugs.fine">Goes to support@neldo.app</p>
         </div>
         <ol class="steps">
           <li><span class="step-n" aria-hidden="true">1</span><div><h3 data-i18n="bugs.s1t">Screenshot it</h3><p data-i18n="bugs.s1">The weird answer, the wrong amount, the button that didn’t work. Grab it.</p></div></li>
           <li><span class="step-n" aria-hidden="true">2</span><div><h3 data-i18n="bugs.s2t">Email it to support@neldo.app</h3><p data-i18n-html="bugs.s2">Send 2 things: <strong>1) the screenshot, attached</strong>, and <strong>2) what happened</strong>. Tell us what you asked or tapped, what you expected and what you got, and whether you’re on iPhone or Android.</p></div></li>
-          <li><span class="step-n" aria-hidden="true">3</span><div><h3 data-i18n="bugs.s3t">We fix it</h3><p data-i18n="bugs.s3">Fixes ship in app updates, usually fast.</p></div></li>
+          <li><span class="step-n" aria-hidden="true">3</span><div><h3 data-i18n="bugs.s3t">We work on it</h3><p data-i18n="bugs.s3">Fixes ship in app updates.</p></div></li>
         </ol>
       </div>
     </section>
@@ -718,10 +779,10 @@
           <p class="lead" data-i18n="about.p1">I’m Joseph Cruz. I’m Puerto Rican, a disabled veteran, a former cybersecurity professional, and the founder of NELDO.</p>
           <p class="about-p" data-i18n="about.p2">I grew up in Section 8 housing, and I went from being homeless to owning my own home. I’m proud of how far I’ve come. I haven’t forgotten what it felt like to need help, or the people who helped me move forward.</p>
           <p class="about-p" data-i18n="about.p3">I’ve lived with mental health challenges, disability and financial hardship, so I know how much effort an ordinary day can take. You still have to eat, take care of your family and figure out what comes next, even when you’re already overwhelmed.</p>
-          <p class="about-p" data-i18n="about.p4">Those experiences are a big part of why I’m building NELDO. Starting with meals, I’m creating practical help that works with the time, energy and money people actually have.</p>
+          <p class="about-p" data-i18n="about.p4">Those experiences are a big part of why I’m building NELDO. I’m creating practical meal help that works with the time, energy and budget people actually have.</p>
           <p class="about-p" data-i18n="about.culture">Food and culture matter to me, too. As a Puerto Rican, dishes like pernil and arroz con gandules feel like home. Food is how we take care of each other and remember where we come from. Every culture has that, and NELDO respects it. Ask for the dishes you grew up with and get the real thing, not a generic version.</p>
           <blockquote class="about-quote"><p data-i18n="about.quote">I want people to get real help without feeling judged, and without having to explain why something is hard for them.</p></blockquote>
-          <p class="about-p" data-i18n="about.p5">Helping someone feed their family or get one thing done on a hard day matters to me, because I know how much those moments mean when you’re struggling.</p>
+          <p class="about-p" data-i18n="about.p5">Helping someone feed themselves or their family on a hard day matters to me, because I know how much those moments mean when you’re struggling.</p>
           <p class="about-close" data-i18n="about.close">I want to build a successful company, and I want helping people to be the reason it succeeds.</p>
           <p class="about-sign" data-i18n="about.sign">Joseph Cruz, Founder of Neldo LLC</p>
         </div>
@@ -744,7 +805,7 @@
         <div class="faq-list">
           <details>
             <summary data-i18n="faq.q1">Is NELDO really free?</summary>
-            <div class="faq-a"><p data-i18n="faq.a1">Yes. Core meal help is free. No subscription, and nothing to buy.</p></div>
+            <div class="faq-a"><p data-i18n="faq.a1">Yes. Core meal help is free, with no subscription.</p></div>
           </details>
           <details>
             <summary data-i18n="faq.q2">Do I need an account?</summary>
@@ -752,7 +813,11 @@
           </details>
           <details>
             <summary data-i18n="faq.q3">How do I get it? iPhone or Android?</summary>
-            <div class="faq-a"><p data-i18n-html="faq.a3">Both. NELDO is in a private beta on iPhone (through Apple TestFlight) and Android (through Google Play testing) with a small group of adults. It isn’t in the public app stores yet. <a href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!">Email support@neldo.app</a> and tell us which phone you have. Spots are limited, and we’ll reply with how to join.</p></div>
+            <div class="faq-a"><p data-i18n-html="faq.a3">Both. NELDO is in a private beta on iPhone and Android for adults 18+ in the U.S. It’s not in the public app stores. <a href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!">Email support@neldo.app</a> and tell us which phone you have. Spots are limited, and we’ll reply with how to join.</p></div>
+          </details>
+          <details>
+            <summary data-i18n="faq.q10">Who makes NELDO?</summary>
+            <div class="faq-a"><p data-i18n-html="faq.a10">NELDO is made by Neldo LLC, founded by Joseph Cruz. <a href="#about">Read his story</a>. Questions or feedback? Email <a href="mailto:support@neldo.app?subject=NELDO%20question">support@neldo.app</a>.</p></div>
           </details>
           <details>
             <summary data-i18n="faq.q4">What languages does it speak?</summary>
@@ -768,7 +833,7 @@
           </details>
           <details>
             <summary data-i18n="faq.q7">What happens to my kitchen photo?</summary>
-            <div class="faq-a"><p data-i18n-html="faq.a7">Scan your kitchen is in beta. NELDO sends the photo to its AI provider to find ingredients for a meal, and NELDO doesn’t save it. <a href="how-data-works.html">Your data, explained</a> has the details.</p></div>
+            <div class="faq-a"><p data-i18n-html="faq.a7">Scan your kitchen is in beta. Once you allow AI help, NELDO sends the photo to an AI provider to list the ingredients. Hidden photo details, like where it was taken, are removed first. NELDO doesn’t save the photo, but the AI provider may keep it for a time under its own terms. <a href="how-data-works.html">Your data, explained</a> has the details.</p></div>
           </details>
           <details>
             <summary data-i18n="faq.q8">Can NELDO plan my whole week?</summary>
@@ -778,7 +843,7 @@
             <summary data-i18n="faq.q9">Can NELDO give medical or dietary advice?</summary>
             <div class="faq-a">
               <p data-i18n="faq.a9a">NELDO helps with meal ideas and cooking based on the preferences you share. It does not replace a dietitian or clinician. Follow professional guidance for food allergies and medically required diets.</p>
-              <p data-i18n-html="faq.a9b">NELDO is not a therapist, clinician, or crisis service. If you need urgent support in the U.S. or its territories, <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>. For immediate danger, call 911. Elsewhere, contact your local emergency or crisis service. <a href="https://988lifeline.org/get-help/">More about 988</a>.</p>
+              <p data-i18n-html="faq.a9b">NELDO is not a therapist, clinician, crisis service or emergency service. If you need urgent support in the U.S. or its territories, <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a> for the Suicide &amp; Crisis Lifeline. For immediate danger, call 911. Elsewhere, contact your local emergency or crisis service. <a href="https://988lifeline.org/get-help/">More about 988</a>.</p>
             </div>
           </details>
         </div>
@@ -789,8 +854,12 @@
     <section class="final-cta" id="join" aria-labelledby="join-title">
       <div class="wrap final-inner">
         <h2 id="join-title" class="final-title" data-i18n-html="final.title">So… <span class="hl">what are we making?</span></h2>
-        <p data-i18n="final.sub">Now in beta on iPhone and Android. Free, no account. Email us which phone you have. Spots are limited, and we’ll reply with how to join.</p>
+        <p data-i18n="final.sub">Private beta on iPhone and Android for adults 18+ in the U.S. Free, no account. Spots are limited.</p>
         <a class="btn btn-lime btn-lg" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0A%0AI%27d%20like%20to%20join%20the%20beta.%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0A%0AThanks!" data-i18n="cta.join">Join the beta</a>
+        <div class="cta-help cta-help-dark">
+          <p class="cta-next" data-i18n="cta.next">This opens your email app with a short note. Tell us iPhone or Android and we’ll reply with how to join.</p>
+          <p class="contact-line"><span data-i18n="contact.emailLabel">Email us:</span> <span class="email-addr" translate="no">support@neldo.app</span> <button class="copy-btn" type="button" data-copy-email="support@neldo.app" hidden><span data-i18n="contact.copy">Copy email</span></button><span class="sr-only" role="status" data-copy-status></span></p>
+        </div>
       </div>
     </section>
   </main>
@@ -802,10 +871,12 @@
           <svg class="leaf-n" viewBox="36 30 128 140" width="26" height="28" aria-hidden="true" focusable="false"><mask id="rib-f" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask><g mask="url(#rib-f)"><rect class="leaf-n-bar" x="46" y="40" width="28" height="120" rx="14"/><rect class="leaf-n-bar" x="126" y="40" width="28" height="120" rx="14"/><path class="leaf-n-leaf" d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z"/></g></svg>
           <span class="wordmark">NELDO</span>
         </a>
-        <p data-i18n="footer.tagline">Good food. Your pace. Your day.</p>
+        <p data-i18n="footer.tagline">Free AI meal planning and cooking help. Good food, your pace.</p>
+        <p class="footer-email"><a href="mailto:support@neldo.app?subject=NELDO%20question" translate="no">support@neldo.app</a></p>
       </div>
       <nav class="footer-nav" aria-label="Footer" data-i18n-attr="aria-label:footer.label">
-        <a href="mailto:support@neldo.app?subject=NELDO%20question" data-i18n="footer.contact">Contact</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="footer.contact">Contact</a>
         <a href="how-data-works.html" data-i18n="footer.data">Your data, explained</a>
         <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
         <a href="consumer-health-data.html" data-i18n="footer.chd">Consumer Health Data Privacy Policy</a>
