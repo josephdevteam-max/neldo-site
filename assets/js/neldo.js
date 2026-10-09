@@ -1,4 +1,4 @@
-/* NELDO homepage UI: theme, menu, screenshots, chat demo, marquee, servings demo, #safety.
+/* NELDO site UI (homepage, about, contact): theme, menu, copy email, screenshots, chat demo, marquee, servings demo, #safety.
    Local only. No network calls, analytics or cookies. Theme choice is kept for this visit (sessionStorage, try/catch). */
 (function () {
   'use strict';
@@ -63,7 +63,7 @@
   if (header) {
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    requestAnimationFrame(onScroll); // first check after layout, so it doesn't force one inside this script
   }
 
   /* ---------- mobile menu ---------- */
@@ -82,6 +82,11 @@
     };
     menuBtn.addEventListener('click', function () { setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'); });
     mobileNav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    // Tabbing out of the open menu closes it, so the focused item is never hidden under the tall sticky header.
+    // Shift+Tab back to the menu button keeps it open.
+    mobileNav.addEventListener('focusout', function (e) {
+      if (menuBtn.getAttribute('aria-expanded') === 'true' && e.relatedTarget && !mobileNav.contains(e.relatedTarget) && e.relatedTarget !== menuBtn) setMenu(false);
+    });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') setMenu(false, true);
     });
@@ -101,6 +106,77 @@
       menuBtn.setAttribute('aria-label', t(k, k === 'nav.close' ? 'Close menu' : 'Open menu'));
     });
   }
+
+  /* ---------- "Copy email" buttons (progressive enhancement: the address is plain, selectable text without JS) ---------- */
+  function selectText(el) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) { /* nothing else to do: the address stays visible */ }
+  }
+  function legacyCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.setAttribute('aria-hidden', 'true');
+    ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none';
+    document.body.appendChild(ta);
+    var ok = false;
+    try { ta.select(); ta.setSelectionRange(0, text.length); ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+    }
+    return Promise.resolve(legacyCopy(text));
+  }
+  var canCopy = !!(navigator.clipboard && window.isSecureContext) ||
+    !!(document.queryCommandSupported && document.queryCommandSupported('copy'));
+  document.querySelectorAll('[data-copy-email]').forEach(function (btn) {
+    if (!canCopy) return; // no way to copy: keep the button hidden, the address is still there to select
+    btn.hidden = false;
+    var label = btn.querySelector('[data-i18n]');
+    var group = btn.closest('[data-copy-group]') || btn.parentElement;
+    var status = group && group.querySelector('[data-copy-status]');
+    var addr = group && group.querySelector('.email-addr');
+    var timer = null;
+    var setLabel = function (key, fallback) {
+      if (!label) return;
+      label.setAttribute('data-i18n', key);
+      label.textContent = t(key, fallback);
+    };
+    var announce = function (key, fallback) {
+      if (!status) return;
+      status.textContent = '';
+      // Clear first so the same message is announced again on a repeat click.
+      setTimeout(function () { status.textContent = t(key, fallback); }, 60);
+    };
+    btn.addEventListener('click', function () {
+      var email = btn.getAttribute('data-copy-email');
+      copyText(email).then(function (ok) {
+        btn.focus();
+        clearTimeout(timer);
+        if (ok) {
+          btn.classList.add('is-copied');
+          setLabel('contact.copied', 'Copied!');
+          announce('contact.copied', 'Copied!');
+        } else {
+          if (addr) selectText(addr);
+          announce('contact.copyFail', 'Couldn’t copy. The address is ' + email);
+        }
+        timer = setTimeout(function () {
+          btn.classList.remove('is-copied');
+          setLabel('contact.copy', 'Copy email');
+          if (status) status.textContent = '';
+        }, 2000);
+      });
+    });
+  });
 
   /* ---------- #safety opens its FAQ answer ---------- */
   function openSafety() {
@@ -123,7 +199,6 @@
     mToggle.addEventListener('click', function () {
       var paused = marquee.classList.toggle('paused');
       root.classList.toggle('motion-paused', paused);
-      mToggle.setAttribute('aria-pressed', String(paused));
       var key = paused ? 'marquee.play' : 'marquee.pause';
       label.setAttribute('data-i18n', key);
       label.textContent = t(key, paused ? 'Play animations' : 'Pause animations');
