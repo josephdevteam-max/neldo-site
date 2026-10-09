@@ -63,7 +63,7 @@
   if (header) {
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    requestAnimationFrame(onScroll); // first check after layout, so it doesn't force one inside this script
   }
 
   /* ---------- mobile menu ---------- */
@@ -82,6 +82,11 @@
     };
     menuBtn.addEventListener('click', function () { setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'); });
     mobileNav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    // Tabbing out of the open menu closes it, so the focused item is never hidden under the tall sticky header.
+    // Shift+Tab back to the menu button keeps it open.
+    mobileNav.addEventListener('focusout', function (e) {
+      if (menuBtn.getAttribute('aria-expanded') === 'true' && e.relatedTarget && !mobileNav.contains(e.relatedTarget) && e.relatedTarget !== menuBtn) setMenu(false);
+    });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') setMenu(false, true);
     });
@@ -194,7 +199,6 @@
     mToggle.addEventListener('click', function () {
       var paused = marquee.classList.toggle('paused');
       root.classList.toggle('motion-paused', paused);
-      mToggle.setAttribute('aria-pressed', String(paused));
       var key = paused ? 'marquee.play' : 'marquee.pause';
       label.setAttribute('data-i18n', key);
       label.textContent = t(key, paused ? 'Play animations' : 'Pause animations');

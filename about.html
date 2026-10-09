@@ -29,8 +29,8 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/DMSans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="assets/css/neldo.css?v=4">
+  <link rel="preload" href="assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/neldo.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,8 +77,8 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <script src="assets/js/i18n.js?v=4" defer></script>
-  <script src="assets/js/neldo.js?v=4" defer></script>
+  <script src="assets/js/i18n.js?v=5" defer></script>
+  <script src="assets/js/neldo.js?v=5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -148,7 +148,9 @@
         <figure class="shot">
           <div class="phone">
             <picture>
+              <source srcset="assets/app/home-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
               <source srcset="assets/app/home-dark.png" media="(prefers-color-scheme: dark)">
+              <source srcset="assets/app/home-light.webp" type="image/webp">
               <img src="assets/app/home-light.png" width="390" height="844" alt="NELDO home screen asking What are we making? with Energy Modes and quick-start tiles" data-i18n-attr="alt:img.home" decoding="async">
             </picture>
           </div>

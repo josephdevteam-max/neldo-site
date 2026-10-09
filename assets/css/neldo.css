@@ -1,5 +1,5 @@
 /* NELDO homepage (v3). Self-hosted font, no external requests. Tokens shared with the brief. */
-@font-face{font-family:"DM Sans";src:url("../fonts/DMSans.ttf") format("truetype");font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("../fonts/DMSans.woff2") format("woff2"),url("../fonts/DMSans.ttf") format("truetype");font-weight:100 1000;font-style:normal;font-display:swap}
 
 :root{
   --ink:#10201a;--forest:#172b24;--deep:#0d1813;--green:#234d3b;--leaf:#6e9a1e;--lime:#a8d832;
@@ -164,8 +164,10 @@ section[id],details[id]{scroll-margin-top:84px}
 .hero-glow{position:absolute;inset:-20% -10% auto;height:120%;pointer-events:none;background:radial-gradient(40% 35% at 85% 30%,color-mix(in srgb,var(--lime) 30%,transparent),transparent 70%),radial-gradient(35% 30% at 70% 80%,color-mix(in srgb,var(--paprika) 18%,transparent),transparent 70%),radial-gradient(30% 30% at 5% 10%,color-mix(in srgb,var(--saffron) 14%,transparent),transparent 70%)}
 .hero-grid{position:relative;display:grid;gap:40px;align-items:center}
 .pill-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:var(--r-pill);border:1px solid var(--line-strong);background:var(--surface);font-size:14px;font-weight:700}
-.live-dot{width:9px;height:9px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 0 color-mix(in srgb,var(--leaf) 60%,transparent);animation:pulse 2.2s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--leaf) 55%,transparent)}80%,100%{box-shadow:0 0 0 10px transparent}}
+/* The pulse ring animates transform and opacity only, so it runs on the compositor (no repaint every frame). */
+.live-dot{position:relative;width:9px;height:9px;border-radius:50%;background:var(--leaf)}
+.live-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:color-mix(in srgb,var(--leaf) 55%,transparent);animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:1}80%,100%{transform:scale(3.2);opacity:0}}
 .hero-title{margin-top:22px;font-size:clamp(3.1rem,13.4vw,7rem);line-height:.95;font-weight:800;letter-spacing:-.045em}
 .hero-title .hl{display:inline-block}
 .hero-sub{margin-top:22px;font-size:clamp(1.08rem,2.6vw,1.3rem);line-height:1.55;color:var(--muted);max-width:34em}
@@ -520,7 +522,7 @@ section[id],details[id]{scroll-margin-top:84px}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:20px;font-size:14px;color:#b7c4b6}
 
 /* ---------- motion: the Pause button stops every decorative loop ---------- */
-.motion-paused .plate,.motion-paused .float-card,.motion-paused .steam path,.motion-paused .live-dot,.motion-paused .marquee-track{animation-play-state:paused}
+.motion-paused .plate,.motion-paused .float-card,.motion-paused .steam path,.motion-paused .live-dot::after,.motion-paused .marquee-track{animation-play-state:paused}
 
 /* ---------- motion preferences ---------- */
 @media (prefers-reduced-motion:reduce){
@@ -533,7 +535,8 @@ section[id],details[id]{scroll-margin-top:84px}
   .marquee-track{gap:8px}
   .marquee-track li{font-size:1.25rem;padding:4px 14px;border-radius:999px;background:rgb(250 247 239 / .1)}
   .marquee-track li::after{display:none}
-  .plate,.float-card,.live-dot{animation:none!important}
+  .plate,.float-card{animation:none!important}
+  .live-dot::after{display:none}
   .steam{display:none}
   .chat-demo.will-play .msg{opacity:1;transform:none}
 }

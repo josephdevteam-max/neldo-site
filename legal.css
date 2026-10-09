@@ -19,7 +19,7 @@
      --line). Role tokens (--bg, --fg, --surface, --accent, --link, --focus…)
      carry the per-theme choices. All text pairs pass WCAG AA in both themes.
    ========================================================================== */
-@font-face{font-family:"DM Sans";src:url("assets/fonts/DMSans.ttf") format("truetype");font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("assets/fonts/DMSans.woff2") format("woff2"),url("assets/fonts/DMSans.ttf") format("truetype");font-weight:100 1000;font-style:normal;font-display:swap}
 
 :root,:root[data-theme]{
   --ink:#10201a;--forest:#172b24;--deep:#0d1813;--green:#234d3b;--leaf:#6e9a1e;--lime:#a8d832;

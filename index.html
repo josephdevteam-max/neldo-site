@@ -29,8 +29,8 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/DMSans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="assets/css/neldo.css?v=4">
+  <link rel="preload" href="assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/neldo.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,8 +92,8 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <script src="assets/js/i18n.js?v=4" defer></script>
-  <script src="assets/js/neldo.js?v=4" defer></script>
+  <script src="assets/js/i18n.js?v=5" defer></script>
+  <script src="assets/js/neldo.js?v=5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -171,7 +171,7 @@
           <ul class="chips" aria-label="At a glance" data-i18n-attr="aria-label:hero.chipsLabel">
             <li data-i18n="hero.chip1">Free</li>
             <li data-i18n="hero.chip2">No account</li>
-            <li data-i18n="hero.chip3">English · Español · Português</li>
+            <li data-i18n-html="hero.chip3"><span lang="en">English</span> · <span lang="es">Español</span> · <span lang="pt">Português</span></li>
             <li data-i18n="hero.chip4">Private beta</li>
           </ul>
           <p class="fine" data-i18n="hero.fine">For adults 18+ in the U.S. Spots are limited.</p>
@@ -181,13 +181,17 @@
           <div class="stage-inner">
             <div class="phone phone-back">
               <picture>
+                <source srcset="assets/app/recipe-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                 <source srcset="assets/app/recipe-dark.png" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/recipe-light.webp" type="image/webp">
                 <img src="assets/app/recipe-light.png" width="390" height="844" alt="NELDO recipe screen for Pernil with arroz con gandules, with ingredients and an Estimate nutrition line" data-i18n-attr="alt:img.recipe" fetchpriority="low" decoding="async">
               </picture>
             </div>
             <div class="phone phone-front">
               <picture>
+                <source srcset="assets/app/chat-meal-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                 <source srcset="assets/app/chat-meal-dark.png" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/chat-meal-light.webp" type="image/webp">
                 <img src="assets/app/chat-meal-light.png" width="390" height="844" alt="NELDO chat: someone asks for Puerto Rican food and gets a Pernil with arroz con gandules recipe card" data-i18n-attr="alt:img.chatMeal" fetchpriority="high" decoding="async">
               </picture>
             </div>
@@ -214,7 +218,7 @@
           <li>Pernil</li><li>Arroz con gandules</li><li>Birria tacos</li><li>Jollof rice</li><li>Gumbo</li><li>Phở</li><li>Shakshuka</li><li>Moqueca</li><li>Pollo guisado</li><li>Ramen</li><li>Jerk chicken</li><li>Mofongo</li><li>Feijoada</li><li>Tostones</li><li>Pastelón</li><li>Red beans &amp; rice</li>
         </ul>
       </div>
-      <button class="marquee-toggle" type="button" aria-pressed="false" data-marquee-toggle><span data-marquee-label data-i18n="marquee.pause">Pause animations</span></button>
+      <button class="marquee-toggle" type="button" data-marquee-toggle><span data-marquee-label data-i18n="marquee.pause">Pause animations</span></button>
     </section>
 
     <!-- 4 · TALKS LIKE YOU -->
@@ -300,7 +304,9 @@
           <figure class="shot shot-center">
             <div class="phone">
               <picture>
+                <source srcset="assets/app/home-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                 <source srcset="assets/app/home-dark.png" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/home-light.webp" type="image/webp">
                 <img src="assets/app/home-light.png" width="390" height="844" alt="NELDO home screen asking What are we making? with Energy Modes and quick-start tiles" data-i18n-attr="alt:img.home" loading="lazy" decoding="async">
               </picture>
             </div>
@@ -568,11 +574,13 @@
               <li><strong data-i18n="plan.f3t">One list, by aisle.</strong> <span data-i18n="plan.f3">Produce, Meat &amp; seafood, Dairy &amp; eggs, Bakery, Pantry, Spices &amp; oils, Frozen. Check off as you shop; “Already have” stays separate.</span></li>
               <li><strong data-i18n="plan.f4t">Servings that scale.</strong> <span data-i18n="plan.f4">Change servings and the amounts and grocery list update with it.</span></li>
             </ul>
-            <div class="shot-pair">
+            <div class="shot-pair" role="group" aria-label="App screens: your week and grocery list" data-i18n-attr="aria-label:plan.shotsLabel">
               <figure class="shot">
                 <div class="phone">
                   <picture>
+                    <source srcset="assets/app/week-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                     <source srcset="assets/app/week-dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="assets/app/week-light.webp" type="image/webp">
                     <img src="assets/app/week-light.png" width="390" height="844" alt="Your week in NELDO with a sample week of meals and a nutrition estimate" data-i18n-attr="alt:img.week" loading="lazy" decoding="async">
                   </picture>
                 </div>
@@ -581,7 +589,9 @@
               <figure class="shot shot-offset">
                 <div class="phone">
                   <picture>
+                    <source srcset="assets/app/groceries-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                     <source srcset="assets/app/groceries-dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="assets/app/groceries-light.webp" type="image/webp">
                     <img src="assets/app/groceries-light.png" width="390" height="844" alt="NELDO grocery list for the week, grouped by store aisle" data-i18n-attr="alt:img.groceries" loading="lazy" decoding="async">
                   </picture>
                 </div>
@@ -615,7 +625,9 @@
         <figure class="shot shot-center">
           <div class="phone">
             <picture>
+              <source srcset="assets/app/recipe-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
               <source srcset="assets/app/recipe-dark.png" media="(prefers-color-scheme: dark)">
+              <source srcset="assets/app/recipe-light.webp" type="image/webp">
               <img src="assets/app/recipe-light.png" width="390" height="844" alt="NELDO recipe screen for Pernil with arroz con gandules, with ingredients and an Estimate nutrition line" data-i18n-attr="alt:img.recipe" loading="lazy" decoding="async">
             </picture>
           </div>
@@ -641,7 +653,9 @@
             <figure class="tile-shot">
               <div class="phone">
                 <picture>
+                  <source srcset="assets/app/settings-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                   <source srcset="assets/app/settings-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/settings-light.webp" type="image/webp">
                   <img src="assets/app/settings-light.png" width="390" height="844" alt="NELDO settings for allergies and foods to avoid" data-i18n-attr="alt:img.settings" loading="lazy" decoding="async">
                 </picture>
               </div>
@@ -667,7 +681,9 @@
             <figure class="tile-shot">
               <div class="phone">
                 <picture>
+                  <source srcset="assets/app/cook-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                   <source srcset="assets/app/cook-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/cook-light.webp" type="image/webp">
                   <img src="assets/app/cook-light.png" width="390" height="844" alt="Cook with me step in NELDO with a built-in timer" data-i18n-attr="alt:img.cook" loading="lazy" decoding="async">
                 </picture>
               </div>
@@ -689,13 +705,15 @@
 
           <article class="tile tile-lang">
             <div class="tile-copy">
-              <h3 data-i18n="more.langT">English. Español. Português.</h3>
+              <h3 data-i18n-html="more.langT"><span lang="en">English</span>. <span lang="es">Español</span>. <span lang="pt">Português</span>.</h3>
               <p data-i18n="more.lang">The app and this site, in three languages.</p>
             </div>
             <figure class="tile-shot">
               <div class="phone">
                 <picture>
+                  <source srcset="assets/app/chat-es-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
                   <source srcset="assets/app/chat-es-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/chat-es-light.webp" type="image/webp">
                   <img src="assets/app/chat-es-light.png" width="390" height="844" alt="NELDO chat in Spanish with a meal suggestion" data-i18n-attr="alt:img.chatEs" loading="lazy" decoding="async">
                 </picture>
               </div>
