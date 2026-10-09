@@ -667,5 +667,7 @@ html:not([lang="en"]) .desktop-nav [data-nav-optional]{display:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .social-tile[href^="https://www.tiktok.com"] .si,:root:not([data-theme="light"]) .social-tile[href^="https://x.com"] .si{box-shadow:inset 0 0 0 1px rgb(250 247 239 / .16)} :root:not([data-theme="light"]) .social-tile[href^="https://www.youtube.com"] .si{box-shadow:none}}
 .social-tile b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
 .social-tile small{display:block;margin-top:2px;font-size:14px;color:var(--muted)}
+/* High contrast mode recolors the logos, so the cut-outs (YouTube play, Facebook f, LinkedIn in) show the system background instead of white. */
+@media (forced-colors:active){.social-icons:not(.footer-social) a[href],.social-tile[href] .si{--logo-knock:transparent;--ig-fill:currentColor}}
 @media (prefers-reduced-motion:reduce){.social-icons a,.social-tile{transition:none}.social-icons a:hover,.social-tile:hover{transform:none}}
 @media (max-width:599px){.social-grid{gap:10px}.social-tile{flex-direction:column;align-items:flex-start;gap:10px;padding:14px;min-height:0;border-radius:20px}.social-tile .si{width:40px;height:40px;border-radius:13px}.social-tile b{font-size:16px}.social-tile small{font-size:13px}}
