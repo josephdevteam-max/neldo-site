@@ -17,14 +17,14 @@
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:title" content="NELDO | Free AI Meal Planner &amp; Cooking Help">
   <meta property="og:description" content="Free AI meal planner and cooking app from Neldo LLC. Tell NELDO what you’re craving, what’s in your kitchen, your budget and time. Private beta on iPhone and Android.">
-  <meta property="og:image" content="https://www.neldo.app/og-card.png">
+  <meta property="og:image" content="https://www.neldo.app/og-card.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Private beta on iPhone &amp; Android. Free, no account.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NELDO | Free AI Meal Planner &amp; Cooking Help">
   <meta name="twitter:description" content="Free AI meal planner and cooking app from Neldo LLC. Private beta on iPhone and Android.">
-  <meta name="twitter:image" content="https://www.neldo.app/og-card.png">
+  <meta name="twitter:image" content="https://www.neldo.app/og-card.png?v=2">
   <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Private beta on iPhone &amp; Android. Free, no account.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -619,30 +619,17 @@
               <li><strong data-i18n="plan.f3t">One list, by aisle.</strong> <span data-i18n="plan.f3">Produce, Meat &amp; seafood, Dairy &amp; eggs, Bakery, Pantry, Spices &amp; oils, Frozen. Check off as you shop; “Already have” stays separate.</span></li>
               <li><strong data-i18n="plan.f4t">Servings that scale.</strong> <span data-i18n="plan.f4">Change servings and the amounts and grocery list update with it.</span></li>
             </ul>
-            <div class="shot-pair" role="group" aria-label="App screens: your week and grocery list" data-i18n-attr="aria-label:plan.shotsLabel">
-              <figure class="shot">
-                <div class="phone">
-                  <picture>
-                    <source srcset="assets/app/week-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                    <source srcset="assets/app/week-dark.png" media="(prefers-color-scheme: dark)">
-                    <source srcset="assets/app/week-light.webp" type="image/webp">
-                    <img src="assets/app/week-light.png" width="390" height="844" alt="Your week in NELDO with a sample week of meals and a nutrition estimate" data-i18n-attr="alt:img.week" loading="lazy" decoding="async">
-                  </picture>
-                </div>
-                <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
-              </figure>
-              <figure class="shot shot-offset">
-                <div class="phone">
-                  <picture>
-                    <source srcset="assets/app/groceries-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                    <source srcset="assets/app/groceries-dark.png" media="(prefers-color-scheme: dark)">
-                    <source srcset="assets/app/groceries-light.webp" type="image/webp">
-                    <img src="assets/app/groceries-light.png" width="390" height="844" alt="NELDO grocery list for the week, grouped by store aisle" data-i18n-attr="alt:img.groceries" loading="lazy" decoding="async">
-                  </picture>
-                </div>
-                <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
-              </figure>
-            </div>
+            <figure class="shot plan-shot">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/groceries-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/groceries-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/groceries-light.webp" type="image/webp">
+                  <img src="assets/app/groceries-light.png" width="390" height="844" alt="NELDO grocery list for the week, grouped by store aisle" data-i18n-attr="alt:img.groceries" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -692,13 +679,13 @@
           <article class="tile tile-allergy">
             <div class="tile-copy">
               <h3 data-i18n="more.allergyT">Foods you never want</h3>
-              <p data-i18n="more.allergy">Put them under Never include in settings, or just say it in chat. NELDO leaves them out of your meals and swaps.</p>
+              <p data-i18n="more.allergy">Add them to “Never include” in settings, or just say so in chat. NELDO leaves them out of your meals and swaps.</p>
               <p class="tile-small"><span data-i18n="more.allergyNote">NELDO can’t check food allergies or cross-contact, so</span> <a href="#food-safety" data-i18n="more.allergyLink">check every label yourself</a></p>
             </div>
             <ul class="never-chips" aria-label="Things you can say" data-i18n-attr="aria-label:talk.sayLabel">
               <li data-i18n="more.never1">“no mushrooms”</li>
               <li data-i18n="more.never2">“hold the olives”</li>
-              <li data-i18n="more.never3">“never raisins”</li>
+              <li data-i18n="more.never3">“no raisins, ever”</li>
             </ul>
           </article>
 

@@ -372,15 +372,8 @@ section[id],details[id]{scroll-margin-top:84px}
 .feature-list li{padding-left:22px;position:relative;color:var(--muted);font-size:16.5px}
 .feature-list li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:50%;background:var(--leaf)}
 .feature-list strong{color:var(--text)}
-.shot-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
-.shot-pair .phone{max-width:260px}
-.shot-offset{margin-top:44px}
-@media (max-width:599px){
-  .shot-pair{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding:0 16px 8px;scroll-padding-inline:16px;scrollbar-width:none;overscroll-behavior-x:contain}
-  .shot-pair::-webkit-scrollbar{display:none}
-  .shot-pair .shot{scroll-snap-align:center}
-  .shot-offset{margin-top:0}
-}
+.plan-shot{margin-top:36px}
+.plan-shot .phone{max-width:260px}
 
 /* ---------- nutrition ---------- */
 .nutrition-grid{display:grid;gap:44px;align-items:center}
@@ -642,6 +635,10 @@ html:not([lang="en"]) .desktop-nav [data-nav-optional]{display:none}
 .site-footer .social-icons a:hover{background:var(--lime);border-color:var(--lime);color:var(--ink)}
 .site-footer .social-icons a:focus-visible{outline-color:var(--lime)}
 .contact-card .social-icons{margin-top:4px}
+/* Keeps all 6 icons on one line in the 288px hero and the 375px contact card, with 44px tap targets. */
+@media (max-width:399px){.social-icons{gap:4px}}
+/* The contact card is too narrow for one line below about 362px, so it splits evenly, 3 and 3. */
+@media (max-width:365px){.contact-card .social-icons{display:grid;grid-template-columns:repeat(3,44px);gap:8px}}
 .social-band .lead{max-width:36em}
 .social-grid{display:grid;gap:14px;margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (min-width:700px){.social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
