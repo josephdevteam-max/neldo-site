@@ -41,10 +41,23 @@ nav a{display:inline-flex;align-items:center;min-height:44px;font-weight:650;tex
 .languages a{padding:0 14px;border-radius:999px;color:var(--muted);text-decoration:none;font-weight:600}
 .languages a:hover{color:var(--fg);background:var(--surface)}
 .languages a:first-child{margin-left:-14px}
-@media (prefers-reduced-motion:reduce){.plate .garnish{animation:none}.button{transition:none}}
+.social{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.social a{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;border:1px solid var(--line);color:var(--muted);transition:color .15s,border-color .15s,background-color .15s}
+.social a:hover{color:var(--fg);background:var(--surface)}
+.social a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.plate .garnish{animation:none}.button,.social a{transition:none}}
 @media (max-width:420px){.plate-row{margin-top:32px}.lede{font-size:17px}.button{flex:1 1 100%;justify-content:center}}
 </style>
-</head><body><main>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14.5 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 3.5c.4 2.6 2.2 4.4 4.8 4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M10 9.2v5.6l4.8-2.8Z" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21Z" fill="currentColor"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4h4.6l11.4 16h-4.6Z" fill="currentColor"/><path d="M19.5 4 4.5 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-li" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="8.4" cy="8.3" r="1.2" fill="currentColor"/><path d="M8.4 11v5.6M12 16.6V11m0 2.6c0-1.6 1-2.7 2.4-2.7s2.2 1 2.2 2.7v3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+</svg>
+<main>
 <a class="brand" href="/" data-home aria-label="NELDO home"><svg viewBox="36 30 128 140" aria-hidden="true"><mask id="rib" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask><g mask="url(#rib)"><rect class="stem" x="46" y="40" width="28" height="120" rx="14"/><rect class="stem" x="126" y="40" width="28" height="120" rx="14"/><path class="leaf" d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z"/></g></svg>NELDO</a>
 <div class="plate-row" aria-hidden="true"><span>4</span><svg class="plate" viewBox="0 0 120 120"><circle class="rim" cx="60" cy="60" r="57"/><circle class="well" cx="60" cy="60" r="38"/><path class="garnish" d="M44 46 C60 49 73 64 76 80 C60 77 47 63 44 46 Z"/><circle class="crumb-a" cx="40" cy="74" r="2.6"/><circle class="crumb-b" cx="78" cy="44" r="2.2"/><circle class="crumb-a" cx="84" cy="62" r="1.6"/></svg><span>4</span></div>
 <p class="code">404 · Nothing on this plate</p>
@@ -52,6 +65,14 @@ nav a{display:inline-flex;align-items:center;min-height:44px;font-weight:650;tex
 <p class="lede">Let’s get you back to something useful.</p>
 <nav aria-label="Page recovery"><a class="button" href="/" data-home>Back to NELDO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="/about.html" data-path="about.html">About</a><a href="/contact.html" data-path="contact.html">Contact</a><a href="/privacy.html" id="privacy">Privacy</a></nav>
 <nav class="languages" aria-label="Homepage language"><a href="/" data-home lang="en">English</a><a href="/?lang=es" data-language="es" lang="es">Español</a><a href="/?lang=pt" data-language="pt" lang="pt">Português</a></nav>
+<ul class="social" aria-label="NELDO on social media">
+  <li><a href="https://www.instagram.com/getneldo/" target="_blank" rel="me noopener" aria-label="NELDO on Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
+  <li><a href="https://www.tiktok.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on TikTok"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg></a></li>
+  <li><a href="https://www.youtube.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on YouTube"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+  <li><a href="https://www.facebook.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-fb"/></svg></a></li>
+  <li><a href="https://x.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on X"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a></li>
+  <li><a href="https://www.linkedin.com/company/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-li"/></svg></a></li>
+</ul>
 </main>
 <script>
 // Custom domains serve at root; repository Pages previews serve at their repository path.

@@ -20,17 +20,17 @@
   <meta property="og:image" content="https://www.neldo.app/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
+  <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Private beta on iPhone &amp; Android. Free, no account.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact NELDO | Neldo LLC Support">
   <meta name="twitter:description" content="Email support@neldo.app to join the NELDO private beta, report a bug, ask about your data, or for press and partnerships.">
   <meta name="twitter:image" content="https://www.neldo.app/og-card.png">
-  <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
+  <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Private beta on iPhone &amp; Android. Free, no account.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/neldo.css?v=5">
+  <link rel="stylesheet" href="assets/css/neldo.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,7 +58,15 @@
           "contactType": "customer support",
           "email": "support@neldo.app",
           "availableLanguage": ["English", "Spanish", "Portuguese"]
-        }
+        },
+        "sameAs": [
+          "https://www.youtube.com/@getneldo",
+          "https://www.instagram.com/getneldo/",
+          "https://www.facebook.com/getneldo",
+          "https://x.com/getneldo",
+          "https://www.linkedin.com/company/getneldo",
+          "https://www.tiktok.com/@getneldo"
+        ]
       }
     ]
   }
@@ -73,8 +81,8 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <script src="assets/js/i18n.js?v=5" defer></script>
-  <script src="assets/js/neldo.js?v=5" defer></script>
+  <script src="assets/js/i18n.js?v=6" defer></script>
+  <script src="assets/js/neldo.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -131,6 +139,15 @@
     </nav>
   </header>
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14.5 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 3.5c.4 2.6 2.2 4.4 4.8 4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M10 9.2v5.6l4.8-2.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21Z" fill="currentColor"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4h4.6l11.4 16h-4.6Z" fill="currentColor"/><path d="M19.5 4 4.5 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-li" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="8.4" cy="8.3" r="1.2" fill="currentColor"/><path d="M8.4 11v5.6M12 16.6V11m0 2.6c0-1.6 1-2.7 2.4-2.7s2.2 1 2.2 2.7v3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  </svg>
+
   <main id="main" tabindex="-1">
 
     <section class="page-hero" aria-labelledby="page-title">
@@ -168,7 +185,7 @@
 
         <article class="contact-card" aria-labelledby="data-title">
           <h2 id="data-title" data-i18n="contactPage.dataTitle">Privacy and deleting your data</h2>
-          <p data-i18n="contactPage.data1">Your chats, saved meals, plans and lists stay on your phone. In the app, “Clear my NELDO data” removes them, and so does uninstalling the app. You can also turn AI help off in Settings, under Privacy &amp; data.</p>
+          <p data-i18n="contactPage.data1">Your chats, saved meals, plans and lists stay on your phone. In the app, “Clear my NELDO data” removes them, and so does uninstalling the app. You can also turn AI help off in Settings, under Privacy &amp; data. NELDO needs AI to work, so meal help stops while it’s off.</p>
           <p data-i18n-html="contactPage.data2">To delete anything else, like a support email, or to make a privacy request, email us. <a href="privacy.html#delete">How deleting your data works</a>.</p>
           <a class="btn btn-ghost" href="mailto:support@neldo.app?subject=NELDO%20data%20deletion%20request" data-i18n="contactPage.dataCta">Email a deletion request</a>
         </article>
@@ -177,6 +194,19 @@
           <h2 id="press-title" data-i18n="contactPage.pressTitle">Press and partnerships</h2>
           <p data-i18n="contactPage.press">Writing about NELDO or want to work with us? Email us with “NELDO press or partnership” as the subject.</p>
           <a class="btn btn-ghost" href="mailto:support@neldo.app?subject=NELDO%20press%20or%20partnership" data-i18n="contactPage.pressCta">Email about press</a>
+        </article>
+
+        <article class="contact-card contact-card-wide" aria-labelledby="follow-title">
+          <h2 id="follow-title" data-i18n="contactPage.followTitle">Follow NELDO</h2>
+          <p data-i18n="contactPage.follow">Recipes, cooking tips and app news, all at @getneldo. Got a question? Email works best.</p>
+          <ul class="social-icons" aria-label="NELDO on social media" data-i18n-attr="aria-label:social.listLabel">
+            <li><a href="https://www.instagram.com/getneldo/" target="_blank" rel="me noopener" aria-label="NELDO on Instagram" data-i18n-attr="aria-label:social.aIg"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
+            <li><a href="https://www.tiktok.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on TikTok" data-i18n-attr="aria-label:social.aTt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on YouTube" data-i18n-attr="aria-label:social.aYt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+            <li><a href="https://www.facebook.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on Facebook" data-i18n-attr="aria-label:social.aFb"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-fb"/></svg></a></li>
+            <li><a href="https://x.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on X" data-i18n-attr="aria-label:social.aX"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/company/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on LinkedIn" data-i18n-attr="aria-label:social.aLi"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-li"/></svg></a></li>
+          </ul>
         </article>
 
         <article class="contact-card contact-card-wide contact-card-alert" aria-labelledby="emergency-title">
@@ -196,6 +226,14 @@
         </a>
         <p data-i18n="footer.tagline">Free AI meal planning and cooking help. Good food, your pace.</p>
         <p class="footer-email"><a href="mailto:support@neldo.app?subject=NELDO%20question" translate="no">support@neldo.app</a></p>
+        <ul class="social-icons footer-social" aria-label="NELDO on social media" data-i18n-attr="aria-label:social.listLabel">
+          <li><a href="https://www.instagram.com/getneldo/" target="_blank" rel="me noopener" aria-label="NELDO on Instagram" data-i18n-attr="aria-label:social.aIg"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on TikTok" data-i18n-attr="aria-label:social.aTt"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg></a></li>
+          <li><a href="https://www.youtube.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on YouTube" data-i18n-attr="aria-label:social.aYt"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+          <li><a href="https://www.facebook.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on Facebook" data-i18n-attr="aria-label:social.aFb"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-fb"/></svg></a></li>
+          <li><a href="https://x.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on X" data-i18n-attr="aria-label:social.aX"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on LinkedIn" data-i18n-attr="aria-label:social.aLi"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-li"/></svg></a></li>
+        </ul>
       </div>
       <nav class="footer-nav" aria-label="Footer" data-i18n-attr="aria-label:footer.label">
         <a href="about.html" data-i18n="nav.about">About</a>

@@ -20,17 +20,17 @@
   <meta property="og:image" content="https://www.neldo.app/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
+  <meta property="og:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Private beta on iPhone &amp; Android. Free, no account.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NELDO | Free AI Meal Planner &amp; Cooking Help">
   <meta name="twitter:description" content="Free AI meal planner and cooking app from Neldo LLC. Private beta on iPhone and Android.">
   <meta name="twitter:image" content="https://www.neldo.app/og-card.png">
-  <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Now in beta on iPhone &amp; Android. Free, no account.">
+  <meta name="twitter:image:alt" content="NELDO Leaf N logo with the line: Meals that fit your day. Just talk to it. Private beta on iPhone &amp; Android. Free, no account.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/neldo.css?v=5">
+  <link rel="stylesheet" href="assets/css/neldo.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,6 +58,14 @@
           "@type": "Person",
           "name": "Joseph Cruz"
         },
+        "sameAs": [
+          "https://www.youtube.com/@getneldo",
+          "https://www.instagram.com/getneldo/",
+          "https://www.facebook.com/getneldo",
+          "https://x.com/getneldo",
+          "https://www.linkedin.com/company/getneldo",
+          "https://www.tiktok.com/@getneldo"
+        ],
         "description": "Neldo LLC makes NELDO, a free AI meal planning and cooking app. Tell it what you’re craving, what’s in your kitchen, your budget and your time, and get meal ideas, grocery lists and step by step cooking help."
       },
       {
@@ -92,8 +100,8 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <script src="assets/js/i18n.js?v=5" defer></script>
-  <script src="assets/js/neldo.js?v=5" defer></script>
+  <script src="assets/js/i18n.js?v=6" defer></script>
+  <script src="assets/js/neldo.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -150,6 +158,15 @@
     </nav>
   </header>
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14.5 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 3.5c.4 2.6 2.2 4.4 4.8 4.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M10 9.2v5.6l4.8-2.8Z" fill="currentColor"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21Z" fill="currentColor"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4h4.6l11.4 16h-4.6Z" fill="currentColor"/><path d="M19.5 4 4.5 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-li" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="8.4" cy="8.3" r="1.2" fill="currentColor"/><path d="M8.4 11v5.6M12 16.6V11m0 2.6c0-1.6 1-2.7 2.4-2.7s2.2 1 2.2 2.7v3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  </svg>
+
   <main id="main" tabindex="-1">
 
     <!-- 2 · HERO -->
@@ -175,6 +192,17 @@
             <li data-i18n="hero.chip4">Private beta</li>
           </ul>
           <p class="fine" data-i18n="hero.fine">For adults 18+ in the U.S. Spots are limited.</p>
+          <div class="social-row">
+            <span class="social-label" data-i18n="social.follow">Follow @getneldo</span>
+            <ul class="social-icons" aria-label="NELDO on social media" data-i18n-attr="aria-label:social.listLabel">
+              <li><a href="https://www.instagram.com/getneldo/" target="_blank" rel="me noopener" aria-label="NELDO on Instagram" data-i18n-attr="aria-label:social.aIg"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
+              <li><a href="https://www.tiktok.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on TikTok" data-i18n-attr="aria-label:social.aTt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on YouTube" data-i18n-attr="aria-label:social.aYt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+              <li><a href="https://www.facebook.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on Facebook" data-i18n-attr="aria-label:social.aFb"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-fb"/></svg></a></li>
+              <li><a href="https://x.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on X" data-i18n-attr="aria-label:social.aX"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a></li>
+              <li><a href="https://www.linkedin.com/company/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on LinkedIn" data-i18n-attr="aria-label:social.aLi"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-li"/></svg></a></li>
+            </ul>
+          </div>
         </div>
 
         <figure class="hero-stage">
@@ -219,6 +247,23 @@
         </ul>
       </div>
       <button class="marquee-toggle" type="button" data-marquee-toggle><span data-marquee-label data-i18n="marquee.pause">Pause animations</span></button>
+    </section>
+
+    <!-- 3b · FOLLOW ALONG -->
+    <section class="section social-band" id="follow" aria-labelledby="follow-title">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="social.eyebrow">Follow along</p>
+        <h2 id="follow-title" class="h2" data-i18n-html="social.title">Real meals, <span class="hl">right in your feed.</span></h2>
+        <p class="lead" data-i18n="social.lead">Quick recipes, cooking tips and what’s new in the app. Find us at @getneldo.</p>
+        <div class="social-grid">
+          <a class="social-tile" href="https://www.instagram.com/getneldo/" target="_blank" rel="me noopener"><span class="si"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></span><span><b>Instagram</b><small data-i18n="social.ig">Reels and food ideas</small></span></a>
+          <a class="social-tile" href="https://www.tiktok.com/@getneldo" target="_blank" rel="me noopener"><span class="si"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg></span><span><b>TikTok</b><small data-i18n="social.tt">Short videos and recipes</small></span></a>
+          <a class="social-tile" href="https://www.youtube.com/@getneldo" target="_blank" rel="me noopener"><span class="si"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></span><span><b>YouTube</b><small data-i18n="social.yt">Shorts and app demos</small></span></a>
+          <a class="social-tile" href="https://www.facebook.com/getneldo" target="_blank" rel="me noopener"><span class="si"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-fb"/></svg></span><span><b>Facebook</b><small data-i18n="social.fb">Community and updates</small></span></a>
+          <a class="social-tile" href="https://x.com/getneldo" target="_blank" rel="me noopener"><span class="si"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></span><span><b>X</b><small data-i18n="social.x">Quick tips and updates</small></span></a>
+          <a class="social-tile" href="https://www.linkedin.com/company/getneldo" target="_blank" rel="me noopener"><span class="si"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-li"/></svg></span><span><b>LinkedIn</b><small data-i18n="social.li">Company news</small></span></a>
+        </div>
+      </div>
     </section>
 
     <!-- 4 · TALKS LIKE YOU -->
@@ -299,7 +344,7 @@
               <p data-i18n="modes.lockedBody">Take your time. Go for the big dish or try a new technique, just because you want to.</p>
               <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.pernil">Pernil with arroz con gandules</strong> <span data-i18n="modes.lockedTime">~3½ h</span></p>
             </article>
-            <p class="note" data-i18n="modes.note">No mode is better than another, and you never have to pick one. Your allergies, your time and the dish you asked for still come first.</p>
+            <p class="note" data-i18n="modes.note">No mode is better than another, and you never have to pick one. Foods you never want, your time and the dish you asked for still come first.</p>
           </div>
           <figure class="shot shot-center">
             <div class="phone">
@@ -646,21 +691,15 @@
         <div class="bento">
           <article class="tile tile-allergy">
             <div class="tile-copy">
-              <h3 data-i18n="more.allergyT">Allergies &amp; foods to avoid</h3>
-              <p data-i18n="more.allergy">Set them in settings or just say them in chat. Every suggestion and swap gets checked against them.</p>
-              <p class="tile-small"><span data-i18n="more.allergyNote">NELDO can still make mistakes, so</span> <a href="#food-safety" data-i18n="more.allergyLink">always check labels</a></p>
+              <h3 data-i18n="more.allergyT">Foods you never want</h3>
+              <p data-i18n="more.allergy">Put them under Never include in settings, or just say it in chat. NELDO leaves them out of your meals and swaps.</p>
+              <p class="tile-small"><span data-i18n="more.allergyNote">NELDO can’t check food allergies or cross-contact, so</span> <a href="#food-safety" data-i18n="more.allergyLink">check every label yourself</a></p>
             </div>
-            <figure class="tile-shot">
-              <div class="phone">
-                <picture>
-                  <source srcset="assets/app/settings-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/settings-dark.png" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/settings-light.webp" type="image/webp">
-                  <img src="assets/app/settings-light.png" width="390" height="844" alt="NELDO settings for allergies and foods to avoid" data-i18n-attr="alt:img.settings" loading="lazy" decoding="async">
-                </picture>
-              </div>
-              <figcaption class="caption" data-i18n="caption.real">Real app screen</figcaption>
-            </figure>
+            <ul class="never-chips" aria-label="Things you can say" data-i18n-attr="aria-label:talk.sayLabel">
+              <li data-i18n="more.never1">“no mushrooms”</li>
+              <li data-i18n="more.never2">“hold the olives”</li>
+              <li data-i18n="more.never3">“never raisins”</li>
+            </ul>
           </article>
 
           <article class="tile tile-swaps">
@@ -694,7 +733,7 @@
           <article class="tile tile-scan">
             <span class="beta-tag" data-i18n="more.beta">Beta</span>
             <h3 data-i18n="more.scanT">Scan your kitchen</h3>
-            <p data-i18n="more.scan">Snap or pick a photo of your fridge, pantry or spice shelf and get a list of the ingredients it sees. An AI provider reads the photo. NELDO doesn’t keep it, but the provider may for a limited time.</p>
+            <p data-i18n="more.scan">Snap or pick a photo of your fridge, pantry or spice shelf and get a list of the ingredients it sees. An outside AI company reads the photo. NELDO doesn’t keep it, but that company may for a limited time.</p>
             <a class="tile-link" href="how-data-works.html" data-i18n="more.scanLink">Your data, explained</a>
           </article>
 
@@ -774,13 +813,13 @@
       <div class="wrap">
         <div class="safety-card">
           <div class="safety-head">
-            <p class="eyebrow" data-i18n="safety.eyebrow">Allergies &amp; dietary needs</p>
+            <p class="eyebrow" data-i18n="safety.eyebrow">Food allergies and special diets</p>
             <h2 id="food-safety-title" class="h2" data-i18n-html="safety.title">Helpful suggestions. <span class="hl">Always double-check.</span></h2>
           </div>
           <div class="safety-body">
-            <p><strong data-i18n="safety.p1">NELDO can make mistakes and cannot guarantee that a meal meets your allergies or dietary needs.</strong></p>
+            <p><strong data-i18n="safety.p1">NELDO can make mistakes. It can’t check food allergies or cross-contact, and it can’t promise a meal fits your dietary needs.</strong></p>
             <p data-i18n="safety.p2">Check every ingredient, product label, substitution, and possible allergen cross-contact before preparing or eating food. NELDO cannot verify how food is made or handled, and a recipe or dietary label does not certify that food is safe for you.</p>
-            <p data-i18n="safety.p3">Add your allergies and ingredients to avoid in the app, and keep them up to date. These guide recipe suggestions; they do not replace your own checks. Review saved recipes again when your needs or ingredients change.</p>
+            <p data-i18n="safety.p3">You can tell NELDO foods you never want, and it leaves them out. That’s a preference, not an allergy check. If you have a food allergy, check every ingredient and label yourself, every time, and look over saved recipes again when your needs change.</p>
             <p data-i18n="safety.p4">Dietary preferences are not medical advice. Follow your clinician’s guidance for food allergies and medically required diets. If you are unsure whether a food is safe for you, do not eat it until you have verified it.</p>
             <a class="tile-link" href="https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies" data-i18n="safety.fda">Read FDA food-allergy guidance</a>
           </div>
@@ -846,12 +885,12 @@
             <div class="faq-a"><p data-i18n="faq.a5">They’re AI estimates, and they’re labeled that way. They’re never 100% exact. If you ask for a target like “60 g protein,” NELDO aims around it. Check product labels and portions when the numbers matter to you.</p></div>
           </details>
           <details>
-            <summary data-i18n="faq.q6">Does it handle my allergies?</summary>
-            <div class="faq-a"><p data-i18n-html="faq.a6">Set allergies and foods to avoid in settings, or say them in chat, and every suggestion and swap is checked against them. NELDO can still make mistakes, so always check ingredients, labels and cross-contact. <a href="#food-safety">Read the food-safety note</a>.</p></div>
+            <summary data-i18n="faq.q6">Does it handle food allergies?</summary>
+            <div class="faq-a"><p data-i18n-html="faq.a6">No. NELDO can’t check food allergies or cross-contact. You can tell it foods you never want, in settings or in chat, and it leaves them out. If you have a food allergy, check every ingredient and label yourself and follow your clinician’s advice. <a href="#food-safety">Read the food-safety note</a>.</p></div>
           </details>
           <details>
             <summary data-i18n="faq.q7">What happens to my kitchen photo?</summary>
-            <div class="faq-a"><p data-i18n-html="faq.a7">Scan your kitchen is in beta. Once you allow AI help, NELDO sends the photo to an AI provider to list the ingredients. Hidden photo details, like where it was taken, are removed first. NELDO doesn’t save the photo, but the AI provider may keep it for a time under its own terms. <a href="how-data-works.html">Your data, explained</a> has the details.</p></div>
+            <div class="faq-a"><p data-i18n-html="faq.a7">Scan your kitchen is in beta. Once you allow AI help, NELDO sends the photo to an outside AI company to list the ingredients. Hidden photo details, like where it was taken, are removed first. NELDO doesn’t save the photo, but that company may keep it for a time under its own terms. Want to know which outside AI companies we use? Email support@neldo.app and we’ll send you the list. <a href="how-data-works.html">Your data, explained</a> has the details.</p></div>
           </details>
           <details>
             <summary data-i18n="faq.q8">Can NELDO plan my whole week?</summary>
@@ -891,6 +930,14 @@
         </a>
         <p data-i18n="footer.tagline">Free AI meal planning and cooking help. Good food, your pace.</p>
         <p class="footer-email"><a href="mailto:support@neldo.app?subject=NELDO%20question" translate="no">support@neldo.app</a></p>
+        <ul class="social-icons footer-social" aria-label="NELDO on social media" data-i18n-attr="aria-label:social.listLabel">
+          <li><a href="https://www.instagram.com/getneldo/" target="_blank" rel="me noopener" aria-label="NELDO on Instagram" data-i18n-attr="aria-label:social.aIg"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on TikTok" data-i18n-attr="aria-label:social.aTt"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg></a></li>
+          <li><a href="https://www.youtube.com/@getneldo" target="_blank" rel="me noopener" aria-label="NELDO on YouTube" data-i18n-attr="aria-label:social.aYt"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+          <li><a href="https://www.facebook.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on Facebook" data-i18n-attr="aria-label:social.aFb"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-fb"/></svg></a></li>
+          <li><a href="https://x.com/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on X" data-i18n-attr="aria-label:social.aX"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/getneldo" target="_blank" rel="me noopener" aria-label="NELDO on LinkedIn" data-i18n-attr="aria-label:social.aLi"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-li"/></svg></a></li>
+        </ul>
       </div>
       <nav class="footer-nav" aria-label="Footer" data-i18n-attr="aria-label:footer.label">
         <a href="about.html" data-i18n="nav.about">About</a>
