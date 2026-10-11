@@ -3,7 +3,7 @@
    warm cream light mode with a soft glow, deep night mode with an ember / teal / berry aura,
    frosted glass header, solid cards with a 1px line. Fraunces for big titles and dish names, DM Sans for the rest. */
 @font-face{font-family:"DM Sans";src:url("../fonts/DMSans.woff2") format("woff2"),url("../fonts/DMSans.ttf") format("truetype");font-weight:100 1000;font-style:normal;font-display:swap}
-/* Fraunces (SIL OFL 1.1, see assets/fonts/Fraunces-OFL.txt): the app's variable font, Latin subset, SOFT axis pinned at its default. */
+/* Fraunces (SIL OFL 1.1, see assets/fonts/Fraunces-OFL.txt): the app's variable font, Latin subset, pinned to the weight the site uses (560) with SOFT 0 and WONK 1; optical size stays variable, like the app. */
 @font-face{font-family:"Fraunces";src:url("../fonts/Fraunces.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 
 :root{
@@ -39,7 +39,7 @@
     color-scheme:dark;
     --bg:#0d1311;--bg-2:#111a17;--surface:#161e1b;--surface-2:#1f2925;
     --text:#f2f0e9;--ink-2:#cdd2cd;--muted:#9faaa4;--line:rgb(242 240 233 / .08);--line-strong:rgb(242 240 233 / .16);
-    --accent:#b9e35a;--hl:#ffb57e;--hl-mark:rgb(255 181 126 / .14);--focus:#a8d832;
+    --accent:#b9e35a;--hl:#ffb57e;--hl-mark:rgb(255 140 70 / .30);--focus:#a8d832;
     --btn-bg:#a8d832;--btn-text:#0d1311;--btn-hover:#bde65a;
     --ghost-border:rgb(242 240 233 / .3);--outline:#7e8984;
     --brand-soft:#1e2e1a;--brand-ink:#b9e35a;
@@ -58,7 +58,7 @@
   color-scheme:dark;
   --bg:#0d1311;--bg-2:#111a17;--surface:#161e1b;--surface-2:#1f2925;
   --text:#f2f0e9;--ink-2:#cdd2cd;--muted:#9faaa4;--line:rgb(242 240 233 / .08);--line-strong:rgb(242 240 233 / .16);
-  --accent:#b9e35a;--hl:#ffb57e;--hl-mark:rgb(255 181 126 / .14);--focus:#a8d832;
+  --accent:#b9e35a;--hl:#ffb57e;--hl-mark:rgb(255 140 70 / .30);--focus:#a8d832;
   --btn-bg:#a8d832;--btn-text:#0d1311;--btn-hover:#bde65a;
   --ghost-border:rgb(242 240 233 / .3);--outline:#7e8984;
   --brand-soft:#1e2e1a;--brand-ink:#b9e35a;
@@ -386,7 +386,7 @@ section[id],details[id]{scroll-margin-top:84px}
 .week-ill{display:grid;gap:16px;min-width:0}
 .week-card,.grocery-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 18px;box-shadow:var(--shadow-sm);min-width:0}
 .week-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
-.week-head strong{font-family:var(--serif);font-weight:560;font-size:22px;letter-spacing:-.015em}
+.week-head strong{font-family:var(--serif);font-weight:560;font-size:22px;letter-spacing:-.015em;line-height:1.15}
 .week-head span{font-size:13.5px;color:var(--muted);font-weight:600;white-space:nowrap}
 .week-days li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
 .week-days .day{font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
@@ -411,7 +411,7 @@ section[id],details[id]{scroll-margin-top:84px}
 
 /* ---------- nutrition ---------- */
 .nutrition-grid{display:grid;gap:44px;align-items:center}
-@media (max-width:959px){#nutrition .shot{display:none}}
+@media (max-width:959px){#nutrition .shot .phone{max-width:240px}}
 @media (min-width:960px){.nutrition-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px}}
 .ask-card{display:grid;gap:12px;margin-top:28px;padding:18px;border-radius:var(--r-card);background:var(--bg-2);border:1px solid var(--line);max-width:520px}
 .ask-card .b-user{font-size:15.5px}
@@ -525,7 +525,7 @@ section[id],details[id]{scroll-margin-top:84px}
 .faq-list details[open]{border-color:var(--line-strong)}
 .faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:14px 20px;font-weight:750;font-size:17px;line-height:1.35;cursor:pointer;list-style:none;border-radius:20px}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6v12M6 12h12' stroke='%2386a08f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
+.faq-list summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6v12M6 12h12' stroke='%2356615b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
 .faq-list details[open] summary::after{transform:rotate(45deg)}
 .faq-a{display:grid;gap:10px;padding:0 20px 20px;color:var(--muted);font-size:16px}
 .faq-a a{color:var(--text);font-weight:700}
@@ -753,13 +753,15 @@ html:not([lang="en"]) .desktop-nav [data-nav-optional]{display:none}
   .new-tonight .new-shots,.new-dark .new-shots,.new-change .new-shots{flex:1.15 1 0;margin-top:0}
   .new-dark{flex-direction:row-reverse}
 }
-@media (min-width:1000px){
+@media (min-width:1200px){
   .new-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
   .new-change{grid-column:auto;flex-direction:column;align-items:stretch;gap:24px}
   .new-change .new-copy,.new-change .new-shots{flex:none}
   .new-change .new-shots{margin-top:auto}
   /* Phones first in the three-up row, so the screens line up even when the words run longer. */
   .new-cook .new-shots,.new-kitchen .new-shots,.new-change .new-shots{order:-1;margin-top:0}
+}
+@media (min-width:1000px){
   .new-tonight,.new-dark{padding:48px 56px 40px;gap:56px}
   .new-tonight .new-copy,.new-dark .new-copy{flex:0 1 38%}
   .new-tonight .new-shots,.new-dark .new-shots{flex:1 1 0}
@@ -775,3 +777,38 @@ html:not([lang="en"]) .desktop-nav [data-nav-optional]{display:none}
 @media (max-width:420px){.week-days li{grid-template-columns:34px minmax(0,1fr) auto;gap:8px}.week-days .dish{gap:8px;font-size:15.5px}.week-days .dish img{width:30px;height:30px}}
 
 @media (max-width:599px){.social-grid{gap:10px}.social-tile{flex-direction:column;align-items:flex-start;gap:10px;padding:14px;min-height:0;border-radius:20px}.social-tile .si{width:40px;height:40px;border-radius:13px}.social-tile b{font-size:16px}.social-tile small{font-size:13px}}
+
+/* ---------- v4 review fixes ---------- */
+/* Dark night aura fades out before a section ends, instead of stopping in a straight line. */
+.whatsnew .aura{-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+.final-cta::before{-webkit-mask-image:linear-gradient(#000 76%,transparent);mask-image:linear-gradient(#000 76%,transparent)}
+/* Phones: the bento phones show the whole screen (the timer ring and Never include are near the bottom). */
+@media (max-width:699px){
+  .tile-allergy .tile-shot,.tile-cook .tile-shot{height:auto;padding-bottom:22px}
+}
+/* Hero on desktop: the floating cards sit clear of the front phone's dock and chips. */
+@media (min-width:960px){
+  .fc-macro{bottom:-46px}
+  .fc-dish{left:-3%;bottom:13%;max-width:40%}
+  .hero-stage .caption{margin-top:62px}
+}
+@media (min-width:1300px){.fc-dish{left:-6%}}
+/* Talks like you: copy starts at the top and stays in view next to the taller chat. */
+@media (min-width:960px){
+  .talk-grid{align-items:start}
+  .talk-copy{position:sticky;top:110px}
+}
+/* Light glass header: a touch brighter over the dark Cook card, night aura and footer. */
+:root:not([data-theme="dark"]) .site-header{-webkit-backdrop-filter:saturate(1.6) blur(20px) brightness(1.12);backdrop-filter:saturate(1.6) blur(20px) brightness(1.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-header{-webkit-backdrop-filter:saturate(1.6) blur(20px);backdrop-filter:saturate(1.6) blur(20px)}}
+@media (prefers-reduced-transparency:reduce){.site-header{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
+/* FAQ + in dark keeps the softer green (5.3:1 on the dark surface). */
+:root[data-theme="dark"] .faq-list summary::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6v12M6 12h12' stroke='%2386a08f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .faq-list summary::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6v12M6 12h12' stroke='%2386a08f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E")}}
+/* Phones and tablets: the app screens come right after the buttons (and the line under them), so the first screen shows the app. */
+@media (max-width:959px){
+  .hero-copy{display:contents}
+  .hero-grid{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+  .hero-stage{order:2;align-self:stretch;margin-top:30px}
+  .hero .chips,.hero .fine,.hero .social-row{order:3}
+}

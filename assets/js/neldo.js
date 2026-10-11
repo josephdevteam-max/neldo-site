@@ -49,6 +49,23 @@
   syncThemeButton();
   document.addEventListener('neldo:lang', syncThemeButton);
 
+  /* ---------- app screens follow the site language ----------
+     Spanish and Portuguese copies of the app screens live in assets/app/v4/es/ and pt/ (WebP, same names).
+     Only the WebP <source> is switched; the PNG <img> fallback stays English for browsers without WebP. */
+  var shotPath = /^(assets\/app\/v4\/)(?:(?:es|pt)\/)?((?:tonight|swipe|meal|details|cook|cook-brown|kitchen|week|groceries|energy|eat)(?:-light|-dark)?\.webp)$/;
+  function syncShotLanguage() {
+    var lang = window.NeldoI18n ? window.NeldoI18n.lang() : 'en';
+    var dir = lang === 'es' || lang === 'pt' ? lang + '/' : '';
+    document.querySelectorAll('.phone picture source[srcset]').forEach(function (source) {
+      var m = shotPath.exec(source.getAttribute('srcset'));
+      if (!m) return;
+      var next = m[1] + dir + m[2];
+      if (next !== source.getAttribute('srcset')) source.setAttribute('srcset', next);
+    });
+  }
+  syncShotLanguage();
+  document.addEventListener('neldo:lang', syncShotLanguage);
+
   /* ---------- missing screenshots: keep the frame, show the Leaf N placeholder ---------- */
   document.querySelectorAll('.phone img').forEach(function (img) {
     var mark = function () { var p = img.closest('.phone'); if (p) p.classList.add('is-missing'); };
