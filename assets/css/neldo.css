@@ -387,7 +387,7 @@ section[id],details[id]{scroll-margin-top:84px}
 .week-card,.grocery-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 18px;box-shadow:var(--shadow-sm);min-width:0}
 .week-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
 .week-head strong{font-family:var(--serif);font-weight:560;font-size:22px;letter-spacing:-.015em}
-.week-head span{font-size:13.5px;color:var(--muted);font-weight:600}
+.week-head span{font-size:13.5px;color:var(--muted);font-weight:600;white-space:nowrap}
 .week-days li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
 .week-days .day{font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .week-days .dish{display:flex;align-items:center;gap:10px;min-width:0;font-family:var(--serif);font-weight:560;font-size:16.5px;line-height:1.2}
@@ -427,7 +427,7 @@ section[id],details[id]{scroll-margin-top:84px}
 .tile p{color:var(--muted);font-size:15.5px}
 .tile-small{font-size:14px!important}
 .tile-small a,.tile-link{font-weight:750;color:var(--text)}
-.tile-link{display:inline-flex;align-items:center;min-height:44px;margin-top:auto}
+.tile-link{display:inline-block;align-self:flex-start;min-height:44px;padding-block:11px 9px;margin-top:auto;line-height:1.35}
 .tile-link::after{content:"→";margin-left:6px}
 .tile-shot{position:relative;margin:8px -22px -24px;height:300px;overflow:hidden}
 .tile-shot .phone{width:230px;margin:6px auto 0}
@@ -450,6 +450,11 @@ section[id],details[id]{scroll-margin-top:84px}
 .tile-scan{background:var(--tag-every-bg)}
 .beta-tag{align-self:flex-start;padding:3px 11px;border-radius:var(--r-pill);background:var(--text);color:var(--bg);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .tile-saved{background:color-mix(in srgb,var(--peach) 30%,var(--surface))}
+.saved-mini{list-style:none;display:grid;gap:8px;margin:6px 0 0;padding:0}
+.saved-mini li{display:flex;align-items:center;gap:12px;min-width:0;padding:8px 12px 8px 8px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-family:var(--serif);font-weight:560;font-size:16px;line-height:1.2;color:var(--text)}
+.saved-mini img{flex:none;width:40px;height:40px}
+.saved-mini span{flex:1;min-width:0}
+.saved-mini svg{flex:none;width:18px;height:18px;color:var(--paprika)}
 :root[data-theme="dark"] .tile-scan{background:var(--surface);border-color:rgb(242 182 50 / .45)}
 :root[data-theme="dark"] .tile-saved{background:var(--surface);border-color:rgb(240 137 92 / .45)}
 @media (prefers-color-scheme:dark){
@@ -574,7 +579,7 @@ section[id],details[id]{scroll-margin-top:84px}
 
 /* ── About + PenFed ─────────────────────────────────────────── */
 .about-grid{display:grid;gap:28px;align-items:center}
-@media (min-width:960px){.about-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:64px;align-items:start}.about-card{position:sticky;top:110px}}
+@media (min-width:960px){.about-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:64px;align-items:start}.about-grid .about-card{position:sticky;top:110px}}
 .about-p{margin-top:16px;max-width:40em;font-size:1.05rem;line-height:1.6}
 .about-sign{margin-top:22px;font-weight:800;letter-spacing:-.01em}
 .about-card{position:relative;padding:clamp(26px,4vw,40px);border-radius:32px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
