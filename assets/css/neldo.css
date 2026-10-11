@@ -448,7 +448,6 @@ section[id],details[id]{scroll-margin-top:84px}
 .swap-chips li{padding:7px 13px;border-radius:16px 16px 4px 16px;background:rgb(250 247 239 / .14);border:1px solid rgb(250 247 239 / .25);font-weight:650;font-size:14.5px}
 .tile-swaps strong{color:var(--cream)}
 .tile-scan{background:var(--tag-every-bg)}
-.beta-tag{align-self:flex-start;padding:3px 11px;border-radius:var(--r-pill);background:var(--text);color:var(--bg);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .tile-saved{background:color-mix(in srgb,var(--peach) 30%,var(--surface))}
 .saved-mini{list-style:none;display:grid;gap:8px;margin:6px 0 0;padding:0}
 .saved-mini li{display:flex;align-items:center;gap:12px;min-width:0;padding:8px 12px 8px 8px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-family:var(--serif);font-weight:560;font-size:16px;line-height:1.2;color:var(--text)}
@@ -721,8 +720,6 @@ html:not([lang="en"]) .desktop-nav [data-nav-optional]{display:none}
 .new-copy{display:grid;gap:12px;align-content:start;min-width:0;flex-shrink:0}
 .new-copy h3{font-family:var(--serif);font-weight:560;font-size:clamp(1.9rem,4.6vw,2.7rem);line-height:1.04;letter-spacing:-.022em;text-wrap:balance}
 .new-copy p{color:var(--muted);font-size:16.5px;line-height:1.55}
-.new-tag{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 10px;border-radius:var(--r-pill);background:var(--brand-soft);color:var(--brand-ink);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.new-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px color-mix(in srgb,var(--lime) 30%,transparent)}
 .new-copy .app-label{margin-top:4px;font-size:12.5px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .app-chips{display:flex;flex-wrap:wrap;gap:8px}
 .app-chips li{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:6px 14px 6px 11px;border-radius:var(--r-pill);background:var(--surface-2);border:1px solid var(--line);color:var(--text);font-size:15px;font-weight:650;line-height:1.2}
