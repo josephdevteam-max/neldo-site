@@ -6,8 +6,8 @@
   <title data-i18n="meta.title">NELDO | Free AI Meal Planner &amp; Cooking Help</title>
   <meta name="description" content="NELDO is a free AI meal planner and cooking app from Neldo LLC. Tell it what you’re craving, your budget and your time. Private beta on iPhone and Android." data-i18n-attr="content:meta.description">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#faf7ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d1813" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8f6f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1311" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://www.neldo.app/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NELDO">
@@ -30,7 +30,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/neldo.css?v=7">
+  <link rel="preload" href="assets/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/neldo.css?v=8">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -100,8 +101,8 @@
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
     })();
   </script>
-  <script src="assets/js/i18n.js?v=6" defer></script>
-  <script src="assets/js/neldo.js?v=6" defer></script>
+  <script src="assets/js/i18n.js?v=7" defer></script>
+  <script src="assets/js/neldo.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -113,6 +114,7 @@
         <span class="wordmark">NELDO</span>
       </a>
       <nav class="desktop-nav" aria-label="Main" data-i18n-attr="aria-label:nav.label">
+        <a href="#new" data-i18n="nav.new">What’s new</a>
         <a href="#culture" data-i18n="nav.food">The food</a>
         <a href="#plan" data-i18n="nav.plan">Plan &amp; prep</a>
         <a href="#nutrition" data-nav-optional data-i18n="nav.nutrition">Protein &amp; macros</a>
@@ -142,6 +144,7 @@
     </div>
     <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Menu" data-i18n-attr="aria-label:nav.mobileLabel" data-mobile-nav>
       <div class="wrap">
+        <a href="#new" data-i18n="nav.new">What’s new</a>
         <a href="#culture" data-i18n="nav.food">The food</a>
         <a href="#talk" data-i18n="nav.talk">How it talks</a>
         <a href="#modes" data-i18n="nav.modes">Energy Modes</a>
@@ -180,7 +183,7 @@
           <p class="hero-sub" data-i18n="hero.sub">NELDO is a free AI meal planner and cooking app. Text it like a friend: what you’re craving, what’s in your kitchen, your budget and how much time you’ve got. Get a real meal, the groceries and the steps.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary btn-lg" href="mailto:support@neldo.app?subject=Join%20the%20NELDO%20beta&amp;body=Hi%20NELDO%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20join%20the%20beta.%0D%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0D%0A%0D%0AThanks!"><span data-i18n="cta.join">Join the beta</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="btn btn-ghost btn-lg" href="#talk" data-i18n="cta.see">See it in action</a>
+            <a class="btn btn-ghost btn-lg" href="#new" data-i18n="cta.see">See it in action</a>
           </div>
           <div class="cta-help">
             <p class="cta-next" data-i18n="cta.next">This opens your email app with a short note. Tell us iPhone or Android and we’ll reply with how to join.</p>
@@ -210,26 +213,27 @@
           <div class="stage-inner">
             <div class="phone phone-back">
               <picture>
-                <source srcset="assets/app/recipe-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                <source srcset="assets/app/recipe-dark.png" media="(prefers-color-scheme: dark)">
-                <source srcset="assets/app/recipe-light.webp" type="image/webp">
-                <img src="assets/app/recipe-light.png" width="390" height="844" alt="NELDO recipe screen for Pernil with arroz con gandules, with ingredients and an Estimate nutrition line" data-i18n-attr="alt:img.recipe" fetchpriority="low" decoding="async">
+                <source srcset="assets/app/v4/meal-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/v4/meal-dark.png" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/v4/meal-light.webp" type="image/webp">
+                <img src="assets/app/v4/meal-light.png" width="390" height="844" alt="NELDO chat: a message, NELDO’s reply and an Arroz con pollo meal card with its drawing, servings and a Cook with me button" data-i18n-attr="alt:img.v4Meal" fetchpriority="low" decoding="async">
               </picture>
             </div>
             <div class="phone phone-front">
               <picture>
-                <source srcset="assets/app/chat-meal-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                <source srcset="assets/app/chat-meal-dark.png" media="(prefers-color-scheme: dark)">
-                <source srcset="assets/app/chat-meal-light.webp" type="image/webp">
-                <img src="assets/app/chat-meal-light.png" width="390" height="844" alt="NELDO chat: someone asks for Puerto Rican food and gets a Pernil with arroz con gandules recipe card" data-i18n-attr="alt:img.chatMeal" fetchpriority="high" decoding="async">
+                <source srcset="assets/app/v4/tonight-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/v4/tonight-dark.png" media="(prefers-color-scheme: dark)">
+                <source srcset="assets/app/v4/tonight-light.webp" type="image/webp">
+                <img src="assets/app/v4/tonight-light.png" width="390" height="844" alt="NELDO Tonight home screen with an evening greeting, a swipe card for Arroz con pollo with its drawing, quick chips, culture chips and the glass Cook with me button" data-i18n-attr="alt:img.v4Tonight" fetchpriority="high" decoding="async">
               </picture>
             </div>
             <div class="float-card fc-dish" aria-hidden="true">
-              <span class="fc-kicker" data-i18n="hero.float2k">Your recipe</span>
-              <strong data-i18n="dish.pernil">Pernil with arroz con gandules</strong>
-              <span class="mode-tag mode-locked" data-i18n="mode.locked">Locked In</span>
+              <img src="assets/art/arroz-con-pollo.svg" width="56" height="56" alt="" decoding="async">
+              <span class="fc-kicker" data-i18n="hero.floatTonight">Tonight</span>
+              <strong data-i18n="dish.arrozConPollo">Arroz con pollo</strong>
+              <span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span>
             </div>
-            <div class="float-card fc-macro" aria-hidden="true"><span class="estimate" data-i18n="label.estimate">Estimate</span><span data-i18n="hero.float3">46 g protein · 710 kcal</span></div>
+            <div class="float-card fc-macro" aria-hidden="true"><span class="estimate" data-i18n="label.estimate">Estimate</span><span data-i18n="hero.float3">37 g protein · 660 kcal</span></div>
           </div>
           <figcaption class="caption" data-i18n="caption.realSample">Real app screens · sample recipe · floating cards are illustrations</figcaption>
         </figure>
@@ -241,13 +245,159 @@
       <h2 class="sr-only" id="dishes-title" data-i18n="marquee.title">Dishes you can ask for</h2>
       <div class="marquee" data-marquee>
         <ul class="marquee-track">
-          <li>Pernil</li><li>Arroz con gandules</li><li>Birria tacos</li><li>Jollof rice</li><li>Gumbo</li><li>Phở</li><li>Shakshuka</li><li>Moqueca</li><li>Pollo guisado</li><li>Ramen</li><li>Jerk chicken</li><li>Mofongo</li><li>Feijoada</li><li>Tostones</li><li>Pastelón</li><li>Red beans &amp; rice</li>
+          <li>Pernil</li><li class="has-art"><img src="assets/art/arroz-con-pollo.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Arroz con pollo</li><li>Birria tacos</li><li class="has-art"><img src="assets/art/jollof-rice-chicken.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Jollof rice</li><li>Gumbo</li><li class="has-art"><img src="assets/art/pho.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Phở</li><li class="has-art"><img src="assets/art/pozole-rojo.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Pozole rojo</li><li>Shakshuka</li><li class="has-art"><img src="assets/art/shoyu-ramen.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Ramen</li><li>Moqueca</li><li class="has-art"><img src="assets/art/jerk-chicken-plate.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Jerk chicken</li><li>Arroz con gandules</li><li class="has-art"><img src="assets/art/feijoada.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Feijoada</li><li>Mofongo</li><li class="has-art"><img src="assets/art/ropa-vieja.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Ropa vieja</li><li>Pollo guisado</li><li class="has-art"><img src="assets/art/butter-chicken.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Butter chicken</li><li>Tostones</li><li class="has-art"><img src="assets/art/chicken-tinga-tacos.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Tinga tacos</li><li>Pastelón</li><li>Red beans &amp; rice</li>
         </ul>
         <ul class="marquee-track" aria-hidden="true">
-          <li>Pernil</li><li>Arroz con gandules</li><li>Birria tacos</li><li>Jollof rice</li><li>Gumbo</li><li>Phở</li><li>Shakshuka</li><li>Moqueca</li><li>Pollo guisado</li><li>Ramen</li><li>Jerk chicken</li><li>Mofongo</li><li>Feijoada</li><li>Tostones</li><li>Pastelón</li><li>Red beans &amp; rice</li>
+          <li>Pernil</li><li class="has-art"><img src="assets/art/arroz-con-pollo.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Arroz con pollo</li><li>Birria tacos</li><li class="has-art"><img src="assets/art/jollof-rice-chicken.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Jollof rice</li><li>Gumbo</li><li class="has-art"><img src="assets/art/pho.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Phở</li><li class="has-art"><img src="assets/art/pozole-rojo.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Pozole rojo</li><li>Shakshuka</li><li class="has-art"><img src="assets/art/shoyu-ramen.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Ramen</li><li>Moqueca</li><li class="has-art"><img src="assets/art/jerk-chicken-plate.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Jerk chicken</li><li>Arroz con gandules</li><li class="has-art"><img src="assets/art/feijoada.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Feijoada</li><li>Mofongo</li><li class="has-art"><img src="assets/art/ropa-vieja.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Ropa vieja</li><li>Pollo guisado</li><li class="has-art"><img src="assets/art/butter-chicken.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Butter chicken</li><li>Tostones</li><li class="has-art"><img src="assets/art/chicken-tinga-tacos.svg" width="48" height="48" alt="" loading="lazy" decoding="async">Tinga tacos</li><li>Pastelón</li><li>Red beans &amp; rice</li>
         </ul>
       </div>
       <button class="marquee-toggle" type="button" data-marquee-toggle><span data-marquee-label data-i18n="marquee.pause">Pause animations</span></button>
+    </section>
+
+    <!-- 3a · NEW IN THE APP (build 6) -->
+    <section class="section whatsnew" id="new" aria-labelledby="new-title">
+      <div class="aura" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head new-head">
+          <p class="eyebrow" data-i18n="new.eyebrow">New in the app</p>
+          <h2 id="new-title" class="h2 h2-xl" data-i18n-html="new.title">The app just got a <span class="hl">glow up.</span></h2>
+          <p class="lead" data-i18n="new.lead">A warm new look in light and dark, meal ideas right on your home screen, a calmer Cook with me and one Kitchen for everything you save. Here’s what’s new in the beta.</p>
+        </div>
+        <div class="new-grid">
+          <article class="new-card new-tonight" aria-labelledby="new-tonight-t">
+            <div class="new-copy">
+              <span class="new-tag" data-i18n="new.tag">New</span>
+              <h3 id="new-tonight-t" data-i18n="new.tonightT">Tonight</h3>
+              <p data-i18n="new.tonight">Open the app and swipe through up to 5 meal ideas. Your last meal comes first, so you can pick up where you left off, and meals on your week show up too.</p>
+              <p class="app-label" id="new-chips-label" data-i18n="new.chipsLabel">Quick chips on the home screen</p>
+              <ul class="app-chips" aria-labelledby="new-chips-label">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M19.5 14.6A7.6 7.6 0 0 1 9.4 4.5a7.6 7.6 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span data-i18n="new.chipLowkey">Go Lowkey</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 7h3.5c4.5 0 4.5 10 9 10H20M4 17h3.5c1.6 0 2.6-1.3 3.4-2.9M13.1 9.9C13.9 8.3 14.9 7 16.5 7H20m-2.5-2.5L20 7l-2.5 2.5m0 5L20 17l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="new.chipNew">Something new</span></li>
+                <li><img src="assets/art/arroz-con-pollo.svg" width="22" height="22" alt="" loading="lazy" decoding="async"><span data-i18n="new.chipPR">Puerto Rican</span></li>
+                <li><img src="assets/art/chicken-tinga-tacos.svg" width="22" height="22" alt="" loading="lazy" decoding="async"><span data-i18n="new.chipMX">Mexican</span></li>
+              </ul>
+            </div>
+            <figure class="new-shots new-pair">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/v4/tonight-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/tonight-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/tonight-light.webp" type="image/webp">
+                  <img src="assets/app/v4/tonight-light.png" width="390" height="844" alt="NELDO Tonight home screen with an evening greeting, a swipe card for Arroz con pollo with its drawing, quick chips, culture chips and the glass Cook with me button" data-i18n-attr="alt:img.v4Tonight" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/v4/swipe-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/swipe-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/swipe-light.webp" type="image/webp">
+                  <img src="assets/app/v4/swipe-light.png" width="390" height="844" alt="NELDO Tonight home swiped to the second meal idea, Jerk chicken with rice and peas" data-i18n-attr="alt:img.v4Swipe" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realPair">Real app screens · sample recipes</figcaption>
+            </figure>
+          </article>
+
+          <article class="new-card new-cook" aria-labelledby="new-cook-t">
+            <div class="new-copy">
+              <span class="new-tag" data-i18n="new.tag">New</span>
+              <h3 id="new-cook-t" data-i18n="new.cookT">Cook with me</h3>
+              <p data-i18n="new.cook">One step at a time on a calm, dark screen. A big timer with Pause, +1 min and Stop. It dings even when your phone is locked, and you can keep the screen on while you cook.</p>
+              <ul class="app-chips app-chips-sm" aria-label="Timer buttons" data-i18n-attr="aria-label:new.timerLabel">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M8.5 6v12M15.5 6v12" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg><span data-i18n="new.pause">Pause</span></li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>1 min</span></li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor"/></svg><span data-i18n="new.stop">Stop</span></li>
+              </ul>
+            </div>
+            <figure class="new-shots">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/v4/cook.webp" type="image/webp">
+                  <img src="assets/app/v4/cook.png" width="390" height="844" alt="Cook with me in NELDO on the simmer the rice step for Arroz con pollo, with a big timer ring running and Pause, +1 min and Stop buttons" data-i18n-attr="alt:img.v4Cook" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+            </figure>
+          </article>
+
+          <article class="new-card new-kitchen" aria-labelledby="new-kitchen-t">
+            <div class="new-copy">
+              <span class="new-tag" data-i18n="new.tag">New</span>
+              <h3 id="new-kitchen-t" data-i18n="new.kitchenT">Your Kitchen</h3>
+              <p data-i18n="new.kitchen">Tap the Kitchen icon up top. My meals, Your week, Start fresh and your shopping list are all in one place, and what you save stays on your phone.</p>
+              <ul class="app-chips app-chips-sm" aria-label="In the Kitchen" data-i18n-attr="aria-label:new.kitchenLabel">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16l-5.5-3.6L6.5 20Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span data-i18n="new.k1">My meals</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><rect x="4" y="5.5" width="16" height="14.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="new.k2">Your week</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="new.k3">Start fresh</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3.5 10h17l-1.8 9.2a1.5 1.5 0 0 1-1.5 1.3H6.8a1.5 1.5 0 0 1-1.5-1.3ZM8 10l3-6M16 10l-3-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="new.k4">Shopping list</span></li>
+              </ul>
+            </div>
+            <figure class="new-shots">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/v4/kitchen-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/kitchen-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/kitchen-light.webp" type="image/webp">
+                  <img src="assets/app/v4/kitchen-light.png" width="390" height="844" alt="The Kitchen in NELDO: Shopping list, My meals and Your week tabs, with saved meals like Arroz con pollo and Butter chicken with rice" data-i18n-attr="alt:img.v4Kitchen" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+            </figure>
+          </article>
+
+          <article class="new-card new-change" aria-labelledby="new-change-t">
+            <div class="new-copy">
+              <span class="new-tag" data-i18n="new.tag">New</span>
+              <h3 id="new-change-t" data-i18n="new.changeT">Change it, keep the dish</h3>
+              <p data-i18n="new.change">With a meal on screen, tap Lowkey, Everyday or Locked In and NELDO offers to change that same dish. Ask “can I do thighs instead of breast?” and the recipe updates right away. Changed your mind? Tap Back to the original.</p>
+              <ul class="app-chips app-chips-sm" aria-label="What you’ll see" data-i18n-attr="aria-label:new.changeLabel">
+                <li class="chip-lowkey"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M19.5 14.6A7.6 7.6 0 0 1 9.4 4.5a7.6 7.6 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span data-i18n="new.makeLowkey">Make this one Lowkey</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 7 4.5 11.5 9 16M5 11.5h9.5a5 5 0 0 1 0 10H12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="new.backOriginal">Back to the original</span></li>
+              </ul>
+            </div>
+            <figure class="new-shots">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/v4/energy-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/energy-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/energy-light.webp" type="image/webp">
+                  <img src="assets/app/v4/energy-light.png" width="390" height="844" alt="An Arroz con pollo meal card in NELDO with the offer to make this one Lowkey" data-i18n-attr="alt:img.v4Energy" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+            </figure>
+          </article>
+
+          <article class="new-card new-dark" aria-labelledby="new-dark-t">
+            <div class="new-copy">
+              <span class="new-tag" data-i18n="new.tag">New</span>
+              <h3 id="new-dark-t" data-i18n="new.darkT">Dark mode, with a warm glow</h3>
+              <p data-i18n="new.dark">Light or dark, your call. Pick it in Settings under Appearance, or let it follow your phone. Dark mode glows warm, like the kitchen light is still on.</p>
+            </div>
+            <figure class="new-shots new-pair new-compare">
+              <div class="compare-item">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/v4/meal-light.webp" type="image/webp">
+                    <img src="assets/app/v4/meal-light.png" width="390" height="844" alt="Arroz con pollo meal card in NELDO, light mode" data-i18n-attr="alt:img.v4MealLight" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <span class="compare-label" data-i18n="new.lightLabel">Light</span>
+              </div>
+              <div class="compare-item">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/v4/meal-dark.webp" type="image/webp">
+                    <img src="assets/app/v4/meal-dark.png" width="390" height="844" alt="The same Arroz con pollo meal card in dark mode, with the warm glow behind it" data-i18n-attr="alt:img.v4MealDark" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <span class="compare-label" data-i18n="new.darkLabel">Dark</span>
+              </div>
+              <figcaption class="caption" data-i18n="caption.realPair">Real app screens · sample recipes</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- 3b · FOLLOW ALONG -->
@@ -331,33 +481,22 @@
               <div class="mode-top"><h3 data-i18n="mode.lowkey">Lowkey</h3><span class="meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
               <p class="quote" data-i18n="modes.lowkeyQuote">“I don’t have much in me.”</p>
               <p data-i18n="modes.lowkeyBody">Always the easier, quicker take. Fewer steps, less cleanup, and it still tastes good.</p>
-              <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.salmonBowl">Honey-garlic salmon rice bowl</strong> <span data-i18n="modes.lowkeyTime">~20 min</span></p>
+              <p class="mode-eg"><img src="assets/art/chicken-tinga-tacos.svg" width="52" height="52" alt="" loading="lazy" decoding="async"><span><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.tinga">Chicken tinga tacos</strong> <span data-i18n="modes.lowkeyTime">~25 min</span></span></p>
             </article>
             <article class="mode-card m-everyday">
               <div class="mode-top"><h3 data-i18n="mode.everyday">Everyday</h3><span class="meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
               <p class="quote" data-i18n="modes.everydayQuote">“Just a normal kind of day.”</p>
               <p data-i18n="modes.everydayBody">A familiar, satisfying meal that fits the time and ingredients you have.</p>
-              <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.birria">Birria-style beef tacos</strong></p>
+              <p class="mode-eg"><img src="assets/art/arroz-con-pollo.svg" width="52" height="52" alt="" loading="lazy" decoding="async"><span><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.arrozConPollo">Arroz con pollo</strong></span></p>
             </article>
             <article class="mode-card m-locked">
               <div class="mode-top"><h3 data-i18n="mode.locked">Locked In</h3><span class="meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
               <p class="quote" data-i18n="modes.lockedQuote">“I’ve got energy. Let’s cook.”</p>
               <p data-i18n="modes.lockedBody">Take your time. Go for the big dish or try a new technique, just because you want to.</p>
-              <p class="mode-eg"><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.pernil">Pernil with arroz con gandules</strong> <span data-i18n="modes.lockedTime">~3½ h</span></p>
+              <p class="mode-eg"><img src="assets/art/ropa-vieja.svg" width="52" height="52" alt="" loading="lazy" decoding="async"><span><span data-i18n="modes.like">Like:</span> <strong data-i18n="dish.ropaVieja">Ropa vieja</strong> <span data-i18n="modes.lockedTime">~2½ h</span></span></p>
             </article>
             <p class="note" data-i18n="modes.note">No mode is better than another, and you never have to pick one. Foods you never want, your time and the dish you asked for still come first.</p>
           </div>
-          <figure class="shot shot-center">
-            <div class="phone">
-              <picture>
-                <source srcset="assets/app/home-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                <source srcset="assets/app/home-dark.png" media="(prefers-color-scheme: dark)">
-                <source srcset="assets/app/home-light.webp" type="image/webp">
-                <img src="assets/app/home-light.png" width="390" height="844" alt="NELDO home screen asking What are we making? with Energy Modes and quick-start tiles" data-i18n-attr="alt:img.home" loading="lazy" decoding="async">
-              </picture>
-            </div>
-            <figcaption class="caption" data-i18n="caption.real">Real app screen</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -368,7 +507,7 @@
         <div class="section-head">
           <p class="eyebrow" data-i18n="culture.eyebrow">Food culture, for real</p>
           <h2 id="culture-title" class="h2 h2-xl" data-i18n-html="culture.title">Name the dish. <span class="hl">Get the real thing.</span></h2>
-          <p class="lead" data-i18n="culture.lead">Ask for pernil and you get pernil, not a “pork bowl.” Puerto Rican food is first-class in NELDO, right alongside gumbo, birria, jollof, phở, ramen, moqueca and a whole lot more. If NELDO can’t match a dish exactly, it’s built to tell you straight and offer something close.</p>
+          <p class="lead" data-i18n="culture.lead">Ask for pernil and you get pernil, not a “pork bowl.” Same goes for arroz con pollo. Puerto Rican food is first-class in NELDO, right alongside gumbo, birria, jollof, phở, ramen, moqueca and a whole lot more. If NELDO can’t match a dish exactly, it’s built to tell you straight and offer something close.</p>
         </div>
 
         <div class="showcase">
@@ -576,16 +715,16 @@
         </div>
         <div class="plan-grid">
           <figure class="week-ill">
-            <div class="week-card" role="img" aria-label="Illustration of a sample week: Monday pernil with arroz con gandules, Locked In; Tuesday pernil rice bowls, meal prep; Wednesday birria-style beef tacos, Everyday; Thursday honey-garlic salmon rice bowl, Lowkey; Friday jollof rice with chicken, Everyday; Saturday shakshuka with toast, Lowkey; Sunday pollo guisado, Everyday" data-i18n-attr="aria-label:plan.weekAlt">
+            <div class="week-card" role="img" aria-label="Illustration of a sample week: Monday arroz con pollo, Everyday; Tuesday chicken tinga tacos, Lowkey; Wednesday shoyu ramen, Everyday; Thursday ropa vieja, Locked In; Friday butter chicken with rice, Everyday; Saturday jollof rice with chicken, Everyday; Sunday sheet-pan salmon and vegetables, Lowkey" data-i18n-attr="aria-label:plan.weekAlt">
               <div class="week-head"><strong data-i18n="plan.yourWeek">Your week</strong><span data-i18n="plan.monSun">Mon to Sun</span></div>
               <ol class="week-days">
-                <li><span class="day" data-i18n="day.mon">Mon</span><span class="dish" data-i18n="dish.pernil">Pernil with arroz con gandules</span><span class="mode-tag mode-locked" data-i18n="mode.locked">Locked In</span></li>
-                <li><span class="day" data-i18n="day.tue">Tue</span><span class="dish" data-i18n="dish.pernilBowls">Pernil rice bowls</span><span class="mode-tag mode-prep" data-i18n="mode.prep">Meal prep</span></li>
-                <li><span class="day" data-i18n="day.wed">Wed</span><span class="dish" data-i18n="dish.birria">Birria-style beef tacos</span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
-                <li><span class="day" data-i18n="day.thu">Thu</span><span class="dish" data-i18n="dish.salmonBowl">Honey-garlic salmon rice bowl</span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span></li>
-                <li><span class="day" data-i18n="day.fri">Fri</span><span class="dish" data-i18n="dish.jollof">Jollof rice with chicken</span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
-                <li><span class="day" data-i18n="day.sat">Sat</span><span class="dish" data-i18n="dish.shakshuka">Shakshuka with toast</span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span></li>
-                <li><span class="day" data-i18n="day.sun">Sun</span><span class="dish" data-i18n="dish.polloGuisadoShort">Pollo guisado</span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.mon">Mon</span><span class="dish"><img src="assets/art/arroz-con-pollo.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.arrozConPollo">Arroz con pollo</span></span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.tue">Tue</span><span class="dish"><img src="assets/art/chicken-tinga-tacos.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.tinga">Chicken tinga tacos</span></span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span></li>
+                <li><span class="day" data-i18n="day.wed">Wed</span><span class="dish"><img src="assets/art/shoyu-ramen.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.shoyu">Shoyu ramen</span></span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.thu">Thu</span><span class="dish"><img src="assets/art/ropa-vieja.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.ropaVieja">Ropa vieja</span></span><span class="mode-tag mode-locked" data-i18n="mode.locked">Locked In</span></li>
+                <li><span class="day" data-i18n="day.fri">Fri</span><span class="dish"><img src="assets/art/butter-chicken.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.butterChicken">Butter chicken with rice</span></span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.sat">Sat</span><span class="dish"><img src="assets/art/jollof-rice-chicken.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.jollof">Jollof rice with chicken</span></span><span class="mode-tag mode-everyday" data-i18n="mode.everyday">Everyday</span></li>
+                <li><span class="day" data-i18n="day.sun">Sun</span><span class="dish"><img src="assets/art/salmon-and-veg.svg" width="38" height="38" alt="" loading="lazy" decoding="async"><span data-i18n="dish.salmonVeg">Sheet-pan salmon and vegetables</span></span><span class="mode-tag mode-lowkey" data-i18n="mode.lowkey">Lowkey</span></li>
               </ol>
             </div>
             <div class="grocery-card">
@@ -598,16 +737,17 @@
               </div>
               <div class="aisle">
                 <h3 data-i18n="aisle.meat">Meat &amp; seafood</h3>
-                <label class="check"><input type="checkbox"><span data-i18n="gro.pork">Pork shoulder, bone-in · 4 lb</span></label>
+                <label class="check"><input type="checkbox" checked><span data-i18n="gro.chicken">Chicken thighs, boneless · 3 lb</span></label>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.flank">Flank steak · 2 lb</span></label>
                 <label class="check"><input type="checkbox"><span data-i18n="gro.salmon">Salmon fillets · 2</span></label>
               </div>
               <div class="aisle">
                 <h3 data-i18n="aisle.pantry">Pantry</h3>
-                <label class="check"><input type="checkbox"><span data-i18n="gro.gandules">Gandules · 1 can</span></label>
+                <label class="check"><input type="checkbox"><span data-i18n="gro.chipotle">Chipotles in adobo · 1 can</span></label>
               </div>
               <div class="aisle have">
                 <h3 data-i18n="aisle.have">Already have</h3>
-                <p data-i18n="gro.have">Medium-grain rice · Olive oil · Adobo</p>
+                <p data-i18n="gro.have2">Rice · Olive oil · Cumin</p>
               </div>
             </div>
             <figcaption class="caption" data-i18n="plan.illCaption">Illustration · sample week (tap items to check them off)</figcaption>
@@ -620,17 +760,29 @@
               <li><strong data-i18n="plan.f3t">One list, by aisle.</strong> <span data-i18n="plan.f3">Produce, Meat &amp; seafood, Dairy &amp; eggs, Bakery, Pantry, Spices &amp; oils, Frozen. Check off as you shop; “Already have” stays separate.</span></li>
               <li><strong data-i18n="plan.f4t">Servings that scale.</strong> <span data-i18n="plan.f4">Change servings and the amounts and grocery list update with it.</span></li>
             </ul>
-            <figure class="shot plan-shot">
-              <div class="phone">
-                <picture>
-                  <source srcset="assets/app/groceries-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/groceries-dark.png" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/groceries-light.webp" type="image/webp">
-                  <img src="assets/app/groceries-light.png" width="390" height="844" alt="NELDO grocery list for the week, grouped by store aisle" data-i18n-attr="alt:img.groceries" loading="lazy" decoding="async">
-                </picture>
-              </div>
-              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
-            </figure>
+            <div class="plan-shots">
+              <figure class="shot">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/v4/week-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                    <source srcset="assets/app/v4/week-dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="assets/app/v4/week-light.webp" type="image/webp">
+                    <img src="assets/app/v4/week-light.png" width="390" height="844" alt="Your week in NELDO with all 7 days planned, Monday to Sunday" data-i18n-attr="alt:img.v4Week" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+              </figure>
+              <figure class="shot">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/v4/groceries-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                    <source srcset="assets/app/v4/groceries-dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="assets/app/v4/groceries-light.webp" type="image/webp">
+                    <img src="assets/app/v4/groceries-light.png" width="390" height="844" alt="NELDO shopping list grouped by store aisle, with a few items checked off" data-i18n-attr="alt:img.v4Groceries" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+              </figure>
+              <p class="caption" data-i18n="caption.realPair">Real app screens · sample recipes</p>
+            </div>
           </div>
         </div>
       </div>
@@ -658,10 +810,10 @@
         <figure class="shot shot-center">
           <div class="phone">
             <picture>
-              <source srcset="assets/app/recipe-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-              <source srcset="assets/app/recipe-dark.png" media="(prefers-color-scheme: dark)">
-              <source srcset="assets/app/recipe-light.webp" type="image/webp">
-              <img src="assets/app/recipe-light.png" width="390" height="844" alt="NELDO recipe screen for Pernil with arroz con gandules, with ingredients and an Estimate nutrition line" data-i18n-attr="alt:img.recipe" loading="lazy" decoding="async">
+              <source srcset="assets/app/v4/details-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+              <source srcset="assets/app/v4/details-dark.png" media="(prefers-color-scheme: dark)">
+              <source srcset="assets/app/v4/details-light.webp" type="image/webp">
+              <img src="assets/app/v4/details-light.png" width="390" height="844" alt="Arroz con pollo meal card in NELDO scrolled to the ingredients and the nutrition line labeled Estimate" data-i18n-attr="alt:img.v4Details" loading="lazy" decoding="async">
             </picture>
           </div>
           <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
@@ -679,39 +831,49 @@
         <div class="bento">
           <article class="tile tile-allergy">
             <div class="tile-copy">
-              <h3 data-i18n="more.allergyT">Foods you never want</h3>
-              <p data-i18n="more.allergy">Add them to “Never include” in settings, or just say so in chat. NELDO leaves them out of your meals and swaps.</p>
+              <h3 data-i18n="more.eatT">How you eat, and what to leave out</h3>
+              <p data-i18n="more.eat">In Settings, pick how you eat, like vegetarian or Halal, and add foods to Never include, like cilantro. Or just say it in chat. NELDO leaves them out of your meals and swaps.</p>
+              <ul class="never-chips" aria-label="Things you can say" data-i18n-attr="aria-label:talk.sayLabel">
+                <li data-i18n="more.never1">“no mushrooms”</li>
+                <li data-i18n="more.never2">“hold the olives”</li>
+                <li data-i18n="more.never3">“no raisins, ever”</li>
+              </ul>
+              <p class="tile-small" data-i18n="more.eatHonest">These are eating styles, not allergy or medical protection. With Halal, NELDO leaves out pork and alcohol, but it can’t check if meat is halal-certified.</p>
               <p class="tile-small"><span data-i18n="more.allergyNote">NELDO can’t check food allergies or cross-contact, so</span> <a href="#food-safety" data-i18n="more.allergyLink">check every label yourself</a></p>
             </div>
-            <ul class="never-chips" aria-label="Things you can say" data-i18n-attr="aria-label:talk.sayLabel">
-              <li data-i18n="more.never1">“no mushrooms”</li>
-              <li data-i18n="more.never2">“hold the olives”</li>
-              <li data-i18n="more.never3">“no raisins, ever”</li>
-            </ul>
+            <figure class="tile-shot">
+              <div class="phone">
+                <picture>
+                  <source srcset="assets/app/v4/eat-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/eat-dark.png" media="(prefers-color-scheme: dark)">
+                  <source srcset="assets/app/v4/eat-light.webp" type="image/webp">
+                  <img src="assets/app/v4/eat-light.png" width="390" height="844" alt="NELDO Settings: How you eat and Never include, with cilantro and mushrooms in Never include" data-i18n-attr="alt:img.v4Eat" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="caption" data-i18n="caption.real">Real app screen</figcaption>
+            </figure>
           </article>
 
           <article class="tile tile-swaps">
             <h3 data-i18n="more.swapsT">Swaps that keep the dish</h3>
             <ul class="swap-chips">
-              <li data-i18n="more.swap1">“swap chicken for tofu”</li>
+              <li data-i18n="more.swap1">“can I do thighs instead of breast?”</li>
               <li data-i18n="more.swap2">“no cilantro”</li>
               <li data-i18n="more.swap3">“make it vegan”</li>
             </ul>
-            <p data-i18n-html="more.swaps">Same dish, updated. Want something totally different? Say <strong>“something else.”</strong></p>
+            <p data-i18n-html="more.swaps">Same dish, changed right away. Not feeling it? Tap <strong>Back to the original</strong>, or say <strong>“something else.”</strong></p>
           </article>
 
           <article class="tile tile-cook">
             <div class="tile-copy">
               <h3 data-i18n="more.cookT">Cook with me</h3>
-              <p data-i18n="more.cook">Step by step, with timers right where you need them.</p>
+              <p data-i18n="more.cook">One step at a time, with a big timer. It dings even when your phone is locked.</p>
             </div>
             <figure class="tile-shot">
               <div class="phone">
                 <picture>
-                  <source srcset="assets/app/cook-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/cook-dark.png" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/cook-light.webp" type="image/webp">
-                  <img src="assets/app/cook-light.png" width="390" height="844" alt="Cook with me step in NELDO with a built-in timer" data-i18n-attr="alt:img.cook" loading="lazy" decoding="async">
+                  <source srcset="assets/app/v4/cook.webp" type="image/webp">
+                  <img src="assets/app/v4/cook.png" width="390" height="844" alt="Cook with me in NELDO on the simmer the rice step for Arroz con pollo, with a big timer ring running and Pause, +1 min and Stop buttons" data-i18n-attr="alt:img.v4Cook" loading="lazy" decoding="async">
                 </picture>
               </div>
               <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
@@ -726,8 +888,8 @@
           </article>
 
           <article class="tile tile-saved">
-            <h3 data-i18n="more.savedT">Saved meals, on your phone</h3>
-            <p data-i18n="more.saved">Heart a meal and it’s there next time. It’s saved right on your phone, not in an account.</p>
+            <h3 data-i18n="more.savedT">My meals, on your phone</h3>
+            <p data-i18n="more.saved">Tap Save meal and it’s in My meals, in your Kitchen. It’s saved right on your phone, not in an account.</p>
           </article>
 
           <article class="tile tile-lang">
@@ -735,16 +897,22 @@
               <h3 data-i18n-html="more.langT"><span lang="en">English</span>. <span lang="es">Español</span>. <span lang="pt">Português</span>.</h3>
               <p data-i18n="more.lang">The app and this site, in three languages.</p>
             </div>
-            <figure class="tile-shot">
-              <div class="phone">
-                <picture>
-                  <source srcset="assets/app/chat-es-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/chat-es-dark.png" media="(prefers-color-scheme: dark)">
-                  <source srcset="assets/app/chat-es-light.webp" type="image/webp">
-                  <img src="assets/app/chat-es-light.png" width="390" height="844" alt="NELDO chat in Spanish with a meal suggestion" data-i18n-attr="alt:img.chatEs" loading="lazy" decoding="async">
-                </picture>
+            <figure class="tile-shot tile-shot-pair">
+              <div class="phone-pair">
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/v4/es-tonight-dark.webp" type="image/webp">
+                    <img src="assets/app/v4/es-tonight-dark.png" width="390" height="844" alt="NELDO Tonight home in Spanish, in dark mode, with a card for Pozole rojo" data-i18n-attr="alt:img.v4Es" loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <div class="phone">
+                  <picture>
+                    <source srcset="assets/app/v4/pt-tonight-dark.webp" type="image/webp">
+                    <img src="assets/app/v4/pt-tonight-dark.png" width="390" height="844" alt="NELDO Tonight home in Portuguese, in dark mode, with a card for Feijoada" data-i18n-attr="alt:img.v4Pt" loading="lazy" decoding="async">
+                  </picture>
+                </div>
               </div>
-              <figcaption class="caption" data-i18n="caption.realSample1">Real app screen · sample recipe</figcaption>
+              <figcaption class="caption" data-i18n="caption.realPair">Real app screens · sample recipes</figcaption>
             </figure>
           </article>
         </div>

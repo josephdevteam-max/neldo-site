@@ -32,7 +32,7 @@
     themeBtn.setAttribute('data-i18n-attr', 'aria-label:' + key);
     themeBtn.setAttribute('aria-label', t(key, currentTheme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'));
     document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
-      if (root.hasAttribute('data-theme')) m.content = currentTheme() === 'dark' ? '#0d1813' : '#faf7ef';
+      if (root.hasAttribute('data-theme')) m.content = currentTheme() === 'dark' ? '#0d1311' : '#f8f6f0';
     });
   }
   if (themeBtn) {
@@ -94,7 +94,7 @@
       if (menuBtn.getAttribute('aria-expanded') === 'true' && !mobileNav.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
     });
     if (window.matchMedia) {
-      var wide = window.matchMedia('(min-width: 1080px)');
+      var wide = window.matchMedia('(min-width: 1180px)');
       var onWide = function (q) { if (q.matches) setMenu(false); };
       if (wide.addEventListener) wide.addEventListener('change', onWide);
       else if (wide.addListener) wide.addListener(onWide); // Safari < 14

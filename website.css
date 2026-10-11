@@ -18,7 +18,8 @@
 .meal-showcase+.energy-section{padding-top:24px}
 @media(max-width:800px){.meal-gallery{grid-template-columns:minmax(0,1fr)}.meal-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}.meal-capture{margin:24px auto;width:calc(100% - 24px)}.meal-story-copy{padding:24px}.meal-story h3{font-size:26px}}
 @media(max-width:480px){.meal-story{grid-template-columns:minmax(0,1fr)}.meal-capture{width:calc(100% - 48px);max-width:260px;margin-top:0}}
-:root{color-scheme:light;--paper:#f7f5ef;--surface:#fffdf8;--ink:#172b24;--muted:#536158;--line:#d9ddd3;--green:#234d3b;--accent:#d3ec85;--sage:#e8eddf;--sans:"DM Sans",Arial,Helvetica,sans-serif;--serif:Georgia,'Times New Roman',serif}
+/* v4 palette (app build 6). On the legal pages legal.css sets the live per-theme values; these are the light defaults. */
+:root{color-scheme:light;--paper:#f8f6f0;--surface:#fff;--ink:#15201b;--muted:#56615b;--line:rgba(21,32,27,.12);--green:#234d3b;--accent:#a8d832;--sage:#e3eee6;--sans:"DM Sans",Arial,Helvetica,sans-serif;--serif:"Fraunces",Georgia,'Times New Roman',serif}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:104px}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
