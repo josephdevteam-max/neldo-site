@@ -11,7 +11,7 @@
      {"v":1, "t": title (required, max 120), "d": one-line description (max 300), "m": total minutes (int 1..1440),
       "s": servings (int 1..50), "i": [{"q": amount (max 40), "n": name (required, max 120)}] max 40,
       "st": [{"x": step text (required, max 600), "sec": timer seconds (int 1..86400)}] max 30,
-      "nu": per serving estimate {"kcal", "pro", "carb", "fat"} (ints), "g": sender language "en" | "es" | "pt"}
+      "nu": per serving estimate {"kcal" 0..10000, "pro", "carb", "fat" 0..2000 grams} (ints), "g": sender language "en" | "es" | "pt"}
 
    decodeRecipeLink(input) resolves to the cleaned recipe, in the same short keys, or null for a broken link:
      { v: 1, t, d?, m?, s?, i?: [{ q?, n }], st?: [{ x, sec? }], nu?: { kcal?, pro?, carb?, fat? }, g? }
@@ -28,10 +28,11 @@ const MAX_JSON_BYTES = 262144; // a real recipe inflates to a few KB; stop anyth
 export const RECIPE_LIMITS = Object.freeze({
   title: 120, description: 300, amount: 40, name: 120, step: 600,
   ingredients: 40, steps: 30,
-  minutes: [1, 1440], servings: [1, 50], timer: [1, 86400], nutrition: [0, 99999],
+  minutes: [1, 1440], servings: [1, 50], timer: [1, 86400],
+  nutrition: Object.freeze({ kcal: [0, 10000], pro: [0, 2000], carb: [0, 2000], fat: [0, 2000] }), // same as the app
 });
 const LANGS = ['en', 'es', 'pt'];
-const STRIP = /[\u0000-\u001F\u007F-\u009F‪-‮⁦-⁩]/g;
+const STRIP = /[\u0000-\u001F\u007F-\u009F\u202A-\u202E\u2066-\u2069]/g;
 const PAYLOAD = /^[01]\.[A-Za-z0-9_-]+$/;
 
 /** The "1.<data>" (or "0.<data>") part of a link, fragment or bare payload, or null. */
@@ -152,7 +153,7 @@ export function cleanRecipe(raw) {
   if (isObject(raw.nu)) {
     const nu = {};
     for (const key of ['kcal', 'pro', 'carb', 'fat']) {
-      const n = wholeIn(raw.nu[key], L.nutrition);
+      const n = wholeIn(raw.nu[key], L.nutrition[key]);
       if (n !== undefined) nu[key] = n;
     }
     if (Object.keys(nu).length) out.nu = nu;
