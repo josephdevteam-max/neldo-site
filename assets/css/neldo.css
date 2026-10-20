@@ -811,3 +811,6 @@ html:not([lang="en"]) .desktop-nav [data-nav-optional]{display:none}
   .hero-stage{order:2;align-self:stretch;margin-top:30px}
   .hero .chips,.hero .fine,.hero .social-row{order:3}
 }
+/* Launch date bar (founder Oct 20): above the sticky header, scrolls away. Uses the button colors, so it reads in both themes. */
+.launch-bar{display:flex;align-items:center;justify-content:center;gap:10px;margin:0;padding:10px 16px;background:var(--btn-bg);color:var(--btn-text);font-size:15px;font-weight:750;line-height:1.35;text-align:center;letter-spacing:.01em}
+.launch-dot{flex:none;width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.85}
