@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["L25BN7VAFT.com.neldo.app"],
+        "components": [
+          { "/": "/r/*", "comment": "Shared recipes" }
+        ]
+      },
+      {
+        "appID": "L25BN7VAFT.com.neldo.app",
+        "paths": ["/r/*"]
+      }
+    ]
+  }
+}

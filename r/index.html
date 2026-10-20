@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Shared recipe page. The recipe rides only after "#" in the link, so it never reaches any server.
+     This page makes no requests with it: no analytics, no third-party scripts, nothing stored but the
+     visitor's language and theme choice (same as the rest of the site). The CSP below enforces that. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f8f6f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1311" media="(prefers-color-scheme: dark)">
+<title>A recipe shared from NELDO</title>
+<meta name="description" content="A recipe shared from NELDO. NELDO is a free app that helps you figure out what to cook with the time, energy and food you have.">
+<!-- Link previews never see the part after "#", so these stay generic. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NELDO">
+<meta property="og:url" content="https://www.neldo.app/r/">
+<meta property="og:title" content="A recipe shared from NELDO">
+<meta property="og:description" content="Open it to see the ingredients and steps. NELDO is a free app that helps you figure out what to cook.">
+<meta property="og:image" content="https://www.neldo.app/og-card.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NELDO Leaf N logo and the Tonight screen of the app, with the line: What are we making? Meals that fit your day. Just talk to it. Free on iPhone &amp; Android.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A recipe shared from NELDO">
+<meta name="twitter:description" content="Open it to see the ingredients and steps. NELDO is a free app that helps you figure out what to cook.">
+<meta name="twitter:image" content="https://www.neldo.app/og-card.png?v=3">
+<meta name="twitter:image:alt" content="NELDO Leaf N logo and the Tonight screen of the app, with the line: What are we making? Meals that fit your day. Just talk to it. Free on iPhone &amp; Android.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* NELDO v4 look (same tokens as assets/css/neldo.css): warm cream light mode with a soft glow,
+   deep night mode with the ember aura. Self-hosted fonts only. */
+@font-face{font-family:"DM Sans";src:url("../assets/fonts/DMSans.woff2") format("woff2"),url("../assets/fonts/DMSans.ttf") format("truetype");font-weight:100 1000;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url("../assets/fonts/Fraunces.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{
+  --deep:#0d1311;--green:#234d3b;--lime:#a8d832;--cream:#faf7ef;
+  --font:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --serif:"Fraunces",ui-serif,Georgia,"Times New Roman",serif;
+  color-scheme:light;
+  --bg:#f8f6f0;--surface:#fff;--text:#15201b;--muted:#56615b;--line:rgb(21 32 27 / .09);--line-strong:rgb(21 32 27 / .16);
+  --accent:#3d6410;--focus:#234d3b;--btn-bg:#234d3b;--btn-text:#faf7ef;--btn-hover:#1a3c2d;--ghost-border:rgb(21 32 27 / .28);
+  --soft:#e3eee6;--soft-ink:#234d3b;--logo-bar:#172b24;--logo-leaf:#6e9a1e;
+  --shadow:0 1px 2px rgb(21 32 27 / .05),0 18px 40px -22px rgb(21 32 27 / .3);
+  --aura:radial-gradient(46% 44% at 18% 10%,rgb(247 183 154 / .45),transparent 72%),radial-gradient(40% 40% at 90% 6%,rgb(244 182 203 / .45),transparent 72%),radial-gradient(40% 36% at 62% 70%,rgb(191 227 106 / .35),transparent 72%);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0d1311;--surface:#161e1b;--text:#f2f0e9;--muted:#a9b3ae;--line:rgb(242 240 233 / .08);--line-strong:rgb(242 240 233 / .16);
+    --accent:#b9e35a;--focus:#a8d832;--btn-bg:#a8d832;--btn-text:#0d1311;--btn-hover:#bde65a;--ghost-border:rgb(242 240 233 / .3);
+    --soft:#1e2e1a;--soft-ink:#b9e35a;--logo-bar:#faf7ef;--logo-leaf:#a8d832;
+    --shadow:0 1px 2px rgb(0 0 0 / .4),0 22px 44px -24px rgb(0 0 0 / .8);
+    --aura:radial-gradient(70% 60% at 0% 0%,#6e3311,transparent 72%),radial-gradient(60% 50% at 104% 34%,#4e2c0e,transparent 70%),radial-gradient(100% 46% at 36% 112%,#0d4448,transparent 72%),radial-gradient(40% 30% at 100% 88%,#4a1830,transparent 70%);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d1311;--surface:#161e1b;--text:#f2f0e9;--muted:#a9b3ae;--line:rgb(242 240 233 / .08);--line-strong:rgb(242 240 233 / .16);
+  --accent:#b9e35a;--focus:#a8d832;--btn-bg:#a8d832;--btn-text:#0d1311;--btn-hover:#bde65a;--ghost-border:rgb(242 240 233 / .3);
+  --soft:#1e2e1a;--soft-ink:#b9e35a;--logo-bar:#faf7ef;--logo-leaf:#a8d832;
+  --shadow:0 1px 2px rgb(0 0 0 / .4),0 22px 44px -24px rgb(0 0 0 / .8);
+  --aura:radial-gradient(70% 60% at 0% 0%,#6e3311,transparent 72%),radial-gradient(60% 50% at 104% 34%,#4e2c0e,transparent 70%),radial-gradient(100% 46% at 36% 112%,#0d4448,transparent 72%),radial-gradient(40% 30% at 100% 88%,#4a1830,transparent 70%);
+}
+*{box-sizing:border-box}
+html{background:var(--bg);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;min-height:100vh;min-height:100dvh;color:var(--text);font:17px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-wrap:break-word;overflow-wrap:anywhere}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--aura);pointer-events:none}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.page{width:min(680px,calc(100% - 32px));margin-inline:auto;padding:16px 0 40px}
+.top{display:flex;align-items:center;min-height:56px}
+.brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:24px;font-weight:800;letter-spacing:-.045em;line-height:1;text-decoration:none;border-radius:999px}
+.brand svg{width:22px;height:24px;flex:none}
+.brand .bar{fill:var(--logo-bar)}.brand .leaf{fill:var(--logo-leaf)}
+main{padding-top:20px}
+.pill{display:inline-flex;align-items:center;gap:10px;margin:0;padding:6px 14px 6px 12px;border-radius:999px;background:var(--soft);color:var(--soft-ink);font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+h1{margin:16px 0 0;font-family:var(--serif);font-size:clamp(34px,8.6vw,54px);font-weight:560;line-height:1.06;letter-spacing:-.022em;text-wrap:balance}
+h2{margin:0 0 6px;font-family:var(--serif);font-size:26px;font-weight:560;line-height:1.15;letter-spacing:-.015em}
+p{margin:0}
+.lede{margin-top:12px;color:var(--muted);font-size:18px;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+.facts li{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:6px 14px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);font-size:15px;font-weight:650}
+.facts svg{width:18px;height:18px;flex:none;color:var(--accent)}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 24px;border-radius:999px;border:2px solid transparent;font-size:16px;font-weight:750;line-height:1.2;text-align:center;text-decoration:none;transition:transform .15s ease,background-color .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+.btn-primary:hover{background:var(--btn-hover)}
+.btn-ghost{border-color:var(--ghost-border);color:var(--text)}
+.text-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;font-weight:650;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.about{margin-top:14px;color:var(--muted);font-size:15px;line-height:1.55;max-width:36em}
+.card{margin-top:22px;padding:22px 20px;border-radius:24px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.card + .card{margin-top:16px}
+.list{margin:0;padding:0;list-style:none}
+.ingredients li{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.ingredients li:first-child{border-top:0}
+.qty{flex:0 1 auto;max-width:42%;font-weight:700;color:var(--accent)}
+.name{flex:1 1 0;min-width:0}
+.steps li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0}
+.num{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--btn-bg);color:var(--btn-text);font-size:15px;font-weight:750;line-height:1}
+.timer{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 12px 4px 10px;border-radius:999px;background:var(--soft);color:var(--soft-ink);font-size:14px;font-weight:700}
+.timer svg{width:16px;height:16px;flex:none}
+.est{display:inline-flex;margin-bottom:8px;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--soft-ink);font-size:12px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.nutrition p{font-weight:600}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.noscript{margin-top:20px;padding:20px;border-radius:24px;border:1px solid var(--line);background:var(--surface)}
+.noscript a{font-weight:700}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}
+.langs,.links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.langs button{min-height:44px;padding:0 14px;border:0;border-radius:999px;background:none;color:var(--muted);font:inherit;font-weight:600;cursor:pointer}
+.langs button:hover{color:var(--text);background:var(--surface)}
+.langs button[aria-pressed="true"]{color:var(--text);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.langs button:first-child{margin-left:-14px}
+.links a{display:inline-flex;align-items:center;min-height:44px;color:var(--muted);font-weight:600;text-underline-offset:4px}
+.links a:hover{color:var(--text)}
+@media (min-width:560px){
+  .page{padding-top:24px}
+  main{padding-top:36px}
+  .ctas{flex-direction:row;flex-wrap:wrap;align-items:center}
+  .card{padding:28px 30px}
+  .qty{flex-basis:8.5em}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../" data-home aria-label="NELDO home" data-t-attr="aria-label:homeLabel"><svg viewBox="36 30 128 140" aria-hidden="true" focusable="false"><mask id="rib" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><path d="M62 52 Q106 90 138 148 Q98 96 62 52 Z" fill="#000"/></mask><g mask="url(#rib)"><rect class="bar" x="46" y="40" width="28" height="120" rx="14"/><rect class="bar" x="126" y="40" width="28" height="120" rx="14"/><path class="leaf" d="M58 46 C100 54 136 98 142 154 C100 146 64 102 58 46 Z"/></g></svg>NELDO</a>
+</header>
+
+<main id="main">
+  <noscript><div class="noscript"><p>Turn on JavaScript to see this shared recipe. <a href="../">Go to the NELDO homepage</a></p></div></noscript>
+
+  <!-- The shared recipe. Everything from the link is set with textContent (plain text, never HTML or links). -->
+  <article data-view="recipe" hidden>
+    <p class="pill" data-t="pill">Shared recipe</p>
+    <h1 data-field="title"></h1>
+    <p class="lede" data-field="desc" hidden></p>
+    <ul class="facts" data-field="facts" role="list" hidden>
+      <li data-fact="time" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="sr-only" data-t="time">Total time</span><span data-value></span></li>
+      <li data-fact="servings" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.6 14.2c2.4-.3 4.3 1.2 4.9 3.8"/></svg><span data-value></span></li>
+    </ul>
+    <div class="ctas">
+      <a class="btn btn-primary" data-open hidden><span data-t="open">Open in NELDO</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <!-- LAUNCH: when NELDO is live in the stores, point Get NELDO at the App Store link (iPhone) and the
+           Google Play link (Android) here and in GET_HREF in assets/js/recipe-page.js. Until then it opens an
+           email to support@neldo.app, the same target as the homepage's Get NELDO button. -->
+      <a class="btn btn-primary" data-get href="mailto:support@neldo.app?subject=Get%20NELDO&amp;body=Hi%20NELDO%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20get%20NELDO.%0D%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0D%0A%0D%0AThanks!" data-t="get">Get NELDO</a>
+    </div>
+    <p class="about" data-t="about">NELDO is a free app that helps you figure out what to cook with the time, energy and food you have. No account needed.</p>
+
+    <section class="card" data-section="ingredients" aria-labelledby="ingredients-title" hidden>
+      <h2 id="ingredients-title" data-t="ingredients">Ingredients</h2>
+      <ul class="list ingredients" data-field="ingredients" role="list"></ul>
+    </section>
+    <section class="card" data-section="steps" aria-labelledby="steps-title" hidden>
+      <h2 id="steps-title" data-t="steps">Steps</h2>
+      <ol class="list steps" data-field="steps" role="list"></ol>
+    </section>
+    <section class="card nutrition" data-section="nutrition" hidden>
+      <span class="est" data-t="estimate">Estimate</span>
+      <p data-field="nutrition"></p>
+    </section>
+  </article>
+
+  <!-- Broken or missing link, or a browser that can't unpack it. -->
+  <section data-view="broken" aria-labelledby="broken-title" hidden>
+    <p class="pill" data-t="pill">Shared recipe</p>
+    <h1 id="broken-title" data-t="brokenTitle">We couldn’t open this recipe</h1>
+    <p class="lede" data-t="broken">This recipe link didn’t come through all the way. Ask whoever sent it to share it again.</p>
+    <div class="ctas">
+      <!-- LAUNCH: same store links as the Get NELDO button above. -->
+      <a class="btn btn-primary" data-get href="mailto:support@neldo.app?subject=Get%20NELDO&amp;body=Hi%20NELDO%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20get%20NELDO.%0D%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0D%0A%0D%0AThanks!" data-t="get">Get NELDO</a>
+      <a class="text-link" href="../" data-home data-t="home">Go to the NELDO homepage</a>
+    </div>
+    <p class="about" data-t="about">NELDO is a free app that helps you figure out what to cook with the time, energy and food you have. No account needed.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="langs" role="group" aria-label="Page language" data-t-attr="aria-label:langLabel">
+    <button type="button" data-lang="en" lang="en" aria-pressed="true">English</button>
+    <button type="button" data-lang="es" lang="es" aria-pressed="false">Español</button>
+    <button type="button" data-lang="pt" lang="pt" aria-pressed="false">Português</button>
+  </div>
+  <nav class="links" aria-label="NELDO" data-t-attr="aria-label:siteLabel">
+    <a href="../" data-home data-t="footHome">NELDO home</a>
+    <a href="../privacy.html" data-privacy data-t="privacy">Privacy</a>
+  </nav>
+</footer>
+</div>
+<template id="timer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5M9.5 2.5h5"/></svg></template>
+<script type="module" src="../assets/js/recipe-page.js"></script>
+</body>
+</html>
