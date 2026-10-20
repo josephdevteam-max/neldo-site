@@ -132,15 +132,15 @@ function timerText(sec) {
   return s ? m + ' min ' + s + ' s' : m + ' min';
 }
 
-/* Open in NELDO: iPhone/iPad use the neldo:// scheme, Android an intent that falls back to the homepage
-   when NELDO isn't installed. Desktop gets no Open button. The payload is checked to be base64url first. */
+/* Open in NELDO: iPhone/iPad use the neldo:// scheme, Android an intent that falls back to this same recipe page
+   when NELDO isn't installed, so the friend keeps reading. Desktop gets no Open button. The payload is checked to be base64url first. */
 function openHref(payload) {
   const ua = navigator.userAgent || '';
   const ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   if (ios) return 'neldo://r?d=' + payload;
   if (/Android/i.test(ua)) {
     return 'intent://r?d=' + payload + '#Intent;scheme=neldo;package=com.neldo.app;S.browser_fallback_url=' +
-      encodeURIComponent('https://www.neldo.app/') + ';end';
+      encodeURIComponent(location.href) + ';end';
   }
   return null;
 }
