@@ -1,8 +1,11 @@
 /* NELDO shared recipe page (r/index.html): reads the recipe from the part of the link after "#",
    shows it as plain text (textContent only, never HTML, never links), and offers Open in NELDO / Get NELDO.
    No network calls, no analytics. The recipe never goes into a request, an image URL or storage; only the
-   visitor's language and theme choice are kept for this visit (sessionStorage, same keys as the site). */
-import { decodeRecipeLink, extractPayload } from './recipe-link.js';
+   visitor's language and theme choice are kept for this visit (sessionStorage, same keys as the site).
+   The recipe shows in the page language when the link carries that version ("tr", library recipes);
+   otherwise it shows as sent, with one small line saying which language it was shared in. Switching
+   EN / ES / PT switches the recipe too. No translation happens here: only what the link carries. */
+import { decodeRecipeLink, extractPayload, recipeForLanguage } from './recipe-link.js';
 
 const root = document.documentElement;
 
@@ -40,6 +43,7 @@ const WORDS = {
     homeLabel: 'NELDO home',
     langLabel: 'Page language',
     siteLabel: 'NELDO',
+    sharedIn: { en: 'This recipe was shared in English.', es: 'This recipe was shared in Spanish.', pt: 'This recipe was shared in Portuguese.' },
   },
   es: {
     title: 'Una receta compartida desde NELDO',
@@ -63,6 +67,7 @@ const WORDS = {
     homeLabel: 'Inicio de NELDO',
     langLabel: 'Idioma de la página',
     siteLabel: 'NELDO',
+    sharedIn: { en: 'Esta receta se compartió en inglés.', es: 'Esta receta se compartió en español.', pt: 'Esta receta se compartió en portugués.' },
   },
   pt: {
     title: 'Uma receita compartilhada pela NELDO',
@@ -86,6 +91,7 @@ const WORDS = {
     homeLabel: 'Início da NELDO',
     langLabel: 'Idioma da página',
     siteLabel: 'NELDO',
+    sharedIn: { en: 'Esta receita foi compartilhada em inglês.', es: 'Esta receita foi compartilhada em espanhol.', pt: 'Esta receita foi compartilhada em português.' },
   },
 };
 const LANGS = ['en', 'es', 'pt'];
@@ -160,8 +166,10 @@ function applyWords() {
   $$('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)));
 }
 
-function renderRecipe(r) {
+function renderRecipe(sent) {
   const view = $('[data-view="recipe"]');
+  // The version for the page language when the link has it, else the recipe as sent.
+  const r = recipeForLanguage(sent, lang);
   const textLang = r.g || null;
   const setText = (node, text) => { node.textContent = text; if (textLang) node.lang = textLang; else node.removeAttribute('lang'); };
 
@@ -169,6 +177,12 @@ function renderRecipe(r) {
   const desc = $('[data-field="desc"]', view);
   desc.hidden = !r.d;
   setText(desc, r.d || '');
+  // No version in the page language: say which language it came in (the browser's own translate can help,
+  // since every recipe line carries that language in its lang attribute).
+  const note = $('[data-field="langnote"]', view);
+  const noteText = textLang && textLang !== lang ? WORDS[lang].sharedIn[textLang] : '';
+  note.hidden = !noteText;
+  note.textContent = noteText || '';
 
   const time = $('[data-fact="time"]', view), serves = $('[data-fact="servings"]', view);
   time.hidden = !r.m;

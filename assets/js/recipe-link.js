@@ -11,15 +11,23 @@
      {"v":1, "t": title (required, max 120), "d": one-line description (max 300), "m": total minutes (int 1..1440),
       "s": servings (int 1..50), "i": [{"q": amount (max 40), "n": name (required, max 120)}] max 40,
       "st": [{"x": step text (required, max 600), "sec": timer seconds (int 1..86400)}] max 30,
-      "nu": per serving estimate {"kcal" 0..10000, "pro", "carb", "fat" 0..2000 grams} (ints), "g": sender language "en" | "es" | "pt"}
+      "nu": per serving estimate {"kcal" 0..10000, "pro", "carb", "fat" 0..2000 grams} (ints), "g": sender language "en" | "es" | "pt",
+      "tr": the same recipe in OTHER languages (optional), {"en" | "es" | "pt": {"t", "d"?, "i": [{"q"?, "n"}], "st": [{"x"}]}}}
+   "tr" versions carry words only, with the same caps and cleaning as the base. Numbers (m, s, nu and each
+   step's "sec") live only in the base; a reader takes a step's timer from the base step at the same index.
 
    decodeRecipeLink(input) resolves to the cleaned recipe, in the same short keys, or null for a broken link:
-     { v: 1, t, d?, m?, s?, i?: [{ q?, n }], st?: [{ x, sec? }], nu?: { kcal?, pro?, carb?, fat? }, g? }
+     { v: 1, t, d?, m?, s?, i?: [{ q?, n }], st?: [{ x, sec? }], nu?: { kcal?, pro?, carb?, fat? }, g?,
+       tr?: { en?|es?|pt?: { t, d?, i?: [{ q?, n }], st?: [{ x }] } } }
    Optional keys are left out when missing, empty or out of range ("i" and "st" are left out when empty).
    Cleaning: control characters (C0, DEL, C1) and bidi override characters (U+202A..U+202E, U+2066..U+2069)
    are removed, strings are trimmed and cut to the caps (never splitting an emoji's surrogate pair), empty
    items are dropped before the list caps apply, numbers must be whole and in range or they are ignored.
+   A "tr" version is kept only when, after cleaning, it has a title and its "i" and "st" have exactly as many
+   items as the base's (so every step lines up with its timer); a version in the base's own language ("g")
+   is dropped, since the base already is that language. "tr" is left out when no version is kept.
    Broken (null): bad prefix, bad base64, bad deflate, bad UTF-8, bad JSON, no title, or no ingredients and no steps.
+   recipeForLanguage(recipe, lang) gives the recipe to show a reader of that language (see below).
    Show the result as plain text only (textContent), never as HTML or links. */
 
 const MAX_PAYLOAD_CHARS = 100000; // real links stay under 6000 characters
@@ -119,26 +127,60 @@ function cleanList(value, max, cleanItem) {
   return out;
 }
 
-/** Cleans a parsed recipe object (see the header). Null when it has no title or nothing to cook from. */
-export function cleanRecipe(raw) {
-  if (!isObject(raw)) return null;
+function cleanIngredients(value) {
   const L = RECIPE_LIMITS;
-  const t = cleanText(raw.t, L.title);
-  if (!t) return null;
-  const i = cleanList(raw.i, L.ingredients, (item) => {
+  return cleanList(value, L.ingredients, (item) => {
     if (!isObject(item)) return null;
     const n = cleanText(item.n, L.name);
     if (!n) return null;
     const q = cleanText(item.q, L.amount);
     return q ? { q, n } : { n };
   });
-  const st = cleanList(raw.st, L.steps, (step) => {
+}
+
+/** Steps with their timers (base), or words only (withTimers false, for a "tr" version). */
+function cleanSteps(value, withTimers) {
+  const L = RECIPE_LIMITS;
+  return cleanList(value, L.steps, (step) => {
     if (!isObject(step)) return null;
     const x = cleanText(step.x, L.step);
     if (!x) return null;
-    const sec = wholeIn(step.sec, L.timer);
+    const sec = withTimers ? wholeIn(step.sec, L.timer) : undefined;
     return sec === undefined ? { x } : { x, sec };
   });
+}
+
+/** The "tr" versions that line up with the cleaned base (see the header), or undefined when none do. */
+function cleanVersions(raw, base, iCount, stCount) {
+  if (!isObject(raw)) return undefined;
+  const L = RECIPE_LIMITS;
+  const out = {};
+  for (const lang of LANGS) {
+    if (lang === base.g || !isObject(raw[lang])) continue;
+    const version = raw[lang];
+    const t = cleanText(version.t, L.title);
+    if (!t) continue;
+    const i = cleanIngredients(version.i);
+    const st = cleanSteps(version.st, false);
+    if (i.length !== iCount || st.length !== stCount) continue; // doesn't line up with the base: dropped
+    const clean = { t };
+    const d = cleanText(version.d, L.description);
+    if (d) clean.d = d;
+    if (i.length) clean.i = i;
+    if (st.length) clean.st = st;
+    out[lang] = clean;
+  }
+  return Object.keys(out).length ? out : undefined;
+}
+
+/** Cleans a parsed recipe object (see the header). Null when it has no title or nothing to cook from. */
+export function cleanRecipe(raw) {
+  if (!isObject(raw)) return null;
+  const L = RECIPE_LIMITS;
+  const t = cleanText(raw.t, L.title);
+  if (!t) return null;
+  const i = cleanIngredients(raw.i);
+  const st = cleanSteps(raw.st, true);
   if (!i.length && !st.length) return null;
 
   const out = { v: 1, t };
@@ -159,6 +201,33 @@ export function cleanRecipe(raw) {
     if (Object.keys(nu).length) out.nu = nu;
   }
   if (LANGS.includes(raw.g)) out.g = raw.g;
+  const tr = cleanVersions(raw.tr, out, i.length, st.length);
+  if (tr) out.tr = tr;
+  return out;
+}
+
+/** The recipe to show a reader of `lang` ("en" | "es" | "pt"), in the same short keys and without "tr":
+    the link's version in that language when it has one (words from the version, every number from the
+    base, each step's timer from the base step at the same index, "g" set to `lang`), otherwise the base
+    as sent (its "g" is the sender's language, or missing when unknown). Null for null. */
+export function recipeForLanguage(recipe, lang) {
+  if (!isObject(recipe)) return null;
+  const { tr, ...base } = recipe;
+  const version = isObject(tr) && lang !== base.g ? tr[lang] : undefined;
+  if (!isObject(version)) return base;
+  const out = { v: 1, t: version.t };
+  if (version.d) out.d = version.d;
+  if (base.m !== undefined) out.m = base.m;
+  if (base.s !== undefined) out.s = base.s;
+  if (version.i) out.i = version.i.map((item) => ({ ...item }));
+  if (version.st) {
+    out.st = version.st.map((step, k) => {
+      const sec = base.st && base.st[k] ? base.st[k].sec : undefined;
+      return sec === undefined ? { x: step.x } : { x: step.x, sec };
+    });
+  }
+  if (base.nu) out.nu = { ...base.nu };
+  out.g = lang;
   return out;
 }
 
