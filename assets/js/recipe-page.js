@@ -2,10 +2,11 @@
    shows it as plain text (textContent only, never HTML, never links), and offers Open in NELDO / Get NELDO.
    No network calls, no analytics. The recipe never goes into a request, an image URL or storage; only the
    visitor's language and theme choice are kept for this visit (sessionStorage, same keys as the site).
+   With no language picked, the page opens in the browser's language when the link carries it.
    The recipe shows in the page language when the link carries that version ("tr", library recipes);
    otherwise it shows as sent, with one small line saying which language it was shared in. Switching
    EN / ES / PT switches the recipe too. No translation happens here: only what the link carries. */
-import { decodeRecipeLink, extractPayload, recipeForLanguage } from './recipe-link.js';
+import { decodeRecipeLink, extractPayload, readerLanguage, recipeForLanguage } from './recipe-link.js';
 
 const root = document.documentElement;
 
@@ -240,7 +241,12 @@ async function load() {
   const hash = location.hash || '';
   const payload = extractPayload(hash);
   recipe = payload ? await decodeRecipeLink(payload) : null;
-  if (!langChosen && recipe && recipe.g) { lang = recipe.g; applyWords(); }
+  // Nobody picked a language yet: the reader's browser language when the link carries it, else the
+  // sender's. Only for this view: nothing is stored and the address stays the same (only a tap is kept).
+  if (!langChosen && recipe) {
+    const next = readerLanguage(recipe, browserLanguages()) || recipe.g;
+    if (next) { lang = next; applyWords(); }
+  }
   if (!recipe) {
     document.title = say('title');
     show('broken');
@@ -258,6 +264,14 @@ async function load() {
   show('recipe');
 }
 
+function browserLanguages() {
+  try {
+    return navigator.languages && navigator.languages.length ? Array.from(navigator.languages) : [navigator.language];
+  } catch (e) {
+    return []; // old browser
+  }
+}
+
 function setLang(next, fromUser) {
   lang = LANGS.includes(next) ? next : 'en';
   applyWords();
@@ -272,7 +286,8 @@ function setLang(next, fromUser) {
   } catch (e) { /* old browser */ }
 }
 
-/* Language: ?lang=, then this visit's choice on the site, then the sender's language, then English. */
+/* Language: ?lang=, then this visit's choice on the site, then the browser's language when the link carries
+   it (a library recipe's "tr"), then the sender's language, then English. */
 (function init() {
   let pick = null;
   try { pick = new URLSearchParams(location.search).get('lang'); } catch (e) { /* old browser */ }

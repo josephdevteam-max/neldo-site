@@ -27,7 +27,8 @@
    items as the base's (so every step lines up with its timer); a version in the base's own language ("g")
    is dropped, since the base already is that language. "tr" is left out when no version is kept.
    Broken (null): bad prefix, bad base64, bad deflate, bad UTF-8, bad JSON, no title, or no ingredients and no steps.
-   recipeForLanguage(recipe, lang) gives the recipe to show a reader of that language (see below).
+   recipeForLanguage(recipe, lang) gives the recipe to show a reader of that language (see below), and
+   readerLanguage(recipe, languages) the browser language to open in when the link carries it.
    Show the result as plain text only (textContent), never as HTML or links. */
 
 const MAX_PAYLOAD_CHARS = 100000; // real links stay under 6000 characters
@@ -229,6 +230,19 @@ export function recipeForLanguage(recipe, lang) {
   if (base.nu) out.nu = { ...base.nu };
   out.g = lang;
   return out;
+}
+
+/** The reader's own language for a page nobody picked a language on yet: the first of `languages` (the
+    browser's list, like navigator.languages) whose main part is en, es or pt, but only when the link carries
+    that language (the recipe as sent, or a "tr" version). Otherwise null: keep the sender's language. */
+export function readerLanguage(recipe, languages) {
+  if (!isObject(recipe)) return null;
+  const list = Array.isArray(languages) ? languages : [languages];
+  const first = list
+    .map((tag) => (typeof tag === 'string' ? tag.trim().toLowerCase().split(/[-_]/)[0] : ''))
+    .find((code) => LANGS.includes(code));
+  if (!first) return null;
+  return first === recipe.g || (isObject(recipe.tr) && isObject(recipe.tr[first])) ? first : null;
 }
 
 /** Resolves to the cleaned recipe from a shared link (or its "#" part, or the bare payload), or null. */
