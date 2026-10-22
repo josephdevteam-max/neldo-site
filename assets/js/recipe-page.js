@@ -98,17 +98,9 @@ const WORDS = {
 const LANGS = ['en', 'es', 'pt'];
 
 /* LAUNCH: swap these for the App Store / Google Play links when NELDO is live in the stores
-   (see the comment next to the Get NELDO button in r/index.html). Until then: the same email the
-   homepage's Get NELDO button opens, in the same words per language (assets/js/i18n.js MAIL.join). */
-const GET_HREF = {
-  en: 'mailto:support@neldo.app?subject=Get%20NELDO&body=Hi%20NELDO%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20get%20NELDO.%0D%0AMy%20phone%3A%20iPhone%20or%20Android%3F%20(pick%20one)%0D%0A%0D%0AThanks!',
-  es: mail('Quiero NELDO', 'Hola, equipo de NELDO:\n\nMe gustaría conseguir NELDO.\nMi celular: ¿iPhone o Android? (elige uno)\n\n¡Gracias!'),
-  pt: mail('Quero a NELDO', 'Olá, equipe da NELDO!\n\nQuero baixar a NELDO.\nMeu celular: iPhone ou Android? (escolha um)\n\nValeu!'),
-};
-function mail(subject, body) {
-  const enc = (s) => encodeURIComponent(s).replace(/'/g, '%27');
-  return 'mailto:support@neldo.app?subject=' + enc(subject) + '&body=' + enc(body.replace(/\n/g, '\r\n'));
-}
+   (see the comment next to the Get NELDO button in r/index.html). Until then: the /try/ page,
+   where the homepage's Get NELDO button goes too (iPhone beta link, Android by email). */
+const GET_HREF = { en: '/try/', es: '/try/', pt: '/try/' };
 
 let lang = 'en';
 let langChosen = false;
